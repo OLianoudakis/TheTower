@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class MovementController : MonoBehaviour
 {
     private NavMeshAgent agent;
-
+    [SerializeField]
+    private Animator animator; 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -22,6 +23,15 @@ public class MovementController : MonoBehaviour
             {
                 agent.destination = hit.point;
             }
+        }
+
+        if (agent.velocity.magnitude <= 0.0f )
+        {
+            animator.SetInteger("AnimState", 0);
+        }
+        else
+        {
+            animator.SetInteger("AnimState", 1);
         }
     }
 }
