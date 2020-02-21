@@ -19,6 +19,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
