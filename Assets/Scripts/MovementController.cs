@@ -11,6 +11,9 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private GameObject spawnMarker;
 
+    private POIBehavior poiBehavior;
+    private bool goesToPOI;
+
     private GameObject currentSpawnMarker;
     private void Start()
     {
@@ -26,13 +29,8 @@ public class MovementController : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                agent.destination = hit.point;
-                if (currentSpawnMarker != null)
-                {
-                    Destroy(currentSpawnMarker);
-                    currentSpawnMarker = null;
-                }
-                currentSpawnMarker = Instantiate(spawnMarker, hit.point + new Vector3(0.0f,0.01f,0.0f), Quaternion.Euler(-90.0f, 0.0f, 0.0f));
+                if (!hit.collider.gameObject.tag.Equals("POI"))
+                    SetDestination(hit.point, false, null);
             }
         }
 
@@ -44,6 +42,12 @@ public class MovementController : MonoBehaviour
                 Destroy(currentSpawnMarker);
                 currentSpawnMarker = null;
             }
+
+            if (goesToPOI)
+            {
+                goesToPOI = false;
+                poiBehavior.ActivatePOIBehavior();
+            }
         }
 
         if (agent.velocity.magnitude <= 0.0f )
@@ -54,5 +58,31 @@ public class MovementController : MonoBehaviour
         {
             animator.SetInteger("AnimState", 1);
         }
+    }
+
+    public void SetDestination(Vector3 destination, bool isPOI, POIBehavior poi)
+    {
+        agent.destination = destination;
+        if (poiBehavior!=null && poi == null)
+        {
+            poiBehavior.DeactivatePOIBehavior();
+            goesToPOI = false;
+            poiBehavior = null;
+        }
+        else if (poi != null)
+        {
+            poiBehavior = poi;
+            goesToPOI = true;
+        }
+        if (currentSpawnMarker != null)
+        {
+            Destroy(currentSpawnMarker);
+            currentSpawnMarker = null;
+        }
+
+        if (!isPOI)
+            currentSpawnMarker = Instantiate(spawnMarker, destination + new Vector3(0.0f, 0.01f, 0.0f), Quaternion.Euler(-90.0f, 0.0f, 0.0f));
+        else
+            currentSpawnMarker = Instantiate(spawnMarker, poi.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f), Quaternion.Euler(-90.0f, 0.0f, 0.0f));
     }
 }
