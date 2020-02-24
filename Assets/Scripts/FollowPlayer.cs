@@ -5,14 +5,13 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField]
-    private Transform playerPos;
-
-    private Vector3 offset = new Vector3(-3.0f, 7.0f, -3.0f);
+    private Transform m_playerPosition;
+    [SerializeField]
+    private Vector3 m_offset = new Vector3(-3.0f, 7.0f, -3.0f);
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerPos.position + offset;
-        Debug.Log(playerPos.position.y);
+        transform.position = m_playerPosition.position + m_offset;
     }
 }

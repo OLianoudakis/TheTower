@@ -5,34 +5,19 @@ using UnityEngine.UI;
 
 public class POIBehavior : MonoBehaviour
 {
-    public Transform POIPosition;
-    public CanvasGroup canvasGroup;
-    public Text text;
+    public CanvasGroup m_canvasGroup;
+    public Text m_dialogueWindow;
 
-    public string myText;
-
-    private POIBehavior myPOIBehavior;
-
-    private void Start()
-    {
-        myPOIBehavior = GetComponent<POIBehavior>();
-    }
-
-    public void OnMouseDown()
-    {
-        Debug.Log("poi pressed");
-        MovementController player = FindObjectOfType<MovementController>();
-        player.SetDestination(POIPosition.position, true, myPOIBehavior);
-    }
+    public string m_note;
 
     public void ActivatePOIBehavior()
     {
-        text.text = myText;
-        canvasGroup.alpha = 1.0f;
+        m_dialogueWindow.text = m_note;
+        m_canvasGroup.alpha = 1.0f;
     }
 
     public void DeactivatePOIBehavior()
     {
-        canvasGroup.alpha = 0.0f;
+        m_canvasGroup.alpha = 0.0f;
     }
 }
