@@ -74,7 +74,7 @@ public class PlayerMovementController : MonoBehaviour
         float distance = m_agent.remainingDistance;
         if ((distance != Mathf.Infinity) 
             && (m_agent.pathStatus == NavMeshPathStatus.PathComplete) 
-            && (m_agent.remainingDistance == 0))
+            && (m_agent.remainingDistance == 0.0f))
         {
             if (m_positionMarker && m_positionMarker.activeInHierarchy)
             {
