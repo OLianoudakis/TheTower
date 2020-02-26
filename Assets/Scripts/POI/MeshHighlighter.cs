@@ -17,6 +17,14 @@ public class MeshHighlighter : MonoBehaviour
         {
             m_originalMaterials = m_meshRenderer.materials;
         }
+        else
+        {
+            m_meshRenderer = GetComponentInChildren(typeof(MeshRenderer)) as MeshRenderer;
+            if (m_meshRenderer)
+            {
+                m_originalMaterials = m_meshRenderer.materials;
+            }
+        }
     }
 
 

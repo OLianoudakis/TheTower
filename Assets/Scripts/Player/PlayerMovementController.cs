@@ -9,6 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     private Animator m_animator;
     [SerializeField]
     private GameObject m_positionMarker;
+    [SerializeField]
+    private PlayerDialogueController m_playerDialogueController;
 
     private NavMeshAgent m_agent;
     private POIBehavior m_poiBehavior;
@@ -21,6 +23,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             m_positionMarker.SetActive(false);
         }
+        m_playerDialogueController.enabled = false;
     }
 
     private void SetDestination(Vector3 destination, POIBehavior poiBehavior)
@@ -28,7 +31,7 @@ public class PlayerMovementController : MonoBehaviour
         m_agent.destination = destination;
         if (m_poiBehavior && !poiBehavior)
         {
-            m_poiBehavior.DeactivatePOIBehavior();
+            //m_poiBehavior.DeactivatePOIBehavior();
             m_isGoingToPOI = false;
             m_poiBehavior = null;
         }
@@ -51,6 +54,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
+        UpdateAnimator();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -60,8 +64,9 @@ public class PlayerMovementController : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag.Equals("POI"))
                 {
-                    POIBehavior poiBehavior = hit.collider.gameObject.GetComponent(typeof(POIBehavior)) as POIBehavior;
-                    SetDestination(hit.point, poiBehavior);
+                    POIBehavior poiBehavior = hit.collider.gameObject.GetComponent(typeof(POIBehavior)) as POIBehavior;                    
+                    SetDestination(poiBehavior.GetPOIDestinationPoint(), poiBehavior);
+                    //m_poiBehavior = poiBehavior;
                 }
                 else
                 {
@@ -84,10 +89,16 @@ public class PlayerMovementController : MonoBehaviour
             if (m_isGoingToPOI)
             {
                 m_isGoingToPOI = false;
-                m_poiBehavior.ActivatePOIBehavior();
+                m_playerDialogueController.enabled = true;
+                m_playerDialogueController.GetPOIBehavior(m_poiBehavior);
+                this.enabled = false;
+                //m_poiBehavior.ActivatePOIBehavior();
             }
-        }
+        }        
+    }
 
+    private void UpdateAnimator()
+    {
         if (m_agent.velocity.magnitude <= 0.0f)
         {
             m_animator.SetInteger("AnimState", 0);
