@@ -97,4 +97,27 @@ public class PlayerMovementController : MonoBehaviour
             m_animator.SetInteger("AnimState", 1);
         }
     }
+
+    void OnDrawGizmos()
+    {
+        if (m_agent)
+        {
+            if (m_agent.destination == null)
+            {
+                return;
+            }
+            var path = new NavMeshPath();
+            NavMesh.CalculatePath(transform.position, m_agent.destination, NavMesh.AllAreas, path);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position, Vector3.up);
+            Gizmos.DrawRay(m_agent.destination, Vector3.up);
+            Gizmos.color = Color.green;
+            var offset = 0.2f * Vector3.up;
+            for (int i = 1; i < path.corners.Length; ++i)
+            {
+                Gizmos.DrawLine(path.corners[i - 1] + offset, path.corners[i] + offset);
+            }
+        }
+    }
 }
