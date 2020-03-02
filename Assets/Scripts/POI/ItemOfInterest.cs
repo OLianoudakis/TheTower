@@ -5,7 +5,6 @@ using UnityEngine;
 public class ItemOfInterest : MonoBehaviour
 {
     public ItemType m_itemType;
-    public int m_quantity;
     public string m_itemName;
 
     public void SetTag(ItemType tag)
@@ -16,16 +15,6 @@ public class ItemOfInterest : MonoBehaviour
     public ItemType GetTag()
     {
         return m_itemType;
-    }
-
-    public void SetQuantity(int quantity)
-    {
-        m_quantity = quantity;
-    }
-
-    public int GetQuantity()
-    {
-        return m_quantity;
     }
 
     public void SetItemName(string name)
@@ -39,4 +28,11 @@ public class ItemOfInterest : MonoBehaviour
     }
 }
 
-public enum ItemType {CommonKey, SilverKey, StoneKey, JadeKey};
+public enum ItemType 
+{
+    None, 
+    CommonKey, 
+    SilverKey, 
+    StoneKey, 
+    JadeKey
+};

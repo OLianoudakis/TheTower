@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerInventoryController : MonoBehaviour
 {
-    private List<ItemOfInterest> items = new List<ItemOfInterest>();
+    private List<ItemOfInterest> m_items = new List<ItemOfInterest>();
+    private List<int> m_quantities = new List<int>();
 
-    public void AddItem (ItemOfInterest item)
+    public void AddItem(ItemOfInterest item, int quantity)
     {        
         bool sameItemFound = false;
-        foreach (ItemOfInterest currentItem in items)
+
+        for (int i = 0; i < m_items.Count; i++)
         {
-            if (currentItem.GetTag().Equals(item.GetTag()))
+            if (m_items[i].GetTag().Equals(item.GetTag()))
             {
-                currentItem.SetQuantity(currentItem.GetQuantity() + item.GetQuantity());
+                m_quantities[i] += quantity;
                 sameItemFound = true;
+                break;
             }
         }
 
@@ -22,23 +25,24 @@ public class PlayerInventoryController : MonoBehaviour
         {
             ItemOfInterest newItem = new ItemOfInterest();
             newItem.SetTag(item.GetTag());
-            newItem.SetQuantity(item.GetQuantity());
-            items.Add(newItem);
+            m_items.Add(newItem);
+            m_quantities.Add(quantity);
         }
     }
 
     public int FindItemOfType(ItemType requestedItemType, int requestedQuantity)
     {
         int requestedQuantityRemaining = requestedQuantity;
-        foreach (ItemOfInterest item in items)
+
+        for (int i = 0; i < m_items.Count; i++)
         {
-            if(item.m_itemType == requestedItemType && item.m_quantity > 0)
+            if (m_items[i].m_itemType == requestedItemType && m_quantities[i] > 0)
             {
-                --item.m_quantity;
+                --m_quantities[i];
                 --requestedQuantityRemaining;
-                if (item.m_quantity <= 0)
+                if (m_quantities[i] <= 0)
                 {
-                    RemoveItem(item);
+                    RemoveItem(i);
                     break;
                 }
                 if (requestedQuantityRemaining <= 0)
@@ -50,8 +54,9 @@ public class PlayerInventoryController : MonoBehaviour
         return requestedQuantityRemaining;
     }
 
-    private void RemoveItem(ItemOfInterest item)
+    private void RemoveItem(int index)
     {
-        items.Remove(item);
+        m_items.RemoveAt(index);
+        m_quantities.RemoveAt(index);
     }
 }
