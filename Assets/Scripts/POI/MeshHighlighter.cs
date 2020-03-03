@@ -2,45 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeshHighlighter : MonoBehaviour
+namespace POI
 {
-    [SerializeField]
-    private Material m_highlightMaterial;
-
-    private Material[] m_originalMaterials;
-    private MeshRenderer m_meshRenderer;
-
-    private void Start()
+    public class MeshHighlighter : MonoBehaviour
     {
-        m_meshRenderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
-        if (m_meshRenderer)
+        [SerializeField]
+        private Material m_highlightMaterial;
+
+        private Material[] m_originalMaterials;
+        private MeshRenderer m_meshRenderer;
+
+        private void Start()
         {
-            m_originalMaterials = m_meshRenderer.materials;
-        }
-        else
-        {
-            m_meshRenderer = GetComponentInChildren(typeof(MeshRenderer)) as MeshRenderer;
+            m_meshRenderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
             if (m_meshRenderer)
             {
                 m_originalMaterials = m_meshRenderer.materials;
             }
+            else
+            {
+                m_meshRenderer = GetComponentInChildren(typeof(MeshRenderer)) as MeshRenderer;
+                if (m_meshRenderer)
+                {
+                    m_originalMaterials = m_meshRenderer.materials;
+                }
+            }
         }
-    }
 
 
-    private void OnMouseEnter()
-    {
-        Material[] newMaterials = new Material[m_originalMaterials.Length];
-        for (int i = 0; i < m_meshRenderer.materials.Length; i++)
+        private void OnMouseEnter()
         {
-            m_highlightMaterial.SetTexture(Shader.PropertyToID("_TextureInput"), m_originalMaterials[i].GetTexture(Shader.PropertyToID("_BaseMap")));
-            newMaterials[i] = m_highlightMaterial;
+            Material[] newMaterials = new Material[m_originalMaterials.Length];
+            for (int i = 0; i < m_meshRenderer.materials.Length; i++)
+            {
+                m_highlightMaterial.SetTexture(Shader.PropertyToID("_TextureInput"), m_originalMaterials[i].GetTexture(Shader.PropertyToID("_BaseMap")));
+                newMaterials[i] = m_highlightMaterial;
+            }
+            m_meshRenderer.materials = newMaterials;
         }
-        m_meshRenderer.materials = newMaterials;
-    }
 
-    private void OnMouseExit()
-    {
-        m_meshRenderer.materials = m_originalMaterials;
+        private void OnMouseExit()
+        {
+            m_meshRenderer.materials = m_originalMaterials;
+        }
     }
 }

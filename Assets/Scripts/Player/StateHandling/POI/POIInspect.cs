@@ -1,42 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using POI;
 
-namespace state
+namespace Player.StateHandling.POI
 {
-    namespace poiinspect
+    public class POIInspect : MonoBehaviour
     {
-        public class POIInspect : MonoBehaviour
+        [SerializeField]
+        private Animator m_animator;
+
+        [SerializeField]
+        private POIDetector m_poiDetector;
+
+        [SerializeField]
+        private InputController m_inputController;
+
+        private POIBehavior m_poiBehavior;
+        private void OnEnable()
         {
-            [SerializeField]
-            private Animator m_animator;
+            m_animator.SetInteger("AnimState", 0);
+            m_poiBehavior = m_poiDetector.poiBehavior;
+            m_poiBehavior.ActivatePOIBehavior();
+            m_poiBehavior.ShowNextMessage();
+        }
 
-            [SerializeField]
-            private POIDetector m_poiDetector;
+        private void OnDisable()
+        {
 
-            [SerializeField]
-            private InputController m_inputController;
+        }
 
-            private POIBehavior m_poiBehavior;
-            private void OnEnable()
+        private void Update()
+        {
+            if (m_poiBehavior && m_inputController.isLeftMouseClick)
             {
-                m_animator.SetInteger("AnimState", 0);
-                m_poiBehavior = m_poiDetector.poiBehavior;
-                m_poiBehavior.ActivatePOIBehavior();
                 m_poiBehavior.ShowNextMessage();
-            }
-
-            private void OnDisable()
-            {
-
-            }
-
-            private void Update()
-            {
-                if (m_poiBehavior && m_inputController.isLeftMouseClick)
-                {
-                    m_poiBehavior.ShowNextMessage();
-                }
             }
         }
     }

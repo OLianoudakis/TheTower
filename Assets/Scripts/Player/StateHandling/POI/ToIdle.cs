@@ -1,42 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using POI;
 
-namespace state
+namespace Player.StateHandling.POI
 {
-    namespace poiinspect
+    public class ToIdle : MonoBehaviour
     {
-        public class ToIdle : MonoBehaviour
+        [SerializeField]
+        private int m_priority;
+
+        [SerializeField]
+        private POIDetector m_poiDetector;
+
+        [SerializeField]
+        private GameObject m_idleState;
+
+        private TransitionHandler m_transitionHandler;
+        private POIBehavior m_poiBehavior;
+
+        private void OnEnable()
         {
-            [SerializeField]
-            private int m_priority;
+            m_poiBehavior = m_poiDetector.poiBehavior;
+        }
 
-            [SerializeField]
-            private POIDetector m_poiDetector;
+        private void Start()
+        {
+            m_transitionHandler = GetComponent(typeof(TransitionHandler)) as TransitionHandler;
+        }
 
-            [SerializeField]
-            private GameObject m_idleState;
-
-            private TransitionHandler m_transitionHandler;
-            private POIBehavior m_poiBehavior;
-
-            private void OnEnable()
+        // Update is called once per frame
+        private void Update()
+        {
+            if (!m_poiBehavior.enabled || !m_poiBehavior.isActive)
             {
-                m_poiBehavior = m_poiDetector.poiBehavior;
-            }
-
-            private void Start()
-            {
-                m_transitionHandler = GetComponent(typeof(TransitionHandler)) as TransitionHandler;
-            }
-
-            // Update is called once per frame
-            private void Update()
-            {
-                if (!m_poiBehavior.enabled || !m_poiBehavior.isActive)
-                {
-                    m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
-                }
+                m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
             }
         }
     }

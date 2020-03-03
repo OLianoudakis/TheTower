@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransitionHandler : MonoBehaviour
+namespace Player.StateHandling
 {
-    private SortedList<int, GameObject> m_availableTransitions = new SortedList<int, GameObject>();
-
-    public void AddActiveTransition(int priority, GameObject state)
+    public class TransitionHandler : MonoBehaviour
     {
-        if (!m_availableTransitions.ContainsKey(priority))
+        private SortedList<int, GameObject> m_availableTransitions = new SortedList<int, GameObject>();
+
+        public void AddActiveTransition(int priority, GameObject state)
         {
-            m_availableTransitions.Add(priority, state);
+            if (!m_availableTransitions.ContainsKey(priority))
+            {
+                m_availableTransitions.Add(priority, state);
+            }
         }
-    }
 
-    private void OnEnable()
-    {
-        m_availableTransitions.Clear();
-    }
-    private void LateUpdate()
-    {
-        // just activate first state (having top priority) and disable this state
-        foreach (KeyValuePair<int, GameObject> kvp in m_availableTransitions)
+        private void OnEnable()
         {
-            kvp.Value.SetActive(true);
-            gameObject.SetActive(false);
-            break;
+            m_availableTransitions.Clear();
+        }
+        private void LateUpdate()
+        {
+            // just activate first state (having top priority) and disable this state
+            foreach (KeyValuePair<int, GameObject> kvp in m_availableTransitions)
+            {
+                kvp.Value.SetActive(true);
+                gameObject.SetActive(false);
+                break;
+            }
         }
     }
 }

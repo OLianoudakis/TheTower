@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+namespace GameCamera
 {
-    [SerializeField]
-    private Transform m_playerPosition;
-    [SerializeField]
-    private Vector3 m_offset = new Vector3(-3.0f, 7.0f, -3.0f);
-
-    // Update is called once per frame
-    void Update()
+    public class FollowPlayer : MonoBehaviour
     {
-        transform.position = m_playerPosition.position + m_offset;
+        [SerializeField]
+        private Transform m_playerPosition;
+        [SerializeField]
+        private Vector3 m_offset = new Vector3(-3.0f, 7.0f, -3.0f);
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position = m_playerPosition.position + m_offset;
+        }
     }
 }

@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace state
+namespace Player.StateHandling.Idle
 {
-    namespace idle
+    public class Idle : MonoBehaviour
     {
-        public class Idle : MonoBehaviour
+        [SerializeField]
+        private Animator m_animator;
+
+        private void OnEnable()
         {
-            [SerializeField]
-            private Animator m_animator;
+            m_animator.SetInteger("AnimState", 0);
+        }
 
-            private void OnEnable()
-            {
-                m_animator.SetInteger("AnimState", 0);
-            }
+        private void OnDisable()
+        {
 
-            private void OnDisable()
-            {
+        }
 
-            }
+        private void Start()
+        {
+            m_animator.SetInteger("AnimState", 0);
+        }
+        private void Update()
+        {
 
-            private void Start()
-            {
-                m_animator.SetInteger("AnimState", 0);
-            }
-            private void Update()
-            {
-
-            }
         }
     }
 }

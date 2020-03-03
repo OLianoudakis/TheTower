@@ -1,30 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
-public class POIDetector : MonoBehaviour
+namespace POI
 {
-    [SerializeField]
-    private InputController m_inputController;
-
-    private Vector3 m_lastMousePosition = Vector3.zero;
-    private POIBehavior m_poiBehavior;
-
-    public POIBehavior poiBehavior
+    public class POIDetector : MonoBehaviour
     {
-        get { return m_poiBehavior; }
-    }
+        [SerializeField]
+        private InputController m_inputController;
 
-    private void Update()
-    {
-        if (m_inputController.isLeftMouseClick && (m_lastMousePosition != m_inputController.leftMouseClickPosition) && m_inputController.leftMouseClickHit.collider)
+        private Vector3 m_lastMousePosition = Vector3.zero;
+        private POIBehavior m_poiBehavior;
+
+        public POIBehavior poiBehavior
         {
-            POIBehavior poiBehavior = null;
-            if (m_inputController.leftMouseClickHit.collider.gameObject.tag.Equals("POI"))
+            get { return m_poiBehavior; }
+        }
+
+        private void Update()
+        {
+            if (m_inputController.isLeftMouseClick && (m_lastMousePosition != m_inputController.leftMouseClickPosition) && m_inputController.leftMouseClickHit.collider)
             {
-                poiBehavior = m_inputController.leftMouseClickHit.collider.gameObject.GetComponent(typeof(POIBehavior)) as POIBehavior;
+                POIBehavior poiBehavior = null;
+                if (m_inputController.leftMouseClickHit.collider.gameObject.tag.Equals("POI"))
+                {
+                    poiBehavior = m_inputController.leftMouseClickHit.collider.gameObject.GetComponent(typeof(POIBehavior)) as POIBehavior;
+                }
+                m_poiBehavior = poiBehavior;
             }
-            m_poiBehavior = poiBehavior;
         }
     }
 }
