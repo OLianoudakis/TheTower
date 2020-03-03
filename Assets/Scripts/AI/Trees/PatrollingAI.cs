@@ -41,6 +41,12 @@ namespace AI.Trees
 #endif
             // start the AI
             m_behaviorTree.Start();
+
+            
+        }
+
+        private void Update()
+        {
         }
 
         void SetNextPatrolPoint()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Environment;
 
 namespace Player.StateHandling.Moving
 {
@@ -18,6 +19,9 @@ namespace Player.StateHandling.Moving
         [SerializeField]
         private Transform m_playerPosition;
 
+        [SerializeField]
+        private InteractibleDetector m_interactibleDetector;
+
         private TransitionHandler m_transitionHandler;
 
         private void Start()
@@ -27,7 +31,11 @@ namespace Player.StateHandling.Moving
 
         private void Update()
         {
-            if (Vector3.SqrMagnitude(m_inputController.leftMouseClickPosition - m_playerPosition.position) < Constants.SquaredDistance)
+            Vector3 destination = m_interactibleDetector.interactible 
+                ? m_interactibleDetector.interactible.GetInteractiblePosition() 
+                : m_inputController.leftMouseClickPosition;
+            if ((Vector3.SqrMagnitude(new Vector3(destination.x, 0.0f, destination.z) 
+                - new Vector3(m_playerPosition.position.x, 0.0f, m_playerPosition.position.z)) < Constants.SquaredDistance))
             {
                 m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
             }

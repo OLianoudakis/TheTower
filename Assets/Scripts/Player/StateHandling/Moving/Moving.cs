@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using POI;
+using Environment;
 
 namespace Player.StateHandling.Moving
 {
@@ -21,14 +21,14 @@ namespace Player.StateHandling.Moving
         private NavMeshAgent m_agent;
 
         [SerializeField]
-        private POIDetector m_poiDetector;
+        private InteractibleDetector m_interactibleDetector;
 
         private Vector3 m_destination;
 
         private void OnEnable()
         {
             m_animator.SetInteger("AnimState", 1);
-            m_destination = m_poiDetector.poiBehavior ? m_poiDetector.poiBehavior.GetPOIDestinationPoint() : m_inputController.leftMouseClickPosition;
+            m_destination = m_interactibleDetector.interactible ? m_interactibleDetector.interactible.GetInteractiblePosition() : m_inputController.leftMouseClickPosition;
             SetDestination();
         }
 
@@ -49,8 +49,8 @@ namespace Player.StateHandling.Moving
                 {
                     m_positionMarker.SetActive(true);
                 }
-                m_positionMarker.transform.position = m_poiDetector.poiBehavior
-                ? m_poiDetector.poiBehavior.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f)
+                m_positionMarker.transform.position = m_interactibleDetector.interactible
+                ? m_interactibleDetector.interactible.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f)
                 : m_destination + new Vector3(0.0f, 0.01f, 0.0f);
             }
         }
@@ -60,7 +60,7 @@ namespace Player.StateHandling.Moving
             // if new click while moving
             if (m_inputController.isLeftMouseClick)
             {
-                m_destination = m_poiDetector.poiBehavior ? m_poiDetector.poiBehavior.GetPOIDestinationPoint() : m_inputController.leftMouseClickPosition;
+                m_destination = m_interactibleDetector.interactible ? m_interactibleDetector.interactible.GetInteractiblePosition() : m_inputController.leftMouseClickPosition;
                 SetDestination();
             }
         }
