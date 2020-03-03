@@ -22,7 +22,10 @@ namespace Environment.InteractibleBehaviors
                     Rigidbody rigidbody = child.GetComponent(typeof(Rigidbody)) as Rigidbody;
                     if (rigidbody)
                     {
-                        rigidbody.AddForce(Random.onUnitSphere);
+                        rigidbody.isKinematic = false;
+                        rigidbody.useGravity = true;
+                        Vector3 force = Random.onUnitSphere * 10.0f;
+                        rigidbody.AddForce(Random.onUnitSphere * 100.0f);
                     }
                 }
                 m_interactible.DeactivateBehavior(true);
