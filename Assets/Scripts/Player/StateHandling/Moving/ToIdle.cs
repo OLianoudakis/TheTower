@@ -32,7 +32,7 @@ namespace Player.StateHandling.Moving
         private void Update()
         {
             Vector3 destination = m_interactibleDetector.interactible 
-                ? m_interactibleDetector.interactible.GetInteractiblePosition() 
+                ? m_interactibleDetector.interactible.interactiblePosition.position
                 : m_inputController.leftMouseClickPosition;
             if ((Vector3.SqrMagnitude(new Vector3(destination.x, 0.0f, destination.z) 
                 - new Vector3(m_playerPosition.position.x, 0.0f, m_playerPosition.position.z)) < Constants.SquaredDistance))

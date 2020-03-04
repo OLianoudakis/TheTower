@@ -12,6 +12,12 @@ namespace Environment
 
         private bool m_isActive = false;
 
+        public Transform interactiblePosition
+        {
+            get { return m_interactiblePosition; }
+            set { m_interactiblePosition = value; }
+        }
+
         public bool isActive
         {
             get { return m_isActive; }
@@ -44,11 +50,6 @@ namespace Environment
                 }
             }
             m_isActive = false;
-        }
-
-        public Vector3 GetInteractiblePosition()
-        {
-            return m_interactiblePosition.position;
         }
     }
 }

@@ -28,7 +28,9 @@ namespace Player.StateHandling.Moving
         private void OnEnable()
         {
             m_animator.SetInteger("AnimState", 1);
-            m_destination = m_interactibleDetector.interactible ? m_interactibleDetector.interactible.GetInteractiblePosition() : m_inputController.leftMouseClickPosition;
+            m_destination = m_interactibleDetector.interactible 
+                ? m_interactibleDetector.interactible.interactiblePosition.position 
+                : m_inputController.leftMouseClickPosition;
             SetDestination();
         }
 
@@ -60,7 +62,9 @@ namespace Player.StateHandling.Moving
             // if new click while moving
             if (m_inputController.isLeftMouseClick)
             {
-                m_destination = m_interactibleDetector.interactible ? m_interactibleDetector.interactible.GetInteractiblePosition() : m_inputController.leftMouseClickPosition;
+                m_destination = m_interactibleDetector.interactible 
+                    ? m_interactibleDetector.interactible.interactiblePosition.position 
+                    : m_inputController.leftMouseClickPosition;
                 SetDestination();
             }
         }
