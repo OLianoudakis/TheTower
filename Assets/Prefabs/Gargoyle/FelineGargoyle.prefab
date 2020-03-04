@@ -9,9 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400000}
+  - component: {fileID: 365023218298882766}
+  - component: {fileID: 365023218298882764}
+  - component: {fileID: 365023218298882765}
+  - component: {fileID: 365023218298882767}
   m_Layer: 0
   m_Name: FelineGargoyle
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -29,9 +33,82 @@ Transform:
   m_Children:
   - {fileID: 400008}
   - {fileID: 5839725381066060349}
+  - {fileID: 637795381}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &365023218298882766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3624992, y: 6.99002, z: 2.4660606}
+  m_Center: {x: 0.034402847, y: -2.1873574, z: 0.30434227}
+--- !u!114 &365023218298882764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d514aa3a3dfa9248990e5495dc88792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dialogueGroup: {fileID: 0}
+  m_dialogueWindow: {fileID: 0}
+  m_infoGroup: {fileID: 0}
+  m_repeatedInfoText: {fileID: 0}
+  m_messages:
+  - m_note: What is this?
+    m_givesItem: {fileID: 0}
+    m_givesItemQuantity: 0
+    m_requiredItemType: 0
+    m_requiredItemTypeName: 
+    m_requiredItemQuantity: 0
+  - m_note: It's a key!
+    m_givesItem: {fileID: 3056257138203651115, guid: cf324f97dac96e8439f59d069cf60de8,
+      type: 3}
+    m_givesItemQuantity: 1
+    m_requiredItemType: 0
+    m_requiredItemTypeName: 
+    m_requiredItemQuantity: 0
+  m_animator: {fileID: 0}
+  m_inputController: {fileID: 0}
+  m_playerInventoryController: {fileID: 0}
+--- !u!114 &365023218298882765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56fa20b1c9da3e40acf88566c05ab57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_highlightMaterial: {fileID: 2100000, guid: faabcb6bd167ec84a98752473acb0755, type: 2}
+--- !u!114 &365023218298882767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c384ee8c1cf481c41b39fb99f484721c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactiblePosition: {fileID: 637795381}
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +188,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &637795380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637795381}
+  m_Layer: 0
+  m_Name: POITarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &637795381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637795380}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.49, z: -2.7460003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1472795300310538535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,6 +225,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400000}
     m_Modifications:
+    - target: {fileID: -7619600238261580041, guid: 60d3472adb3da1840956eac3fdffa54d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 904a166c3cac74a458d23b624f253dea, type: 2}
     - target: {fileID: -4216859302048453862, guid: 60d3472adb3da1840956eac3fdffa54d,
         type: 3}
       propertyPath: m_LocalPosition.x
