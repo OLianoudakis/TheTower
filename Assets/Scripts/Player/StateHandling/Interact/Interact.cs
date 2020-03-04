@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Environment;
 
 namespace Player.StateHandling.POI
@@ -9,6 +10,9 @@ namespace Player.StateHandling.POI
     {
         [SerializeField]
         private Animator m_animator;
+
+        [SerializeField]
+        private NavMeshAgent m_agent;
 
         [SerializeField]
         private InteractibleDetector m_interactibleDetector;
@@ -20,6 +24,7 @@ namespace Player.StateHandling.POI
             {
                 m_interactibleDetector.interactible.ActivateBehavior();
             }
+            m_agent.isStopped = true;
         }
     }
 }
