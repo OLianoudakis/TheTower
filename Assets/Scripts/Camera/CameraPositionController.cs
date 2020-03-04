@@ -49,7 +49,7 @@ namespace GameCamera
 
             while (elapsedTime < waitTime)
             {
-                transform.position = Vector3.LerpUnclamped(currentPosition, targetPosition, (elapsedTime / waitTime));
+                transform.position = Vector3.LerpUnclamped(currentPosition, targetPosition, Mathf.SmoothStep(0.0f, 1.0f, (elapsedTime / waitTime)));
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
@@ -60,5 +60,5 @@ namespace GameCamera
         }
     }
 
-    public enum CameraCCTVState { CCTV1, CCTV2, CCTV3, CCTV4, CCTV5, CCTV6, CCTV7, CCTV8 , CCTV9 }
+    public enum CameraCCTVState { CCTV1, CCTV2, CCTV3, CCTV4, CCTV5, CCTV6, CCTV7, CCTV8 , CCTV9, CCTV10, CCTV11, CCTV12, CCTV13, CCTV14, CCTV15, CCTV16, CCTV17, CCTV18, CCTV19, CCTV20, CCTV21, CCTV22, CCTV23 }
 }

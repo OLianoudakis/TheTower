@@ -100,6 +100,11 @@ namespace Environment.InteractibleBehaviors
                 }
             }
 
+            if (m_messages[m_currentMessage].m_requiredItemType == ItemType.AutomaticPass)
+            {
+                PlayAnimation();
+            }
+
             //Display message
             m_dialogueWindow.text = m_messages[m_currentMessage].m_note;
 

@@ -33,6 +33,7 @@ namespace Player.Inventory
     public enum ItemType
     {
         None,
+        AutomaticPass,
         CommonKey,
         SilverKey,
         StoneKey,
