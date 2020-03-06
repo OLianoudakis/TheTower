@@ -38,14 +38,9 @@ namespace Environment.InteractibleBehaviors
         [SerializeField]
         private Animator m_animator;
 
-        [SerializeField]
         private InputController m_inputController;
-
-        [SerializeField]
         private PlayerInventoryController m_playerInventoryController;
-
         private Interactible m_interactible;
-
         private bool m_isActive = false;
         private int m_currentMessage = 0;
         private string m_infoMessage;
@@ -150,6 +145,8 @@ namespace Environment.InteractibleBehaviors
         private void Start()
         {
             m_interactible = GetComponent(typeof(Interactible)) as Interactible;
+            m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
+            m_playerInventoryController = FindObjectOfType(typeof(PlayerInventoryController)) as PlayerInventoryController;
         }
 
         private void Update()

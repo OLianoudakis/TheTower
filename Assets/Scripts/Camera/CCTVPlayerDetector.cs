@@ -8,7 +8,7 @@ namespace GameCamera
     public class CCTVPlayerDetector : MonoBehaviour
     {
         [SerializeField]
-        private CameraCCTVState m_CCTVState; //set in inspector
+        private CameraCCTVState m_CCTVState;
         [SerializeField]
         private Transform m_CCTVPosition;
 
