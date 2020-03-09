@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using NPBehave;
+using AI.Trees.Subtrees;
 
-namespace AI.Trees.NodeFactory
+namespace AI.Trees
 {
     public class NodeFactory
     {
-        public static Node CreateMoveSubtree()
+        public static Node CreatePatrollingSubtree(Root behaviorTree, GameObject[] patrolPoints, NavMeshAgent navMeshAgent)
         {
-            // shared movement behavior, you can create any trees of any depth
-            return new Cooldown(3.0f,
-                new Action(() => Debug.Log(" moving!"))
-            );
+            PatrollingSubtree patrollingSubtree = new PatrollingSubtree();
+            patrollingSubtree.Create(behaviorTree, patrolPoints, navMeshAgent);
+            return patrollingSubtree.m_root;
+        }
+
+        public static Node CreateGoToSubtree(Root behaviorTree, NavMeshAgent navMeshAgent)
+        {
+            GoToSubtree goToSubtree = new GoToSubtree();
+            goToSubtree.Create(behaviorTree, navMeshAgent);
+            return goToSubtree.m_root;
         }
     }
 }

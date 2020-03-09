@@ -29,6 +29,7 @@ namespace Environment
             if (ic)
             {
                 m_isActivated = true;
+                this.gameObject.SetActive(false);
             }   
         }
     }

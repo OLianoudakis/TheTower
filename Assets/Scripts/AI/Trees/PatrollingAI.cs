@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using NPBehave;
+using AI.Trees.Subtrees;
 
 namespace AI.Trees
 {
@@ -12,24 +13,21 @@ namespace AI.Trees
         private GameObject[] m_patrolPoints;
 
         private Root m_behaviorTree;
-        private int m_currentPatrolPoint = 0;
+        private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         
         private void Start()
         {
             NavMeshAgent navmesh = GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+            m_knowledgeBase = GetComponent(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
             // The Behavior Tree
-            m_behaviorTree = new Root
+            m_behaviorTree = new Root();
+            m_behaviorTree.Create
             (
-                new Selector
-                (
-                    // patrol around
-                    new Repeater(
-                        new Sequence
-                        (
-                            new Wait(3.0f),
-                            new Action(SetNextPatrolPoint),
-                            new NavMoveTo(navmesh, "nextPosition")
-                        )
+                new Service(0.5f, CheckTarget,
+                    new Selector
+                    (
+                        NodeFactory.CreateGoToSubtree(m_behaviorTree, navmesh),
+                        NodeFactory.CreatePatrollingSubtree(m_behaviorTree, m_patrolPoints, navmesh)
                     )
                 )
             );
@@ -45,17 +43,11 @@ namespace AI.Trees
             
         }
 
-        private void Update()
+        void CheckTarget()
         {
-        }
-
-        void SetNextPatrolPoint()
-        {
-            m_behaviorTree.Blackboard.Set("nextPosition", m_patrolPoints[m_currentPatrolPoint].transform.position);
-
-            if (++m_currentPatrolPoint >= m_patrolPoints.Length)
+            if (m_knowledgeBase.playerTransform)
             {
-                m_currentPatrolPoint = 0;
+                m_behaviorTree.Blackboard.Set("targetPosition", m_knowledgeBase.playerTransform.position);
             }
         }
     }
