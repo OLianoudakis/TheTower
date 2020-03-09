@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Player.Inventory
 {
+    // TODO we probably wont need this one, but lets see
     public class ItemOfInterest : MonoBehaviour
     {
         public ItemType m_itemType;
@@ -30,13 +31,11 @@ namespace Player.Inventory
         }
     }
 
-    public enum ItemType
-    {
-        None,
-        AutomaticPass,
-        CommonKey,
-        SilverKey,
-        StoneKey,
-        JadeKey
-    };
+    //public struct Item
+    //{
+    //    public string m_itemName;
+    //    public int m_quantity;
+    //}
+
+    
 }

@@ -6,60 +6,38 @@ namespace Player.Inventory
 {
     public class PlayerInventoryController : MonoBehaviour
     {
-        private List<ItemOfInterest> m_items = new List<ItemOfInterest>();
-        private List<int> m_quantities = new List<int>();
+        Dictionary<ItemType, Item> m_inventory = new Dictionary<ItemType, Item>();
 
-        public void AddItem(ItemOfInterest item, int quantity)
+        public void AddItem(Item item, int quantity)
         {
-            bool sameItemFound = false;
-
-            for (int i = 0; i < m_items.Count; i++)
+            if (m_inventory.ContainsKey(item.m_itemType))
             {
-                if (m_items[i].GetTag().Equals(item.GetTag()))
-                {
-                    m_quantities[i] += quantity;
-                    sameItemFound = true;
-                    break;
-                }
+                m_inventory[item.m_itemType].m_quantity += quantity;
             }
-
-            if (!sameItemFound)
+            else
             {
-                ItemOfInterest newItem = new ItemOfInterest();
-                newItem.SetTag(item.GetTag());
-                m_items.Add(newItem);
-                m_quantities.Add(quantity);
+                Item newItem = new Item();
+                newItem.m_itemName = item.m_itemName;
+                newItem.m_itemType = item.m_itemType;
+                newItem.m_quantity = quantity;
+                m_inventory[item.m_itemType] = newItem;
             }
         }
 
-        public int FindItemOfType(ItemType requestedItemType, int requestedQuantity)
+        public int RemoveItem(ItemType requestedItemType, int requestedQuantity)
         {
-            int requestedQuantityRemaining = requestedQuantity;
-
-            for (int i = 0; i < m_items.Count; i++)
+            if (m_inventory.ContainsKey(requestedItemType))
             {
-                if (m_items[i].m_itemType == requestedItemType && m_quantities[i] > 0)
+                if (m_inventory[requestedItemType].m_quantity >= requestedQuantity)
                 {
-                    --m_quantities[i];
-                    --requestedQuantityRemaining;
-                    if (m_quantities[i] <= 0)
-                    {
-                        RemoveItem(i);
-                        break;
-                    }
-                    if (requestedQuantityRemaining <= 0)
-                    {
-                        break;
-                    }
+                    m_inventory[requestedItemType].m_quantity -= requestedQuantity;
+                    return 0;
                 }
+                int requestedQuantityRemaining = requestedQuantity - m_inventory[requestedItemType].m_quantity;
+                m_inventory[requestedItemType].m_quantity = 0;
+                return requestedQuantityRemaining;
             }
-            return requestedQuantityRemaining;
-        }
-
-        private void RemoveItem(int index)
-        {
-            m_items.RemoveAt(index);
-            m_quantities.RemoveAt(index);
+            return requestedQuantity;
         }
     }
 }

@@ -11,10 +11,9 @@ namespace Environment.InteractibleBehaviors
     public struct POIMessage
     {
         public string m_note;
-        public ItemOfInterest m_givesItem;
+        public Item m_givesItem;
         public int m_givesItemQuantity;
-        public ItemType m_requiredItemType;
-        public string m_requiredItemTypeName;
+        public Item m_requiresItem;
         public int m_requiredItemQuantity;
     };
 
@@ -72,15 +71,20 @@ namespace Environment.InteractibleBehaviors
             if (m_messages[m_currentMessage].m_givesItem)
             {
                 m_playerInventoryController.AddItem(m_messages[m_currentMessage].m_givesItem, m_messages[m_currentMessage].m_givesItemQuantity);
-                m_infoMessage = "You've received " + m_messages[m_currentMessage].m_givesItemQuantity.ToString() + " " + m_messages[m_currentMessage].m_givesItem.GetItemName() + ".";
+                m_infoMessage = "You've received " + m_messages[m_currentMessage].m_givesItemQuantity.ToString() + " " + m_messages[m_currentMessage].m_givesItem.m_itemName + ".";
                 StartCoroutine(RepeatingMessage());
             }
 
             bool canMoveForward = true;
-            if (m_messages[m_currentMessage].m_requiredItemType != ItemType.None)
+            if (m_messages[m_currentMessage].m_requiresItem)
             {
-                m_messages[m_currentMessage].m_requiredItemQuantity = FindObjectOfType<PlayerInventoryController>().FindItemOfType(m_messages[m_currentMessage].m_requiredItemType, m_messages[m_currentMessage].m_requiredItemQuantity);
-
+                PlayerInventoryController playerInventoryController = FindObjectOfType(typeof(PlayerInventoryController)) as PlayerInventoryController;
+                if (playerInventoryController)
+                {
+                    m_messages[m_currentMessage].m_requiredItemQuantity 
+                        = playerInventoryController.RemoveItem(m_messages[m_currentMessage].m_requiresItem.m_itemType, m_messages[m_currentMessage].m_requiredItemQuantity);
+                }
+                
                 //Requirements met, activate animation
                 if (m_messages[m_currentMessage].m_requiredItemQuantity <= 0)
                 {
@@ -89,13 +93,13 @@ namespace Environment.InteractibleBehaviors
                 }
                 else
                 {
-                    m_infoMessage = "It needs " + m_messages[m_currentMessage].m_requiredItemQuantity + " " + m_messages[m_currentMessage].m_requiredItemTypeName;
+                    m_infoMessage = "It needs " + m_messages[m_currentMessage].m_requiredItemQuantity + " " + m_messages[m_currentMessage].m_requiresItem.m_itemName;
                     m_messages[m_currentMessage].m_note = m_infoMessage;
                     canMoveForward = false;
                 }
             }
 
-            if (m_messages[m_currentMessage].m_requiredItemType == ItemType.AutomaticPass)
+            if (m_messages[m_currentMessage].m_requiresItem && m_messages[m_currentMessage].m_requiresItem.m_itemType == ItemType.AutomaticPass)
             {
                 PlayAnimation();
             }
