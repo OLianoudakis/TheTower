@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTagScript : MonoBehaviour
+namespace Player.EmptyClass
 {
+    public class PlayerTagScript : MonoBehaviour
+    {
+    }
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMeshTagScript : MonoBehaviour
+namespace Player.EmptyClass
 {
+    public class PlayerMeshTagScript : MonoBehaviour
+    {
+    }
 }
+
