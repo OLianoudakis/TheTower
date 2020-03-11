@@ -18,9 +18,13 @@ namespace AI.Personality
             CalculateBaseMood(personalityModel);
         }
 
-        public void UpdateMood()
+        public void UpdateMood(List<Emotion> activeEmotions)
         {
-
+            float[] effectiveMood = CalculateEffectiveMood(activeEmotions);
+            for (int i = 0; i < m_mood.Length; i++)
+            {
+                m_mood[i] = ((1.0f - m_baseMoodWeight) * m_baseMood[i]) + (m_baseMoodWeight * effectiveMood[i]);
+            }
         }
 
         private void CalculateBaseMood(PersonalityModel personalityModel)
@@ -34,12 +38,17 @@ namespace AI.Personality
             }
         }
 
-        private float CalculateEffectiveEmotion(MoodType moodType)
+        
+        private float CalculateEffectiveEmotion(MoodType moodType, List<Emotion> activeEmotions)
         {
+            float effectiveEmotion = 0.0f;
             for (int i = 0; i < ConstantMappings.MoodToEmotion.GetLength(1); i++)
             {
-                ConstantMappings.MoodToEmotion[(int)moodType, i]
+                effectiveEmotion += 
+                    ConstantMappings.MoodToEmotion[(int)moodType, i] 
+                    * Mathf.Min(1.0f, CalculateEmotionIntensity(activeEmotions, (EmotionType)i));
             }
+            return effectiveEmotion;
         }
 
         private float[] CalculateEffectiveMood(List<Emotion> activeEmotions)
@@ -48,11 +57,25 @@ namespace AI.Personality
 
             for (int i = 0; i < effectiveMood.Length; i++)
             {
-                float effectiveEmotion = CalculateEffectiveEmotion((MoodType)i);
-                effectiveMood[i] = m_baseMoodWeight * m_baseMood[i];
+                float effectiveEmotion = CalculateEffectiveEmotion((MoodType)i, activeEmotions);
+                effectiveMood[i] = m_baseMoodWeight * m_baseMood[i] + effectiveEmotion;
             }
 
             return effectiveMood;
         }
+
+        private float CalculateEmotionIntensity(List<Emotion> activeEmotions, EmotionType emotionType)
+        {
+            float emotionIntensity = 0.0f;
+            foreach (Emotion emotion in activeEmotions)
+            {
+                if (emotion.m_emotionType == emotionType)
+                {
+                    emotionIntensity += emotion.m_value;
+                }
+            }
+            return emotionIntensity;
+        }
+
     }
 }
