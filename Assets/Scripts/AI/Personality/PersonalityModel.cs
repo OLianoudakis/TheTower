@@ -22,7 +22,7 @@ namespace AI.Personality
     public class PersonalityModel : ScriptableObject
     {
         [SerializeField]
-        private PersonalityTraitEntry[] m_personalityTraitsValues 
+        public PersonalityTraitEntry[] m_personalityTraitsValues 
             = new PersonalityTraitEntry[5]
             {
                 new PersonalityTraitEntry(PersonalityTraits.Agreeableness, 0.0f),

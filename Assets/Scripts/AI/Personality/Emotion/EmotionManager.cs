@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AI.Personality
+namespace AI.Personality.Emotions
 {
     public class EmotionManager
     {
-        private float[] m_emotions;
+        private List<Emotion> m_activeEmotions = new List<Emotion>();
 
-        public EmotionManager()
+        public List<Emotion> activeEmotions
         {
-            m_emotions = new float[21];
-            for (int i = 0; i < m_emotions.Length; i++)
-            {
-                m_emotions[i] = 0.0f;
-            }
+            get { return m_activeEmotions; }
         }
     }
 }

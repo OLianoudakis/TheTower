@@ -4,20 +4,25 @@ using UnityEngine;
 using System;
 using Events;
 
-namespace AI.Personality.Emotion
+namespace AI.Personality.Emotions
 {
+    [Serializable]
+    public struct Emotion
+    {
+        public EmotionType m_emotionType;
+        public float m_value;
+    }
+
     [Serializable]
     public struct EventEmotionEntry
     {
         public Events.EventType m_eventType;
-        public EmotionType m_emotionType;
-        public float m_value;
+        public Emotion m_emotion;
 
-        public EventEmotionEntry(Events.EventType eventType, EmotionType emotionType, float value)
+        public EventEmotionEntry(Events.EventType eventType, Emotion emotion)
         {
             m_eventType = eventType;
-            m_emotionType = emotionType;
-            m_value = value;
+            m_emotion = emotion;
         }
     }
 

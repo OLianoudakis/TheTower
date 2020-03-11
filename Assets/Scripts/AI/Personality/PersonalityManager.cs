@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using AI.Personality.Emotion;
+using AI.Personality.Emotions;
 using Events;
 
 namespace AI.Personality
@@ -15,7 +15,7 @@ namespace AI.Personality
         private EventsEmotionIntensities m_eventsEmotionIntensities;
 
         private EmotionManager m_emotionManager = new EmotionManager();
-        private MoodManager m_moodManager = new MoodManager();
+        private MoodManager m_moodManager;
         private MotivationManager m_motivationManager = new MotivationManager();
 
         public void ReceiveEvent(Events.Event receivedEvent)
@@ -26,7 +26,7 @@ namespace AI.Personality
 
         private void Start()
         {
-
+            m_moodManager = new MoodManager(m_personalityModel);
         }
 
         private void Update()
