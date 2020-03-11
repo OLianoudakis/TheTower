@@ -21,7 +21,6 @@ namespace Environment.Hiding
             m_playerCollider.center = new Vector3 (0.0f, 0.38f, 0.0f);
             m_playerCollider.height = 1.76f;
             m_invisibleWalls.SetActive(true);
-            //m_playerCollider.
         }
 
         private void ExitHiding()
@@ -39,16 +38,7 @@ namespace Environment.Hiding
             m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
             m_playerAnimator = FindObjectOfType<PlayerMeshTagScript>().GetComponent<Animator>();
             m_playerCollider = FindObjectOfType<PlayerTagScript>().GetComponent<CapsuleCollider>();
-            /*m_playerCollider = m_inputController.gameObject.GetComponent<CapsuleCollider>();
-            foreach (Transform eachChild in m_inputController.gameObject.transform)
-            {
-                if (eachChild.name == "@Hunter_Player_base")
-                {
-                    m_playerAnimator = eachChild.gameObject.GetComponent<Animator>();
-                    break;
-                }
-            }
-            */
+
             foreach (Transform eachChild in transform)
             {
                 if (eachChild.name == "InvisibleWalls")

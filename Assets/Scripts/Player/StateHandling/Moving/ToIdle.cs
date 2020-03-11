@@ -19,13 +19,13 @@ namespace Player.StateHandling.Moving
         [SerializeField]
         private Transform m_playerPosition;
 
-        [SerializeField]
         private InteractibleDetector m_interactibleDetector;
 
         private TransitionHandler m_transitionHandler;
 
         private void Start()
         {
+            m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
             m_transitionHandler = GetComponent(typeof(TransitionHandler)) as TransitionHandler;
         }
 
@@ -35,7 +35,7 @@ namespace Player.StateHandling.Moving
                 ? m_interactibleDetector.interactible.interactiblePosition.position
                 : m_inputController.leftMouseClickPosition;
             if ((Vector3.SqrMagnitude(new Vector3(destination.x, 0.0f, destination.z) 
-                - new Vector3(m_playerPosition.position.x, 0.0f, m_playerPosition.position.z)) < Constants.SquaredDistance))
+                - new Vector3(m_playerPosition.position.x, 0.0f, m_playerPosition.position.z)) < MathConstants.SquaredDistance))
             {
                 m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
             }

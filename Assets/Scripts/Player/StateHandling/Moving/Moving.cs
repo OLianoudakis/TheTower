@@ -20,9 +20,7 @@ namespace Player.StateHandling.Moving
         [SerializeField]
         private NavMeshAgent m_agent;
 
-        [SerializeField]
         private InteractibleDetector m_interactibleDetector;
-
         private Color c = Color.white;
         private Vector3 m_destination;
 
@@ -30,6 +28,11 @@ namespace Player.StateHandling.Moving
         {
             m_agent.isStopped = false;
             m_animator.SetInteger("AnimState", 1);
+
+            if (!m_interactibleDetector)
+            {
+                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            }
             m_destination = m_interactibleDetector.interactible 
                 ? m_interactibleDetector.interactible.interactiblePosition.position 
                 : m_inputController.leftMouseClickPosition;

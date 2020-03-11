@@ -14,12 +14,16 @@ namespace Player.StateHandling.POI
         [SerializeField]
         private NavMeshAgent m_agent;
 
-        [SerializeField]
         private InteractibleDetector m_interactibleDetector;
         
         private void OnEnable()
         {
             m_animator.SetInteger("AnimState", 0);
+
+            if (!m_interactibleDetector)
+            {
+                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            }
             if (m_interactibleDetector.interactible)
             {
                 m_interactibleDetector.interactible.ActivateBehavior();
