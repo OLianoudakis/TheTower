@@ -27,7 +27,7 @@ namespace Player.StateHandling.Idle
         private void Update()
         {
             if (m_inputController.initialized && m_inputController.isLeftMouseClick
-                && (Vector3.SqrMagnitude(m_inputController.leftMouseClickPosition - m_playerPosition.position) > Constants.SquaredDistance))
+                && (Vector3.SqrMagnitude(m_inputController.leftMouseClickPosition - m_playerPosition.position) > MathConstants.SquaredDistance))
             {
                 m_transitionHandler.AddActiveTransition(m_priority, m_movingState);
             }

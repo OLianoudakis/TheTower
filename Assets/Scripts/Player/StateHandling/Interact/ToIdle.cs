@@ -10,7 +10,6 @@ namespace Player.StateHandling.POI
         [SerializeField]
         private int m_priority;
 
-        [SerializeField]
         private InteractibleDetector m_interactibleDetector;
 
         [SerializeField]
@@ -21,6 +20,10 @@ namespace Player.StateHandling.POI
 
         private void OnEnable()
         {
+            if (!m_interactibleDetector)
+            {
+                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            }
             m_interactible = m_interactibleDetector.interactible;
         }
 

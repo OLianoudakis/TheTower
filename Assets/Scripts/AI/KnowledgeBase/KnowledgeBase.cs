@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Events;
 
 namespace AI.KnowledgeBase
 {
-    public class KnowledgeBase : MonoBehaviour
+    public class KnowledgeBase : MonoBehaviour, ICustomEventTarget
     {
         private bool m_changeHappened = false;
 
@@ -16,6 +17,10 @@ namespace AI.KnowledgeBase
             set { m_playerTransform = value; m_changeHappened = true; }
         }
 
+        public void ReceiveEvent(Events.Event receivedEvent)
+        {
+
+        }
 
         private void ForgetKnowledge()
         {

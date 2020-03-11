@@ -36,7 +36,6 @@ namespace Environment
                     m_interactible = trigger.interactible;
                     interactible.interactiblePosition = m_playerPosition;
                     trigger.isActivated = false;
-                    //trigger.gameObject.SetActive(false);
                     return;
                 }
             }

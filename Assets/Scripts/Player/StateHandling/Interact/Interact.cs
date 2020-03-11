@@ -20,6 +20,11 @@ namespace Player.StateHandling.POI
         private void OnEnable()
         {
             m_animator.SetInteger("AnimState", 0);
+
+            if (!m_interactibleDetector)
+            {
+                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            }
             if (m_interactibleDetector.interactible)
             {
                 m_interactibleDetector.interactible.ActivateBehavior();
