@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Events;
 
 namespace AI.Personality.Emotion
 {
     [Serializable]
     public struct EventEmotionEntry
     {
-        public EventType m_eventType;
+        public Events.EventType m_eventType;
         public EmotionType m_emotionType;
         public float m_value;
 
-        public EventEmotionEntry(EventType eventType, EmotionType emotionType, float value)
+        public EventEmotionEntry(Events.EventType eventType, EmotionType emotionType, float value)
         {
             m_eventType = eventType;
             m_emotionType = emotionType;
@@ -24,6 +25,6 @@ namespace AI.Personality.Emotion
     public class EventsEmotionIntensities : ScriptableObject
     {
         [SerializeField]
-        private EventEmotionEntry[] m_personalityTraitsValues;
+        public EventEmotionEntry[] m_eventEmotionIntensity;
     }
 }

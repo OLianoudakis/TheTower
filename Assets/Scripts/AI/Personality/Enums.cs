@@ -30,8 +30,7 @@ namespace AI.Personality
         SocialContact = 12,
         SocialStatus = 13,
         Tranquility = 14,
-        Vengeance = 15,
-
+        Vengeance = 15
     }
 
     public enum EmotionType
