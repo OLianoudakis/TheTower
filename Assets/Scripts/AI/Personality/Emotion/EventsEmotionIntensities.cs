@@ -10,7 +10,9 @@ namespace AI.Personality.Emotions
     public struct Emotion
     {
         public EmotionType m_emotionType;
-        public float m_value;
+        public float m_initialIntensity;
+        public float m_currentIntensity;
+        public float m_initialTime;
     }
 
     [Serializable]
