@@ -4,9 +4,17 @@ using UnityEngine;
 
 namespace AI.Behavior
 {
-    // TODO manage set of possible actions according to priority
     public class BehaviorManager : MonoBehaviour
     {
+        [SerializeField]
+        private float m_emotionIntensityTreshold = 0.6f;
+
+        private float[] m_finishedMotivations;
+
+        public float[] finishedMotivations
+        {
+            get { return m_finishedMotivations; }
+        }
         // Start is called before the first frame update
         void Start()
         {

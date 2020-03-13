@@ -45,5 +45,71 @@ namespace AI.Personality
                 {  0.1f, -0.5f, -0.2f, -0.5f, -0.1f, -0.43f, 0.4f, 0.4f, -0.4f, 0.3f, -0.2f,
                     -0.6f, 0.4f, -0.24f, 0.1f, -0.3f, 0.25f, 0.4f, -0.6f, 0.2f, 0.3f }  // D
             };
+
+        public static readonly List<MotivationDesires>[] EmotionToMotivation
+            = new List<MotivationDesires>[21]
+            {
+                new List<MotivationDesires>(){MotivationDesires.Curiosity,  MotivationDesires.SocialContact, MotivationDesires.Eating},
+                new List<MotivationDesires>(){MotivationDesires.SocialContact, MotivationDesires.Family, MotivationDesires.Idealism},
+                new List<MotivationDesires>(){MotivationDesires.Saving, MotivationDesires.SocialStatus},
+                new List<MotivationDesires>(){MotivationDesires.Idealism},
+                new List<MotivationDesires>(){MotivationDesires.Idealism, MotivationDesires.Curiosity},
+                new List<MotivationDesires>(){MotivationDesires.Tranquility, MotivationDesires.Order},
+                new List<MotivationDesires>(){MotivationDesires.Saving},
+                new List<MotivationDesires>(){MotivationDesires.Tranquility, MotivationDesires.Acceptance},
+                new List<MotivationDesires>(){MotivationDesires.SocialContact, MotivationDesires.Family, MotivationDesires.Idealism},
+                new List<MotivationDesires>(){MotivationDesires.SocialStatus, MotivationDesires.Honor},
+                new List<MotivationDesires>(){MotivationDesires.SocialContact, MotivationDesires.Honor, MotivationDesires.Idealism},
+                new List<MotivationDesires>(){MotivationDesires.Acceptance, MotivationDesires.SocialContact},
+                new List<MotivationDesires>(){MotivationDesires.Vengeance},
+                new List<MotivationDesires>(){MotivationDesires.Family, MotivationDesires.SocialContact, MotivationDesires.Romance},
+                new List<MotivationDesires>(){MotivationDesires.Vengeance, MotivationDesires.Power},
+                new List<MotivationDesires>(){MotivationDesires.SocialContact, MotivationDesires.Idealism},
+                new List<MotivationDesires>(){MotivationDesires.Vengeance, MotivationDesires.Power, MotivationDesires.Idealism},
+                new List<MotivationDesires>(){MotivationDesires.Acceptance, MotivationDesires.SocialStatus, MotivationDesires.Honor},
+                new List<MotivationDesires>(){MotivationDesires.Acceptance, MotivationDesires.Idealism, MotivationDesires.Tranquility},
+                new List<MotivationDesires>(){MotivationDesires.Family, MotivationDesires.SocialContact, MotivationDesires.Romance},
+                new List<MotivationDesires>(){MotivationDesires .Vengeance, MotivationDesires.Power}
+            };
+
+        public static readonly int[,] EmotionToPersonalityTraits
+            = new int[21, 5]
+            {
+                // O  C  E  A  N
+                {  1, 0, 1, 0, 0 },
+                {  1, 0, 0, 0, 1 },
+                {  1, 1, 0, -1, 1 },
+                {  1, 0, 0, 1, 1},
+                {  0, 0, 1, 0, 0 },
+                {  -1, 1, 0, 0, 1 },
+                {  1, 0, 1, 0, 0 },
+                {  0, 0, 1, 0, 0 },
+                {  -1, 0, 0, 0, 1 },
+                {  1, 0, 1, 0, 0 },
+                {  1, 0, 1, 1, 0 },
+                {  -1, 0, 0, 0, 1 },
+                {  0, 0, 0, -1, 1 },
+                {  1, 0, 1, 1, 0 },
+                {  0, 0, 0, -1, 1 },
+                {  1, 0, 1, 0, 0 },
+                {  0, 0, 0, -1, 1 },
+                {  1, 0, 1, 0, 0 },
+                {  1, 0, 0, 0, 1 },
+                {  1, 0, 1, 0, 0 },
+                {  1, 0, 0, -1, 1 }
+            };
+
+        public static readonly int[,] MoodOctants
+            = new int[8, 3]
+        {
+            { 1, 1, 1},
+            { 1, 1, -1},
+            { 1, -1, 1},
+            { 1, -1, -1},
+            { -1, -1, -1},
+            { -1, -1, 1},
+            { -1, 1, -1},
+            { -1, 1, 1}
+        };
     }
 }

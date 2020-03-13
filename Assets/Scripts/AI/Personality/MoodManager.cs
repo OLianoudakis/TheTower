@@ -11,6 +11,11 @@ namespace AI.Personality
         private float[] m_baseMood;
         private float m_baseMoodWeight = 0.5f;
 
+        public float[] mood
+        {
+            get { return m_mood; }
+        }
+
         public MoodManager(PersonalityModel personalityModel)
         {
             m_mood = new float[3] { 0.0f, 0.0f, 0.0f };
