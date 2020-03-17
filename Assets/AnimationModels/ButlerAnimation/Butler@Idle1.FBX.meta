@@ -1,0 +1,1078 @@
+fileFormatVersion: 2
+guid: 9673535f8252be640a1276216b297dfc
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: ButlerIdle1
+  - first:
+      74: -6775884027671718737
+    second: ButlerIdle1
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'Rig_ButlerHand(L)Forearm2'
+      : rotation error = 6.223376 deg\n\t'Rig_ButlerHand(R)Forearm2' : rotation error
+      = 27.444517 deg\n"
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Rig_ButlerHand(L)Forearm2' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ButlerIdle1
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 1
+      lastFrame: 129
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Rig_ButlerHub
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(L)Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(R)Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(L)Shin
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(R)Shin
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(L)Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(R)Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerSpine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerSpine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerNeck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHead
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Collarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Collarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Uparm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)1
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Forearm1
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Forearm1
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Palm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Palm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(L)Toe1
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerLeg(R)Toe1
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerJaw
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit11
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit12
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit13
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit21
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit22
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit23
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit31
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit32
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit33
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit41
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit42
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit43
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit51
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit52
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(L)Digit53
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit11
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit12
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit13
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit21
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit22
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit23
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit31
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit32
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit33
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit41
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit42
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit43
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit51
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit52
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerHand(R)Digit53
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Rig_ButlerChest
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Butler@Idle1(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rig_Butler
+      parentName: Butler@Idle1(Clone)
+      position: {x: 0.00000022888183, y: 0, z: -0.054392174}
+      rotation: {x: 0.50000006, y: -0.50000006, z: -0.49999994, w: 0.49999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rig_ButlerLeg(R)Platform
+      parentName: Butler@Idle1(Clone)
+      position: {x: 0.12397164, y: 0.0000000051329767, z: 0.092571184}
+      rotation: {x: 0.4956177, y: -0.4956177, z: -0.5043442, w: 0.5043442}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rig_ButlerHand(L)CollarboneCTRL
+      parentName: Butler@Idle1(Clone)
+      position: {x: -0.030770622, y: 0.8173739, z: -0.00019365191}
+      rotation: {x: 0.6826697, y: -0.2319156, z: 0.31658298, w: 0.6164028}
+      scale: {x: 0.9999997, y: 1.0000004, z: 1.0000002}
+    - name: Rig_ButlerHand(R)CollarboneCTRL
+      parentName: Butler@Idle1(Clone)
+      position: {x: 0.030885493, y: 0.82000345, z: 0.012980819}
+      rotation: {x: 0.06136067, y: 0.6585217, z: 0.7367468, w: -0.14067069}
+      scale: {x: 1.0000004, y: 0.9999994, z: 0.99999994}
+    - name: Butler_teeth
+      parentName: Butler@Idle1(Clone)
+      position: {x: -0, y: -0.0004858589, z: -0.033290353}
+      rotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lamp_Mesh
+      parentName: Butler@Idle1(Clone)
+      position: {x: 0.41668847, y: 0.3978046, z: -0.041312657}
+      rotation: {x: -0.703549, y: -0.07084367, z: -0.07084367, w: 0.703549}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lamp_glass
+      parentName: Lamp_Mesh
+      position: {x: -0.000016450882, y: 0.000060539245, z: -0.15129758}
+      rotation: {x: -0.08715601, y: 0.99619466, z: -0.00000007521061, w: 0.000000006580096}
+      scale: {x: 0.9293338, y: 0.9293338, z: 0.92933375}
+    - name: Lamp_frame
+      parentName: Lamp_Mesh
+      position: {x: -0.00058908464, y: -0.0000071811673, z: 0.11074493}
+      rotation: {x: -0.06162861, y: 0.7044161, z: 0.704416, w: -0.061628602}
+      scale: {x: 0.9293338, y: 0.92933375, z: 0.9293338}
+    - name: Lamp_handle
+      parentName: Lamp_Mesh
+      position: {x: -0.00058914186, y: -0.0000071811673, z: 0.11074493}
+      rotation: {x: -0.06162861, y: 0.7044161, z: 0.704416, w: -0.061628602}
+      scale: {x: 0.9293338, y: 0.92933375, z: 0.9293338}
+    - name: Butler_Mesh
+      parentName: Butler@Idle1(Clone)
+      position: {x: -0.014032087, y: 0.5513491, z: 0.09151696}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Butler_body
+      parentName: Butler_Mesh
+      position: {x: 0.014032087, y: 0.124807306, z: -0.55183494}
+      rotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Butler_skirt
+      parentName: Butler_Mesh
+      position: {x: 0.014032087, y: 0.124807306, z: -0.55183494}
+      rotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rig_LampHandle
+      parentName: Butler@Idle1(Clone)
+      position: {x: 0.03136506, y: 0.7438147, z: 0.2809516}
+      rotation: {x: -0.0000019181682, y: -0.0000017850614, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1.0000005, y: 1.0000002, z: 0.9999996}
+    - name: Rig_LampFrame
+      parentName: Rig_LampHandle
+      position: {x: -0.0997799, y: 0.000000011101329, z: -0.0000000014136393}
+      rotation: {x: 0.000002599113, y: -0.000000002194838, z: -0.0024187565, w: 0.99999714}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: Rig_ButlerLeg(L)Platform
+      parentName: Butler@Idle1(Clone)
+      position: {x: -0.089999996, y: 0.000000007724448, z: -0.039652947}
+      rotation: {x: -0.50000006, y: 0.50000006, z: 0.49999994, w: -0.5}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Rig_ButlerHub
+      parentName: Butler@Idle1(Clone)
+      position: {x: -0.000000009313226, y: 0.49917948, z: -0.013185918}
+      rotation: {x: -0.5, y: 0.50000006, z: 0.49999994, w: -0.5}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Rig_ButlerHubBone010
+      parentName: Rig_ButlerHub
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.043612737, y: -0.017435936, z: -0.00076126546, w: 0.9988961}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: Rig_ButlerSpine1
+      parentName: Rig_ButlerHubBone010
+      position: {x: -0.06203287, y: -0.0102497935, z: 0.0000000017881393}
+      rotation: {x: -0.043612737, y: -0.017435936, z: -0.00076126546, w: -0.9988961}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000006}
+    - name: Rig_ButlerSpine2
+      parentName: Rig_ButlerSpine1
+      position: {x: -0.08438301, y: 0, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999998, y: 0.99999964, z: 0.9999998}
+    - name: Rig_ButlerChest
+      parentName: Rig_ButlerSpine2
+      position: {x: -0.048124693, y: 0, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: -1}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: Rig_ButlerNeck
+      parentName: Rig_ButlerChest
+      position: {x: -0.19744182, y: -0.0027375554, z: -0.0000000035762786}
+      rotation: {x: -0.00000071525574, y: -0.000000059604645, z: -0.22522242, w: 0.9743074}
+      scale: {x: 1, y: 1, z: 1.0000005}
+    - name: Rig_ButlerHead
+      parentName: Rig_ButlerNeck
+      position: {x: -0.06696287, y: 0.000000028610229, z: 0.0000000035762786}
+      rotation: {x: -0.0000007748604, y: -0.000000074505806, z: -0.19096988, w: -0.9815959}
+      scale: {x: 1.0000004, y: 0.99999964, z: 0.99999994}
+    - name: Butler_eye(L)
+      parentName: Rig_ButlerHead
+      position: {x: 0.94324154, y: 0.053803798, z: -0.032026947}
+      rotation: {x: -0.033963777, y: 0.71414095, z: 0.060763795, w: 0.6965321}
+      scale: {x: 0.9999998, y: 0.99999976, z: 0.99999964}
+    - name: Butler_eye(R)
+      parentName: Rig_ButlerHead
+      position: {x: 0.94324154, y: 0.053803798, z: -0.032026947}
+      rotation: {x: -0.69653195, y: -0.060765456, z: 0.71414095, w: -0.03396544}
+      scale: {x: -0.9999999, y: -0.9999999, z: -0.9999997}
+    - name: Rig_ButlerLidUp(L)
+      parentName: Rig_ButlerHead
+      position: {x: -0.04346363, y: 0.075073525, z: 0.029310822}
+      rotation: {x: -0.05971154, y: 0.21417758, z: -0.696241, w: 0.68250346}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000005}
+    - name: Rig_ButlerLidDown(L)
+      parentName: Rig_ButlerHead
+      position: {x: -0.02539318, y: 0.0761237, z: 0.023240728}
+      rotation: {x: -0.06875323, y: 0.20292442, z: -0.76057386, w: 0.6128801}
+      scale: {x: 1.0000002, y: 0.9999998, z: 1.0000001}
+    - name: Rig_ButlerJaw
+      parentName: Rig_ButlerHead
+      position: {x: 0.007474823, y: 0.019221896, z: -0.0000000035762786}
+      rotation: {x: 0.000000024809397, y: 0.00000022458904, z: 0.9278376, w: -0.3729845}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000005}
+    - name: Rig_ButlerLidUp(R)
+      parentName: Rig_ButlerHead
+      position: {x: -0.04346386, y: 0.07507352, z: -0.029310845}
+      rotation: {x: -0.05971141, y: 0.21417749, z: 0.696241, w: -0.68250346}
+      scale: {x: 1.0000006, y: 1.0000008, z: 0.99999994}
+    - name: Rig_ButlerLidDown(R)
+      parentName: Rig_ButlerHead
+      position: {x: -0.02539318, y: 0.0761237, z: -0.02324074}
+      rotation: {x: -0.06875312, y: 0.20292445, z: 0.760574, w: -0.61288005}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: Rig_ButlerHand(L)Collarbone
+      parentName: Rig_ButlerChest
+      position: {x: -0.1317318, y: 0.011711397, z: 0.03155137}
+      rotation: {x: -0.084514566, y: -0.7124895, z: -0.14001082, w: -0.6823585}
+      scale: {x: 0.9999999, y: 1.0000013, z: 1.000001}
+    - name: Rig_ButlerHand(L)Uparm
+      parentName: Rig_ButlerHand(L)Collarbone
+      position: {x: -0.07964119, y: 0, z: 0}
+      rotation: {x: 0.06905564, y: 0.0035100866, z: -0.17287967, w: 0.98251295}
+      scale: {x: 1, y: 1.0000002, z: 0.99999994}
+    - name: Rig_ButlerHand(L)Forearm1
+      parentName: Rig_ButlerHand(L)Uparm
+      position: {x: -0.14525768, y: 0, z: 0}
+      rotation: {x: -0.0010482144, y: 0.0010395428, z: -0.010535359, w: 0.9999435}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+    - name: Rig_ButlerHand(L)Forearm2
+      parentName: Rig_ButlerHand(L)Forearm1
+      position: {x: -0.07721369, y: 0.000000014305114, z: 0}
+      rotation: {x: -0.007459046, y: 0.00000007823107, z: -0.000000034042376, w: 0.9999722}
+      scale: {x: 1, y: 1.0000004, z: 1.0000002}
+    - name: Rig_ButlerHand(L)Palm
+      parentName: Rig_ButlerHand(L)Forearm2
+      position: {x: -0.07721369, y: 0.000000014305114, z: 0}
+      rotation: {x: -0.70838445, y: -0.019674236, z: 0.10366736, w: 0.69789505}
+      scale: {x: 1.0000021, y: 0.99999946, z: 1}
+    - name: Rig_ButlerHand(L)Digit21
+      parentName: Rig_ButlerHand(L)Palm
+      position: {x: -0.07864972, y: -0.00023085593, z: 0.039074548}
+      rotation: {x: -0.0000014901156, y: 0.11100871, z: 0.0000010207292, w: 0.9938194}
+      scale: {x: 1.0000012, y: 0.99999934, z: 1.0000002}
+    - name: Rig_ButlerHand(L)Digit22
+      parentName: Rig_ButlerHand(L)Digit21
+      position: {x: -0.027381506, y: -0.000000014305114, z: 0}
+      rotation: {x: 0.0000012641651, y: 0.000000044703448, z: 0.039224744, w: 0.99923044}
+      scale: {x: 1.0000015, y: 0.9999984, z: 0.9999997}
+    - name: Rig_ButlerHand(L)Digit23
+      parentName: Rig_ButlerHand(L)Digit22
+      position: {x: -0.026857737, y: 0.000000007152557, z: 0}
+      rotation: {x: 0.000000009863013, y: -0.00000014975303, z: 0.024686376, w: 0.9996953}
+      scale: {x: 1.0000018, y: 0.9999985, z: 1.0000005}
+    - name: Rig_ButlerHand(L)Digit31
+      parentName: Rig_ButlerHand(L)Palm
+      position: {x: -0.08305601, y: 0.0062037846, z: 0.013241965}
+      rotation: {x: -0.00002729892, y: 0.023659727, z: -0.0011398715, w: 0.9997195}
+      scale: {x: 1.0000019, y: 0.9999991, z: 1.0000001}
+    - name: Rig_ButlerHand(L)Digit32
+      parentName: Rig_ButlerHand(L)Digit31
+      position: {x: -0.033614617, y: -0.000000014305114, z: -0.0000000035762786}
+      rotation: {x: 0.00000013958362, y: -0.00000001862643, z: 0.03921782, w: 0.9992307}
+      scale: {x: 0.9999992, y: 1.0000017, z: 1.0000002}
+    - name: Rig_ButlerHand(L)Digit33
+      parentName: Rig_ButlerHand(L)Digit32
+      position: {x: -0.03136299, y: 0, z: -0.000000010728836}
+      rotation: {x: -0.000000039456197, y: 0.00000011911369, z: 0.05564731, w: 0.9984505}
+      scale: {x: 0.9999986, y: 1.0000012, z: 1}
+    - name: Rig_ButlerHand(L)Digit41
+      parentName: Rig_ButlerHand(L)Palm
+      position: {x: -0.08100079, y: 0.0049268818, z: -0.010680867}
+      rotation: {x: -0.096308, y: 0.01211361, z: -0.0016988539, w: 0.99527645}
+      scale: {x: 0.999999, y: 1.0000023, z: 0.99999994}
+    - name: Rig_ButlerHand(L)Digit42
+      parentName: Rig_ButlerHand(L)Digit41
+      position: {x: -0.029819125, y: 0.000000028610229, z: 0}
+      rotation: {x: -0.00000023841841, y: -0.00000019650892, z: 0.04081085, w: 0.99916697}
+      scale: {x: 0.99999934, y: 1.0000005, z: 1.0000006}
+    - name: Rig_ButlerHand(L)Digit43
+      parentName: Rig_ButlerHand(L)Digit42
+      position: {x: -0.024811476, y: 0.000000028610229, z: -0.000000007152557}
+      rotation: {x: -0.00000006161204, y: -0.000000008105754, z: 0.08044022, w: 0.9967594}
+      scale: {x: 0.99999934, y: 1.0000013, z: 1.0000004}
+    - name: Rig_ButlerHand(L)Digit51
+      parentName: Rig_ButlerHand(L)Palm
+      position: {x: -0.067704305, y: -0.003818836, z: -0.036314603}
+      rotation: {x: -0.26040107, y: 0.018488484, z: 0.004344251, w: 0.96531373}
+      scale: {x: 0.9999977, y: 0.9999998, z: 1.0000033}
+    - name: Rig_ButlerHand(L)Digit52
+      parentName: Rig_ButlerHand(L)Digit51
+      position: {x: -0.021071605, y: 0.000000028610229, z: 0}
+      rotation: {x: 0.00000023841838, y: -0.00000012479713, z: 0.040830255, w: 0.9991661}
+      scale: {x: 0.9999975, y: 0.9999998, z: 1.0000038}
+    - name: Rig_ButlerHand(L)Digit53
+      parentName: Rig_ButlerHand(L)Digit52
+      position: {x: -0.02022088, y: 0, z: 0}
+      rotation: {x: -0.0000000041127763, y: 0.0000006218578, z: 0.07392769, w: 0.9972636}
+      scale: {x: 0.9999977, y: 1.000004, z: 0.99999934}
+    - name: Rig_ButlerHand(L)Digit11
+      parentName: Rig_ButlerHand(L)Palm
+      position: {x: -0.014195308, y: -0.00016433715, z: 0.025474751}
+      rotation: {x: 0.18494676, y: 0.4319463, z: -0.060416833, w: 0.88066274}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1}
+    - name: Rig_ButlerHand(L)Digit12
+      parentName: Rig_ButlerHand(L)Digit11
+      position: {x: -0.039254952, y: 0.0000000035762786, z: -0.000000014305114}
+      rotation: {x: -0.00018835068, y: -0.03436151, z: 0.025423676, w: 0.999086}
+      scale: {x: 0.9999992, y: 1.0000014, z: 1}
+    - name: Rig_ButlerHand(L)Digit13
+      parentName: Rig_ButlerHand(L)Digit12
+      position: {x: -0.037027128, y: 0.000000007152557, z: 0}
+      rotation: {x: -0.0025537985, y: -0.18215603, z: -0.013795922, w: 0.98316956}
+      scale: {x: 1.0000005, y: 1.0000004, z: 0.9999996}
+    - name: Rig_ButlerHand(R)Collarbone
+      parentName: Rig_ButlerChest
+      position: {x: -0.1317318, y: 0.011711425, z: -0.031551387}
+      rotation: {x: -0.08451467, y: -0.71248925, z: 0.14001064, w: 0.6823586}
+      scale: {x: 1.0000008, y: 0.99999976, z: 1.0000004}
+    - name: Rig_ButlerHand(R)1
+      parentName: Rig_ButlerHand(R)Collarbone
+      position: {x: -0.07964118, y: -0.0000000035762786, z: 0}
+      rotation: {x: -0.06905537, y: -0.0035105343, z: -0.1728802, w: 0.98251283}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000004}
+    - name: Rig_ButlerHand(R)Forearm1
+      parentName: Rig_ButlerHand(R)1
+      position: {x: -0.14525765, y: 0.000000014305114, z: 0}
+      rotation: {x: 0.0010481775, y: -0.0010392931, z: -0.0105351955, w: 0.9999435}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000005}
+    - name: Rig_ButlerHand(R)Forearm2
+      parentName: Rig_ButlerHand(R)Forearm1
+      position: {x: -0.07721369, y: 0.000000028610229, z: 0}
+      rotation: {x: 0.007459168, y: -0.00000013783571, z: -0.000000029764117, w: 0.9999722}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.99999994}
+    - name: Rig_ButlerHand(R)Palm
+      parentName: Rig_ButlerHand(R)Forearm2
+      position: {x: -0.07721369, y: 0.000000014305114, z: 0.000000057220458}
+      rotation: {x: 0.7083849, y: 0.01967406, z: 0.103668384, w: 0.69789445}
+      scale: {x: 0.9999992, y: 1.0000007, z: 1.000001}
+    - name: Rig_ButlerHand(R)Digit21
+      parentName: Rig_ButlerHand(R)Palm
+      position: {x: -0.07864949, y: -0.00023094176, z: -0.039074663}
+      rotation: {x: -0.00000014901161, y: -0.11100951, z: -0.0000010989606, w: 0.9938194}
+      scale: {x: 0.99999833, y: 1.0000012, z: 0.9999996}
+    - name: Rig_ButlerHand(R)Digit22
+      parentName: Rig_ButlerHand(R)Digit21
+      position: {x: -0.027381519, y: 0, z: 0.000000014305114}
+      rotation: {x: 0.0000014392549, y: 0.0000011101362, z: 0.039221056, w: 0.9992306}
+      scale: {x: 0.99999964, y: 1.0000018, z: 1.0000012}
+    - name: Rig_ButlerHand(R)Digit23
+      parentName: Rig_ButlerHand(R)Digit22
+      position: {x: -0.026857682, y: -0.000000014305114, z: 0}
+      rotation: {x: -0.0000001801815, y: 0.00000014863592, z: 0.02468628, w: 0.99969524}
+      scale: {x: 0.9999987, y: 1.0000011, z: 0.99999994}
+    - name: Rig_ButlerHand(R)Digit31
+      parentName: Rig_ButlerHand(R)Palm
+      position: {x: -0.08305587, y: 0.006203728, z: -0.013241987}
+      rotation: {x: 0.000027239323, y: -0.023659842, z: -0.0011397549, w: 0.9997195}
+      scale: {x: 0.9999986, y: 1.0000012, z: 0.9999997}
+    - name: Rig_ButlerHand(R)Digit32
+      parentName: Rig_ButlerHand(R)Digit31
+      position: {x: -0.033614587, y: -0.000000057220458, z: 0}
+      rotation: {x: -0.00000004481441, y: 0.000000083818975, z: 0.03922039, w: 0.99923056}
+      scale: {x: 1.0000012, y: 0.999999, z: 1}
+    - name: Rig_ButlerHand(R)Digit33
+      parentName: Rig_ButlerHand(R)Digit32
+      position: {x: -0.031362932, y: -0.000000014305114, z: -0.000000014305114}
+      rotation: {x: 0.00000016627219, y: -0.000000013216251, z: 0.055647276, w: 0.9984506}
+      scale: {x: 1.0000011, y: 0.9999997, z: 1.0000002}
+    - name: Rig_ButlerHand(R)Digit41
+      parentName: Rig_ButlerHand(R)Palm
+      position: {x: -0.08100062, y: 0.004926739, z: 0.010680871}
+      rotation: {x: 0.09630825, y: -0.012115248, z: -0.0016993223, w: 0.9952764}
+      scale: {x: 1, y: 0.9999986, z: 0.9999991}
+    - name: Rig_ButlerHand(R)Digit42
+      parentName: Rig_ButlerHand(R)Digit41
+      position: {x: -0.029819125, y: 0, z: 0}
+      rotation: {x: -0.0000005736944, y: 0.0000001890584, z: 0.040809996, w: 0.99916697}
+      scale: {x: 1.0000012, y: 0.99999887, z: 0.9999997}
+    - name: Rig_ButlerHand(R)Digit43
+      parentName: Rig_ButlerHand(R)Digit42
+      position: {x: -0.024811476, y: -0.000000014305114, z: 0}
+      rotation: {x: -0.000000107835405, y: -0.00000014167846, z: 0.08044008, w: 0.99675953}
+      scale: {x: 0.9999992, y: 1.0000004, z: 0.9999996}
+    - name: Rig_ButlerHand(R)Digit51
+      parentName: Rig_ButlerHand(R)Palm
+      position: {x: -0.06770413, y: -0.0038189506, z: 0.036314648}
+      rotation: {x: 0.2604036, y: -0.018488685, z: 0.004342495, w: 0.9653131}
+      scale: {x: 1.0000017, y: 1, z: 0.9999971}
+    - name: Rig_ButlerHand(R)Digit52
+      parentName: Rig_ButlerHand(R)Digit51
+      position: {x: -0.021071577, y: 0, z: 0}
+      rotation: {x: 0.00000017881385, y: -0.00000008754428, z: 0.040831257, w: 0.9991661}
+      scale: {x: 1.0000025, y: 1.0000006, z: 0.999997}
+    - name: Rig_ButlerHand(R)Digit53
+      parentName: Rig_ButlerHand(R)Digit52
+      position: {x: -0.020220852, y: -0.000000014305114, z: 0.000000028610229}
+      rotation: {x: 0.00000012101441, y: -0.00000019351185, z: 0.07392749, w: 0.99726367}
+      scale: {x: 1.0000027, y: 0.9999971, z: 1.0000011}
+    - name: Rig_ButlerHand(R)Digit11
+      parentName: Rig_ButlerHand(R)Palm
+      position: {x: -0.014195251, y: -0.00016433715, z: -0.02547482}
+      rotation: {x: -0.1849507, y: -0.431945, z: -0.060419224, w: 0.8806624}
+      scale: {x: 0.99999994, y: 1, z: 0.9999983}
+    - name: Rig_ButlerHand(R)Digit12
+      parentName: Rig_ButlerHand(R)Digit11
+      position: {x: -0.039254952, y: 0, z: 0}
+      rotation: {x: 0.00018389524, y: 0.034361124, z: 0.025424035, w: 0.999086}
+      scale: {x: 1.0000007, y: 0.9999997, z: 0.99999857}
+    - name: Rig_ButlerHand(R)Digit13
+      parentName: Rig_ButlerHand(R)Digit12
+      position: {x: -0.037027128, y: -0.000000028610229, z: 0}
+      rotation: {x: 0.002558153, y: 0.1821562, z: -0.013794017, w: 0.9831695}
+      scale: {x: 1.0000011, y: 0.9999983, z: 0.9999999}
+    - name: Rig_ButlerSkirtCenter
+      parentName: Rig_ButlerHub
+      position: {x: -0.079537295, y: 0.08105359, z: 0}
+      rotation: {x: -0.000000044703484, y: -0.000000074505806, z: 0.9994247, w: -0.03391722}
+      scale: {x: 0.99999976, y: 0.99999976, z: 1}
+    - name: Rig_ButlerSkirt_R(1_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.07876757, y: 0.06305982, z: -0.05499415}
+      rotation: {x: -0.06553415, y: -0.3058053, z: -0.9490428, w: 0.03881042}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: Rig_ButlerSkirt_R(1_2)
+      parentName: Rig_ButlerSkirt_R(1_1)
+      position: {x: -0.068595625, y: 0, z: 0.000000007152557}
+      rotation: {x: -0.00000006938353, y: -0.0000000055879354, z: 0.02989081, w: 0.99955326}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Rig_ButlerSkirt_R(1_3)
+      parentName: Rig_ButlerSkirt_R(1_2)
+      position: {x: -0.089764334, y: 0, z: 0}
+      rotation: {x: -0.000000034252, y: -0.00000005488005, z: 0.0000000018626407,
+        w: 1}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1}
+    - name: Rig_ButlerSkirt_L(1_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.07876762, y: 0.06305982, z: 0.054994147}
+      rotation: {x: -0.06553416, y: -0.3058053, z: 0.9490428, w: -0.038810283}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000002}
+    - name: Rig_ButlerSkirt_L(1_2)
+      parentName: Rig_ButlerSkirt_L(1_1)
+      position: {x: -0.068595596, y: 0, z: -0.0000000017881393}
+      rotation: {x: -0.000000028871, y: -0, z: 0.02989095, w: 0.99955326}
+      scale: {x: 1, y: 1.0000005, z: 1}
+    - name: Rig_ButlerSkirt_L(1_3)
+      parentName: Rig_ButlerSkirt_L(1_2)
+      position: {x: -0.089764364, y: 0, z: 0}
+      rotation: {x: -0.00000002928792, y: 0.000000017647135, z: -0.0000000018626445,
+        w: 1}
+      scale: {x: 1.0000005, y: 1.0000011, z: 1.0000006}
+    - name: Rig_ButlerLeg(R)Thigh
+      parentName: Rig_ButlerHub
+      position: {x: -0.013740635, y: 0.0019429672, z: -0.06472391}
+      rotation: {x: 0.08142948, y: -0.9945398, z: 0.06478989, w: 0.007883012}
+      scale: {x: 0.99999857, y: 1.0000021, z: 0.9999996}
+    - name: Rig_ButlerLeg(R)Shin
+      parentName: Rig_ButlerLeg(R)Thigh
+      position: {x: -0.20152916, y: -0.000000014305114, z: 0}
+      rotation: {x: -0.014440189, y: 0.01192952, z: 0.1875594, w: 0.98207474}
+      scale: {x: 1.000004, y: 1.0000017, z: 0.9999972}
+    - name: Rig_ButlerLeg(R)Foot
+      parentName: Rig_ButlerLeg(R)Shin
+      position: {x: -0.23672345, y: 0, z: 0}
+      rotation: {x: 0.010405422, y: -0.011534661, z: -0.4593618, w: 0.8881134}
+      scale: {x: 0.99999887, y: 1.0000013, z: 0.9999998}
+    - name: Rig_ButlerLeg(R)Toe1
+      parentName: Rig_ButlerLeg(R)Foot
+      position: {x: -0.10826132, y: -0.000000007152557, z: 0.000000007152557}
+      rotation: {x: -0.011372417, y: -0.02650556, z: -0.40307748, w: 0.9147113}
+      scale: {x: 1.0000004, y: 0.9999996, z: 1.0000004}
+    - name: Rig_ButlerSkirt_L(2_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.07672371, y: 0.009216345, z: 0.09255436}
+      rotation: {x: -0.08961549, y: -0.605402, z: 0.78564394, w: -0.09067008}
+      scale: {x: 1.0000004, y: 1.0000007, z: 1.0000008}
+    - name: Rig_ButlerSkirt_L(2_2)
+      parentName: Rig_ButlerSkirt_L(2_1)
+      position: {x: -0.078429304, y: -0.000000014305114, z: -0.0000000017881393}
+      rotation: {x: 0.000000038649887, y: -0, z: -0.02363066, w: 0.9997208}
+      scale: {x: 1.0000004, y: 1, z: 1.0000001}
+    - name: Rig_ButlerSkirt_L(2_3)
+      parentName: Rig_ButlerSkirt_L(2_2)
+      position: {x: -0.078429334, y: 0, z: 0}
+      rotation: {x: 0.0000004350672, y: -0.000000036660392, z: -0.09377969, w: 0.995593}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000015}
+    - name: Rig_ButlerSkirt_L(3_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.074605405, y: -0.053446095, z: 0.07529795}
+      rotation: {x: -0.043378823, y: -0.90311784, z: 0.42385763, w: -0.05330357}
+      scale: {x: 0.9999999, y: 0.99999976, z: 1}
+    - name: Rig_ButlerSkirt_L(3_2)
+      parentName: Rig_ButlerSkirt_L(3_1)
+      position: {x: -0.07891045, y: -0.000000007152557, z: -0.0000000035762786}
+      rotation: {x: 0.000000024447214, y: -0.000000026077029, z: 0.018130908, w: 0.9998356}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000001}
+    - name: Rig_ButlerSkirt_L(3_3)
+      parentName: Rig_ButlerSkirt_L(3_2)
+      position: {x: -0.07580108, y: 0, z: 0}
+      rotation: {x: -0.00000010056052, y: 0.000000023354815, z: -0.033120755, w: 0.99945134}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+    - name: Rig_ButlerSkirt_L(4_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.072932735, y: -0.079563, z: 0.017061621}
+      rotation: {x: -0.0059920996, y: -0.9983098, z: 0.04329574, w: -0.038304403}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000001}
+    - name: Rig_ButlerSkirt_L(4_2)
+      parentName: Rig_ButlerSkirt_L(4_1)
+      position: {x: -0.07268812, y: -0.0000000035762786, z: 0}
+      rotation: {x: -0.000000072439434, y: 0.000000033527613, z: 0.07534533, w: 0.9971576}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000008}
+    - name: Rig_ButlerSkirt_L(4_3)
+      parentName: Rig_ButlerSkirt_L(4_2)
+      position: {x: -0.08649885, y: 0, z: 0}
+      rotation: {x: -0.000000103878556, y: 0.000000024074897, z: -0.06800463, w: 0.9976851}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: Rig_ButlerSkirt_R(4_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.07293268, y: -0.07956301, z: -0.017061617}
+      rotation: {x: -0.005991996, y: -0.9983098, z: -0.0432957, w: 0.038304377}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: Rig_ButlerSkirt_R(4_2)
+      parentName: Rig_ButlerSkirt_R(4_1)
+      position: {x: -0.072688065, y: 0, z: 0}
+      rotation: {x: 0.00000007404014, y: 0.0000000074505797, z: 0.07534542, w: 0.99715745}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1}
+    - name: Rig_ButlerSkirt_R(4_3)
+      parentName: Rig_ButlerSkirt_R(4_2)
+      position: {x: -0.08649882, y: 0, z: 0}
+      rotation: {x: -2.4424196e-10, y: -0.000000019957309, z: -0.0680046, w: 0.9976851}
+      scale: {x: 1.0000006, y: 1.0000008, z: 1.0000007}
+    - name: Rig_ButlerLeg(L)Thigh
+      parentName: Rig_ButlerHub
+      position: {x: -0.013740635, y: 0.0019429636, z: 0.064723894}
+      rotation: {x: 0.0814212, y: -0.9945413, z: -0.064775884, w: -0.00789845}
+      scale: {x: 1.0000015, y: 0.9999986, z: 1}
+    - name: Rig_ButlerLeg(L)Shin
+      parentName: Rig_ButlerLeg(L)Thigh
+      position: {x: -0.20152919, y: -0.000000014305114, z: 0.000000057220458}
+      rotation: {x: 0.014457775, y: -0.011987476, z: 0.18768959, w: 0.9820488}
+      scale: {x: 0.9999992, y: 0.9999995, z: 1.0000013}
+    - name: Rig_ButlerLeg(L)Foot
+      parentName: Rig_ButlerLeg(L)Shin
+      position: {x: -0.23672344, y: -0.0000000035762786, z: 0.000000007152557}
+      rotation: {x: -0.010415584, y: 0.0116761625, z: -0.4596882, w: 0.88794255}
+      scale: {x: 1.0000025, y: 0.99999726, z: 1}
+    - name: Rig_ButlerLeg(L)Toe1
+      parentName: Rig_ButlerLeg(L)Foot
+      position: {x: -0.10826132, y: -0.000000007152557, z: 0}
+      rotation: {x: 0.011403308, y: 0.026424352, z: -0.4028693, w: 0.9148049}
+      scale: {x: 1.0000027, y: 0.99999785, z: 1.0000002}
+    - name: Rig_ButlerSkirt_R(2_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.07672376, y: 0.009216342, z: -0.09255436}
+      rotation: {x: -0.08961558, y: -0.6054019, z: -0.785644, w: 0.090670094}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000001}
+    - name: Rig_ButlerSkirt_R(2_2)
+      parentName: Rig_ButlerSkirt_R(2_1)
+      position: {x: -0.078429304, y: 0, z: 0.0000000035762786}
+      rotation: {x: -0.000000037718568, y: 0.000000052154068, z: -0.02363086, w: 0.99972075}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000001}
+    - name: Rig_ButlerSkirt_R(2_3)
+      parentName: Rig_ButlerSkirt_R(2_2)
+      position: {x: -0.078429334, y: 0.000000028610229, z: -0.0000000035762786}
+      rotation: {x: 0.0000009436327, y: -0.000000077681825, z: -0.09377952, w: 0.995593}
+      scale: {x: 1.0000005, y: 1.0000005, z: 0.9999999}
+    - name: Rig_ButlerSkirt_R(3_1)
+      parentName: Rig_ButlerHub
+      position: {x: -0.074605405, y: -0.053446095, z: -0.07529796}
+      rotation: {x: -0.04337886, y: -0.9031176, z: -0.423858, w: 0.053303644}
+      scale: {x: 1.0000007, y: 1.0000004, z: 1.0000006}
+    - name: Rig_ButlerSkirt_R(3_2)
+      parentName: Rig_ButlerSkirt_R(3_1)
+      position: {x: -0.0789105, y: 0.000000007152557, z: 0.000000007152557}
+      rotation: {x: 0.00000006216578, y: -0.000000044703484, z: 0.018130843, w: 0.99983567}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1}
+    - name: Rig_ButlerSkirt_R(3_3)
+      parentName: Rig_ButlerSkirt_R(3_2)
+      position: {x: -0.07580108, y: 0, z: 0}
+      rotation: {x: -0.000000107397355, y: 0.000000025945, z: -0.03312072, w: 0.9994514}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
