@@ -19,12 +19,7 @@ namespace AI.Behavior.Actions
         private NavMeshAgent m_navMeshAgent;
         private Vector3 m_currentControlPoint;
         private Animator m_animator;
-        private bool m_isPatroling = true;
-
-        public void ActivateAction()
-        {
-            StartCoroutine(Patrol());
-        }
+        private bool m_isPatroling = true;       
 
         public bool isPatroling
         {
@@ -32,7 +27,7 @@ namespace AI.Behavior.Actions
             set { m_isPatroling = value; }
         }
 
-        private void Start()
+        private void Awake()
         {
             m_animator = transform.parent.transform.parent.GetComponentInChildren<Animator>();
             m_navMeshAgent = transform.parent.transform.parent.GetComponent<NavMeshAgent>();
@@ -42,7 +37,6 @@ namespace AI.Behavior.Actions
             {
                 m_patrolPoints.SetValue(tempPoints[i], i - 1);
             }
-            ActivateAction(); //TODO Remove this line
         }
 
         private void Update()
@@ -55,6 +49,12 @@ namespace AI.Behavior.Actions
             {
                 m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             }
+        }
+
+        private void OnEnable()
+        {
+            StopCoroutine(Patrol());
+            StartCoroutine(Patrol());
         }
 
         private void NextDestination()

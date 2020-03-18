@@ -11,15 +11,16 @@ namespace AI.Actions
 
         private SphereCollider m_voiceCollider;
 
-        public void ActivateAction()
-        {
-            AlertOthers();
-        }
-
-        private void Start()
+        private void Awake()
         {
             m_voiceCollider = GetComponentInChildren<SphereCollider>();
             m_voiceCollider.gameObject.SetActive(false);
+        }
+
+        private void OnEnable()
+        {
+            StopCoroutine(AlertOthers());
+            StartCoroutine(AlertOthers());
         }
 
         private IEnumerator AlertOthers()

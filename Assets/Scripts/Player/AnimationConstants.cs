@@ -13,4 +13,6 @@ public class AnimationConstants
     public static int AnimButtlerIdle = 0;
     public static int AnimButtlerWalk = 1;
     public static int AnimButtlerYell = 2;
+    public static int AnimButtlerCrouch = 3;
+    public static int AnimButtlerLookAround = 4;
 }
