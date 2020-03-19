@@ -410,10 +410,10 @@ namespace AI.KnowledgeBase
         {
             Type kbType = knowledgeBase.GetType();
             PropertyInfo pInfo = kbType.GetProperty(kbPropertyName);
-            Type propertyType = pInfo.GetType();
+            Type propertyType = pInfo.PropertyType;
             if (propertyType == value.GetCustomType())
             {
-                object kbValue = pInfo.GetValue(kbType);
+                object kbValue = pInfo.GetValue(knowledgeBase);
                 return value.Compare(kbValue);
             }
             return false;
