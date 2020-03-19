@@ -62,8 +62,8 @@ namespace AI.Personality
     // The list contains the possible combinations of those properties and respective mood type.
     public enum MoodType
     {
-        Pleasure = 0, // P A D
-        Arousal = 1, // P A
-        Dominance = 2
+        Pleasure = 0, // P
+        Arousal = 1, // A
+        Dominance = 2 // D
     }
 }

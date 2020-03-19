@@ -26,7 +26,7 @@ namespace AI.Perception
                 m_playerTransform = sharedAI.playerTransform;
             }
             m_myTransform = GetComponent(typeof(Transform)) as Transform;
-            m_knowledgeBase = GetComponentInParent(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
+            m_knowledgeBase = GetComponent(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
         }
 
         private void Update()

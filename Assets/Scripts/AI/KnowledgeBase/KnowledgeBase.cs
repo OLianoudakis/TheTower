@@ -11,6 +11,11 @@ namespace AI.KnowledgeBase
 
         private Transform m_playerTransform;
 
+        public bool changeHappened
+        {
+            get { return m_changeHappened; }
+        }
+
         public Transform playerTransform
         {
             get { return m_playerTransform; }

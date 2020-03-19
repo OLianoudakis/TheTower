@@ -16,13 +16,11 @@ namespace AI.Personality
             m_currentFullfilment = new float[16];
             for (int i = 0; i < m_targetMotivation.Length; i++)
             {
-                m_currentFullfilment[i] = 0.0f;
-                m_targetMotivation[i] = 0.0f;
                 for (int j = 0; j < personalityModel.m_personalityTraitsValues.Length; j++)
                 {
                     m_targetMotivation[i] += ConstantMappings.MotivationToPersonalityTraits[i, j] * personalityModel.m_personalityTraitsValues[j].m_value;
                 }
-                
+                m_currentFullfilment[i] = m_targetMotivation[i];
             }
         }
 
@@ -53,23 +51,26 @@ namespace AI.Personality
                     }
                 }
 
-                currentDesires[i] = m_targetMotivation[i] - m_currentFullfilment[i] * weight;
+                currentDesires[i] = (m_targetMotivation[i] - m_currentFullfilment[i]) * weight;
             }
             return currentDesires;
         }
 
-        public void UpdateCurrentMotivations(float[] motivationsToUpdate)
+        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate)
         {
-            for (int i = 0; i < m_currentFullfilment.Length; i++)
+            if (motivationGain != null)
             {
-                m_currentFullfilment[i] += motivationsToUpdate[i];
-                if (m_currentFullfilment[i] > 1.0f)
+                for (int i = 0; i < m_currentFullfilment.Length; i++)
                 {
-                    m_currentFullfilment[i] = 1.0f;
-                }
-                if (m_currentFullfilment[i] < -1.0f)
-                {
-                    m_currentFullfilment[i] = -1.0f;
+                    m_currentFullfilment[i] += motivationGain[i] * motivationGainRate;
+                    if (m_currentFullfilment[i] > 1.0f)
+                    {
+                        m_currentFullfilment[i] = 1.0f;
+                    }
+                    if (m_currentFullfilment[i] < -1.0f)
+                    {
+                        m_currentFullfilment[i] = -1.0f;
+                    }
                 }
             }
         }

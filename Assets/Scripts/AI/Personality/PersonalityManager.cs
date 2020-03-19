@@ -7,13 +7,16 @@ using Events;
 
 namespace AI.Personality
 {
-    public class PersonalityManager : MonoBehaviour , ICustomEventTarget
+    public class PersonalityManager : MonoBehaviour, ICustomEventTarget
     {
         [SerializeField]
         private PersonalityModel m_personalityModel;
 
         [SerializeField]
         private EventsEmotionIntensities m_eventsEmotionIntensities;
+
+        [SerializeField]
+        private float m_motivationGainRate = 0.001f;
 
         private EmotionManager m_emotionManager = new EmotionManager();
         private MoodManager m_moodManager;
@@ -24,6 +27,7 @@ namespace AI.Personality
         {
             EventEmotionEntry entry = m_eventsEmotionIntensities.m_eventEmotionIntensity[(int)receivedEvent.m_eventType];
             m_emotionManager.AddEmotion(entry.m_emotion, m_moodManager.mood, m_personalityModel);
+            m_behaviorManager.AddGeneratedEmotion(entry);
         }
 
         public float[] GetCurrentDesires()
@@ -35,12 +39,12 @@ namespace AI.Personality
         {
             m_moodManager = new MoodManager(m_personalityModel);
             m_motivationManager = new MotivationManager(m_personalityModel);
-            m_behaviorManager = transform.parent.GetComponentInChildren(typeof(BehaviorManager)) as BehaviorManager;
+            m_behaviorManager = GetComponent(typeof(BehaviorManager)) as BehaviorManager;
         }
 
         private void Update()
         {
-            m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.finishedMotivations);
+            m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, m_motivationGainRate);
             m_emotionManager.DecayEmotionIntensity();
             m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
         }

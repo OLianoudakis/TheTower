@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: EventsEmotionIntensities
   m_EditorClassIdentifier: 
   m_eventEmotionIntensity:
-  - m_eventType: 0
-    m_emotionType: 1
-    m_value: 0.5
+  - m_eventType: 1
+    m_emotion:
+      m_emotionType: 0
+      m_initialIntensity: 0
+      m_currentIntensity: 0
+      m_initialTime: 0
