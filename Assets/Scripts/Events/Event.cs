@@ -12,6 +12,7 @@ namespace Events
     public enum EventType
     {
         None = 0,
-        PlayerSpotted = 1
+        PlayerSpotted = 1,
+        PlayerDiscovered = 2
     }
 }

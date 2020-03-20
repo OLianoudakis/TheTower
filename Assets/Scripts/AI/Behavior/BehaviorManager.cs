@@ -53,7 +53,6 @@ namespace AI.Behavior
                         strongestEmotion = emotion.m_emotionType;
                     }
                 }
-                
             }
 
             // dont trigger any emotional action if threshold not surpassed
