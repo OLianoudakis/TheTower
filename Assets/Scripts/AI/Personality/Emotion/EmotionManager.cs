@@ -41,15 +41,22 @@ namespace AI.Personality.Emotions
             }
         }
 
-        public void AddEmotion(Emotion emotion, float[] currentMood, PersonalityModel personalityModel)
+        public Emotion[] AddEmotions(Emotion[] emotions, float[] currentMood, PersonalityModel personalityModel)
         {
-            emotion.m_initialIntensity 
-                = emotion.m_initialIntensity 
-                * (GetMoodInfluence(emotion.m_emotionType, currentMood) 
-                + GetPersonalityInfluence(emotion.m_emotionType, personalityModel)) / 2;
-            emotion.m_currentIntensity = emotion.m_initialIntensity;
-            emotion.m_initialTime = Time.time;
-            m_activeEmotions.Add(emotion);
+            Emotion[] modifiedEmotions = new Emotion[emotions.Length];
+            for (int i = 0; i< emotions.Length; i++)
+            {
+                Emotion newEmotion = emotions[i];
+                newEmotion.m_initialIntensity
+                = newEmotion.m_initialIntensity
+                * (GetMoodInfluence(newEmotion.m_emotionType, currentMood)
+                + GetPersonalityInfluence(newEmotion.m_emotionType, personalityModel)) / 2;
+                newEmotion.m_currentIntensity = newEmotion.m_initialIntensity;
+                newEmotion.m_initialTime = Time.time;
+                m_activeEmotions.Add(newEmotion);
+                modifiedEmotions[i] = newEmotion;
+            }
+            return modifiedEmotions;
         }
 
         private float GetMoodInfluence(EmotionType emotionType, float[] currentMood)

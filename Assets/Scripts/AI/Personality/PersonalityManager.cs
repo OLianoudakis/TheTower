@@ -26,7 +26,8 @@ namespace AI.Personality
         public void ReceiveEvent(Events.Event receivedEvent)
         {
             EventEmotionEntry entry = m_eventsEmotionIntensities.m_eventEmotionIntensity[(int)receivedEvent.m_eventType];
-            m_emotionManager.AddEmotion(entry.m_emotion, m_moodManager.mood, m_personalityModel);
+            Emotion[] modifiedEmotions = m_emotionManager.AddEmotions(entry.m_emotions, m_moodManager.mood, m_personalityModel);
+            entry.m_emotions = modifiedEmotions;
             m_behaviorManager.AddGeneratedEmotion(entry);
         }
 

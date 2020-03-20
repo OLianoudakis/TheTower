@@ -19,12 +19,12 @@ namespace AI.Personality.Emotions
     public struct EventEmotionEntry
     {
         public Events.EventType m_eventType;
-        public Emotion m_emotion;
+        public Emotion[] m_emotions;
 
-        public EventEmotionEntry(Events.EventType eventType, Emotion emotion)
+        public EventEmotionEntry(Events.EventType eventType, Emotion[] emotions)
         {
             m_eventType = eventType;
-            m_emotion = emotion;
+            m_emotions = emotions;
         }
     }
 

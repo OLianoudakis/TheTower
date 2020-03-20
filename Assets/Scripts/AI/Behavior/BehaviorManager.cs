@@ -19,7 +19,7 @@ namespace AI.Behavior
 
         private float m_currentBehaviorCooldown = 0.0f;
         private PersonalityManager m_personalityManager;
-        private List<EventEmotionEntry> m_generatedEmotions = new List<EventEmotionEntry>();
+        private List<EventEmotionEntry> m_generatedEmotionalEvents = new List<EventEmotionEntry>();
         private List<MotivationActionProperties> m_motivationActionProperties = new List<MotivationActionProperties>();
         private List<EmotionalActionProperties> m_emotionalProperties = new List<EmotionalActionProperties>();
         private GameObject m_currentlyActivatedMotivationAction = null;
@@ -32,7 +32,7 @@ namespace AI.Behavior
 
         public void AddGeneratedEmotion(EventEmotionEntry emotionEvent)
         {
-            m_generatedEmotions.Add(emotionEvent);
+            m_generatedEmotionalEvents.Add(emotionEvent);
         }
 
         private bool ActivateEmotionalAction()
@@ -40,32 +40,40 @@ namespace AI.Behavior
             // pick the emotion with the strongest intensity
             EventEmotionEntry emotionalEventToTrigger;
             emotionalEventToTrigger.m_eventType = Events.EventType.None;
-            emotionalEventToTrigger.m_emotion.m_initialIntensity = 0.0f;
-            foreach (EventEmotionEntry emotionalEvent in m_generatedEmotions)
+            float strongestIntensity = 0.0f;
+            EmotionType strongestEmotion = EmotionType.Admiration;
+            foreach (EventEmotionEntry emotionalEvent in m_generatedEmotionalEvents)
             {
-                if (emotionalEvent.m_emotion.m_initialIntensity > emotionalEventToTrigger.m_emotion.m_initialIntensity)
+                foreach (Emotion emotion in emotionalEvent.m_emotions)
                 {
-                    emotionalEventToTrigger = emotionalEvent;
+                    if (emotion.m_initialIntensity > strongestIntensity)
+                    {
+                        strongestIntensity = emotion.m_initialIntensity;
+                        emotionalEventToTrigger = emotionalEvent;
+                        strongestEmotion = emotion.m_emotionType;
+                    }
                 }
+                
             }
 
             // dont trigger any emotional action if threshold not surpassed
-            if (emotionalEventToTrigger.m_emotion.m_initialIntensity < m_emotionIntensityTreshold)
+            if (strongestIntensity < m_emotionIntensityTreshold)
             {
-                m_generatedEmotions.Clear();
+                m_generatedEmotionalEvents.Clear();
                 return false;
             }
 
             foreach (EmotionalActionProperties emotionalProperty in m_emotionalProperties)
             {
-                if (emotionalProperty.eventType == emotionalEventToTrigger.m_eventType)
+                if ((emotionalProperty.eventType == emotionalEventToTrigger.m_eventType))
                 {
+                    emotionalProperty.triggeredEmotion = strongestEmotion;
                     emotionalProperty.gameObject.SetActive(true);
                     break;
                 }
             }
 
-            m_generatedEmotions.Clear();
+            m_generatedEmotionalEvents.Clear();
 
             return false;
         }

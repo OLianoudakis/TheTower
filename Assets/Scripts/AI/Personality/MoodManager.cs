@@ -76,7 +76,7 @@ namespace AI.Personality
             {
                 if (emotion.m_emotionType == emotionType)
                 {
-                    emotionIntensity += emotion.m_initialIntensity;
+                    emotionIntensity += emotion.m_currentIntensity;
                 }
             }
             return emotionIntensity;

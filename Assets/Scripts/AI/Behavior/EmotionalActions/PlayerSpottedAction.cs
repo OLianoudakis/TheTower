@@ -11,25 +11,17 @@ namespace AI.Behavior.EmotionalActions
         [SerializeField]
         private EmotionalActionEntry[] m_emotionTriggers;
 
-        private List<Emotion> activeEmotions;
+        private EmotionalActionProperties m_emotionalActionProperties;
 
-        private void Update()
+        private void Start()
         {
-            foreach (EmotionalActionEntry emotionalEntry in m_emotionTriggers)
+            m_emotionalActionProperties = GetComponent(typeof(EmotionalActionProperties)) as EmotionalActionProperties;
+
+            foreach (EmotionalActionEntry emotionTrigger in m_emotionTriggers)
             {
-                bool isTriggered = false;
-                foreach (Emotion activeEmotion in activeEmotions)
+                if (emotionTrigger.m_emotionType == m_emotionalActionProperties.triggeredEmotion)
                 {
-                    //if ((emotionalEntry.m_emotion.m_emotionType == activeEmotion.m_emotionType)
-                    //    && emotionalEntry.m_emotion.m_initialIntensity >= activeEmotion.m_currentIntensity)
-                    //{
-                    //    emotionalEntry.m_action.SetActive(true);
-                    //    isTriggered = true;
-                    //    break;
-                    //}
-                }
-                if (isTriggered)
-                {
+                    emotionTrigger.m_action.SetActive(true);
                     break;
                 }
             }
