@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player.EmptyClass;
+using Environment;
 
-public class Hearing : MonoBehaviour
+namespace AI.Perception
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Hearing : MonoBehaviour
     {
-        
-    }
+        private KnowledgeBase.KnowledgeBase m_knowledgeBase;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
+            if (movableObject && movableObject.isMakingNoise)
+            {
+                m_knowledgeBase.NoiseHeard(other.transform.position);
+            }
+        }
     }
 }

@@ -1,0 +1,3758 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &23269353385852293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2552268220871551852}
+  - component: {fileID: 946096303072049454}
+  m_Layer: 0
+  m_Name: Lamp_handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2552268220871551852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23269353385852293}
+  m_LocalRotation: {x: -0.06162861, y: 0.7044161, z: 0.704416, w: -0.061628602}
+  m_LocalPosition: {x: -0.00058914186, y: -0.0000071811673, z: 0.11074493}
+  m_LocalScale: {x: 0.9293338, y: 0.92933375, z: 0.9293338}
+  m_Children: []
+  m_Father: {fileID: 7514108857495532063}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &946096303072049454
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23269353385852293}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3661639628750336703, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -8731131125048693986, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Bones:
+  - {fileID: 8397093067897166338}
+  - {fileID: 5389278327207116628}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 8397093067897166338}
+  m_AABB:
+    m_Center: {x: -0.0469337, y: 0.0010002488, z: -0.00021322817}
+    m_Extent: {x: 0.056583162, y: 0.010031217, z: 0.060721684}
+  m_DirtyAABB: 0
+--- !u!1 &64169044090947823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4802773421906910233}
+  m_Layer: 0
+  m_Name: Rig_ButlerSpine2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4802773421906910233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64169044090947823}
+  m_LocalRotation: {x: 0.046660054, y: 0.015668688, z: -0.09925996, w: 0.99384344}
+  m_LocalPosition: {x: -0.08438301, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.99999976, z: 0.9999999}
+  m_Children:
+  - {fileID: 8817588460748429767}
+  m_Father: {fileID: 1878840864744982515}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &89001701329553648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4349853052268170134}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Palm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4349853052268170134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89001701329553648}
+  m_LocalRotation: {x: -0.66951054, y: -0.04181113, z: 0.09605609, w: 0.73537797}
+  m_LocalPosition: {x: -0.07721369, y: 0.000000014305114, z: 0}
+  m_LocalScale: {x: 1.0000019, y: 0.9999992, z: 1.0000002}
+  m_Children:
+  - {fileID: 250349200581353284}
+  - {fileID: 3321803048842075576}
+  - {fileID: 3483783484031868217}
+  - {fileID: 4227451024235600588}
+  - {fileID: 5494217045732900796}
+  m_Father: {fileID: 8405263708338292374}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &347565106016064329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3056857413474989683}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(R)Toe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3056857413474989683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347565106016064329}
+  m_LocalRotation: {x: -0.011421759, y: -0.026371084, z: -0.40265247, w: 0.9149017}
+  m_LocalPosition: {x: -0.10826132, y: -0.000000007152557, z: 0.000000007152557}
+  m_LocalScale: {x: 1.0000002, y: 0.9999995, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 3881875646724353031}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &411013766899444128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8817588460748429767}
+  m_Layer: 0
+  m_Name: Rig_ButlerChest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8817588460748429767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411013766899444128}
+  m_LocalRotation: {x: 0.010659311, y: 0.0035002888, z: -0.022780696, w: 0.99967754}
+  m_LocalPosition: {x: -0.048124693, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children:
+  - {fileID: 5379827221560337297}
+  - {fileID: 6179760365174397454}
+  - {fileID: 7426206095019507480}
+  m_Father: {fileID: 4802773421906910233}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &411625232724474575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5001447232095089936}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(4_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5001447232095089936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411625232724474575}
+  m_LocalRotation: {x: -0.069721214, y: -0.0022163873, z: 0.03170085, w: 0.99706024}
+  m_LocalPosition: {x: -0.072688065, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children:
+  - {fileID: 8241433005388475043}
+  m_Father: {fileID: 3743551478576242800}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &446414924165045434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8897712564716262738}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Uparm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8897712564716262738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446414924165045434}
+  m_LocalRotation: {x: 0.16293451, y: 0.5104068, z: -0.06226309, w: 0.84205735}
+  m_LocalPosition: {x: -0.07964119, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 1.0000004}
+  m_Children:
+  - {fileID: 4083847528084468161}
+  m_Father: {fileID: 5379827221560337297}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &506145086272695423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8123570603836872151}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Palm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8123570603836872151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506145086272695423}
+  m_LocalRotation: {x: 0.52010685, y: 0.114077, z: 0.08709951, w: 0.84195554}
+  m_LocalPosition: {x: -0.07721369, y: 0.000000014305114, z: 0.000000057220458}
+  m_LocalScale: {x: 0.9999988, y: 1.0000007, z: 1.0000002}
+  m_Children:
+  - {fileID: 5709819133158646931}
+  - {fileID: 5166601215015773803}
+  - {fileID: 3611370307222764694}
+  - {fileID: 6378112274985330211}
+  - {fileID: 8485074904931398244}
+  - {fileID: 8397093067897166338}
+  m_Father: {fileID: 7392445400967214021}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &530560940612567311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3589118471403507211}
+  m_Layer: 0
+  m_Name: Rig_ButlerLidUp(R)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3589118471403507211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530560940612567311}
+  m_LocalRotation: {x: 0.05971154, y: -0.21417753, z: -0.696241, w: 0.6825035}
+  m_LocalPosition: {x: -0.04346386, y: 0.07507352, z: -0.029310845}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 0.99999976}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &540791063324608605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2546385074990496836}
+  - component: {fileID: 7517633845263473565}
+  m_Layer: 0
+  m_Name: Butler_skirt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2546385074990496836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540791063324608605}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.014032087, y: 0.124807306, z: -0.55183494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6426054098352291379}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &7517633845263473565
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540791063324608605}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 239378781582670930, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 427710947965953374, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Bones:
+  - {fileID: 1386859643206648276}
+  - {fileID: 2642789010222964275}
+  - {fileID: 6363721612148144732}
+  - {fileID: 7271599871433414786}
+  - {fileID: 5717137285805749981}
+  - {fileID: 7274231802515636281}
+  - {fileID: 727622123903725528}
+  - {fileID: 1919120673939596483}
+  - {fileID: 4785464027884226613}
+  - {fileID: 1878840864744982515}
+  - {fileID: 2360100550730750414}
+  - {fileID: 2063602600967744098}
+  - {fileID: 3743551478576242800}
+  - {fileID: 2227040337433480078}
+  - {fileID: 4877607362829492683}
+  - {fileID: 8919785969688780301}
+  - {fileID: 659554418284155502}
+  - {fileID: 4833669337176033619}
+  - {fileID: 4473477984998297927}
+  - {fileID: 2149822641415526430}
+  - {fileID: 3577325339468158542}
+  - {fileID: 5001447232095089936}
+  - {fileID: 8211674226800887549}
+  - {fileID: 1687446305452778035}
+  - {fileID: 4449810480403807131}
+  - {fileID: 4254607063191515431}
+  - {fileID: 647638120773868642}
+  - {fileID: 5563429209251423396}
+  - {fileID: 499564593057635426}
+  - {fileID: 8993698627882451193}
+  - {fileID: 2491281077942592389}
+  - {fileID: 8241433005388475043}
+  - {fileID: 3732926958651791652}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 727622123903725528}
+  m_AABB:
+    m_Center: {x: 0.026179925, y: 0.006026406, z: 0.009224847}
+    m_Extent: {x: 0.11450723, y: 0.10886456, z: 0.15499954}
+  m_DirtyAABB: 0
+--- !u!1 &796255268884150206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8211674226800887549}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(1_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8211674226800887549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796255268884150206}
+  m_LocalRotation: {x: 0.000000018021284, y: -0.000000010641957, z: 0.029890861, w: 0.9995532}
+  m_LocalPosition: {x: -0.068595625, y: 0, z: 0.000000007152557}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_Children:
+  - {fileID: 5563429209251423396}
+  m_Father: {fileID: 2642789010222964275}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &823241950710929141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386859643206648276}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirtCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386859643206648276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823241950710929141}
+  m_LocalRotation: {x: -0.000000029737793, y: -0.0000000024069886, z: 0.99942464,
+    w: -0.033917107}
+  m_LocalPosition: {x: -0.079537295, y: 0.08105359, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &864994759950635989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7514108857495532063}
+  m_Layer: 0
+  m_Name: Lamp_Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7514108857495532063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864994759950635989}
+  m_LocalRotation: {x: -0.703549, y: -0.07084367, z: -0.07084367, w: 0.703549}
+  m_LocalPosition: {x: 0.41668847, y: 0.3978046, z: -0.041312657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2764660410265763665}
+  - {fileID: 880638961608767494}
+  - {fileID: 2552268220871551852}
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &883783765450260353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2641557127685578080}
+  m_Layer: 0
+  m_Name: Rig_ButlerHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2641557127685578080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883783765450260353}
+  m_LocalRotation: {x: -0.044106025, y: -0.05506173, z: 0.21818058, w: 0.9733551}
+  m_LocalPosition: {x: -0.06696287, y: 0.000000028610229, z: 0.0000000035762786}
+  m_LocalScale: {x: 1.0000002, y: 0.9999999, z: 0.99999994}
+  m_Children:
+  - {fileID: 1141151797977074669}
+  - {fileID: 6829803647138687168}
+  - {fileID: 450923338707236161}
+  - {fileID: 2513425650003506341}
+  - {fileID: 4168901208710691916}
+  - {fileID: 2939277709773219886}
+  - {fileID: 3589118471403507211}
+  m_Father: {fileID: 7426206095019507480}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &938213684996987318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6378112274985330211}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit41
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6378112274985330211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938213684996987318}
+  m_LocalRotation: {x: 0.059356146, y: 0.013171033, z: 0.48183402, w: 0.87415063}
+  m_LocalPosition: {x: -0.08100062, y: 0.004926739, z: 0.010680871}
+  m_LocalScale: {x: 0.9999998, y: 0.99999976, z: 0.9999997}
+  m_Children:
+  - {fileID: 8157649956667985691}
+  m_Father: {fileID: 8123570603836872151}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1046002173281274678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5717137285805749981}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(R)Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5717137285805749981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046002173281274678}
+  m_LocalRotation: {x: -0.15984839, y: 0.97233427, z: -0.16509318, w: -0.041938145}
+  m_LocalPosition: {x: -0.013740635, y: 0.0019429672, z: -0.06472391}
+  m_LocalScale: {x: 0.99999857, y: 1.0000018, z: 0.99999976}
+  m_Children:
+  - {fileID: 3732926958651791652}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1132220534061093516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3715734221459631599}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)CollarboneCTRL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3715734221459631599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132220534061093516}
+  m_LocalRotation: {x: 0.6826697, y: -0.2319156, z: 0.31658298, w: 0.6164028}
+  m_LocalPosition: {x: -0.030770622, y: 0.8173739, z: -0.00019365191}
+  m_LocalScale: {x: 0.9999997, y: 1.0000004, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1159863016299445633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4168901208710691916}
+  m_Layer: 0
+  m_Name: Rig_ButlerLidDown(R)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4168901208710691916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159863016299445633}
+  m_LocalRotation: {x: 0.068753265, y: -0.20292446, z: -0.760574, w: 0.61287993}
+  m_LocalPosition: {x: -0.02539318, y: 0.0761237, z: -0.02324074}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1190106069808462477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8993698627882451193}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(3_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8993698627882451193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190106069808462477}
+  m_LocalRotation: {x: 0.0012056524, y: 0.017410759, z: 0.018127961, w: 0.9996834}
+  m_LocalPosition: {x: -0.0789105, y: 0.000000007152557, z: 0.000000007152557}
+  m_LocalScale: {x: 1, y: 1, z: 0.9999998}
+  m_Children:
+  - {fileID: 2491281077942592389}
+  m_Father: {fileID: 647638120773868642}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1195456693715711264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5494217045732900796}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit51
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5494217045732900796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195456693715711264}
+  m_LocalRotation: {x: -0.27998862, y: -0.20565255, z: 0.20523804, w: 0.9149813}
+  m_LocalPosition: {x: -0.067704305, y: -0.003818836, z: -0.036314603}
+  m_LocalScale: {x: 0.999998, y: 0.99999905, z: 1.0000037}
+  m_Children:
+  - {fileID: 3273135623557284187}
+  m_Father: {fileID: 4349853052268170134}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235562332043348363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7271599871433414786}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(1_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7271599871433414786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235562332043348363}
+  m_LocalRotation: {x: -0.0014671804, y: 0.026135825, z: 0.05602669, w: 0.9980861}
+  m_LocalPosition: {x: -0.068595596, y: 0, z: -0.0000000017881393}
+  m_LocalScale: {x: 0.9999999, y: 1.0000002, z: 0.9999999}
+  m_Children:
+  - {fileID: 4877607362829492683}
+  m_Father: {fileID: 6363721612148144732}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1582274401990622199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5389278327207116628}
+  m_Layer: 0
+  m_Name: Rig_LampFrame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5389278327207116628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582274401990622199}
+  m_LocalRotation: {x: 0.0000026004452, y: -0.00000005203017, z: -0.020004174, w: 0.9997999}
+  m_LocalPosition: {x: -0.0997799, y: 0.000000011101329, z: -0.0000000014136393}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8397093067897166338}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1681618819153994059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8292434379129874726}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8292434379129874726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681618819153994059}
+  m_LocalRotation: {x: -0.000000037064513, y: -0.0000000037423438, z: 0.1004576, w: 0.99494135}
+  m_LocalPosition: {x: -0.026857737, y: 0.000000007152557, z: 0}
+  m_LocalScale: {x: 1.0000021, y: 0.99999833, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 7274231802515636281}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1692409342656883582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3577325339468158542}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(L)Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3577325339468158542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692409342656883582}
+  m_LocalRotation: {x: -0.08123907, y: 0.96471167, z: 0.22782046, w: 0.104064584}
+  m_LocalPosition: {x: -0.013740635, y: 0.0019429636, z: 0.064723894}
+  m_LocalScale: {x: 1.0000015, y: 0.9999983, z: 1.0000002}
+  m_Children:
+  - {fileID: 2149822641415526430}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734937508564600025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880638961608767494}
+  - component: {fileID: 649411330565418525}
+  m_Layer: 0
+  m_Name: Lamp_glass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &880638961608767494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734937508564600025}
+  m_LocalRotation: {x: -0.08715601, y: 0.99619466, z: -0.00000007521061, w: 0.000000006580096}
+  m_LocalPosition: {x: -0.000016450882, y: 0.000060539245, z: -0.15129758}
+  m_LocalScale: {x: 0.9293338, y: 0.9293338, z: 0.92933375}
+  m_Children: []
+  m_Father: {fileID: 7514108857495532063}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &649411330565418525
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734937508564600025}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3661639628750336703, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -4188623431319698174, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Bones:
+  - {fileID: 8397093067897166338}
+  - {fileID: 5389278327207116628}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 8397093067897166338}
+  m_AABB:
+    m_Center: {x: -0.23630336, y: 0.00534226, z: -0.000074744225}
+    m_Extent: {x: 0.07526693, y: 0.06363439, z: 0.055758305}
+  m_DirtyAABB: 0
+--- !u!1 &1800981486045544040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2360100550730750414}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(3_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2360100550730750414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800981486045544040}
+  m_LocalRotation: {x: 0.043378986, y: 0.9031178, z: -0.42385763, w: 0.053303707}
+  m_LocalPosition: {x: -0.074605405, y: -0.053446095, z: 0.07529795}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 0.9999999}
+  m_Children:
+  - {fileID: 659554418284155502}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869127446026639471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7189781298499128419}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit33
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7189781298499128419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869127446026639471}
+  m_LocalRotation: {x: -0.000000032654395, y: 0.000000016831681, z: 0.5338456, w: 0.845582}
+  m_LocalPosition: {x: -0.031362932, y: -0.000000014305114, z: -0.000000014305114}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 4150029670227767079}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1955894173028684701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774037756245257957}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)CollarboneCTRL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774037756245257957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955894173028684701}
+  m_LocalRotation: {x: 0.06136067, y: 0.6585217, z: 0.7367468, w: -0.14067069}
+  m_LocalPosition: {x: 0.030885493, y: 0.82000345, z: 0.012980819}
+  m_LocalScale: {x: 1.0000004, y: 0.9999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2023976779712487993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676447331996117271}
+  - component: {fileID: 6114631179605910341}
+  m_Layer: 0
+  m_Name: Butler_body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676447331996117271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023976779712487993}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.014032087, y: 0.124807306, z: -0.55183494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6426054098352291379}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &6114631179605910341
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023976779712487993}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 239378781582670930, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 3997393545397521578, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Bones:
+  - {fileID: 2641557127685578080}
+  - {fileID: 2939277709773219886}
+  - {fileID: 2513425650003506341}
+  - {fileID: 450923338707236161}
+  - {fileID: 7426206095019507480}
+  - {fileID: 8817588460748429767}
+  - {fileID: 8897712564716262738}
+  - {fileID: 5379827221560337297}
+  - {fileID: 4802773421906910233}
+  - {fileID: 1878840864744982515}
+  - {fileID: 727622123903725528}
+  - {fileID: 6363721612148144732}
+  - {fileID: 7271599871433414786}
+  - {fileID: 3577325339468158542}
+  - {fileID: 2063602600967744098}
+  - {fileID: 2227040337433480078}
+  - {fileID: 2360100550730750414}
+  - {fileID: 659554418284155502}
+  - {fileID: 5717137285805749981}
+  - {fileID: 1919120673939596483}
+  - {fileID: 5001447232095089936}
+  - {fileID: 1386859643206648276}
+  - {fileID: 2642789010222964275}
+  - {fileID: 4785464027884226613}
+  - {fileID: 3743551478576242800}
+  - {fileID: 8211674226800887549}
+  - {fileID: 3589118471403507211}
+  - {fileID: 4168901208710691916}
+  - {fileID: 3953160678759243798}
+  - {fileID: 6179760365174397454}
+  - {fileID: 647638120773868642}
+  - {fileID: 8993698627882451193}
+  - {fileID: 4254607063191515431}
+  - {fileID: 5563429209251423396}
+  - {fileID: 499564593057635426}
+  - {fileID: 4833669337176033619}
+  - {fileID: 4449810480403807131}
+  - {fileID: 4083847528084468161}
+  - {fileID: 8405263708338292374}
+  - {fileID: 4349853052268170134}
+  - {fileID: 3321803048842075576}
+  - {fileID: 7274231802515636281}
+  - {fileID: 8292434379129874726}
+  - {fileID: 3483783484031868217}
+  - {fileID: 1892507642469629700}
+  - {fileID: 1049632859559241935}
+  - {fileID: 4227451024235600588}
+  - {fileID: 5494217045732900796}
+  - {fileID: 2564109224894382847}
+  - {fileID: 8012920884725401910}
+  - {fileID: 3273135623557284187}
+  - {fileID: 953291931621723221}
+  - {fileID: 581396452483240896}
+  - {fileID: 250349200581353284}
+  - {fileID: 2172159528902741768}
+  - {fileID: 8046910930554565967}
+  - {fileID: 7392445400967214021}
+  - {fileID: 8123570603836872151}
+  - {fileID: 5166601215015773803}
+  - {fileID: 1687446305452778035}
+  - {fileID: 984014211688540934}
+  - {fileID: 3611370307222764694}
+  - {fileID: 4150029670227767079}
+  - {fileID: 7189781298499128419}
+  - {fileID: 6378112274985330211}
+  - {fileID: 8485074904931398244}
+  - {fileID: 8157649956667985691}
+  - {fileID: 2937693278192349654}
+  - {fileID: 5601078803817436009}
+  - {fileID: 594697309884135416}
+  - {fileID: 3358949151672607152}
+  - {fileID: 5709819133158646931}
+  - {fileID: 5070272864986156017}
+  - {fileID: 3056857413474989683}
+  - {fileID: 8241433005388475043}
+  - {fileID: 3881875646724353031}
+  - {fileID: 4473477984998297927}
+  - {fileID: 219352273632773498}
+  - {fileID: 1638339055587774083}
+  - {fileID: 3732926958651791652}
+  - {fileID: 8919785969688780301}
+  - {fileID: 2491281077942592389}
+  - {fileID: 4877607362829492683}
+  - {fileID: 8954255234767051621}
+  - {fileID: 2149822641415526430}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 727622123903725528}
+  m_AABB:
+    m_Center: {x: -0.024324298, y: 0.08401583, z: -0.020805895}
+    m_Extent: {x: 0.6049585, y: 0.28530478, z: 0.26196072}
+  m_DirtyAABB: 0
+--- !u!1 &2096417213551838537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8405263708338292374}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Forearm2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8405263708338292374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096417213551838537}
+  m_LocalRotation: {x: 0.046832997, y: -6.9786604e-10, z: -0.000000014884811, w: 0.99890274}
+  m_LocalPosition: {x: -0.07721369, y: 0.000000014305114, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4349853052268170134}
+  m_Father: {fileID: 4083847528084468161}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2116238183927213187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2764660410265763665}
+  - component: {fileID: 1920223561746022783}
+  m_Layer: 0
+  m_Name: Lamp_frame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2764660410265763665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116238183927213187}
+  m_LocalRotation: {x: -0.06162861, y: 0.7044161, z: 0.704416, w: -0.061628602}
+  m_LocalPosition: {x: -0.00058908464, y: -0.0000071811673, z: 0.11074493}
+  m_LocalScale: {x: 0.9293338, y: 0.92933375, z: 0.9293338}
+  m_Children: []
+  m_Father: {fileID: 7514108857495532063}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1920223561746022783
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116238183927213187}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3661639628750336703, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 8539436797762096701, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Bones:
+  - {fileID: 5389278327207116628}
+  - {fileID: 8397093067897166338}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 8397093067897166338}
+  m_AABB:
+    m_Center: {x: -0.20631838, y: 0.004201919, z: -0.00027204305}
+    m_Extent: {x: 0.121949315, y: 0.08350805, z: 0.06933081}
+  m_DirtyAABB: 0
+--- !u!1 &2210743123121973960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3358949151672607152}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3358949151672607152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210743123121973960}
+  m_LocalRotation: {x: -0.0035185823, y: 0.17908885, z: 0.024873162, w: 0.98351216}
+  m_LocalPosition: {x: -0.039254952, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000013, y: 0.99999994, z: 0.99999815}
+  m_Children:
+  - {fileID: 5070272864986156017}
+  m_Father: {fileID: 5709819133158646931}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2257704501716484234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8919785969688780301}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(2_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8919785969688780301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257704501716484234}
+  m_LocalRotation: {x: 0.046520263, y: -0.020757318, z: -0.009617406, w: 0.9986554}
+  m_LocalPosition: {x: -0.078429334, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4785464027884226613}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2509061599550019477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919120673939596483}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(2_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1919120673939596483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509061599550019477}
+  m_LocalRotation: {x: -0.11468454, y: -0.6050815, z: 0.7823446, w: -0.093063235}
+  m_LocalPosition: {x: -0.07672371, y: 0.009216345, z: 0.09255436}
+  m_LocalScale: {x: 1, y: 1.0000004, z: 1}
+  m_Children:
+  - {fileID: 4785464027884226613}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2557416953428417685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8485074904931398244}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit51
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8485074904931398244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557416953428417685}
+  m_LocalRotation: {x: 0.19847664, y: 0.08122355, z: 0.4185434, w: 0.8825141}
+  m_LocalPosition: {x: -0.06770413, y: -0.0038189506, z: 0.036314648}
+  m_LocalScale: {x: 1.0000014, y: 1.0000012, z: 0.99999684}
+  m_Children:
+  - {fileID: 5601078803817436009}
+  m_Father: {fileID: 8123570603836872151}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2597119128974708616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5601078803817436009}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit52
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5601078803817436009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597119128974708616}
+  m_LocalRotation: {x: -0.000000024189069, y: 0.000000020687255, z: 0.48337096, w: 0.8754156}
+  m_LocalPosition: {x: -0.021071577, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000027, y: 1, z: 0.99999696}
+  m_Children:
+  - {fileID: 594697309884135416}
+  m_Father: {fileID: 8485074904931398244}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2645028228217225076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4449810480403807131}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(2_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4449810480403807131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645028228217225076}
+  m_LocalRotation: {x: 0.089615524, y: 0.605402, z: 0.785644, w: -0.090670034}
+  m_LocalPosition: {x: -0.07672376, y: 0.009216342, z: -0.09255436}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 1}
+  m_Children:
+  - {fileID: 4254607063191515431}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2705728928588527833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3743551478576242800}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(4_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3743551478576242800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705728928588527833}
+  m_LocalRotation: {x: -0.02014277, y: 0.99812454, z: 0.044283696, w: -0.03715791}
+  m_LocalPosition: {x: -0.07293268, y: -0.07956301, z: -0.017061617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5001447232095089936}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2719762978182050022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219352273632773498}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(L)Platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &219352273632773498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719762978182050022}
+  m_LocalRotation: {x: 0.59636784, y: -0.59636784, z: -0.3799282, w: 0.3799282}
+  m_LocalPosition: {x: -0.089999996, y: 0.000000007724448, z: -0.039652947}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2870155795142086034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4227451024235600588}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit41
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4227451024235600588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2870155795142086034}
+  m_LocalRotation: {x: -0.1127376, y: -0.124611944, z: 0.19064237, w: 0.9671699}
+  m_LocalPosition: {x: -0.08100079, y: 0.0049268818, z: -0.010680867}
+  m_LocalScale: {x: 0.99999917, y: 1.0000015, z: 1.0000004}
+  m_Children:
+  - {fileID: 2564109224894382847}
+  m_Father: {fileID: 4349853052268170134}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2877789058692197460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8012920884725401910}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit43
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8012920884725401910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2877789058692197460}
+  m_LocalRotation: {x: 0.00000007997353, y: -0.000000016716413, z: 0.21510293, w: 0.9765914}
+  m_LocalPosition: {x: -0.024811476, y: 0.000000028610229, z: -0.000000007152557}
+  m_LocalScale: {x: 0.99999905, y: 1.0000012, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 2564109224894382847}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3012386717913142558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594697309884135416}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit53
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594697309884135416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3012386717913142558}
+  m_LocalRotation: {x: 0.00000021931831, y: -0.00000035086768, z: 0.49916238, w: 0.8665085}
+  m_LocalPosition: {x: -0.020220852, y: -0.000000014305114, z: 0.000000028610229}
+  m_LocalScale: {x: 1.0000048, y: 0.999995, z: 1.0000007}
+  m_Children: []
+  m_Father: {fileID: 5601078803817436009}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3017301332430701827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7570929293535795769}
+  m_Layer: 0
+  m_Name: Rig_ButlerHubBone010
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7570929293535795769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017301332430701827}
+  m_LocalRotation: {x: -0.043612737, y: -0.017435936, z: -0.00076126546, w: 0.9988961}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+  m_Children:
+  - {fileID: 1878840864744982515}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3051149054153244271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021133538904263804}
+  - component: {fileID: 8252426301165592838}
+  m_Layer: 0
+  m_Name: ButlerProperMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2021133538904263804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3051149054153244271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_Children:
+  - {fileID: 6426054098352291379}
+  - {fileID: 7345905384840610575}
+  - {fileID: 7514108857495532063}
+  - {fileID: 8446344171391129928}
+  - {fileID: 3715734221459631599}
+  - {fileID: 1774037756245257957}
+  - {fileID: 727622123903725528}
+  - {fileID: 219352273632773498}
+  - {fileID: 394646310791343170}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8252426301165592838
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3051149054153244271}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Controller: {fileID: 9100000, guid: f6f275cdd5e3cec419ffae086b8d2809, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &3120207770552816749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4877607362829492683}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(1_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4877607362829492683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120207770552816749}
+  m_LocalRotation: {x: 0.1483999, y: -0.01412245, z: 0.017301345, w: 0.98867524}
+  m_LocalPosition: {x: -0.089764364, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.9999998}
+  m_Children: []
+  m_Father: {fileID: 7271599871433414786}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3129176796003807310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4473477984998297927}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(4_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4473477984998297927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129176796003807310}
+  m_LocalRotation: {x: 0.034780566, y: 0.0012755963, z: -0.015686966, w: 0.99927104}
+  m_LocalPosition: {x: -0.08649885, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2227040337433480078}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3153868688994510313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049632859559241935}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit33
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1049632859559241935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153868688994510313}
+  m_LocalRotation: {x: -0.000000014627476, y: -0.0000000028426947, z: 0.19077028,
+    w: 0.98163474}
+  m_LocalPosition: {x: -0.03136299, y: 0, z: -0.000000010728836}
+  m_LocalScale: {x: 0.99999905, y: 1.0000014, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1892507642469629700}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3264181456774944536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3273135623557284187}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit52
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3273135623557284187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264181456774944536}
+  m_LocalRotation: {x: 0.00000031612632, y: -0.00000018139099, z: 0.19095545, w: 0.98159873}
+  m_LocalPosition: {x: -0.021071605, y: 0.000000028610229, z: 0}
+  m_LocalScale: {x: 0.9999974, y: 0.9999997, z: 1.0000038}
+  m_Children:
+  - {fileID: 953291931621723221}
+  m_Father: {fileID: 5494217045732900796}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3278559199496166530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5166601215015773803}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5166601215015773803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278559199496166530}
+  m_LocalRotation: {x: -0.06539302, y: -0.03354579, z: 0.3463248, w: 0.9352313}
+  m_LocalPosition: {x: -0.07864949, y: -0.00023094176, z: -0.039074663}
+  m_LocalScale: {x: 0.9999977, y: 1.0000018, z: 1.0000002}
+  m_Children:
+  - {fileID: 1687446305452778035}
+  m_Father: {fileID: 8123570603836872151}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3285341944757169615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8046910930554565967}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Forearm1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8046910930554565967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285341944757169615}
+  m_LocalRotation: {x: 0.01740074, y: -0.014244138, z: -0.5919116, w: 0.8056891}
+  m_LocalPosition: {x: -0.14525765, y: 0.000000014305114, z: 0}
+  m_LocalScale: {x: 1.0000008, y: 0.99999964, z: 1.0000005}
+  m_Children:
+  - {fileID: 7392445400967214021}
+  m_Father: {fileID: 3953160678759243798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3305048747600627950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8446344171391129928}
+  m_Layer: 0
+  m_Name: Rig_Butler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8446344171391129928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305048747600627950}
+  m_LocalRotation: {x: 0.50000006, y: -0.50000006, z: -0.49999994, w: 0.49999994}
+  m_LocalPosition: {x: 0.00000022888183, y: 0, z: -0.054392174}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3473027890175216899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3321803048842075576}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3321803048842075576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473027890175216899}
+  m_LocalRotation: {x: 0.00842123, y: 0.11068949, z: 0.075396046, w: 0.9909553}
+  m_LocalPosition: {x: -0.07864972, y: -0.00023085593, z: 0.039074548}
+  m_LocalScale: {x: 1.0000015, y: 0.99999905, z: 1}
+  m_Children:
+  - {fileID: 7274231802515636281}
+  m_Father: {fileID: 4349853052268170134}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3475728111200865278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4083847528084468161}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Forearm1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4083847528084468161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475728111200865278}
+  m_LocalRotation: {x: -0.0077617173, y: 0.023210377, z: -0.31592125, w: 0.94846976}
+  m_LocalPosition: {x: -0.14525768, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999998}
+  m_Children:
+  - {fileID: 8405263708338292374}
+  m_Father: {fileID: 8897712564716262738}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3746755332257525252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5379827221560337297}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Collarbone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5379827221560337297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746755332257525252}
+  m_LocalRotation: {x: 0.17068596, y: 0.71946067, z: 0.23323324, w: 0.63154167}
+  m_LocalPosition: {x: -0.1317318, y: 0.011711397, z: 0.03155137}
+  m_LocalScale: {x: 0.99999964, y: 1.0000005, z: 1.0000001}
+  m_Children:
+  - {fileID: 8897712564716262738}
+  m_Father: {fileID: 8817588460748429767}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3864701553987665578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3881875646724353031}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(R)Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3881875646724353031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3864701553987665578}
+  m_LocalRotation: {x: -0.003143081, y: -0.041000947, z: -0.41126883, w: 0.9105861}
+  m_LocalPosition: {x: -0.23672345, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000004, y: 0.9999998, z: 1}
+  m_Children:
+  - {fileID: 3056857413474989683}
+  m_Father: {fileID: 3732926958651791652}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4029290938507518348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8241433005388475043}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(4_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8241433005388475043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029290938507518348}
+  m_LocalRotation: {x: -0.09520706, y: -0.00849795, z: 0.03648777, w: 0.9947523}
+  m_LocalPosition: {x: -0.08649882, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5001447232095089936}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4069926763222839654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063602600967744098}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(4_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2063602600967744098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069926763222839654}
+  m_LocalRotation: {x: 0.005992175, y: 0.9983098, z: -0.04329583, w: 0.038304307}
+  m_LocalPosition: {x: -0.072932735, y: -0.079563, z: 0.017061621}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 2227040337433480078}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4114183781110585207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581396452483240896}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581396452483240896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114183781110585207}
+  m_LocalRotation: {x: 0.0023869437, y: -0.13497825, z: 0.025098776, w: 0.99052775}
+  m_LocalPosition: {x: -0.039254952, y: 0.0000000035762786, z: -0.000000014305114}
+  m_LocalScale: {x: 0.99999875, y: 1.0000013, z: 1.0000002}
+  m_Children:
+  - {fileID: 2172159528902741768}
+  m_Father: {fileID: 250349200581353284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4243788011441685125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6829803647138687168}
+  - component: {fileID: 408374733644882071}
+  - component: {fileID: 5805083110561327524}
+  m_Layer: 0
+  m_Name: Butler_eye(R)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6829803647138687168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243788011441685125}
+  m_LocalRotation: {x: -0.69653195, y: -0.060765456, z: 0.71414095, w: -0.03396544}
+  m_LocalPosition: {x: 0.94324154, y: 0.053803798, z: -0.032026947}
+  m_LocalScale: {x: -0.9999999, y: -0.9999999, z: -0.9999997}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &408374733644882071
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243788011441685125}
+  m_Mesh: {fileID: -8415807921010908341, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+--- !u!23 &5805083110561327524
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243788011441685125}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 239378781582670930, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &4257759110183209786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5563429209251423396}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(1_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5563429209251423396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257759110183209786}
+  m_LocalRotation: {x: -0.042153712, y: -0.011212162, z: 0.06786044, w: 0.9967409}
+  m_LocalPosition: {x: -0.089764334, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999976, z: 0.9999998}
+  m_Children: []
+  m_Father: {fileID: 8211674226800887549}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4337293858650842169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3483783484031868217}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3483783484031868217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337293858650842169}
+  m_LocalRotation: {x: 0.0031873905, y: 0.023444183, z: 0.13468198, w: 0.9906064}
+  m_LocalPosition: {x: -0.08305601, y: 0.0062037846, z: 0.013241965}
+  m_LocalScale: {x: 1.0000021, y: 0.99999857, z: 1.0000001}
+  m_Children:
+  - {fileID: 1892507642469629700}
+  m_Father: {fileID: 4349853052268170134}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4483830000173591775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953291931621723221}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit53
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &953291931621723221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483830000173591775}
+  m_LocalRotation: {x: -0.0000001682136, y: 0.00000046691386, z: 0.20871912, w: 0.97797567}
+  m_LocalPosition: {x: -0.02022088, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999971, y: 1.0000042, z: 0.9999996}
+  m_Children: []
+  m_Father: {fileID: 3273135623557284187}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4763542782372398186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638339055587774083}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(L)Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638339055587774083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763542782372398186}
+  m_LocalRotation: {x: 0.021731066, y: 0.06286141, z: -0.537033, w: 0.8409351}
+  m_LocalPosition: {x: -0.23672344, y: -0.0000000035762786, z: 0.000000007152557}
+  m_LocalScale: {x: 1.0000018, y: 0.99999803, z: 1}
+  m_Children:
+  - {fileID: 8954255234767051621}
+  m_Father: {fileID: 2149822641415526430}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4826447321995291839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6426054098352291379}
+  m_Layer: 0
+  m_Name: Butler_Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6426054098352291379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826447321995291839}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.014032087, y: 0.5513491, z: 0.09151696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 676447331996117271}
+  - {fileID: 2546385074990496836}
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4913892588430727074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687446305452778035}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1687446305452778035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913892588430727074}
+  m_LocalRotation: {x: 0.00000003840166, y: 0.000000047958693, z: 0.6056903, w: 0.7957005}
+  m_LocalPosition: {x: -0.027381519, y: 0, z: 0.000000014305114}
+  m_LocalScale: {x: 0.99999446, y: 1.0000052, z: 0.9999997}
+  m_Children:
+  - {fileID: 984014211688540934}
+  m_Father: {fileID: 5166601215015773803}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4996669809492542746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2564109224894382847}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit42
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2564109224894382847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996669809492542746}
+  m_LocalRotation: {x: 0.00000007276183, y: -0.000000061721536, z: 0.19138053, w: 0.98151594}
+  m_LocalPosition: {x: -0.029819125, y: 0.000000028610229, z: 0}
+  m_LocalScale: {x: 0.9999992, y: 1.0000008, z: 1.0000005}
+  m_Children:
+  - {fileID: 8012920884725401910}
+  m_Father: {fileID: 4227451024235600588}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5534314989446024636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141151797977074669}
+  - component: {fileID: 2034124910216274416}
+  - component: {fileID: 6483049845125825884}
+  m_Layer: 0
+  m_Name: Butler_eye(L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141151797977074669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534314989446024636}
+  m_LocalRotation: {x: -0.033963777, y: 0.71414095, z: 0.060763795, w: 0.6965321}
+  m_LocalPosition: {x: 0.94324154, y: 0.053803798, z: -0.032026947}
+  m_LocalScale: {x: 0.9999998, y: 0.99999976, z: 0.99999964}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2034124910216274416
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534314989446024636}
+  m_Mesh: {fileID: -58237435556537728, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+--- !u!23 &6483049845125825884
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534314989446024636}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 239378781582670930, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &5627612315301570584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7274231802515636281}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7274231802515636281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627612315301570584}
+  m_LocalRotation: {x: 0.0000000036753836, y: 6.077836e-10, z: 0.16315033, w: 0.98660123}
+  m_LocalPosition: {x: -0.027381506, y: -0.000000014305114, z: 0}
+  m_LocalScale: {x: 1.0000021, y: 0.9999979, z: 1.0000002}
+  m_Children:
+  - {fileID: 8292434379129874726}
+  m_Father: {fileID: 3321803048842075576}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5803400762939154372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 499564593057635426}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(2_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499564593057635426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803400762939154372}
+  m_LocalRotation: {x: 0.046894375, y: 0.07532459, z: -0.011811965, w: 0.9959858}
+  m_LocalPosition: {x: -0.078429334, y: 0.000000028610229, z: -0.0000000035762786}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4254607063191515431}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5854386782768101822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984014211688540934}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984014211688540934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854386782768101822}
+  m_LocalRotation: {x: -0.00000008784081, y: -0.000000029391016, z: 0.55417943, w: 0.8323972}
+  m_LocalPosition: {x: -0.026857682, y: -0.000000014305114, z: 0}
+  m_LocalScale: {x: 0.9999926, y: 1.000007, z: 0.99999976}
+  m_Children: []
+  m_Father: {fileID: 1687446305452778035}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5927019971387353513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4150029670227767079}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit32
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4150029670227767079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927019971387353513}
+  m_LocalRotation: {x: 0.0000000034407173, y: 0.0000000114196625, z: 0.56745064, w: 0.8234074}
+  m_LocalPosition: {x: -0.033614587, y: -0.000000057220458, z: 0}
+  m_LocalScale: {x: 0.99999774, y: 1.000002, z: 0.9999998}
+  m_Children:
+  - {fileID: 7189781298499128419}
+  m_Father: {fileID: 3611370307222764694}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5960018293794537768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3953160678759243798}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3953160678759243798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960018293794537768}
+  m_LocalRotation: {x: 0.011771499, y: -0.41383025, z: -0.5691922, w: 0.7103705}
+  m_LocalPosition: {x: -0.07964118, y: -0.0000000035762786, z: 0}
+  m_LocalScale: {x: 1.0000004, y: 0.9999994, z: 0.9999999}
+  m_Children:
+  - {fileID: 8046910930554565967}
+  m_Father: {fileID: 6179760365174397454}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6143170657127634801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2172159528902741768}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2172159528902741768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143170657127634801}
+  m_LocalRotation: {x: -0.0017793558, y: -0.12681891, z: -0.013916401, w: 0.99182665}
+  m_LocalPosition: {x: -0.037027128, y: 0.000000007152557, z: 0}
+  m_LocalScale: {x: 1.0000012, y: 1.0000002, z: 0.9999988}
+  m_Children: []
+  m_Father: {fileID: 581396452483240896}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6308887544010340695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3611370307222764694}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3611370307222764694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308887544010340695}
+  m_LocalRotation: {x: -0.046044447, y: -0.036248025, z: 0.34824032, w: 0.93557185}
+  m_LocalPosition: {x: -0.08305587, y: 0.006203728, z: -0.013241987}
+  m_LocalScale: {x: 0.99999803, y: 1.0000017, z: 1}
+  m_Children:
+  - {fileID: 4150029670227767079}
+  m_Father: {fileID: 8123570603836872151}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6453141660882674815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8157649956667985691}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit42
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8157649956667985691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453141660882674815}
+  m_LocalRotation: {x: -0.000000050598487, y: -0.000000013728431, z: 0.461564, w: 0.8871069}
+  m_LocalPosition: {x: -0.029819125, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000015, y: 0.99999857, z: 0.9999996}
+  m_Children:
+  - {fileID: 2937693278192349654}
+  m_Father: {fileID: 6378112274985330211}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6465207477855678211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 394646310791343170}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(R)Platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &394646310791343170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465207477855678211}
+  m_LocalRotation: {x: 0.4956177, y: -0.4956177, z: -0.5043442, w: 0.5043442}
+  m_LocalPosition: {x: 0.12397164, y: 0.0000000051329767, z: 0.092571184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6562477702921413780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2149822641415526430}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(L)Shin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2149822641415526430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6562477702921413780}
+  m_LocalRotation: {x: 0.013901069, y: -0.02030504, z: 0.31873432, w: 0.9475246}
+  m_LocalPosition: {x: -0.20152919, y: -0.000000014305114, z: 0.000000057220458}
+  m_LocalScale: {x: 1.0000001, y: 0.99999875, z: 1.0000012}
+  m_Children:
+  - {fileID: 1638339055587774083}
+  m_Father: {fileID: 3577325339468158542}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6719898457073846384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647638120773868642}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(3_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647638120773868642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719898457073846384}
+  m_LocalRotation: {x: 0.0039441236, y: 0.9041503, z: 0.42577955, w: -0.03476444}
+  m_LocalPosition: {x: -0.074605405, y: -0.053446095, z: -0.07529796}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_Children:
+  - {fileID: 8993698627882451193}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6767309971332398088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2227040337433480078}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(4_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2227040337433480078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767309971332398088}
+  m_LocalRotation: {x: 0.060974568, y: 0.0030046408, z: 0.049125157, w: 0.9969252}
+  m_LocalPosition: {x: -0.07268812, y: -0.0000000035762786, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.99999964, z: 0.99999994}
+  m_Children:
+  - {fileID: 4473477984998297927}
+  m_Father: {fileID: 2063602600967744098}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6916891155232914058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8397093067897166338}
+  m_Layer: 0
+  m_Name: Rig_LampHandle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8397093067897166338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916891155232914058}
+  m_LocalRotation: {x: 0.667126, y: 0.7404398, z: -0.061234675, w: -0.05424212}
+  m_LocalPosition: {x: -0.06761577, y: -0.022810861, z: -0.00598456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5389278327207116628}
+  m_Father: {fileID: 8123570603836872151}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7157420243531544509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2491281077942592389}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(3_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2491281077942592389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157420243531544509}
+  m_LocalRotation: {x: 0.0020960283, y: 0.017326128, z: -0.033115733, w: 0.99929917}
+  m_LocalPosition: {x: -0.07580108, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999964, y: 0.99999976, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 8993698627882451193}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7324578021329075762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2937693278192349654}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit43
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2937693278192349654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324578021329075762}
+  m_LocalRotation: {x: 0.000000044878256, y: 0.0000000034787382, z: 0.48292062, w: 0.8756641}
+  m_LocalPosition: {x: -0.024811476, y: -0.000000014305114, z: 0}
+  m_LocalScale: {x: 1.0000012, y: 0.99999905, z: 0.9999995}
+  m_Children: []
+  m_Father: {fileID: 8157649956667985691}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7345612261220289022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250349200581353284}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &250349200581353284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345612261220289022}
+  m_LocalRotation: {x: 0.3675016, y: 0.29310873, z: 0.30115402, w: 0.82966024}
+  m_LocalPosition: {x: -0.014195308, y: -0.00016433715, z: 0.025474751}
+  m_LocalScale: {x: 1.0000005, y: 1.0000007, z: 0.9999997}
+  m_Children:
+  - {fileID: 581396452483240896}
+  m_Father: {fileID: 4349853052268170134}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7467477932638948113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3732926958651791652}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(R)Shin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3732926958651791652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467477932638948113}
+  m_LocalRotation: {x: -0.014176538, y: 0.017173072, z: 0.26984066, w: 0.96264744}
+  m_LocalPosition: {x: -0.20152916, y: -0.000000014305114, z: 0}
+  m_LocalScale: {x: 1.000003, y: 1.0000012, z: 0.99999636}
+  m_Children:
+  - {fileID: 3881875646724353031}
+  m_Father: {fileID: 5717137285805749981}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7779675367092277777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2939277709773219886}
+  m_Layer: 0
+  m_Name: Rig_ButlerLidUp(L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2939277709773219886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779675367092277777}
+  m_LocalRotation: {x: -0.05971148, y: 0.21417741, z: -0.696241, w: 0.6825035}
+  m_LocalPosition: {x: -0.04346363, y: 0.075073525, z: 0.029310822}
+  m_LocalScale: {x: 0.9999999, y: 0.9999996, z: 1.0000004}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7881718843581223753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2513425650003506341}
+  m_Layer: 0
+  m_Name: Rig_ButlerLidDown(L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2513425650003506341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881718843581223753}
+  m_LocalRotation: {x: -0.06875321, y: 0.20292427, z: -0.760574, w: 0.61288005}
+  m_LocalPosition: {x: -0.02539318, y: 0.0761237, z: 0.023240728}
+  m_LocalScale: {x: 0.9999999, y: 0.9999997, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7981196655926322370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8954255234767051621}
+  m_Layer: 0
+  m_Name: Rig_ButlerLeg(L)Toe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8954255234767051621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981196655926322370}
+  m_LocalRotation: {x: 0.01116805, y: 0.026519326, z: -0.39487138, w: 0.9182857}
+  m_LocalPosition: {x: -0.10826132, y: -0.000000007152557, z: 0}
+  m_LocalScale: {x: 1.0000012, y: 0.9999988, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 1638339055587774083}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8068968384117258422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4833669337176033619}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(3_3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4833669337176033619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068968384117258422}
+  m_LocalRotation: {x: -0.06971823, y: 0.0023103708, z: -0.033039995, w: 0.9970168}
+  m_LocalPosition: {x: -0.07580108, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1.0000004, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 659554418284155502}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8140807511311926278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4254607063191515431}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(2_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4254607063191515431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140807511311926278}
+  m_LocalRotation: {x: 0.052432604, y: 0.030896593, z: -0.0014589756, w: 0.99814534}
+  m_LocalPosition: {x: -0.078429304, y: 0, z: 0.0000000035762786}
+  m_LocalScale: {x: 0.99999976, y: 1.0000001, z: 0.99999994}
+  m_Children:
+  - {fileID: 499564593057635426}
+  m_Father: {fileID: 4449810480403807131}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8237857065477704631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4785464027884226613}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(2_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4785464027884226613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8237857065477704631}
+  m_LocalRotation: {x: -0.050694123, y: -0.000026337368, z: 0.021758156, w: 0.9984772}
+  m_LocalPosition: {x: -0.078429304, y: -0.000000014305114, z: -0.0000000017881393}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 1.0000001}
+  m_Children:
+  - {fileID: 8919785969688780301}
+  m_Father: {fileID: 1919120673939596483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8265509136390483227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6179760365174397454}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Collarbone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6179760365174397454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265509136390483227}
+  m_LocalRotation: {x: -0.15545547, y: -0.6805416, z: 0.1926194, w: 0.6896336}
+  m_LocalPosition: {x: -0.1317318, y: 0.011711425, z: -0.031551387}
+  m_LocalScale: {x: 1.0000002, y: 0.99999946, z: 1}
+  m_Children:
+  - {fileID: 3953160678759243798}
+  m_Father: {fileID: 8817588460748429767}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8345514238206663984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2642789010222964275}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_R(1_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2642789010222964275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345514238206663984}
+  m_LocalRotation: {x: 0.08408088, y: 0.3012341, z: 0.9449033, w: -0.09667564}
+  m_LocalPosition: {x: -0.07876757, y: 0.06305982, z: -0.05499415}
+  m_LocalScale: {x: 0.99999994, y: 1.0000002, z: 1}
+  m_Children:
+  - {fileID: 8211674226800887549}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8445760195517520910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7345905384840610575}
+  - component: {fileID: 3415466887170733508}
+  m_Layer: 0
+  m_Name: Butler_teeth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7345905384840610575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445760195517520910}
+  m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.0004858589, z: -0.033290353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &3415466887170733508
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445760195517520910}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 239378781582670930, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -6793438371657605647, guid: 9673535f8252be640a1276216b297dfc, type: 3}
+  m_Bones:
+  - {fileID: 2641557127685578080}
+  - {fileID: 450923338707236161}
+  - {fileID: 7426206095019507480}
+  - {fileID: 8897712564716262738}
+  - {fileID: 5379827221560337297}
+  - {fileID: 3953160678759243798}
+  - {fileID: 6179760365174397454}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 7426206095019507480}
+  m_AABB:
+    m_Center: {x: -0.07459659, y: 0.090351835, z: -0.00612731}
+    m_Extent: {x: 0.021755338, y: 0.015097909, z: 0.02582262}
+  m_DirtyAABB: 0
+--- !u!1 &8476165436063715495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6363721612148144732}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(1_1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6363721612148144732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476165436063715495}
+  m_LocalRotation: {x: -0.06553426, y: -0.3058053, z: 0.9490428, w: -0.0388104}
+  m_LocalPosition: {x: -0.07876762, y: 0.06305982, z: 0.054994147}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.9999999}
+  m_Children:
+  - {fileID: 7271599871433414786}
+  m_Father: {fileID: 727622123903725528}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8532756327953899398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1892507642469629700}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(L)Digit32
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1892507642469629700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532756327953899398}
+  m_LocalRotation: {x: 0.00000009529493, y: -0.00000002410969, z: 0.22244483, w: 0.9749453}
+  m_LocalPosition: {x: -0.033614617, y: -0.000000014305114, z: -0.0000000035762786}
+  m_LocalScale: {x: 0.99999976, y: 1.0000006, z: 1.0000001}
+  m_Children:
+  - {fileID: 1049632859559241935}
+  m_Father: {fileID: 3483783484031868217}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8564715886611649691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7426206095019507480}
+  m_Layer: 0
+  m_Name: Rig_ButlerNeck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7426206095019507480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564715886611649691}
+  m_LocalRotation: {x: -0.0612534, y: -0.020089254, z: -0.19466121, w: 0.97874993}
+  m_LocalPosition: {x: -0.19744182, y: -0.0027375554, z: -0.0000000035762786}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_Children:
+  - {fileID: 2641557127685578080}
+  m_Father: {fileID: 8817588460748429767}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8597656269454628533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5070272864986156017}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5070272864986156017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597656269454628533}
+  m_LocalRotation: {x: 0.006002291, y: 0.42778668, z: -0.012680809, w: 0.90377086}
+  m_LocalPosition: {x: -0.037027128, y: -0.000000028610229, z: 0}
+  m_LocalScale: {x: 1.0000024, y: 0.99999833, z: 0.9999986}
+  m_Children: []
+  m_Father: {fileID: 3358949151672607152}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8713022524336546958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7392445400967214021}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Forearm2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7392445400967214021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713022524336546958}
+  m_LocalRotation: {x: -0.22996245, y: 0.000000008964255, z: -0.0000000055375478,
+    w: 0.9731995}
+  m_LocalPosition: {x: -0.07721369, y: 0.000000028610229, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8123570603836872151}
+  m_Father: {fileID: 8046910930554565967}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8917800929597196226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5709819133158646931}
+  m_Layer: 0
+  m_Name: Rig_ButlerHand(R)Digit11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5709819133158646931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917800929597196226}
+  m_LocalRotation: {x: -0.26633912, y: -0.26184255, z: 0.42503563, w: 0.82452816}
+  m_LocalPosition: {x: -0.014195251, y: -0.00016433715, z: -0.02547482}
+  m_LocalScale: {x: 1, y: 1.0000004, z: 0.999999}
+  m_Children:
+  - {fileID: 3358949151672607152}
+  m_Father: {fileID: 8123570603836872151}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8949565582388611674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878840864744982515}
+  m_Layer: 0
+  m_Name: Rig_ButlerSpine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1878840864744982515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949565582388611674}
+  m_LocalRotation: {x: 0.010633825, y: 0.0036274556, z: -0.022462038, w: 0.9996846}
+  m_LocalPosition: {x: -0.06203287, y: -0.0102497935, z: 0.0000000017881393}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4802773421906910233}
+  m_Father: {fileID: 7570929293535795769}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8966980820255282453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659554418284155502}
+  m_Layer: 0
+  m_Name: Rig_ButlerSkirt_L(3_2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &659554418284155502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966980820255282453}
+  m_LocalRotation: {x: -0.069745, y: -0.0012648014, z: 0.0180866, w: 0.9974001}
+  m_LocalPosition: {x: -0.07891045, y: -0.000000007152557, z: -0.0000000035762786}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 0.9999998}
+  m_Children:
+  - {fileID: 4833669337176033619}
+  m_Father: {fileID: 2360100550730750414}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9075527807853576842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727622123903725528}
+  m_Layer: 0
+  m_Name: Rig_ButlerHub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &727622123903725528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075527807853576842}
+  m_LocalRotation: {x: -0.5203194, y: 0.5540882, z: 0.42242336, w: -0.49377373}
+  m_LocalPosition: {x: 0.015335424, y: 0.49917948, z: -0.013185918}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7570929293535795769}
+  - {fileID: 3577325339468158542}
+  - {fileID: 5717137285805749981}
+  - {fileID: 6363721612148144732}
+  - {fileID: 1919120673939596483}
+  - {fileID: 2360100550730750414}
+  - {fileID: 2063602600967744098}
+  - {fileID: 2642789010222964275}
+  - {fileID: 4449810480403807131}
+  - {fileID: 647638120773868642}
+  - {fileID: 3743551478576242800}
+  - {fileID: 1386859643206648276}
+  m_Father: {fileID: 2021133538904263804}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9217593337924352986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450923338707236161}
+  m_Layer: 0
+  m_Name: Rig_ButlerJaw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450923338707236161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9217593337924352986}
+  m_LocalRotation: {x: -0.000000065018185, y: 0.00000024989563, z: 0.9227386, w: -0.38542637}
+  m_LocalPosition: {x: 0.007474823, y: 0.019221896, z: -0.0000000035762786}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2641557127685578080}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

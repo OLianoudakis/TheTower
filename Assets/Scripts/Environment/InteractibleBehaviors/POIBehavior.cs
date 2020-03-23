@@ -37,6 +37,9 @@ namespace Environment.InteractibleBehaviors
         [SerializeField]
         private Animator m_animator;
 
+        [SerializeField]
+        private bool m_discardObject = false;
+
         private InputController m_inputController;
         private PlayerInventoryController m_playerInventoryController;
         private Interactible m_interactible;
@@ -135,6 +138,10 @@ namespace Environment.InteractibleBehaviors
             m_dialogueGroup.alpha = 0.0f;
             if (permanent)
             {
+                if (m_discardObject)
+                {
+                    gameObject.SetActive(false);
+                }
                 m_interactible.DeactivateBehavior(true);
                 this.enabled = false;
             }

@@ -13,6 +13,9 @@ namespace Events
     {
         None = 0,
         PlayerSpotted = 1,
-        PlayerDiscovered = 2
+        PlayerDiscovered = 2,
+        PlayerSuspicion = 3,
+        EnvironmentObjectMoved = 4,
+        NoiseHeard = 5
     }
 }

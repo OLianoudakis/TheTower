@@ -7,6 +7,7 @@ TagManager:
   - Water
   - POI
   - Interactible
+  - Noisable
   layers:
   - Default
   - TransparentFX
