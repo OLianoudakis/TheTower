@@ -93,6 +93,7 @@ namespace AI.Behavior
                 if ((newDistance < distance) && motivationActionProperties.CanBeTriggered())
                 {
                     chosenAction = motivationActionProperties;
+                    distance = newDistance;
                 }
             }
             if (chosenAction && !chosenAction.gameObject.activeInHierarchy)

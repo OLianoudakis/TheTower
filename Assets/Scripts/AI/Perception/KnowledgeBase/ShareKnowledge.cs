@@ -42,15 +42,15 @@ namespace AI.KnowledgeBase
                 }
                 else if (m_knowledgeBase.playerHiding && !kbOther.playerTransform && !kbOther.playerHiding)
                 {
-                    kbOther.lastKnownPlayerPosition = m_knowledgeBase.lastKnownPlayerPosition;
+                    kbOther.SetLastKnownPlayerPosition(m_knowledgeBase.GetLastKnownPlayerPosition());
                 }
                 if (m_knowledgeBase.playerSuspicion && !kbOther.playerSuspicion)
                 {
-                    kbOther.PlayerSuspicion(m_knowledgeBase.lastKnownPlayerPosition);
+                    kbOther.PlayerSuspicion(m_knowledgeBase.GetLastKnownPlayerPosition());
                 }
                 if (m_knowledgeBase.noiseHeard && !kbOther.noiseHeard)
                 {
-                    kbOther.noisePosition = m_knowledgeBase.noisePosition;
+                    kbOther.SetNoisePosition(m_knowledgeBase.GetNoisePosition());
                 }
             }
         }

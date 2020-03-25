@@ -55,27 +55,29 @@ namespace AI.KnowledgeBase
             get { return m_noiseHeard; }
         }
 
-        public Vector3 noisePosition
+        public void SetNoisePosition(Vector3 noisePosition)
         {
-            get { return m_noisePosition; }
-            set
-            {
-                m_noisePosition = value;
-                m_noiseHeard = true;
-                m_currentNoiseForgetTime = 0.0f;
-            }
+            m_noisePosition = noisePosition;
+            m_noiseHeard = true;
+            m_currentNoiseForgetTime = 0.0f;
         }
 
-        public Vector3 lastKnownPlayerPosition
+        public Vector3 GetNoisePosition()
         {
-            get { return m_lastKnownPlayerPosition; }
-            set
-            {
-                m_playerTransform = null;
-                m_lastKnownPlayerPosition = value;
-                m_playerHiding = true;
-                m_currentPlayerForgetTime = 0.0f;
-            }
+            return m_noisePosition;
+        }
+
+        public void SetLastKnownPlayerPosition(Vector3 lastKnownPlayerPosition)
+        {
+            m_playerTransform = null;
+            m_lastKnownPlayerPosition = lastKnownPlayerPosition;
+            m_playerHiding = true;
+            m_currentPlayerForgetTime = 0.0f;
+        }
+
+        public Vector3 GetLastKnownPlayerPosition()
+        {
+            return m_lastKnownPlayerPosition;
         }
 
         public Transform playerTransform
@@ -186,7 +188,7 @@ namespace AI.KnowledgeBase
             m_currentPlayerForgetTime += Time.deltaTime;
             if (m_playerTransform && (m_currentPlayerForgetTime >= m_playerStopFollowTime))
             {
-                lastKnownPlayerPosition = m_playerTransform.position;
+                SetLastKnownPlayerPosition(m_playerTransform.position);
                 return;
             }
             if ((m_playerHiding || m_playerSuspicion) && (m_currentPlayerForgetTime >= m_playerForgetTime))

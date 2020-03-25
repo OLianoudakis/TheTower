@@ -16,7 +16,7 @@ namespace Player.Inventory
             }
             else
             {
-                Item newItem = new Item();
+                Item newItem = ScriptableObject.CreateInstance(typeof(Item)) as Item;
                 newItem.m_itemName = item.m_itemName;
                 newItem.m_itemType = item.m_itemType;
                 newItem.m_quantity = quantity;

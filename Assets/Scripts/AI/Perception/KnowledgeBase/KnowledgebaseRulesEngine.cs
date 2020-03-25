@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Reflection;
 using Utils.EditorProperties;
+using UnityEditor;
 
 namespace AI.KnowledgeBase
 {
@@ -340,14 +341,18 @@ namespace AI.KnowledgeBase
         [ReadOnly]
         public string m_name;
 
+        [ReadOnly]
+        public int m_index;
+
         public bool m_useRule;
 
         [SerializeReference]
         public CustomType m_value;
 
-        public KnowledgeBaseRule(string name, Type type)
+        public KnowledgeBaseRule(string name, int index, Type type)
         {
             m_name = name;
+            m_index = index;
             m_value = null;
             m_useRule = false;
             if (type == typeof(int))
@@ -377,21 +382,80 @@ namespace AI.KnowledgeBase
         }
     }
 
+    [Serializable]
+    public struct LogicalOperationPrimitive
+    {
+        public enum LogicalOperatorType
+        {
+            LeftBracket,
+            RightBracket,
+            AND,
+            OR,
+            NOT
+        }
+
+        public bool m_isOperator;
+        public LogicalOperatorType m_operator;
+        public bool m_isOperand;
+        public int m_indexOfOperand;
+    }
+
+    [Serializable]
+    public struct LogicalOperationSet
+    {
+        [ReadOnly]
+        public int m_maxIndexValue;
+
+        [SerializeField]
+        public LogicalOperationPrimitive[] m_logicalOperationPrimitives;
+
+        public LogicalOperationSet(int numberOfRules)
+        {
+            m_maxIndexValue = numberOfRules;
+            m_logicalOperationPrimitives = null;
+        }   
+    }
+
+    [Serializable]
+    public struct KnowledgeBaseRuleset
+    {
+        [SerializeField]
+        private LogicalOperationSet m_logicalOperationSet;
+
+        [SerializeField]
+        private KnowledgeBaseRule[] m_knowledgeBaseRules;
+
+        public LogicalOperationSet logicalOperationSet
+        {
+            get { return m_logicalOperationSet; }
+        }
+
+        public KnowledgeBaseRule[] knowledgeBaseRules
+        {
+            get { return m_knowledgeBaseRules; }
+            set
+            {
+                m_knowledgeBaseRules = value;
+                m_logicalOperationSet = new LogicalOperationSet(m_knowledgeBaseRules.Length);
+            }
+        }
+    }
+
     public class KnowledgeBaseRulesEngine
     {
-        public static KnowledgeBaseRule[] GetKnowledgebaseRuleSet()
+        public static KnowledgeBaseRuleset GetKnowledgebaseRuleSet()
         {
             Type kbType = typeof(KnowledgeBase);
             Type mbType = typeof(MonoBehaviour);
             PropertyInfo[] kbProperties = kbType.GetProperties();
             PropertyInfo[] mbProperties = mbType.GetProperties();
             List<KnowledgeBaseRule> propertiesList = new List<KnowledgeBaseRule>();
-            foreach (PropertyInfo kbProperty in kbProperties)
+            for (int i = 0; i < kbProperties.Length; i++)
             {
                 bool skip = false;
                 foreach (PropertyInfo mbProperty in mbProperties)
                 {
-                    if (kbProperty.Name.Equals(mbProperty.Name))
+                    if (kbProperties[i].Name.Equals(mbProperty.Name))
                     {
                         skip = true;
                         continue;
@@ -399,11 +463,13 @@ namespace AI.KnowledgeBase
                 }
                 if (!skip)
                 {
-                    KnowledgeBaseRule kbRule = new KnowledgeBaseRule(kbProperty.Name, kbProperty.PropertyType);
+                    KnowledgeBaseRule kbRule = new KnowledgeBaseRule(kbProperties[i].Name, i, kbProperties[i].PropertyType);
                     propertiesList.Add(kbRule);
                 }
             }
-            return propertiesList.ToArray();
+            KnowledgeBaseRuleset ruleset = new KnowledgeBaseRuleset();
+            ruleset.knowledgeBaseRules = propertiesList.ToArray();
+            return ruleset;
         }
 
         public static bool IsRuleTrue(KnowledgeBase knowledgeBase, string kbPropertyName, CustomType value)

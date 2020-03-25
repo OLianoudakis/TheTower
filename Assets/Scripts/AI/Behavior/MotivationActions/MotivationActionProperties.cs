@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AI.KnowledgeBase;
+using AI.KnowledgeBase.Parser;
 using System;
 using System.Linq;
 
@@ -13,9 +14,10 @@ namespace AI.Behavior.MotivationActions
         private MotivationGain m_motivationGain;
 
         [SerializeField]
-        private KnowledgeBaseRule[] m_actionTriggerRules = KnowledgeBaseRulesEngine.GetKnowledgebaseRuleSet();
+        private KnowledgeBaseRuleset m_actionTriggerRules = KnowledgeBaseRulesEngine.GetKnowledgebaseRuleSet();
 
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
+        private Exp m_abstractSyntaxTree;
 
         public MotivationGain motivationGain
         {
@@ -24,20 +26,30 @@ namespace AI.Behavior.MotivationActions
 
         public bool CanBeTriggered()
         {
-            foreach (KnowledgeBaseRule actionTriggerRule in m_actionTriggerRules)
+            if (m_actionTriggerRules.knowledgeBaseRules.Length == 1)
             {
-                if (!KnowledgeBaseRulesEngine.IsRuleTrue(m_knowledgeBase, actionTriggerRule.m_name, actionTriggerRule.m_value))
+                if (!KnowledgeBaseRulesEngine.IsRuleTrue(
+                    m_knowledgeBase, m_actionTriggerRules.knowledgeBaseRules[0].m_name, m_actionTriggerRules.knowledgeBaseRules[0].m_value))
                 {
                     return false;
-                }
+                }   
             }
+            
+            // TODO call abstract syntax tree interpreter
             return true;
         }
 
         private void Awake()
         {
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
-            m_actionTriggerRules = m_actionTriggerRules.Where(val => val.m_useRule == true).ToArray();
+            LogicalOperationsParser parser
+                = new LogicalOperationsParser(m_actionTriggerRules.logicalOperationSet.m_logicalOperationPrimitives, m_actionTriggerRules.knowledgeBaseRules);
+            m_abstractSyntaxTree = parser.ParseRuleset();
+            m_actionTriggerRules.knowledgeBaseRules = m_actionTriggerRules.knowledgeBaseRules.Where(val => val.m_useRule == true).ToArray();
+            if ((m_actionTriggerRules.knowledgeBaseRules.Length > 1) && (m_abstractSyntaxTree == null))
+            {
+                throw new System.Exception("Logical operation set not provided for ruleset of length higher than 1!");
+            }
         }
 
         private void Start()

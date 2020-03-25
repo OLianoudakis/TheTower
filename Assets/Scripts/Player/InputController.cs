@@ -11,6 +11,7 @@ namespace Player
         private bool m_initialized = false;
         private RaycastHit m_leftMouseClickHit;
         private bool m_isLeftMouseClick = false;
+        private int m_layerMask;
 
         public bool initialized
         {
@@ -43,7 +44,7 @@ namespace Player
             {
                 m_isLeftMouseClick = true;
                 RaycastHit hit;
-                if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                 {
                     m_leftMouseClickPosition = hit.point;
                     m_leftMouseClickHit = hit;
@@ -53,6 +54,11 @@ namespace Player
             {
                 m_isLeftMouseClick = false;
             }
+        }
+
+        private void Start()
+        {
+            m_layerMask = 1 << LayerMask.NameToLayer("Default");
         }
     }
 }
