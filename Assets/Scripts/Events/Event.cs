@@ -11,11 +11,12 @@ namespace Events
 
     public enum EventType
     {
-        None = 0,
-        PlayerSpotted = 1,
-        PlayerDiscovered = 2,
-        PlayerSuspicion = 3,
-        EnvironmentObjectMoved = 4,
-        NoiseHeard = 5
+        PlayerSpotted = 0,
+        PlayerDiscovered = 1,
+        PlayerSuspicion = 2,
+        EnvironmentObjectMoved = 3,
+        NoiseHeard = 4,
+        PlayerLost = 5,
+        NoiseHeardBySomebodyElse = 6
     }
 }

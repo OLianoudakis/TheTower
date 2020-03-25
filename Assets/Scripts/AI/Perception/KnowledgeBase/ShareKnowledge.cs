@@ -38,7 +38,7 @@ namespace AI.KnowledgeBase
                 KnowledgeBase kbOther = other.GetComponentInChildren(typeof(KnowledgeBase)) as KnowledgeBase;
                 if (m_knowledgeBase.playerTransform && !kbOther.playerTransform)
                 {
-                    kbOther.playerTransform = m_knowledgeBase.playerTransform;
+                    kbOther.PlayerSpotted(m_knowledgeBase.playerTransform);
                 }
                 else if (m_knowledgeBase.playerHiding && !kbOther.playerTransform && !kbOther.playerHiding)
                 {

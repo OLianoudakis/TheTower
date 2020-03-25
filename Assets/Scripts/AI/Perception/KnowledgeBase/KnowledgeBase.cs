@@ -22,6 +22,9 @@ namespace AI.KnowledgeBase
         [SerializeField]
         private float m_noiseHeardForgetTime = 20.0f;
 
+        [SerializeField]
+        private GameObject[] m_eventReceivers;
+
         private float m_currentNoiseForgetTime = 0.0f;
         private float m_currentPlayerForgetTime = 0.0f;
         private float m_currentEnvironmentMovedForgetTime = 0.0f;
@@ -60,6 +63,9 @@ namespace AI.KnowledgeBase
             m_noisePosition = noisePosition;
             m_noiseHeard = true;
             m_currentNoiseForgetTime = 0.0f;
+            Events.Event noiseHeardEvent;
+            noiseHeardEvent.m_eventType = Events.EventType.NoiseHeardBySomebodyElse;
+            SendEvent(noiseHeardEvent);
         }
 
         public Vector3 GetNoisePosition()
@@ -101,7 +107,7 @@ namespace AI.KnowledgeBase
                 m_currentEnvironmentMovedForgetTime = 0.0f;
                 Events.Event objectMovedEvent;
                 objectMovedEvent.m_eventType = Events.EventType.EnvironmentObjectMoved;
-                ExecuteEvents.Execute<ICustomEventTarget>(gameObject, null, (x, y) => x.ReceiveEvent(objectMovedEvent));
+                SendEvent(objectMovedEvent);
             }
             if (!m_environmentObjectsMap.ContainsKey(environmentObject.GetInstanceID()))
             {
@@ -117,7 +123,7 @@ namespace AI.KnowledgeBase
             m_noisePosition = noisePosition;
             Events.Event noiseHeardEvent;
             noiseHeardEvent.m_eventType = Events.EventType.NoiseHeard;
-            ExecuteEvents.Execute<ICustomEventTarget>(gameObject, null, (x, y) => x.ReceiveEvent(noiseHeardEvent));
+            SendEvent(noiseHeardEvent);
         }
 
         public void PlayerSpotted(Transform playerTransform)
@@ -132,17 +138,17 @@ namespace AI.KnowledgeBase
             {
                 // player havent been seen for a while, send appropriate event
                 // depending on whether totally forgotten or not
-                this.playerTransform = playerTransform;
                 Events.Event playerSpottedEvent;
-                if (!m_playerForgotten)
+                if (m_playerForgotten)
                 {
                     playerSpottedEvent.m_eventType = Events.EventType.PlayerSpotted;
                 }
                 else
                 {
-                    playerSpottedEvent.m_eventType = Events.EventType.PlayerDiscovered;   
+                    playerSpottedEvent.m_eventType = Events.EventType.PlayerDiscovered;
                 }
-                ExecuteEvents.Execute<ICustomEventTarget>(gameObject, null, (x, y) => x.ReceiveEvent(playerSpottedEvent));
+                SendEvent(playerSpottedEvent);
+                this.playerTransform = playerTransform;
             }
         }
 
@@ -155,7 +161,7 @@ namespace AI.KnowledgeBase
                 m_currentPlayerForgetTime = 0.0f;
                 Events.Event playerSuspicionEvent;
                 playerSuspicionEvent.m_eventType = Events.EventType.PlayerSuspicion;
-                ExecuteEvents.Execute<ICustomEventTarget>(gameObject, null, (x, y) => x.ReceiveEvent(playerSuspicionEvent));
+                SendEvent(playerSuspicionEvent);
             }
         }
 
@@ -189,6 +195,9 @@ namespace AI.KnowledgeBase
             if (m_playerTransform && (m_currentPlayerForgetTime >= m_playerStopFollowTime))
             {
                 SetLastKnownPlayerPosition(m_playerTransform.position);
+                Events.Event playerLostEvent;
+                playerLostEvent.m_eventType = Events.EventType.PlayerLost;
+                SendEvent(playerLostEvent);
                 return;
             }
             if ((m_playerHiding || m_playerSuspicion) && (m_currentPlayerForgetTime >= m_playerForgetTime))
@@ -196,6 +205,14 @@ namespace AI.KnowledgeBase
                 m_playerHiding = false;
                 m_playerSuspicion = false;
                 m_playerForgotten = true;
+            }
+        }
+
+        private void SendEvent(Events.Event eventToSend)
+        {
+            foreach (GameObject receiver in m_eventReceivers)
+            {
+                ExecuteEvents.Execute<ICustomEventTarget>(receiver, null, (x, y) => x.ReceiveEvent(eventToSend));
             }
         }
 

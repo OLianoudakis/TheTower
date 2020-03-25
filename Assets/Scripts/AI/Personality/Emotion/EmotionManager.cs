@@ -8,11 +8,10 @@ namespace AI.Personality.Emotions
 {
     public class EmotionManager
     {
-        [SerializeField]
         private float m_emotionIntensityLowerBound = 0.1f;
 
         private List<Emotion> m_activeEmotions = new List<Emotion>();
-        private const float m_decayingConstant = 2.0f;
+        private const float m_decayingConstant = 0.1f;
 
         public float emotionIntensityLowerBound
         {
@@ -29,9 +28,11 @@ namespace AI.Personality.Emotions
             for (int i = m_activeEmotions.Count - 1; i >= 0; i--)
             {
                 Emotion currentEmotion = m_activeEmotions[i];
+                float deltaTime = Time.time - m_activeEmotions[i].m_initialTime;
+                deltaTime = deltaTime < 1.0f ? 1.0f : deltaTime;
                 currentEmotion.m_currentIntensity 
                     = m_activeEmotions[i].m_initialIntensity 
-                    * Mathf.Pow(Mathf.Epsilon, -m_decayingConstant * (Time.time - m_activeEmotions[i].m_initialTime));
+                    * Mathf.Exp(-m_decayingConstant * deltaTime);
                 m_activeEmotions[i] = currentEmotion;
 
                 if (m_activeEmotions[i].m_currentIntensity <= 0.0f)

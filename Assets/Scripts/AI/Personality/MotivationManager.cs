@@ -18,7 +18,9 @@ namespace AI.Personality
             {
                 for (int j = 0; j < personalityModel.m_personalityTraitsValues.Length; j++)
                 {
-                    m_targetMotivation[i] += ConstantMappings.MotivationToPersonalityTraits[i, j] * personalityModel.m_personalityTraitsValues[j].m_value;
+                    m_targetMotivation[i] 
+                        += ConstantMappings.MotivationToPersonalityTraits[i, j] 
+                        * personalityModel.m_personalityTraitsValues[j].m_value;
                 }
                 m_currentFullfilment[i] = m_targetMotivation[i];
             }

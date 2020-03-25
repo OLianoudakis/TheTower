@@ -16,7 +16,9 @@ namespace AI.Personality
         private EventsEmotionIntensities m_eventsEmotionIntensities;
 
         [SerializeField]
-        private float m_motivationGainRate = 0.001f;
+        private float m_personalityUpdateCooldown = 0.3f;
+
+        private float m_currentPersonalityCooldown = 0.0f;
 
         private EmotionManager m_emotionManager = new EmotionManager();
         private MoodManager m_moodManager;
@@ -45,9 +47,14 @@ namespace AI.Personality
 
         private void Update()
         {
-            m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, m_motivationGainRate);
-            m_emotionManager.DecayEmotionIntensity();
-            m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
+            m_currentPersonalityCooldown += Time.deltaTime;
+            if (m_currentPersonalityCooldown >= m_personalityUpdateCooldown)
+            {
+                m_currentPersonalityCooldown = 0.0f;
+                m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime);
+                m_emotionManager.DecayEmotionIntensity();
+                m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
+            }
         }
     }
 }

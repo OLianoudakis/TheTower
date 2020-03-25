@@ -15,7 +15,7 @@ namespace AI.Behavior
         private float m_emotionIntensityTreshold = 0.6f;
 
         [SerializeField]
-        private float m_behaviorUpdateCooldown = 0.5f;
+        private float m_behaviorUpdateCooldown = 0.3f;
 
         private float m_currentBehaviorCooldown = 0.0f;
         private PersonalityManager m_personalityManager;
@@ -39,7 +39,7 @@ namespace AI.Behavior
         {
             // pick the emotion with the strongest intensity
             EventEmotionEntry emotionalEventToTrigger;
-            emotionalEventToTrigger.m_eventType = Events.EventType.None;
+            emotionalEventToTrigger.m_eventType = Events.EventType.PlayerSpotted;
             float strongestIntensity = 0.0f;
             EmotionType strongestEmotion = EmotionType.Admiration;
             foreach (EventEmotionEntry emotionalEvent in m_generatedEmotionalEvents)
@@ -80,17 +80,24 @@ namespace AI.Behavior
         private void ActivateMotivationAction()
         {
             float[] currentDesires = m_personalityManager.GetCurrentDesires();
-            float distance = 100.0f;
+            float distance = -100.0f;
             MotivationActionProperties chosenAction = null;
             foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
             {
                 float newDistance = 0.0f;   
                 for (int i = 0; i < motivationActionProperties.motivationGain.m_motivationDesiresGain.Length; i++)
                 {
-                    newDistance += Mathf.Abs(currentDesires[i] - motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value);
+                    if (currentDesires[i] < 0.0f)
+                    {
+                        newDistance += (-1.0f * motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value) - (-1.0f * currentDesires[i]);
+                    }
+                    else
+                    {
+                        newDistance += motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value - currentDesires[i];
+                    }
                 }
-                // TODO here also check if the rule holds (ie - player spotted etc)
-                if ((newDistance < distance) && motivationActionProperties.CanBeTriggered())
+
+                if ((newDistance > distance) && motivationActionProperties.CanBeTriggered())
                 {
                     chosenAction = motivationActionProperties;
                     distance = newDistance;
