@@ -18,6 +18,7 @@ namespace AI.Behavior.MotivationActions
 
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private Exp m_abstractSyntaxTree;
+        private LogicalOperationsValidator m_logicalOperationsValidator;
 
         public MotivationGain motivationGain
         {
@@ -26,16 +27,21 @@ namespace AI.Behavior.MotivationActions
 
         public bool CanBeTriggered()
         {
+            // in case of one rule we can just check the rule directly
             if (m_actionTriggerRules.knowledgeBaseRules.Length == 1)
             {
                 if (!KnowledgeBaseRulesEngine.IsRuleTrue(
                     m_knowledgeBase, m_actionTriggerRules.knowledgeBaseRules[0].m_name, m_actionTriggerRules.knowledgeBaseRules[0].m_value))
                 {
                     return false;
-                }   
+                }
             }
-            
-            // TODO call abstract syntax tree interpreter
+            // in case of more rules validate the abstract syntax tree
+            else if (m_abstractSyntaxTree != null)
+            {
+                return m_logicalOperationsValidator.ValidateRules(m_abstractSyntaxTree);
+            }
+            // for no rules defined its always true
             return true;
         }
 
@@ -50,6 +56,7 @@ namespace AI.Behavior.MotivationActions
             {
                 throw new System.Exception("Logical operation set not provided for ruleset of length higher than 1!");
             }
+            m_logicalOperationsValidator = new LogicalOperationsValidator(m_knowledgeBase);
         }
 
         private void Start()

@@ -428,16 +428,13 @@ namespace AI.KnowledgeBase
         public LogicalOperationSet logicalOperationSet
         {
             get { return m_logicalOperationSet; }
+            set { m_logicalOperationSet = value; }
         }
 
         public KnowledgeBaseRule[] knowledgeBaseRules
         {
             get { return m_knowledgeBaseRules; }
-            set
-            {
-                m_knowledgeBaseRules = value;
-                m_logicalOperationSet = new LogicalOperationSet(m_knowledgeBaseRules.Length);
-            }
+            set { m_knowledgeBaseRules = value; }
         }
     }
 
@@ -469,6 +466,7 @@ namespace AI.KnowledgeBase
             }
             KnowledgeBaseRuleset ruleset = new KnowledgeBaseRuleset();
             ruleset.knowledgeBaseRules = propertiesList.ToArray();
+            ruleset.logicalOperationSet = new LogicalOperationSet(ruleset.knowledgeBaseRules.Length);
             return ruleset;
         }
 

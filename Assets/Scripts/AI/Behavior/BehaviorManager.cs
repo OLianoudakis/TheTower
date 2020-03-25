@@ -108,26 +108,27 @@ namespace AI.Behavior
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             m_personalityManager = GetComponent(typeof(PersonalityManager)) as PersonalityManager;
             for (int i = 0; i < transform.childCount; i++)
             {
-                GameObject action = transform.GetChild(i).gameObject;
-                MotivationActionProperties motivationAction = action.GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
-                if (motivationAction)
+                if(transform.GetChild(i).gameObject.activeInHierarchy)
                 {
-                    m_motivationActionProperties.Add(motivationAction);
+                    GameObject action = transform.GetChild(i).gameObject;
+                    MotivationActionProperties motivationAction = action.GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
+                    if (motivationAction)
+                    {
+                        m_motivationActionProperties.Add(motivationAction);
+                    }
+                    else
+                    {
+                        m_emotionalProperties.Add(action.GetComponent(typeof(EmotionalActionProperties)) as EmotionalActionProperties);
+                    }
                 }
-                else
-                {
-                    m_emotionalProperties.Add(action.GetComponent(typeof(EmotionalActionProperties)) as EmotionalActionProperties);
-                }
-                action.SetActive(false);
             }
         }
 
-        // Update is called once per frame
         private void Update()
         {
             m_currentBehaviorCooldown += Time.deltaTime;
