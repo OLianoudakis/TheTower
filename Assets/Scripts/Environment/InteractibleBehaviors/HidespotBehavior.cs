@@ -14,6 +14,7 @@ namespace Environment.Hiding
         private GameObject m_invisibleWalls;
         private Interactible m_interactible;
         private InputController m_inputController;
+        private int m_playerLayer;
 
         private void SetPlayerIntoHiding()
         {
@@ -21,6 +22,7 @@ namespace Environment.Hiding
             m_playerCollider.center = new Vector3 (0.0f, 0.38f, 0.0f);
             m_playerCollider.height = 1.76f;
             m_invisibleWalls.SetActive(true);
+            m_playerCollider.gameObject.layer = LayerMask.NameToLayer("Hiding");
         }
 
         private void ExitHiding()
@@ -30,6 +32,7 @@ namespace Environment.Hiding
             m_playerCollider.height = 3.0f;
             m_invisibleWalls.SetActive(false);
             m_interactible.DeactivateBehavior(false);
+            m_playerCollider.gameObject.layer = m_playerLayer;
         }
 
         private void Start()
@@ -45,6 +48,7 @@ namespace Environment.Hiding
             if (playerTag)
             {
                 m_playerCollider = playerTag.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
+                m_playerLayer = m_playerCollider.gameObject.layer;
             }
 
             foreach (Transform child in transform)

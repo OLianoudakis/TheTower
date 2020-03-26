@@ -21,10 +21,10 @@ TagManager:
   - Perception
   - KnowledgeBaseSharing
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - InteractibleTrigger
+  - Hiding
+  - CrouchPosition
+  - Camera
   - 
   - 
   - 

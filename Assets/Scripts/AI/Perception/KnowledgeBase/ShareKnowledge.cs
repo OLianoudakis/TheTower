@@ -30,11 +30,19 @@ namespace AI.KnowledgeBase
         private void CheckCollision(Collider other)
         {
             // check if no wall between them
-            Vector3 direction = new Vector3(other.transform.position.x, m_collider.center.y, other.transform.position.z) - m_collider.center;
+            Vector3 fromRay = new Vector3
+                   (
+                       m_collider.transform.position.x,
+                       m_collider.transform.position.y + m_collider.center.y,
+                       m_collider.transform.position.z
+                   );
+            Vector3 direction =
+                new Vector3(other.transform.position.x, other.transform.position.y + m_collider.center.y, other.transform.position.z)
+                - fromRay;
             RaycastHit hit;
-            if (Physics.Raycast(m_collider.center, direction, out hit, Mathf.Infinity, m_layerMask)
+            if (Physics.Raycast(fromRay, direction, out hit, Mathf.Infinity, m_layerMask)
                 && hit.collider.Equals(other))
-            {
+            { 
                 KnowledgeBase kbOther = other.GetComponentInChildren(typeof(KnowledgeBase)) as KnowledgeBase;
                 if (m_knowledgeBase.playerTransform && !kbOther.playerTransform)
                 {

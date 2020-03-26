@@ -27,6 +27,7 @@ namespace AI.Behavior
         private List<EmotionalActionProperties> m_emotionalProperties = new List<EmotionalActionProperties>();
         private GameObject m_currentlyActivatedMotivationAction = null;
         private float[] m_currentMotivationGain = null;
+        private bool m_behaviorInterrupted = false;
 
         public float[] currentMotivationGain
         {
@@ -36,6 +37,24 @@ namespace AI.Behavior
         public void AddGeneratedEmotion(EventEmotionEntry emotionEvent)
         {
             m_generatedEmotionalEvents.Add(emotionEvent);
+        }
+
+        public void ContinueBehavior()
+        {
+            if (m_currentlyActivatedMotivationAction)
+            {
+                m_currentlyActivatedMotivationAction.SetActive(true);
+                m_behaviorInterrupted = false;
+            }
+        }
+
+        public void InterruptBehavior()
+        {
+            if (m_currentlyActivatedMotivationAction)
+            {
+                m_currentlyActivatedMotivationAction.SetActive(false);
+                m_behaviorInterrupted = true;
+            }
         }
 
         private bool ActivateEmotionalAction()
@@ -164,15 +183,18 @@ namespace AI.Behavior
 
         private void Update()
         {
-            m_currentBehaviorCooldown += Time.deltaTime;
-            if (m_usePersonalityModel && ActivateEmotionalAction())
+            if (!m_behaviorInterrupted)
             {
-                return;
-            }
-            if (m_currentBehaviorCooldown >= m_behaviorUpdateCooldown)
-            {
-                m_currentBehaviorCooldown = 0.0f;
-                ActivateMotivationAction();
+                m_currentBehaviorCooldown += Time.deltaTime;
+                if (m_usePersonalityModel && ActivateEmotionalAction())
+                {
+                    return;
+                }
+                if (m_currentBehaviorCooldown >= m_behaviorUpdateCooldown)
+                {
+                    m_currentBehaviorCooldown = 0.0f;
+                    ActivateMotivationAction();
+                }
             }
         }
     }

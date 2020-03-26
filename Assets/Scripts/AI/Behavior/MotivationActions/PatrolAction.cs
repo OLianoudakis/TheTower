@@ -53,13 +53,23 @@ namespace AI.Behavior.Actions
 
         private void OnEnable()
         {
+            m_navMeshAgent.isStopped = false;
+            m_isPatroling = true;
             StopCoroutine(Patrol());
             StartCoroutine(Patrol());
         }
 
+        private void OnDisable()
+        {
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
+            m_navMeshAgent.isStopped = true;
+            m_isPatroling = false;
+            --m_patrolPointsIndex;
+        }
+
         private void NextDestination()
         {
-            m_patrolPointsIndex++;
+            ++m_patrolPointsIndex;
             if (m_patrolPointsIndex >= m_patrolPoints.Length)
             {
                 m_patrolPointsIndex = 0;

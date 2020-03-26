@@ -29,9 +29,18 @@ namespace AI.Actions
 
         private void OnEnable()
         {
+            m_navMeshAgent.isStopped = false;
+            m_isChasing = true;
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             StopCoroutine(Chase());
             StartCoroutine(Chase());
+        }
+
+        private void OnDisable()
+        {
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
+            m_navMeshAgent.isStopped = true;
+            m_isChasing = false;
         }
 
         private IEnumerator Chase()

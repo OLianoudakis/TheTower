@@ -34,7 +34,7 @@ namespace Environment
                 if (trigger.isActivated)
                 {
                     m_interactible = trigger.interactible;
-                    interactible.interactiblePosition = m_playerPosition;
+                    m_interactible.interactiblePosition = m_playerPosition;
                     trigger.isActivated = false;
                     return;
                 }

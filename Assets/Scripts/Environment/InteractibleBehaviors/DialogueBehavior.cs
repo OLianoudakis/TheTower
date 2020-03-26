@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Player;
+using GameCamera;
+using AI.Behavior;
+using AI.Personality;
 
 namespace Environment.InteractibleBehaviors
 {
@@ -15,6 +18,9 @@ namespace Environment.InteractibleBehaviors
 
     public class DialogueBehavior : MonoBehaviour
     {
+        [SerializeField]
+        private float m_cameraTransitionWaitTime = 1.0f;
+
         [SerializeField]
         private CanvasGroup m_dialogueGroup;
 
@@ -33,9 +39,14 @@ namespace Environment.InteractibleBehaviors
         [SerializeField]
         private DialogueMessage[] m_messages;
 
+        private CameraPositionController m_cameraPositionController;
         private InputController m_inputController;
         private Interactible m_interactible;
         private bool m_isActive = false;
+        private Transform m_oldLookAtPosition;
+        private Vector3 m_oldPosition;
+        private BehaviorManager[] m_behaviorManagers;
+        private PersonalityManager[] m_personalityManagers;
 
         private int m_currentMessageIndex = 0;
 
@@ -43,15 +54,36 @@ namespace Environment.InteractibleBehaviors
         {
             if (m_currentMessageIndex >= m_messages.Length)
             {
+                for (int i = 0; i < m_behaviorManagers.Length; i++)
+                {
+                    if (m_behaviorManagers[i])
+                    {
+                        m_behaviorManagers[i].ContinueBehavior();
+                    }
+                    if (m_personalityManagers[i])
+                    {
+                        m_personalityManagers[i].ContinueBehavior();
+                    }
+                }
+                m_cameraPositionController.lookAtPosition = m_oldLookAtPosition;
+                m_cameraPositionController.SetPosition(m_oldPosition);
                 DeactivateDialogueBehavior();
                 return;
             }
 
             DialogueMessage currentMessage = m_messages[m_currentMessageIndex];
             int currentSpeaker = currentMessage.m_currentSpeaker;
-            // get the current message target
-            // Transform targetTransform = m_discussionTargets[currentSpeaker];
-            // TODO here set the camera to its position
+            
+            // set camera position in front of target and look at target
+            m_cameraPositionController.lookAtPosition = m_discussionTargets[currentSpeaker];
+            Vector3 cameraPosition = 
+                m_discussionTargets[currentSpeaker].position
+                + 
+                (
+                new Vector3(m_discussionTargets[currentSpeaker].forward.x, m_discussionTargets[currentSpeaker].forward.y + 2.0f, m_discussionTargets[currentSpeaker].forward.z) 
+                * m_cameraPositionController.lookAtOffset
+                );
+            m_cameraPositionController.SetPosition(cameraPosition, m_cameraTransitionWaitTime);
 
             // change the icon for the target
             Sprite targetIcon = m_discussionTargetsIcons[currentSpeaker];
@@ -81,6 +113,22 @@ namespace Environment.InteractibleBehaviors
         {
             m_interactible = GetComponent(typeof(Interactible)) as Interactible;
             m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
+            m_cameraPositionController = FindObjectOfType(typeof(CameraPositionController)) as CameraPositionController;
+            m_behaviorManagers = new BehaviorManager[m_discussionTargets.Length];
+            m_personalityManagers = new PersonalityManager[m_discussionTargets.Length];
+            for (int i = 0; i < m_discussionTargets.Length; i++)
+            {
+                BehaviorManager behaviorManager = m_discussionTargets[i].GetComponentInChildren(typeof(BehaviorManager)) as BehaviorManager;
+                if (behaviorManager)
+                {
+                    m_behaviorManagers[i] = behaviorManager;
+                }
+                PersonalityManager personalityManager = m_discussionTargets[i].GetComponentInChildren(typeof(PersonalityManager)) as PersonalityManager;
+                if (personalityManager)
+                {
+                    m_personalityManagers[i] = personalityManager;
+                }
+            }
         }
 
         private void Update()
@@ -89,6 +137,19 @@ namespace Environment.InteractibleBehaviors
             {
                 if (!m_isActive)
                 {
+                    for (int i = 0; i < m_behaviorManagers.Length; i++)
+                    {
+                        if (m_behaviorManagers[i])
+                        {
+                            m_behaviorManagers[i].InterruptBehavior();
+                        }
+                        if (m_personalityManagers[i])
+                        {
+                            m_personalityManagers[i].InterruptBehavior();
+                        }
+                    }
+                    m_oldLookAtPosition = m_cameraPositionController.lookAtPosition;
+                    m_oldPosition = m_cameraPositionController.currentPosition;
                     m_isActive = true;
                     ShowNextMessage();
                 }

@@ -24,6 +24,22 @@ namespace AI.Personality
         private MoodManager m_moodManager;
         private MotivationManager m_motivationManager;
         private BehaviorManager m_behaviorManager;
+        private bool m_behaviorInterrupted = false;
+
+        public void ContinueBehavior()
+        {
+            m_behaviorInterrupted = false;
+        }
+
+        public float[] GetCurrentDesires()
+        {
+            return m_motivationManager.GetCurrentDesires(m_emotionManager.activeEmotions, m_emotionManager.emotionIntensityLowerBound);
+        }
+
+        public void InterruptBehavior()
+        {
+            m_behaviorInterrupted = true;
+        }
 
         public void ReceiveEvent(Events.Event receivedEvent)
         {
@@ -31,11 +47,6 @@ namespace AI.Personality
             Emotion[] modifiedEmotions = m_emotionManager.AddEmotions(entry.m_emotions, m_moodManager.mood, m_personalityModel);
             entry.m_emotions = modifiedEmotions;
             m_behaviorManager.AddGeneratedEmotion(entry);
-        }
-
-        public float[] GetCurrentDesires()
-        {
-            return m_motivationManager.GetCurrentDesires(m_emotionManager.activeEmotions, m_emotionManager.emotionIntensityLowerBound);
         }
 
         private void Start()
@@ -47,13 +58,16 @@ namespace AI.Personality
 
         private void Update()
         {
-            m_currentPersonalityCooldown += Time.deltaTime;
-            if (m_currentPersonalityCooldown >= m_personalityUpdateCooldown)
+            if (!m_behaviorInterrupted)
             {
-                m_currentPersonalityCooldown = 0.0f;
-                m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime);
-                m_emotionManager.DecayEmotionIntensity();
-                m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
+                m_currentPersonalityCooldown += Time.deltaTime;
+                if (m_currentPersonalityCooldown >= m_personalityUpdateCooldown)
+                {
+                    m_currentPersonalityCooldown = 0.0f;
+                    m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime);
+                    m_emotionManager.DecayEmotionIntensity();
+                    m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
+                }
             }
         }
     }

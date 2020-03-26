@@ -9,19 +9,40 @@ namespace GameCamera
         public CameraCCTVState m_currentState;
 
         [SerializeField]
-        private Transform m_playerPosition;
-        [SerializeField]
-        private Vector3 m_offset = new Vector3(-3.0f, 7.0f, -3.0f);
+        private Transform m_lookAtPosition;
 
-        public void SetPosition(Vector3 targetPosition)
+        [SerializeField]
+        private float m_lookAtOffset = 3.0f;
+
+        private Vector3 m_currentPosition;
+
+        public Transform lookAtPosition
         {
-            StartCoroutine(MoveToPosition(targetPosition));
+            get { return m_lookAtPosition; }
+            set { m_lookAtPosition = value; }
         }
 
-        public void SetPosition(Vector3 targetPosition, CameraCCTVState newState)
+        public float lookAtOffset
         {
+            get { return m_lookAtOffset; }
+        }
+
+        public Vector3 currentPosition
+        {
+            get { return m_currentPosition; }
+        }
+
+        public void SetPosition(Vector3 targetPosition, float waitTime = 1.5f)
+        {
+            m_currentPosition = targetPosition;
+            StartCoroutine(MoveToPosition(targetPosition, waitTime));
+        }
+
+        public void SetPosition(Vector3 targetPosition, CameraCCTVState newState, float waitTime = 1.5f)
+        {
+            m_currentPosition = targetPosition;
             m_currentState = newState;
-            StartCoroutine(MoveToPosition(targetPosition));
+            StartCoroutine(MoveToPosition(targetPosition, waitTime));
         }
 
         public CameraCCTVState CameraState
@@ -34,17 +55,14 @@ namespace GameCamera
             m_currentState = CameraCCTVState.CCTV1;
         }
 
-        // Update is called once per frame
-        void LateUpdate()
+        private void LateUpdate()
         {
-            //transform.position = m_playerPosition.position + m_offset;
-            transform.LookAt(m_playerPosition);
+            transform.LookAt(m_lookAtPosition);
         }
 
-        private IEnumerator MoveToPosition(Vector3 targetPosition)
+        private IEnumerator MoveToPosition(Vector3 targetPosition, float waitTime = 1.5f)
         {
             float elapsedTime = 0.0f;
-            float waitTime = 1.5f;
             Vector3 currentPosition = transform.position;
 
             while (elapsedTime < waitTime)

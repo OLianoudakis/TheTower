@@ -58,7 +58,7 @@ namespace Player
 
         private void Start()
         {
-            m_layerMask = 1 << LayerMask.NameToLayer("Default");
+            m_layerMask = LayerMask.GetMask("Default", "CrouchPosition");
         }
     }
 }

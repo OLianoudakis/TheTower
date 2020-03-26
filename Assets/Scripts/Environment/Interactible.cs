@@ -14,7 +14,7 @@ namespace Environment
 
         public Transform interactiblePosition
         {
-            get { return transform; }
+            get { return m_interactiblePosition; }
             set { m_interactiblePosition = value; }
         }
 

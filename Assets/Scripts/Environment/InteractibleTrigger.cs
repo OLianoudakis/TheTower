@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Player;
+using Player.EmptyClass;
 
 namespace Environment
 {
@@ -24,9 +24,8 @@ namespace Environment
 
         private void OnTriggerEnter(Collider other)
         {
-            // only player has input controller
-            InputController ic = other.gameObject.GetComponent(typeof(InputController)) as InputController;
-            if (ic)
+            PlayerTagScript pt = other.gameObject.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
+            if (pt)
             {
                 m_isActivated = true;
                 this.gameObject.SetActive(false);
