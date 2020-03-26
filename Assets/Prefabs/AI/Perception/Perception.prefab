@@ -101,7 +101,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5539629738651200269}
-  m_Mesh: {fileID: -5495902117074765545, guid: ff14a8e2f19100f46999e5b7574af939, type: 3}
+  m_Mesh: {fileID: -5495902117074765545, guid: 53eed8e59b8585e4ba6ce6049e80496b, type: 3}
 --- !u!23 &3030778315546489708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -263,6 +263,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5249047146568050266}
     m_Modifications:
+    - target: {fileID: 2217444683864393435, guid: 30db648af854c0d4d9b4d84df5b542bd,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6023188395903751856, guid: 387cc56cc2393e448be39a95b59093ed,
+        type: 3}
     - target: {fileID: 2217444683864393436, guid: 30db648af854c0d4d9b4d84df5b542bd,
         type: 3}
       propertyPath: m_Name
@@ -415,6 +421,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.880737
       objectReference: {fileID: 0}
+    - target: {fileID: 9043695789207929962, guid: fca51c6a272e8b34b83c58e8e4984d4d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 53eed8e59b8585e4ba6ce6049e80496b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fca51c6a272e8b34b83c58e8e4984d4d, type: 3}
 --- !u!4 &2532316601628510100 stripped
