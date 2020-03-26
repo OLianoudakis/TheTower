@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2807722584679405927}
-  - component: {fileID: 2807722584679405924}
   - component: {fileID: 5639013721042096160}
   m_Layer: 0
-  m_Name: PlayerSpotted
+  m_Name: EmotionalActions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,29 +27,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2807722585724498037}
-  - {fileID: 2807722585552811291}
+  m_Children: []
   m_Father: {fileID: 5551756129472306473}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2807722584679405924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807722584679405926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd31dff7de77c984797b7d2bfe1fc4e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_emotionTriggers:
-  - m_emotionType: 5
-    m_action: {fileID: 2807722585552811290}
-  - m_emotionType: 2
-    m_action: {fileID: 2807722585724498036}
 --- !u!114 &5639013721042096160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,66 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_eventType: 1
---- !u!1 &2807722585552811290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2807722585552811291}
-  m_Layer: 0
-  m_Name: Scared
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2807722585552811291
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807722585552811290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2807722584679405927}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2807722585724498036
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2807722585724498037}
-  m_Layer: 0
-  m_Name: Courageous
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2807722585724498037
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807722585724498036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2807722584679405927}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5551756129472306472
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb60f80effbd60499a6796dd6bcf1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_usePersonalityModel: 1
   m_emotionIntensityTreshold: 0.6
   m_behaviorUpdateCooldown: 0.5
 --- !u!114 &5551756129472306475
@@ -188,7 +109,7 @@ MonoBehaviour:
   m_personalityModel: {fileID: 11400000, guid: 236e4f394d0779b45a4261cd60145221, type: 2}
   m_eventsEmotionIntensities: {fileID: 11400000, guid: a5cb8cf7f14056d4f95987569e134a76,
     type: 2}
-  m_motivationGainRate: 0.001
+  m_personalityUpdateCooldown: 0.3
 --- !u!1001 &3659480218628856738
 PrefabInstance:
   m_ObjectHideFlags: 0

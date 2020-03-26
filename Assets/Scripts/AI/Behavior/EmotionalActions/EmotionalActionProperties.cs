@@ -19,6 +19,9 @@ namespace AI.Behavior.EmotionalActions
         [SerializeField]
         private Events.EventType m_eventType;
 
+        private TextMesh m_reactionTextMesh;
+        private string m_emotionReaction;
+
         private EmotionType m_triggeredEmotion;
 
         public Events.EventType eventType
@@ -30,6 +33,26 @@ namespace AI.Behavior.EmotionalActions
         {
             get { return m_triggeredEmotion; }
             set { m_triggeredEmotion = value; }
+        }
+
+        private void Awake()
+        {
+            m_reactionTextMesh = transform.parent.parent.GetComponentInChildren<TextMesh>();
+        }
+
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
+
+        private void OnEnable()
+        {
+            m_reactionTextMesh.text = EmotionalActionsCatalog.ChooseCatalogEntry(m_triggeredEmotion, eventType);
+        }
+
+        private void OnDisable()
+        {
+            m_reactionTextMesh.text = "";
         }
     }
 }
