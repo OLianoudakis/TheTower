@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AI.Personality;
-using Events;
+
 namespace AI.Behavior.EmotionalActions
 {
-    public class EmotionalActionsCatalog
+    public class EmotionalActionsCatalogue : MonoBehaviour
     {
-        private static Catalogue[,] m_actionsCatalog = new Catalogue[,] { { Catalogue.PlayerSpottedJoy, Catalogue.PlayerDiscoveredJoy, Catalogue.PlayerSuspicionJoy, Catalogue.ObjectMovedJoy, Catalogue.NoiseHeardJoy, Catalogue.PlayerLostJoy, Catalogue.NoiseHeardBySomebodyElseJoy },
+        private Catalogue[,] m_actionsCatalog = new Catalogue[,] { { Catalogue.PlayerSpottedJoy, Catalogue.PlayerDiscoveredJoy, Catalogue.PlayerSuspicionJoy, Catalogue.ObjectMovedJoy, Catalogue.NoiseHeardJoy, Catalogue.PlayerLostJoy, Catalogue.NoiseHeardBySomebodyElseJoy },
                                                                { Catalogue.PlayerSpottedDistress, Catalogue.PlayerDiscoveredDistress, Catalogue.PlayerSuspicionDistress, Catalogue.ObjectMovedDistress, Catalogue.NoiseHeardDistress, Catalogue.PlayerLostDistress, Catalogue.NoiseHeardBySomebodyElseDistress},
                                                                { Catalogue.PlayerSpottedResentment, Catalogue.PlayerDiscoveredResentment, Catalogue.PlayerSuspicionResentment, Catalogue.ObjectMovedResentment, Catalogue.NoiseHeardResentment, Catalogue.PlayerLostResentment, Catalogue.NoiseHeardBySomebodyElseResentment},
                                                                { Catalogue.PlayerSpottedPity, Catalogue.PlayerDiscoveredPity, Catalogue.PlayerSuspicionPity, Catalogue.ObjectMovedPity, Catalogue.NoiseHeardPity, Catalogue.PlayerLostPity, Catalogue.NoiseHeardBySomebodyElsePity},
@@ -29,12 +29,12 @@ namespace AI.Behavior.EmotionalActions
                                                                { Catalogue.PlayerSpottedLove, Catalogue.PlayerDiscoveredLove, Catalogue.PlayerSuspicionLove, Catalogue.ObjectMovedLove, Catalogue.NoiseHeardLove, Catalogue.PlayerLostLove, Catalogue.NoiseHeardBySomebodyElseLove},
                                                                { Catalogue.PlayerSpottedHate, Catalogue.PlayerDiscoveredHate, Catalogue.PlayerSuspicionHate, Catalogue.ObjectMovedHate, Catalogue.NoiseHeardHate, Catalogue.PlayerLostHate, Catalogue.NoiseHeardBySomebodyElseHate} };
 
-
-        public static string ChooseCatalogEntry(EmotionType emotionType, Events.EventType eventType)
+        public string ChooseCatalogEntry(EmotionType emotionType, Events.EventType eventType)
         {
             int emotionTypeInt = (int)emotionType;
             int eventTypeInt = (int)eventType;
             Catalogue catalogEntrySelected = m_actionsCatalog[emotionTypeInt, eventTypeInt];
+
             switch (catalogEntrySelected)
             {
                 case Catalogue.PlayerSpottedJoy:

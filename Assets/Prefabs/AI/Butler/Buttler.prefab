@@ -621,6 +621,11 @@ PrefabInstance:
       propertyPath: m_patrolPointsGroup
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2807722584679405926, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5551756129472306472, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_Name
