@@ -36,8 +36,16 @@ namespace Environment.Hiding
         {
             m_interactible = GetComponent(typeof(Interactible)) as Interactible;
             m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
-            m_playerAnimator = FindObjectOfType<PlayerMeshTagScript>().GetComponent<Animator>();
-            m_playerCollider = FindObjectOfType<PlayerTagScript>().GetComponent<CapsuleCollider>();
+            PlayerMeshTagScript playerMeshTag = FindObjectOfType(typeof(PlayerMeshTagScript)) as PlayerMeshTagScript;
+            if (playerMeshTag)
+            {
+                m_playerAnimator = playerMeshTag.GetComponent(typeof(Animator)) as Animator;
+            }
+            PlayerTagScript playerTag = FindObjectOfType(typeof(PlayerTagScript)) as PlayerTagScript;
+            if (playerTag)
+            {
+                m_playerCollider = playerTag.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
+            }
 
             foreach (Transform child in transform)
             {

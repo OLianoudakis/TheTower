@@ -9,7 +9,9 @@ namespace AI.KnowledgeBase
     // TODO: rework to sight memory and sound memory if time available to get rid of spaghetti
     public class KnowledgeBase : MonoBehaviour
     {
-        // private knowledge
+        [SerializeField]
+        private bool m_useEvents = true;
+
         [SerializeField]
         private float m_playerStopFollowTime = 5.0f;
 
@@ -30,6 +32,8 @@ namespace AI.KnowledgeBase
         private float m_currentEnvironmentMovedForgetTime = 0.0f;
         private bool m_playerForgotten = true;
         private bool m_noiseForgotten = true;
+        private List<Movable> m_environmentObjects = new List<Movable>();
+        private Dictionary<int, bool> m_environmentObjectsMap = new Dictionary<int, bool>();
 
         // shared knowledge
         private Transform m_playerTransform;
@@ -40,9 +44,7 @@ namespace AI.KnowledgeBase
         private Vector3 m_playerSuspicionPosition;
         private Vector3 m_noisePosition;
         private Vector3 m_lastKnownPlayerPosition;
-        private List<Movable> m_environmentObjects = new List<Movable>();
-        private Dictionary<int, bool> m_environmentObjectsMap = new Dictionary<int, bool>();
-
+        
         public bool playerSuspicion
         {
             get { return m_playerSuspicion; }
@@ -210,9 +212,12 @@ namespace AI.KnowledgeBase
 
         private void SendEvent(Events.Event eventToSend)
         {
-            foreach (GameObject receiver in m_eventReceivers)
+            if (m_useEvents)
             {
-                ExecuteEvents.Execute<ICustomEventTarget>(receiver, null, (x, y) => x.ReceiveEvent(eventToSend));
+                foreach (GameObject receiver in m_eventReceivers)
+                {
+                    ExecuteEvents.Execute<ICustomEventTarget>(receiver, null, (x, y) => x.ReceiveEvent(eventToSend));
+                }
             }
         }
 

@@ -12,6 +12,9 @@ namespace AI.Behavior
     public class BehaviorManager : MonoBehaviour
     {
         [SerializeField]
+        private bool m_usePersonalityModel = true;
+
+        [SerializeField]
         private float m_emotionIntensityTreshold = 0.6f;
 
         [SerializeField]
@@ -79,30 +82,8 @@ namespace AI.Behavior
 
         private void ActivateMotivationAction()
         {
-            float[] currentDesires = m_personalityManager.GetCurrentDesires();
-            float distance = -100.0f;
-            MotivationActionProperties chosenAction = null;
-            foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
-            {
-                float newDistance = 0.0f;   
-                for (int i = 0; i < motivationActionProperties.motivationGain.m_motivationDesiresGain.Length; i++)
-                {
-                    if (currentDesires[i] < 0.0f)
-                    {
-                        newDistance += (-1.0f * motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value) - (-1.0f * currentDesires[i]);
-                    }
-                    else
-                    {
-                        newDistance += motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value - currentDesires[i];
-                    }
-                }
-
-                if ((newDistance > distance) && motivationActionProperties.CanBeTriggered())
-                {
-                    chosenAction = motivationActionProperties;
-                    distance = newDistance;
-                }
-            }
+            MotivationActionProperties chosenAction = ChooseMotivationAction();
+            
             if (chosenAction && !chosenAction.gameObject.activeInHierarchy)
             {
                 if (m_currentlyActivatedMotivationAction)
@@ -128,7 +109,7 @@ namespace AI.Behavior
                     {
                         m_motivationActionProperties.Add(motivationAction);
                     }
-                    else
+                    else if (m_usePersonalityModel)
                     {
                         m_emotionalProperties.Add(action.GetComponent(typeof(EmotionalActionProperties)) as EmotionalActionProperties);
                     }
@@ -136,16 +117,62 @@ namespace AI.Behavior
             }
         }
 
+        private MotivationActionProperties ChooseMotivationAction()
+        {
+            MotivationActionProperties chosenAction = null;
+            float[] currentDesires = null;
+            float distance = -100.0f;
+            int priority = -1;
+            if (m_usePersonalityModel)
+            {
+                currentDesires = m_personalityManager.GetCurrentDesires();
+            }
+            foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
+            {
+                if (m_usePersonalityModel)
+                {
+                    float newDistance = 0.0f;
+                    for (int i = 0; i < motivationActionProperties.motivationGain.m_motivationDesiresGain.Length; i++)
+                    {
+                        if (currentDesires[i] < 0.0f)
+                        {
+                            newDistance += (-1.0f * motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value) - (-1.0f * currentDesires[i]);
+                        }
+                        else
+                        {
+                            newDistance += motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value - currentDesires[i];
+                        }
+                    }
+
+                    if ((newDistance > distance) && motivationActionProperties.CanBeTriggered())
+                    {
+                        chosenAction = motivationActionProperties;
+                        distance = newDistance;
+                    }
+                    continue;
+                }
+
+                if (((priority < 0) || (motivationActionProperties.priority < priority))
+                    && motivationActionProperties.CanBeTriggered())
+                {
+                    chosenAction = motivationActionProperties;
+                    priority = motivationActionProperties.priority;
+                }
+            }
+            return chosenAction;
+        }
+
         private void Update()
         {
             m_currentBehaviorCooldown += Time.deltaTime;
-            if (!ActivateEmotionalAction())
+            if (m_usePersonalityModel && ActivateEmotionalAction())
             {
-                if (m_currentBehaviorCooldown >= m_behaviorUpdateCooldown)
-                {
-                    m_currentBehaviorCooldown = 0.0f;
-                    ActivateMotivationAction();
-                }
+                return;
+            }
+            if (m_currentBehaviorCooldown >= m_behaviorUpdateCooldown)
+            {
+                m_currentBehaviorCooldown = 0.0f;
+                ActivateMotivationAction();
             }
         }
     }

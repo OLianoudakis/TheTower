@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using AI.KnowledgeBase;
 using AI.KnowledgeBase.Parser;
-using System;
 using System.Linq;
+using Utils.EditorProperties;
 
 namespace AI.Behavior.MotivationActions
 {
     public class MotivationActionProperties : MonoBehaviour
     {
+        [ReadOnly]
+        private string m_priorityDescription = "Priority for action used when personality model disabled.";
+
+        [SerializeField]
+        private int m_priority = 0;
+
         [SerializeField]
         private MotivationGain m_motivationGain;
 
@@ -19,6 +25,11 @@ namespace AI.Behavior.MotivationActions
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private Exp m_abstractSyntaxTree;
         private LogicalOperationsValidator m_logicalOperationsValidator;
+
+        public int priority
+        {
+            get { return m_priority; }
+        }
 
         public MotivationGain motivationGain
         {

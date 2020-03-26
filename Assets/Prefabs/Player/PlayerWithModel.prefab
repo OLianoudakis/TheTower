@@ -1,18 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3147723389284285672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3193352403748652285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c708e73b2dc79647bfbd505907c4a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8305726747837527343
+--- !u!114 &2586602003966192090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +30,7 @@ GameObject:
   - component: {fileID: 3147723389770980538}
   - component: {fileID: 6345780080118691451}
   m_Layer: 0
-  m_Name: PlayerWithModel 1
+  m_Name: PlayerWithModel
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
