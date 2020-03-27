@@ -8,10 +8,12 @@ namespace AI.Behavior.Trees
 {
     public class TreeFactory
     {
-        public static Node CreatePatrollingTree(Root behaviorTree, GameObject[] patrolPoints, NavMeshAgent navMeshAgent)
+        public delegate Object[] FindObjects(System.Type type);
+
+        public static Node CreatePatrollingTree(Root behaviorTree, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator, float waitTimeAtPoints)
         {
             PatrollingTree patrollingSubtree = new PatrollingTree();
-            patrollingSubtree.Create(behaviorTree, patrolPoints, navMeshAgent);
+            patrollingSubtree.Create(behaviorTree, m_patrolPointsGroup, navMeshAgent, animator, waitTimeAtPoints);
             return patrollingSubtree.m_root;
         }
 
@@ -20,6 +22,13 @@ namespace AI.Behavior.Trees
             GoToTree goToSubtree = new GoToTree();
             goToSubtree.Create(behaviorTree, navMeshAgent);
             return goToSubtree.m_root;
+        }
+
+        public static Node CreateSitOnChairTree(Root behaviorTree, FindObjects findObjectCallBack, NavMeshAgent navMeshAgent, Animator animator, float sittingTime)
+        {
+            SitOnChairSubtree sitOnChairSubtree = new SitOnChairSubtree();
+            sitOnChairSubtree.Create(behaviorTree, findObjectCallBack, navMeshAgent, animator, sittingTime);
+            return sitOnChairSubtree.m_root;
         }
     }
 }

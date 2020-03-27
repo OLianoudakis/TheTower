@@ -5,4 +5,5 @@ using UnityEngine;
 public class MathConstants
 {
     public const float SquaredDistance = 0.01f;
+    public const float RotationDistance = 0.5f;
 }
