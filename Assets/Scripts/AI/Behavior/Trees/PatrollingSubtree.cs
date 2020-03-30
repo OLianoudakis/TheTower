@@ -11,15 +11,15 @@ namespace AI.Behavior.Trees
         public Node m_root;
 
         private Transform[] m_patrolPoints;
-        private Root m_behaviorTree;
+        private Root m_behaviorTreeRoot;
         private NavMeshAgent m_navMeshAgent;
         private int m_currentPatrolPoint;
         private Animator m_animator;
         private float m_waitTimeAtPoints;
 
-        public void Create(Root behaviorTree, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator, float waitTimeAtPoints)
+        public void Create(Root behaviorTreeRoot, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator, float waitTimeAtPoints)
         {
-            m_behaviorTree = behaviorTree;
+            m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
             m_animator = animator;
             m_currentPatrolPoint = 0;
@@ -46,7 +46,7 @@ namespace AI.Behavior.Trees
 
         void SetNextPatrolPoint()
         {
-            m_behaviorTree.Blackboard.Set("nextPosition", m_patrolPoints[m_currentPatrolPoint].position);
+            m_behaviorTreeRoot.Blackboard.Set("nextPosition", m_patrolPoints[m_currentPatrolPoint].position);
 
             if (++m_currentPatrolPoint >= m_patrolPoints.Length)
             {

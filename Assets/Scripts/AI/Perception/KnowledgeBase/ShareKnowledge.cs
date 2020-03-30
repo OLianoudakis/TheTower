@@ -16,7 +16,7 @@ namespace AI.KnowledgeBase
         private Dictionary<int, Collider> m_agentsInVicinity = new Dictionary<int, Collider>();
         private Dictionary<int, float> m_shareKnowledgeCooldowns = new Dictionary<int, float>();
 
-        private void Start()
+        private void Awake()
         {
             m_knowledgeBase = GetComponent(typeof(KnowledgeBase)) as KnowledgeBase;
             m_collider = GetComponent(typeof(BoxCollider)) as BoxCollider;
