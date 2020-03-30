@@ -10,6 +10,7 @@ namespace Environment
         [SerializeField]
         private Transform m_interactiblePosition;
 
+        private List<Transform> m_TransformsInDistance = new List<Transform>();
         private bool m_isActive = false;
 
         public Transform interactiblePosition
@@ -33,6 +34,11 @@ namespace Environment
             return true;
         }
 
+        public bool CanInteract(Transform enemyTransform)
+        {
+            return m_TransformsInDistance.Find(x => x == enemyTransform);
+        }
+
         public void DeactivateBehavior(bool permanent)
         {
             if (permanent)
@@ -50,6 +56,16 @@ namespace Environment
                 }
             }
             m_isActive = false;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            m_TransformsInDistance.Add(other.transform);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            m_TransformsInDistance.Remove(other.transform);
         }
     }
 }

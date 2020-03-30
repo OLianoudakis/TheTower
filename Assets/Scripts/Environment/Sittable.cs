@@ -7,37 +7,16 @@ namespace Environment
 {
     public class Sittable : MonoBehaviour
     {
-        [SerializeField]
-        private Transform m_sittablePosition;
-
-        private List<Transform> m_enemyTransforms = new List<Transform>();
+        private Interactible m_interactible;
 
         public bool CanSit(Transform enemyTransform)
         {
-            return m_enemyTransforms.Find(x => x == enemyTransform);
+            return m_interactible.CanInteract(enemyTransform);
         }
 
-        public Transform sittablePosition
+        private void Start()
         {
-            get { return m_sittablePosition; }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
-            if (enemyTag)
-            {
-                m_enemyTransforms.Add(enemyTag.transform);
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
-            if (enemyTag)
-            {
-                m_enemyTransforms.Remove(enemyTag.transform);
-            }
+            m_interactible = GetComponent(typeof(Interactible)) as Interactible;
         }
     }
 }

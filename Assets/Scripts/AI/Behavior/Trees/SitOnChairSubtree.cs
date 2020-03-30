@@ -80,10 +80,11 @@ namespace AI.Behavior.Trees
             {
                 if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
                 {
+                    Interactible interactible = sittable.GetComponent(typeof(Interactible)) as Interactible;
                     isThereASittableObject = true;
                     m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", true);
-                    m_behaviorTreeRoot.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.rotation.y);
-                    m_behaviorTreeRoot.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
+                    m_behaviorTreeRoot.Blackboard.Set("sittableTransformRotationY", interactible.interactiblePosition.rotation.y);
+                    m_behaviorTreeRoot.Blackboard.Set("sittablePosition", interactible.interactiblePosition.position);
                     break;
                 }
             }
