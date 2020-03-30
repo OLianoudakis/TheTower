@@ -7,27 +7,27 @@ namespace AI.Behavior.EmotionalActions
 {
     public class EmotionalActionsCatalogue : MonoBehaviour
     {
-        private Catalogue[,] m_actionsCatalog = new Catalogue[,] { { Catalogue.PlayerSpottedJoy, Catalogue.PlayerDiscoveredJoy, Catalogue.PlayerSuspicionJoy, Catalogue.ObjectMovedJoy, Catalogue.NoiseHeardJoy, Catalogue.PlayerLostJoy, Catalogue.NoiseHeardBySomebodyElseJoy },
-                                                               { Catalogue.PlayerSpottedDistress, Catalogue.PlayerDiscoveredDistress, Catalogue.PlayerSuspicionDistress, Catalogue.ObjectMovedDistress, Catalogue.NoiseHeardDistress, Catalogue.PlayerLostDistress, Catalogue.NoiseHeardBySomebodyElseDistress},
-                                                               { Catalogue.PlayerSpottedResentment, Catalogue.PlayerDiscoveredResentment, Catalogue.PlayerSuspicionResentment, Catalogue.ObjectMovedResentment, Catalogue.NoiseHeardResentment, Catalogue.PlayerLostResentment, Catalogue.NoiseHeardBySomebodyElseResentment},
-                                                               { Catalogue.PlayerSpottedPity, Catalogue.PlayerDiscoveredPity, Catalogue.PlayerSuspicionPity, Catalogue.ObjectMovedPity, Catalogue.NoiseHeardPity, Catalogue.PlayerLostPity, Catalogue.NoiseHeardBySomebodyElsePity},
-                                                               { Catalogue.PlayerSpottedHope, Catalogue.PlayerDiscoveredHope, Catalogue.PlayerSuspicionHope, Catalogue.ObjectMovedHope, Catalogue.NoiseHeardHope, Catalogue.PlayerLostHope, Catalogue.NoiseHeardBySomebodyElseHope},
-                                                               { Catalogue.PlayerSpottedFear, Catalogue.PlayerDiscoveredFear, Catalogue.PlayerSuspicionFear, Catalogue.ObjectMovedFear, Catalogue.NoiseHeardFear, Catalogue.PlayerLostFear, Catalogue.NoiseHeardBySomebodyElseFear},
-                                                               { Catalogue.PlayerSpottedSatisfaction, Catalogue.PlayerDiscoveredSatisfaction, Catalogue.PlayerSuspicionSatisfaction, Catalogue.ObjectMovedSatisfaction, Catalogue.NoiseHeardSatisfaction, Catalogue.PlayerLostSatisfaction, Catalogue.NoiseHeardBySomebodyElseSatisfaction},
-                                                               { Catalogue.PlayerSpottedRelief, Catalogue.PlayerDiscoveredRelief, Catalogue.PlayerSuspicionRelief, Catalogue.ObjectMovedRelief, Catalogue.NoiseHeardRelief, Catalogue.PlayerLostRelief, Catalogue.NoiseHeardBySomebodyElseRelief},
-                                                               { Catalogue.PlayerSpottedDisappointment, Catalogue.PlayerDiscoveredDisappointment, Catalogue.PlayerSuspicionDisappointment, Catalogue.ObjectMovedDisappointment, Catalogue.NoiseHeardDisappointment, Catalogue.PlayerLostDisappointment, Catalogue.NoiseHeardBySomebodyElseDisappointment},
-                                                               { Catalogue.PlayerSpottedPride, Catalogue.PlayerDiscoveredPride, Catalogue.PlayerSuspicionPride, Catalogue.ObjectMovedPride, Catalogue.NoiseHeardPride, Catalogue.PlayerLostPride, Catalogue.NoiseHeardBySomebodyElsePride},
-                                                               { Catalogue.PlayerSpottedAdmiration, Catalogue.PlayerDiscoveredAdmiration, Catalogue.PlayerSuspicionAdmiration, Catalogue.ObjectMovedAdmiration, Catalogue.NoiseHeardAdmiration, Catalogue.PlayerLostAdmiration, Catalogue.NoiseHeardBySomebodyElseAdmiration},
-                                                               { Catalogue.PlayerSpottedShame, Catalogue.PlayerDiscoveredShame, Catalogue.PlayerSuspicionShame, Catalogue.ObjectMovedShame, Catalogue.NoiseHeardShame, Catalogue.PlayerLostShame, Catalogue.NoiseHeardBySomebodyElseShame},
-                                                               { Catalogue.PlayerSpottedReproach, Catalogue.PlayerDiscoveredReproach, Catalogue.PlayerSuspicionReproach, Catalogue.ObjectMovedReproach, Catalogue.NoiseHeardReproach, Catalogue.PlayerLostReproach, Catalogue.NoiseHeardBySomebodyElseReproach},
-                                                               { Catalogue.PlayerSpottedLiking, Catalogue.PlayerDiscoveredLiking, Catalogue.PlayerSuspicionLiking, Catalogue.ObjectMovedLiking, Catalogue.NoiseHeardLiking, Catalogue.PlayerLostLiking, Catalogue.NoiseHeardBySomebodyElseLiking},
-                                                               { Catalogue.PlayerSpottedDisliking, Catalogue.PlayerDiscoveredDisliking, Catalogue.PlayerSuspicionDisliking, Catalogue.ObjectMovedDisliking, Catalogue.NoiseHeardDisliking, Catalogue.PlayerLostDisliking, Catalogue.NoiseHeardBySomebodyElseDisliking},
-                                                               { Catalogue.PlayerSpottedGratitude, Catalogue.PlayerDiscoveredGratitude, Catalogue.PlayerSuspicionGratitude, Catalogue.ObjectMovedGratitude, Catalogue.NoiseHeardGratitude, Catalogue.PlayerLostGratitude, Catalogue.NoiseHeardBySomebodyElseGratitude},
-                                                               { Catalogue.PlayerSpottedAnger, Catalogue.PlayerDiscoveredAnger, Catalogue.PlayerSuspicionAnger, Catalogue.ObjectMovedAnger, Catalogue.NoiseHeardAnger, Catalogue.PlayerLostAnger, Catalogue.NoiseHeardBySomebodyElseAnger},
-                                                               { Catalogue.PlayerSpottedGratification, Catalogue.PlayerDiscoveredGratification, Catalogue.PlayerSuspicionGratification, Catalogue.ObjectMovedGratification, Catalogue.NoiseHeardGratification, Catalogue.PlayerLostGratification, Catalogue.NoiseHeardBySomebodyElseGratification},
-                                                               { Catalogue.PlayerSpottedRemorse, Catalogue.PlayerDiscoveredRemorse, Catalogue.PlayerSuspicionRemorse, Catalogue.ObjectMovedRemorse, Catalogue.NoiseHeardRemorse, Catalogue.PlayerLostRemorse, Catalogue.NoiseHeardBySomebodyElseRemorse},
-                                                               { Catalogue.PlayerSpottedLove, Catalogue.PlayerDiscoveredLove, Catalogue.PlayerSuspicionLove, Catalogue.ObjectMovedLove, Catalogue.NoiseHeardLove, Catalogue.PlayerLostLove, Catalogue.NoiseHeardBySomebodyElseLove},
-                                                               { Catalogue.PlayerSpottedHate, Catalogue.PlayerDiscoveredHate, Catalogue.PlayerSuspicionHate, Catalogue.ObjectMovedHate, Catalogue.NoiseHeardHate, Catalogue.PlayerLostHate, Catalogue.NoiseHeardBySomebodyElseHate} };
+        private Catalogue[,] m_actionsCatalog = new Catalogue[,] { { Catalogue.PlayerSpottedJoy,        Catalogue.PlayerDiscoveredJoy,              Catalogue.PlayerSuspicionJoy, Catalogue.ObjectMovedJoy, Catalogue.NoiseHeardJoy, Catalogue.PlayerLostJoy, Catalogue.NoiseHeardBySomebodyElseJoy },
+                                                               { Catalogue.PlayerSpottedDistress,       Catalogue.PlayerDiscoveredDistress,         Catalogue.PlayerSuspicionDistress, Catalogue.ObjectMovedDistress, Catalogue.NoiseHeardDistress, Catalogue.PlayerLostDistress, Catalogue.NoiseHeardBySomebodyElseDistress},
+                                                               { Catalogue.PlayerSpottedResentment,     Catalogue.PlayerDiscoveredResentment,       Catalogue.PlayerSuspicionResentment, Catalogue.ObjectMovedResentment, Catalogue.NoiseHeardResentment, Catalogue.PlayerLostResentment, Catalogue.NoiseHeardBySomebodyElseResentment},
+                                                               { Catalogue.PlayerSpottedPity,           Catalogue.PlayerDiscoveredPity,             Catalogue.PlayerSuspicionPity, Catalogue.ObjectMovedPity, Catalogue.NoiseHeardPity, Catalogue.PlayerLostPity, Catalogue.NoiseHeardBySomebodyElsePity},
+                                                               { Catalogue.PlayerSpottedHope,           Catalogue.PlayerDiscoveredHope,             Catalogue.PlayerSuspicionHope, Catalogue.ObjectMovedHope, Catalogue.NoiseHeardHope, Catalogue.PlayerLostHope, Catalogue.NoiseHeardBySomebodyElseHope},
+                                                               { Catalogue.PlayerSpottedFear,           Catalogue.PlayerDiscoveredFear,             Catalogue.PlayerSuspicionFear, Catalogue.ObjectMovedFear, Catalogue.NoiseHeardFear, Catalogue.PlayerLostFear, Catalogue.NoiseHeardBySomebodyElseFear},
+                                                               { Catalogue.PlayerSpottedSatisfaction,   Catalogue.PlayerDiscoveredSatisfaction,     Catalogue.PlayerSuspicionSatisfaction, Catalogue.ObjectMovedSatisfaction, Catalogue.NoiseHeardSatisfaction, Catalogue.PlayerLostSatisfaction, Catalogue.NoiseHeardBySomebodyElseSatisfaction},
+                                                               { Catalogue.PlayerSpottedRelief,         Catalogue.PlayerDiscoveredRelief,           Catalogue.PlayerSuspicionRelief, Catalogue.ObjectMovedRelief, Catalogue.NoiseHeardRelief, Catalogue.PlayerLostRelief, Catalogue.NoiseHeardBySomebodyElseRelief},
+                                                               { Catalogue.PlayerSpottedDisappointment, Catalogue.PlayerDiscoveredDisappointment,   Catalogue.PlayerSuspicionDisappointment, Catalogue.ObjectMovedDisappointment, Catalogue.NoiseHeardDisappointment, Catalogue.PlayerLostDisappointment, Catalogue.NoiseHeardBySomebodyElseDisappointment},
+                                                               { Catalogue.PlayerSpottedPride,          Catalogue.PlayerDiscoveredPride,            Catalogue.PlayerSuspicionPride, Catalogue.ObjectMovedPride, Catalogue.NoiseHeardPride, Catalogue.PlayerLostPride, Catalogue.NoiseHeardBySomebodyElsePride},
+                                                               { Catalogue.PlayerSpottedAdmiration,     Catalogue.PlayerDiscoveredAdmiration,       Catalogue.PlayerSuspicionAdmiration, Catalogue.ObjectMovedAdmiration, Catalogue.NoiseHeardAdmiration, Catalogue.PlayerLostAdmiration, Catalogue.NoiseHeardBySomebodyElseAdmiration},
+                                                               { Catalogue.PlayerSpottedShame,          Catalogue.PlayerDiscoveredShame,            Catalogue.PlayerSuspicionShame, Catalogue.ObjectMovedShame, Catalogue.NoiseHeardShame, Catalogue.PlayerLostShame, Catalogue.NoiseHeardBySomebodyElseShame},
+                                                               { Catalogue.PlayerSpottedReproach,       Catalogue.PlayerDiscoveredReproach,         Catalogue.PlayerSuspicionReproach, Catalogue.ObjectMovedReproach, Catalogue.NoiseHeardReproach, Catalogue.PlayerLostReproach, Catalogue.NoiseHeardBySomebodyElseReproach},
+                                                               { Catalogue.PlayerSpottedLiking,         Catalogue.PlayerDiscoveredLiking,           Catalogue.PlayerSuspicionLiking, Catalogue.ObjectMovedLiking, Catalogue.NoiseHeardLiking, Catalogue.PlayerLostLiking, Catalogue.NoiseHeardBySomebodyElseLiking},
+                                                               { Catalogue.PlayerSpottedDisliking,      Catalogue.PlayerDiscoveredDisliking,        Catalogue.PlayerSuspicionDisliking, Catalogue.ObjectMovedDisliking, Catalogue.NoiseHeardDisliking, Catalogue.PlayerLostDisliking, Catalogue.NoiseHeardBySomebodyElseDisliking},
+                                                               { Catalogue.PlayerSpottedGratitude,      Catalogue.PlayerDiscoveredGratitude,        Catalogue.PlayerSuspicionGratitude, Catalogue.ObjectMovedGratitude, Catalogue.NoiseHeardGratitude, Catalogue.PlayerLostGratitude, Catalogue.NoiseHeardBySomebodyElseGratitude},
+                                                               { Catalogue.PlayerSpottedAnger,          Catalogue.PlayerDiscoveredAnger,            Catalogue.PlayerSuspicionAnger, Catalogue.ObjectMovedAnger, Catalogue.NoiseHeardAnger, Catalogue.PlayerLostAnger, Catalogue.NoiseHeardBySomebodyElseAnger},
+                                                               { Catalogue.PlayerSpottedGratification,  Catalogue.PlayerDiscoveredGratification,    Catalogue.PlayerSuspicionGratification, Catalogue.ObjectMovedGratification, Catalogue.NoiseHeardGratification, Catalogue.PlayerLostGratification, Catalogue.NoiseHeardBySomebodyElseGratification},
+                                                               { Catalogue.PlayerSpottedRemorse,        Catalogue.PlayerDiscoveredRemorse,          Catalogue.PlayerSuspicionRemorse, Catalogue.ObjectMovedRemorse, Catalogue.NoiseHeardRemorse, Catalogue.PlayerLostRemorse, Catalogue.NoiseHeardBySomebodyElseRemorse},
+                                                               { Catalogue.PlayerSpottedLove,           Catalogue.PlayerDiscoveredLove,             Catalogue.PlayerSuspicionLove, Catalogue.ObjectMovedLove, Catalogue.NoiseHeardLove, Catalogue.PlayerLostLove, Catalogue.NoiseHeardBySomebodyElseLove},
+                                                               { Catalogue.PlayerSpottedHate,           Catalogue.PlayerDiscoveredHate,             Catalogue.PlayerSuspicionHate, Catalogue.ObjectMovedHate, Catalogue.NoiseHeardHate, Catalogue.PlayerLostHate, Catalogue.NoiseHeardBySomebodyElseHate} };
 
         public string ChooseCatalogEntry(EmotionType emotionType, Events.EventType eventType)
         {
@@ -805,7 +805,7 @@ namespace AI.Behavior.EmotionalActions
 
         private string PlayerDiscoveredDisappointment()
         {
-            string[] responses = new string[] { "As i thought...",
+            string[] responses = new string[] { "As I thought...",
                                                 "Another failure..."};
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
@@ -882,7 +882,7 @@ namespace AI.Behavior.EmotionalActions
         private string ObjectMovedPride()
         {
             string[] responses = new string[] { "Well well... This is new",
-                                                "I of course noticed the change here!" };
+                                                "I, of course, noticed the change here!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
@@ -1032,7 +1032,7 @@ namespace AI.Behavior.EmotionalActions
         private string PlayerSpottedReproach()
         {
             string[] responses = new string[] { "You got caught? Hahaha!",
-                                                "Kneel loser!"};
+                                                "Kneel loser!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
@@ -1079,7 +1079,7 @@ namespace AI.Behavior.EmotionalActions
         private string NoiseHeardBySomebodyElseReproach()
         {
             string[] responses = new string[] { "Serves you right!",
-                                                "The fool got caught"};
+                                                "The fool got caught" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
