@@ -51,7 +51,18 @@ namespace Environment
                         interactible = m_inputController.leftMouseClickHit.collider.gameObject.GetComponentInChildren(typeof(Interactible)) as Interactible;
                     }
                 }
-                m_interactible = interactible;
+                if (m_interactible != interactible)
+                {
+                    if (m_interactible)
+                    {
+                        m_interactible.HighlightInteractible(false);
+                    }
+                    m_interactible = interactible;
+                    if (m_interactible)
+                    {
+                        m_interactible.HighlightInteractible(true);
+                    }
+                }
             }
         }
     }

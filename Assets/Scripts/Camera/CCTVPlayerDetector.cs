@@ -61,7 +61,7 @@ namespace GameCamera
 
         private static uint GenerateStateId()
         {
-            return stateId++;
+            return ++stateId;
         }
     }
 }

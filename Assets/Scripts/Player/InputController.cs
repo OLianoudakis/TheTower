@@ -46,8 +46,12 @@ namespace Player
                 RaycastHit hit;
                 if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                 {
-                    m_leftMouseClickPosition = hit.point;
-                    m_leftMouseClickHit = hit;
+                    // we accept hit with walls, just do nothing (this is to prevent to move to another room)
+                    if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Walls"))
+                    {
+                        m_leftMouseClickPosition = hit.point;
+                        m_leftMouseClickHit = hit;
+                    }
                 }
             }
             else
@@ -58,7 +62,7 @@ namespace Player
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "CrouchPosition", "Highlight");
+            m_layerMask = LayerMask.GetMask("Default", "CrouchPosition", "Highlight", "Walls");
         }
     }
 }

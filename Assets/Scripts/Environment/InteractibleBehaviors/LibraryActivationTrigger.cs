@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LibraryActivationTrigger : MonoBehaviour
 {
     public Animator m_frontWallAnim;

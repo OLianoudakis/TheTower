@@ -101,8 +101,8 @@ namespace GameCamera
             Transform lookAt = null
             )
         {
-            if (newStateId != m_currentStateId)
-            {
+            //if (newStateId != m_currentStateId)
+            //{
                 m_targetLastPosition = m_target.position;
                 m_followPlayer = followPlayer;
                 m_constraints = constraints;
@@ -117,7 +117,7 @@ namespace GameCamera
                     m_currentLookAt = lookAt;
                 }
                 StartCoroutine(MoveToPosition(targetPosition, waitTime));
-            }
+            //}
         }
 
         public uint cameraStateId
@@ -146,32 +146,23 @@ namespace GameCamera
                     float z = 0.0f;
                     bool positionChanged = false;
 
-                    if (!m_constraints.m_freezePosition.x)
+                    float currentDistX = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.x - (deltaPosition.x + transform.position.x));
+                    if ((currentDistX <= m_constraints.m_positionBoundaries.bounds.x) || !m_constraints.m_freezePosition.x)
                     {
-                        float currentDistX = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.x - (deltaPosition.x + transform.position.x));
-                        if (currentDistX <= m_constraints.m_positionBoundaries.bounds.x)
-                        {
-                            x = deltaPosition.x;
-                            positionChanged = true;
-                        }
+                        x = deltaPosition.x;
+                        positionChanged = true;
                     }
-                    if (!m_constraints.m_freezePosition.y)
+                    float currentDistY = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.y - (deltaPosition.x + transform.position.y));
+                    if ((currentDistY <= m_constraints.m_positionBoundaries.bounds.y) || !m_constraints.m_freezePosition.y)
                     {
-                        float currentDistY = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.y - (deltaPosition.x + transform.position.y));
-                        if (currentDistY <= m_constraints.m_positionBoundaries.bounds.y)
-                        {
-                            y = deltaPosition.y;
-                            positionChanged = true;
-                        }
+                        y = deltaPosition.y;
+                        positionChanged = true;
                     }
-                    if (!m_constraints.m_freezePosition.z)
+                    float currentDistZ = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.z - (deltaPosition.x + transform.position.z));
+                    if ((currentDistZ <= m_constraints.m_positionBoundaries.bounds.z) || !m_constraints.m_freezePosition.z)
                     {
-                        float currentDistZ = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.z - (deltaPosition.x + transform.position.z));
-                        if (currentDistZ <= m_constraints.m_positionBoundaries.bounds.z)
-                        {
-                            z = deltaPosition.z;
-                            positionChanged = true;
-                        }
+                        z = deltaPosition.z;
+                        positionChanged = true;
                     }
                     transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
                     

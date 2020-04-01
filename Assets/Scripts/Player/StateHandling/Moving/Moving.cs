@@ -53,13 +53,17 @@ namespace Player.StateHandling.Moving
             m_agent.destination = m_destination;
             if (m_positionMarker)
             {
-                if (!m_positionMarker.activeInHierarchy)
+                if (m_interactibleDetector.interactible)
                 {
+                    // dont show position marker if going to interactible place
+                    m_positionMarker.transform.position = m_interactibleDetector.interactible.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f);
+                    m_positionMarker.SetActive(false);
+                }
+                else
+                {
+                    m_positionMarker.transform.position = m_destination + new Vector3(0.0f, 0.01f, 0.0f);
                     m_positionMarker.SetActive(true);
                 }
-                m_positionMarker.transform.position = m_interactibleDetector.interactible
-                ? m_interactibleDetector.interactible.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f)
-                : m_destination + new Vector3(0.0f, 0.01f, 0.0f);
             }
         }
 

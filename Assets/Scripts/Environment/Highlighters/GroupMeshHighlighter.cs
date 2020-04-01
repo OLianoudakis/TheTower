@@ -13,6 +13,36 @@ namespace Environment.Highlighters
         private MeshRenderer[] m_meshRenderers;
         private int m_layerMask;
         private Collider m_collider;
+        private bool m_permanentHighlight;
+
+        public bool permanentHighlight
+        {
+            set { m_permanentHighlight = value; }
+        }
+
+        public void HighlightMesh(bool highlight)
+        {
+            if (highlight && !m_permanentHighlight)
+            {
+                for (int i = 0; i < m_meshRenderers.Length; i++)
+                {
+                    Material[] newMaterials = new Material[m_originalMaterials[i].Length];
+                    for (int j = 0; j < m_meshRenderers[i].materials.Length; j++)
+                    {
+                        m_highlightMaterial.SetTexture(Shader.PropertyToID("_TextureInput"), m_originalMaterials[i][j].GetTexture(Shader.PropertyToID("_BaseMap")));
+                        newMaterials[j] = m_highlightMaterial;
+                    }
+                    m_meshRenderers[i].materials = newMaterials;
+                }
+            }
+            else if (!m_permanentHighlight)
+            {
+                for (int i = 0; i < m_meshRenderers.Length; i++)
+                {
+                    m_meshRenderers[i].materials = m_originalMaterials[i];
+                }
+            }
+        }
 
         private void Start()
         {
@@ -38,23 +68,11 @@ namespace Environment.Highlighters
                 if ((Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                     && hit.collider == m_collider)
                 {
-                    for (int i = 0; i < m_meshRenderers.Length; i++)
-                    {
-                        Material[] newMaterials = new Material[m_originalMaterials[i].Length];
-                        for (int j = 0; j < m_meshRenderers[i].materials.Length; j++)
-                        {
-                            m_highlightMaterial.SetTexture(Shader.PropertyToID("_TextureInput"), m_originalMaterials[i][j].GetTexture(Shader.PropertyToID("_BaseMap")));
-                            newMaterials[j] = m_highlightMaterial;
-                        }
-                        m_meshRenderers[i].materials = newMaterials;
-                    }
+                    HighlightMesh(true);
                 }
                 else
                 {
-                    for (int i = 0; i < m_meshRenderers.Length; i++)
-                    {
-                        m_meshRenderers[i].materials = m_originalMaterials[i];
-                    }
+                    HighlightMesh(false);
                 }
             }
         }

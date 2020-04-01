@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Environment.Highlighters;
+using Environment.Hiding;
 
 namespace Environment
 {
@@ -11,6 +12,9 @@ namespace Environment
         private Transform m_interactiblePosition;
 
         private List<Transform> m_TransformsInDistance = new List<Transform>();
+        private MeshHighlighter m_meshHighlighter;
+        private GroupMeshHighlighter m_groupMeshHighlighter;
+        private HidespotShow m_hidespotHighlight;
         private bool m_isActive = false;
 
         public Transform interactiblePosition
@@ -44,18 +48,59 @@ namespace Environment
             if (permanent)
             {
                 this.enabled = false;
-                MeshHighlighter meshHighlighter = GetComponent(typeof(MeshHighlighter)) as MeshHighlighter;
-                if (meshHighlighter)
+                if (m_meshHighlighter)
                 {
-                    meshHighlighter.enabled = false;
+                    m_meshHighlighter.enabled = false;
                 }
-                GroupMeshHighlighter groupMeshHighlighter = GetComponent(typeof(GroupMeshHighlighter)) as GroupMeshHighlighter;
-                if (groupMeshHighlighter)
+                if (m_groupMeshHighlighter)
                 {
-                    groupMeshHighlighter.enabled = false;
+                    m_groupMeshHighlighter.enabled = false;
                 }
             }
             m_isActive = false;
+        }
+
+        public void HighlightInteractible(bool highlightInteractible)
+        {
+            if (m_meshHighlighter)
+            {
+                if (highlightInteractible)
+                {
+                    m_meshHighlighter.HighlightMesh(highlightInteractible);
+                    m_meshHighlighter.permanentHighlight = true;
+                }
+                else
+                {
+                    m_meshHighlighter.permanentHighlight = false;
+                    m_meshHighlighter.HighlightMesh(highlightInteractible);
+                }
+            }
+            if (m_groupMeshHighlighter)
+            {
+                if (highlightInteractible)
+                {
+                    m_groupMeshHighlighter.HighlightMesh(highlightInteractible);
+                    m_groupMeshHighlighter.permanentHighlight = true;
+                }
+                else
+                {
+                    m_groupMeshHighlighter.permanentHighlight = false;
+                    m_groupMeshHighlighter.HighlightMesh(highlightInteractible);
+                }
+            }
+            if (m_hidespotHighlight)
+            {
+                if (highlightInteractible)
+                {
+                    m_hidespotHighlight.ShowIcon(highlightInteractible);
+                    m_hidespotHighlight.permanentShow = true;
+                }
+                else
+                {
+                    m_hidespotHighlight.permanentShow = false;
+                    m_hidespotHighlight.ShowIcon(highlightInteractible);
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -66,6 +111,13 @@ namespace Environment
         private void OnTriggerExit(Collider other)
         {
             m_TransformsInDistance.Remove(other.transform);
+        }
+
+        private void Start()
+        {
+            m_meshHighlighter = GetComponent(typeof(MeshHighlighter)) as MeshHighlighter;
+            m_groupMeshHighlighter = GetComponent(typeof(GroupMeshHighlighter)) as GroupMeshHighlighter;
+            m_hidespotHighlight = GetComponent(typeof(HidespotShow)) as HidespotShow;
         }
     }
 }
