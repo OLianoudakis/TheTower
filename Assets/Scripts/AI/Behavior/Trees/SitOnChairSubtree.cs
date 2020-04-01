@@ -14,14 +14,12 @@ namespace AI.Behavior.Trees
         private Root m_behaviorTreeRoot;
         private NavMeshAgent m_navMeshAgent;
         private Animator m_animator;
-        private float m_sittingTime;
 
-        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, float sittingTime, bool useStamina = true)
+        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, bool useStamina = true)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
             m_animator = animator;
-            m_sittingTime = sittingTime;
             Stops staminaCheck = Stops.LOWER_PRIORITY_IMMEDIATE_RESTART;
             if (!useStamina)
             {
@@ -29,11 +27,10 @@ namespace AI.Behavior.Trees
             }
 
             m_root =
-
                 new Sequence
                 (
                     new Action(FindClosestChair),
-                    new BlackboardCondition("isSittableAvailable", Operator.IS_EQUAL, true, Stops.SELF,
+                    new BlackboardCondition("isSittableAvailable", Operator.IS_EQUAL, true, Stops.NONE,
                         new Sequence
                         (
                             new Action(MoveTo),
@@ -52,7 +49,7 @@ namespace AI.Behavior.Trees
                                                         new Wait(1.0f)
                                                     )
                                                 ),
-                                                new Wait(m_sittingTime)
+                                                new Wait("sittingTime")
                                             ),
                                             new Action(StandUp)
                                         )
@@ -63,7 +60,6 @@ namespace AI.Behavior.Trees
                                     )
                                 )
                             )
-
                         )
                     )
                 );
@@ -73,18 +69,15 @@ namespace AI.Behavior.Trees
         {
             Debug.Log("Finding Chair");
             m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", false);
-            bool isThereASittableObject = false;
 
             Sittable[] sittableObjects = m_behaviorTreeRoot.Blackboard.Get("sittableObjects") as Sittable[];
             foreach (Sittable sittable in sittableObjects)
             {
                 if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
                 {
-                    Interactible interactible = sittable.GetComponent(typeof(Interactible)) as Interactible;
-                    isThereASittableObject = true;
                     m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", true);
-                    m_behaviorTreeRoot.Blackboard.Set("sittableTransformRotationY", interactible.interactiblePosition.rotation.y);
-                    m_behaviorTreeRoot.Blackboard.Set("sittablePosition", interactible.interactiblePosition.position);
+                    m_behaviorTreeRoot.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.rotation.y);
+                    m_behaviorTreeRoot.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
                     break;
                 }
             }
@@ -92,12 +85,13 @@ namespace AI.Behavior.Trees
 
         private void MoveTo()
         {
-            Debug.Log("MoveTo");
+            Debug.Log("Move To");
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition"));
         }
 
         private bool IsOnSpot()
         {
+            Debug.Log("Is on spot");
             Vector3 sittablePosition = (Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition");
             if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
                 - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
@@ -112,7 +106,7 @@ namespace AI.Behavior.Trees
             Debug.Log("Rotating");
             m_navMeshAgent.transform.Rotate(0.0f, Time.deltaTime * 100.0f, 0.0f);
             float sittableTransformRotationY = (float)m_behaviorTreeRoot.Blackboard.Get("sittableTransformRotationY");
-            m_behaviorTreeRoot.Blackboard.Set("rotationDifference", sittableTransformRotationY - m_navMeshAgent.transform.rotation.y);
+            m_behaviorTreeRoot.Blackboard.Set("rotationDifference", Mathf.Abs(sittableTransformRotationY - m_navMeshAgent.transform.rotation.y));
         }
 
         private void Sit()

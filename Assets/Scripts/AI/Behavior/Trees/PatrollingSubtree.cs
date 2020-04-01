@@ -15,9 +15,8 @@ namespace AI.Behavior.Trees
         private NavMeshAgent m_navMeshAgent;
         private int m_currentPatrolPoint;
         private Animator m_animator;
-        private float m_waitTimeAtPoints;
 
-        public void Create(Root behaviorTreeRoot, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator, float waitTimeAtPoints)
+        public void Create(Root behaviorTreeRoot, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
@@ -30,14 +29,13 @@ namespace AI.Behavior.Trees
             {
                 m_patrolPoints.SetValue(tempPoints[i], i - 1);
             }
-            m_waitTimeAtPoints = waitTimeAtPoints;
 
             m_root =
                 new Repeater
                 (
                     new Sequence
                     (
-                        new Wait(m_waitTimeAtPoints),
+                        new Wait("waitTimeAtPoints"),
                         new Action(SetNextPatrolPoint),
                         new NavMoveTo(m_navMeshAgent, "nextPosition")
                     )

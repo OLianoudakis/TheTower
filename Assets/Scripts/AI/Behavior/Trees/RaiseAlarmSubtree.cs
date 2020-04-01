@@ -13,20 +13,18 @@ namespace AI.Behavior.Trees
 
         private Root m_behaviorTreeRoot;
         private Animator m_animator;
-        private float m_shoutingTime;
 
-        public void Create(Root behaviorTreeRoot, Animator animator, float shoutingTime)
+        public void Create(Root behaviorTreeRoot, Animator animator)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_animator = animator;
-            m_shoutingTime = shoutingTime;
 
             m_root =
                 new BlackboardCondition("alarmAnimationStarted", Operator.IS_NOT_SET, true, Stops.NONE,
                     new Sequence
                     (
                         new Action(StartShouting),
-                        new Wait(m_shoutingTime),
+                        new Wait("shoutingTime"),
                         new Action(StopShouting)
                     )
                 );

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player.EmptyClass;
+using Environment;
 
 namespace AI.Perception
 {

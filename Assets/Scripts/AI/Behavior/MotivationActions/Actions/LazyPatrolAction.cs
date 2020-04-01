@@ -40,11 +40,13 @@ namespace AI.Behavior.MotivationActions.Actions
                         new BlackboardCondition("isStaminaEmpty", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
                             TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, m_sittingTime)
                         ),
-                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_patrolPointsGroup, navmesh, animator, m_waitTimeAtPoints)
+                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_patrolPointsGroup, navmesh, animator)
                     )
                 )
             );
             m_behaviorTree.Blackboard.Set("sittableObjects", FindObjectsOfType(typeof(Sittable)) as Sittable[]);
+            m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
+            m_behaviorTree.Blackboard.Set("sittingTime", m_sittingTime);
 
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR

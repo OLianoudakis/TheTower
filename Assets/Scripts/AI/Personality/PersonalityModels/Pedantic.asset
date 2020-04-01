@@ -16,7 +16,7 @@ MonoBehaviour:
   - m_personalityTraitType: 4
     m_value: -0.5
   - m_personalityTraitType: 2
-    m_value: 0.3
+    m_value: 0.1
   - m_personalityTraitType: 1
     m_value: 0
   - m_personalityTraitType: 3

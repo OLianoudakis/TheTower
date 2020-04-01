@@ -2,81 +2,100 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movable : MonoBehaviour
+namespace Environment
 {
-    [SerializeField]
-    private string m_name;
-
-    [SerializeField]
-    private float m_soundTransimissionTime = 0.5f;
-
-    private bool m_isMakingNoise = false;
-    private float m_currentSoundTransimissionTime = 0.0f;
-    private Rigidbody m_rigidBody;
-    private Vector3 m_initialPosition;
-    private Quaternion m_initialRotation;
-
-    public string name
+    public class Movable : MonoBehaviour
     {
-        get { return m_name;}
-    }
+        [SerializeField]
+        private string m_name;
 
-    public bool isMakingNoise
-    {
-        get { return m_isMakingNoise; }
-    }
+        [SerializeField]
+        private float m_soundTransimissionTime = 0.5f;
 
-    public Vector3 initialPosition
-    {
-        get { return m_initialPosition; }
-    }
+        private Interactible m_interactible;
+        private bool m_isMakingNoise = false;
+        private float m_currentSoundTransimissionTime = 0.0f;
+        private Rigidbody m_rigidBody;
+        private Vector3 m_initialPosition;
+        private Quaternion m_initialRotation;
 
-    public Quaternion initialRotation
-    {
-        get { return m_initialRotation; }
-    }
-
-    public bool HasTransformChanged()
-    {
-        bool hasChanged = transform.hasChanged;
-        transform.hasChanged = false;
-        return hasChanged;
-    }
-
-    public void ResetChanges()
-    {
-        transform.hasChanged = false;
-    }
-
-    public void ResetProperties()
-    {
-        m_rigidBody.isKinematic = true;
-        m_rigidBody.useGravity = false;
-    }
-
-    private void Start()
-    {
-        m_rigidBody = GetComponent(typeof(Rigidbody)) as Rigidbody;
-        transform.hasChanged = false;
-    }
-
-    private void Update()
-    {
-        if (m_isMakingNoise)
+        public string name
         {
-            m_currentSoundTransimissionTime += Time.deltaTime;
-            if (m_currentSoundTransimissionTime >= m_soundTransimissionTime)
+            get { return m_name; }
+        }
+
+        public bool isMakingNoise
+        {
+            get { return m_isMakingNoise; }
+        }
+
+        public Vector3 initialPosition
+        {
+            get { return m_initialPosition; }
+        }
+
+        public Quaternion initialRotation
+        {
+            get { return m_initialRotation; }
+        }
+
+        public Transform movablePosition
+        {
+            get { return m_interactible.interactiblePosition; }
+        }
+
+        public bool CanMove(Transform transform)
+        {
+            return m_interactible.CanInteract(transform);
+        }
+
+        public bool HasTransformChanged()
+        {
+            bool hasChanged = transform.hasChanged;
+            transform.hasChanged = false;
+            return hasChanged;
+        }
+
+        public void ResetChanges()
+        {
+            m_rigidBody.isKinematic = true;
+            m_rigidBody.useGravity = false;
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+            transform.hasChanged = false;
+        }
+
+        private void Start()
+        {
+            m_rigidBody = GetComponent(typeof(Rigidbody)) as Rigidbody;
+            m_interactible = GetComponent(typeof(Interactible)) as Interactible;
+            if (!m_interactible)
             {
-                m_isMakingNoise = false;
+                m_interactible = GetComponentInParent(typeof(Interactible)) as Interactible;
+            }
+            transform.hasChanged = false;
+            m_initialPosition = transform.position;
+            m_initialRotation = transform.rotation;
+        }
+
+        private void Update()
+        {
+            if (m_isMakingNoise)
+            {
+                m_currentSoundTransimissionTime += Time.deltaTime;
+                if (m_currentSoundTransimissionTime >= m_soundTransimissionTime)
+                {
+                    m_isMakingNoise = false;
+                }
             }
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag.Equals("Noisable"))
+        private void OnCollisionEnter(Collision collision)
         {
-            m_isMakingNoise = true;
+            if (collision.gameObject.tag.Equals("Noisable"))
+            {
+                m_isMakingNoise = true;
+            }
         }
     }
 }

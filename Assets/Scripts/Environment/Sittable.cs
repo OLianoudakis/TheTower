@@ -9,9 +9,14 @@ namespace Environment
     {
         private Interactible m_interactible;
 
-        public bool CanSit(Transform enemyTransform)
+        public Transform sittablePosition
         {
-            return m_interactible.CanInteract(enemyTransform);
+            get { return m_interactible.interactiblePosition; }
+        }
+
+        public bool CanSit(Transform transform)
+        {
+            return m_interactible.CanInteract(transform);
         }
 
         private void Start()

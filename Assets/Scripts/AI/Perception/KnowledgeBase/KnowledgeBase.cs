@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Events;
 using UnityEngine.EventSystems;
+using Environment;
 
 namespace AI.KnowledgeBase
 {
@@ -60,6 +61,11 @@ namespace AI.KnowledgeBase
             get { return m_noiseHeard; }
         }
 
+        public bool environmentObjectMoved
+        {
+            get { return m_environmentObjectMoved; }
+        }
+
         public void SetNoisePosition(Vector3 noisePosition)
         {
             m_noisePosition = noisePosition;
@@ -86,6 +92,15 @@ namespace AI.KnowledgeBase
         public Vector3 GetLastKnownPlayerPosition()
         {
             return m_lastKnownPlayerPosition;
+        }
+
+        public Movable GetMovedObject()
+        {
+            if (m_environmentObjects.Count > 0)
+            {
+                return m_environmentObjects[0];
+            }
+            return null;
         }
 
         public Transform playerTransform
@@ -115,6 +130,19 @@ namespace AI.KnowledgeBase
             {
                 m_environmentObjects.Add(environmentObject);
                 m_environmentObjectsMap.Add(environmentObject.GetInstanceID(), true);
+            }
+        }
+
+        public void EnvironmentObjectPositionRestored(Movable environmentObject)
+        {
+            if (m_environmentObjectsMap.ContainsKey(environmentObject.GetInstanceID()))
+            {
+                m_environmentObjectsMap.Remove(environmentObject.GetInstanceID());
+                m_environmentObjects.Remove(environmentObject);
+                if (m_environmentObjects.Count == 0)
+                {
+                    m_environmentObjectMoved = false;
+                }
             }
         }
 
@@ -172,8 +200,9 @@ namespace AI.KnowledgeBase
             m_currentEnvironmentMovedForgetTime += Time.deltaTime;
             if ((m_environmentObjects.Count > 0) && (m_currentEnvironmentMovedForgetTime >= m_environmentMovedForgetTime))
             {
-                m_environmentObjectsMap.Remove(m_environmentObjects[m_environmentObjects.Count - 1].GetInstanceID());
-                m_environmentObjects.RemoveAt(m_environmentObjects.Count - 1);
+                // remove the oldest object
+                m_environmentObjectsMap.Remove(m_environmentObjects[0].GetInstanceID());
+                m_environmentObjects.RemoveAt(0);
                 m_currentEnvironmentMovedForgetTime = 0.0f;
                 if (m_environmentObjects.Count == 0)
                 {

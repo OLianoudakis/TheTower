@@ -36,13 +36,14 @@ namespace AI.Behavior.MotivationActions.Actions
             (
                 new Selector
                 (
-                    TreeFactory.CreateRaiseAlarm(m_behaviorTree, animator, m_shoutingTime),
+                    TreeFactory.CreateRaiseAlarm(m_behaviorTree, animator),
                     TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, 0.0f, false),
                     TreeFactory.CreateChaseTree(m_behaviorTree, navmesh, animator)
                 )
             );
             m_behaviorTree.Blackboard.Set("sittableObjects", FindObjectsOfType(typeof(Sittable)) as Sittable[]);
             m_behaviorTree.Blackboard.Set("sittingTime", 0.0f);
+            m_behaviorTree.Blackboard.Set("shoutingTime", m_shoutingTime);
 
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR

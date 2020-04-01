@@ -8,23 +8,60 @@ namespace GameCamera
     public class CCTVPlayerDetector : MonoBehaviour
     {
         [SerializeField]
-        private CameraCCTVState m_CCTVState;
-        [SerializeField]
         private Transform m_CCTVPosition;
 
-        private CCTVPositionController m_positionController;
+        [SerializeField]
+        private Transform m_lookAt;
+
+        [SerializeField]
+        private bool m_followPlayer = false;
+
+        [SerializeField]
+        private Constraints m_constraints = null;
+
+        private CameraPositionController m_mainCamera;
+        private uint m_stateId;
+        private static uint stateId = 0;
 
         private void Start()
         {
-            m_positionController = FindObjectOfType<CCTVPositionController>();
+            m_mainCamera = FindObjectOfType<CameraPositionController>();
+            if (m_constraints == null)
+            {
+                m_constraints = new Constraints();
+            }
+            m_constraints.m_positionBoundaries = new PositionBoundaries();
+            BoxCollider boxCollider = GetComponent(typeof(BoxCollider)) as BoxCollider;
+            m_constraints.m_positionBoundaries.bounds = new Vector3(
+                Mathf.Abs(transform.position.x + boxCollider.center.x - m_CCTVPosition.position.x),
+                Mathf.Abs(transform.position.y + boxCollider.center.y - m_CCTVPosition.position.y),
+                Mathf.Abs(transform.position.z + boxCollider.center.z - m_CCTVPosition.position.z)
+                );
+            m_constraints.m_positionBoundaries.triggerCenter = transform.position + boxCollider.center;
+            m_stateId = GenerateStateId();
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag.Equals("Player"))
             {
-                m_positionController.ChangeCameraPosition(m_CCTVPosition.position, m_CCTVState);
+                m_constraints.m_positionBoundaries.canMove = false;
+                m_mainCamera.SetPosition(m_CCTVPosition.position, m_stateId, followPlayer: m_followPlayer, constraints: m_constraints, lookAt: m_lookAt);
             }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag.Equals("Player"))
+            {
+                m_constraints.m_positionBoundaries.canMove = true;
+                //m_mainCamera.SetPosition(m_CCTVPosition.position, m_stateId, followPlayer: m_followPlayer, constraints: m_constraints, lookAt: m_lookAt);
+            }
+        }
+
+        private static uint GenerateStateId()
+        {
+            return stateId++;
         }
     }
 }

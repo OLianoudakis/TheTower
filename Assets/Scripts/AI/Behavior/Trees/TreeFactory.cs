@@ -8,10 +8,10 @@ namespace AI.Behavior.Trees
 {
     public class TreeFactory
     {
-        public static Node CreatePatrollingTree(Root behaviorTreeRoot, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator, float waitTimeAtPoints)
+        public static Node CreatePatrollingTree(Root behaviorTreeRoot, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator)
         {
             PatrollingTree patrollingSubtree = new PatrollingTree();
-            patrollingSubtree.Create(behaviorTreeRoot, m_patrolPointsGroup, navMeshAgent, animator, waitTimeAtPoints);
+            patrollingSubtree.Create(behaviorTreeRoot, m_patrolPointsGroup, navMeshAgent, animator);
             return patrollingSubtree.m_root;
         }
 
@@ -25,14 +25,21 @@ namespace AI.Behavior.Trees
         public static Node CreateSitOnChairTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, float sittingTime, bool useStamina = true)
         {
             SitOnChairSubtree sitOnChairSubtree = new SitOnChairSubtree();
-            sitOnChairSubtree.Create(behaviorTreeRoot, navMeshAgent, animator, sittingTime);
+            sitOnChairSubtree.Create(behaviorTreeRoot, navMeshAgent, animator);
             return sitOnChairSubtree.m_root;
         }
 
-        public static Node CreateRaiseAlarm(Root behaviorTreeRoot, Animator animator, float shoutingTime)
+        public static Node CreateRaiseAlarm(Root behaviorTreeRoot, Animator animator)
         {
             RaiseAlarmSubtree raiseAlarmSubtree = new RaiseAlarmSubtree();
-            raiseAlarmSubtree.Create(behaviorTreeRoot, animator, shoutingTime);
+            raiseAlarmSubtree.Create(behaviorTreeRoot, animator);
+            return raiseAlarmSubtree.m_root;
+        }
+
+        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator)
+        {
+            ObserveMovableSubtree raiseAlarmSubtree = new ObserveMovableSubtree();
+            raiseAlarmSubtree.Create(behaviorTreeRoot, navMeshAgent, animator);
             return raiseAlarmSubtree.m_root;
         }
     }
