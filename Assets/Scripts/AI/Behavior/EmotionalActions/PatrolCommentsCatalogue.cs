@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace AI.Behavior.EmotionalActions
 {
-    public class PatrolCommentsCatalogue : MonoBehaviour
+    public static class PatrolCommentsCatalogue
     {
-        public string GetPatrolComment(PatrolCommentType patrolCommentType)
+        public static string GetPatrolComment(PatrolCommentType patrolCommentType)
         {
             switch(patrolCommentType)
             {
@@ -17,7 +17,7 @@ namespace AI.Behavior.EmotionalActions
             }
         }
 
-        private string FearfulComment()
+        private static string FearfulComment()
         {
             string[] responses = new string[] { "Oh... why me?",
                                                 "I hope Master let's " +

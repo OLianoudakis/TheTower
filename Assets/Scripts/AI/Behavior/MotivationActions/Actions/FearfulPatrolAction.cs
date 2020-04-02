@@ -19,8 +19,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
         [SerializeField]
         private float m_waitTimeAtPoints = 0.1f;
-
-        private PatrolCommentsCatalogue m_patrolCatalogueReference;
+        
         private TextMesh m_floatingTextMesh;
         private float m_chanceToComment = 85.0f;
 
@@ -33,7 +32,6 @@ namespace AI.Behavior.MotivationActions.Actions
             NavMeshAgent navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
-            m_patrolCatalogueReference = FindObjectOfType(typeof(PatrolCommentsCatalogue)) as PatrolCommentsCatalogue;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
@@ -85,7 +83,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 float rollCommentChance = UnityEngine.Random.Range(0.0f, chanceToComment);
                 if (rollCommentChance > (100.0f - m_chanceToComment))
                 {
-                    m_floatingTextMesh.text = m_patrolCatalogueReference.GetPatrolComment(m_PatrolCommentType);
+                    m_floatingTextMesh.text = PatrolCommentsCatalogue.GetPatrolComment(m_PatrolCommentType);
                     yield return new WaitForSeconds(3.0f);
                     m_floatingTextMesh.text = " ";
                     chanceToComment = 0.0f;
