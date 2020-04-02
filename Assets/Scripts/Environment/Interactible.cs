@@ -50,10 +50,14 @@ namespace Environment
                 this.enabled = false;
                 if (m_meshHighlighter)
                 {
+                    m_meshHighlighter.permanentHighlight = false;
+                    m_meshHighlighter.HighlightMesh(false);
                     m_meshHighlighter.enabled = false;
                 }
                 if (m_groupMeshHighlighter)
                 {
+                    m_groupMeshHighlighter.permanentHighlight = false;
+                    m_groupMeshHighlighter.HighlightMesh(false);
                     m_groupMeshHighlighter.enabled = false;
                 }
             }
@@ -116,7 +120,15 @@ namespace Environment
         private void Start()
         {
             m_meshHighlighter = GetComponent(typeof(MeshHighlighter)) as MeshHighlighter;
+            if (!m_meshHighlighter)
+            {
+                m_meshHighlighter = GetComponentInParent(typeof(MeshHighlighter)) as MeshHighlighter;
+            }
             m_groupMeshHighlighter = GetComponent(typeof(GroupMeshHighlighter)) as GroupMeshHighlighter;
+            if (!m_groupMeshHighlighter)
+            {
+                m_groupMeshHighlighter = GetComponentInParent(typeof(GroupMeshHighlighter)) as GroupMeshHighlighter;
+            }
             m_hidespotHighlight = GetComponent(typeof(HidespotShow)) as HidespotShow;
         }
     }

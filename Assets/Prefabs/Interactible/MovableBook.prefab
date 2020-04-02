@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2748774998312023535}
   - component: {fileID: 7879347946321901705}
   - component: {fileID: 5559884351814551268}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MovableBook
   m_TagString: Interactible
   m_Icon: {fileID: 0}

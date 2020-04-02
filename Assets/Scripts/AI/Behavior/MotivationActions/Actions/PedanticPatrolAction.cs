@@ -40,11 +40,11 @@ namespace AI.Behavior.MotivationActions.Actions
                         new BlackboardCondition("isMovableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
                             TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navmesh, animator)
                         ),
-                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_patrolPointsGroup, m_navmesh, animator)
+                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navmesh, animator)
                     )
                 )
             );
-            //m_behaviorTree.Blackboard.Set("movableObjects", FindObjectsOfType(typeof(Movable)) as Movable[]);
+            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolPointsGroup.GetComponentsInChildren(typeof(Transform)) as Transform[]);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("observeMovableObjectsTime", m_observeMovableObjectsTime);
 

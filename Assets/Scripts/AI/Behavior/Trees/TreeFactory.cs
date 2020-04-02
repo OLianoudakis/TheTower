@@ -8,10 +8,10 @@ namespace AI.Behavior.Trees
 {
     public class TreeFactory
     {
-        public static Node CreatePatrollingTree(Root behaviorTreeRoot, GameObject m_patrolPointsGroup, NavMeshAgent navMeshAgent, Animator animator)
+        public static Node CreatePatrollingTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator)
         {
             PatrollingTree patrollingSubtree = new PatrollingTree();
-            patrollingSubtree.Create(behaviorTreeRoot, m_patrolPointsGroup, navMeshAgent, animator);
+            patrollingSubtree.Create(behaviorTreeRoot, navMeshAgent, animator);
             return patrollingSubtree.m_root;
         }
 

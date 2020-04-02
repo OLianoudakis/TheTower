@@ -76,19 +76,6 @@ namespace AI.KnowledgeBase
             SendEvent(noiseHeardEvent);
         }
 
-        public Vector3 GetNoisePosition()
-        {
-            return m_noisePosition;
-        }
-
-        public void SetLastKnownPlayerPosition(Vector3 lastKnownPlayerPosition)
-        {
-            m_playerTransform = null;
-            m_lastKnownPlayerPosition = lastKnownPlayerPosition;
-            m_playerHiding = true;
-            m_currentPlayerForgetTime = 0.0f;
-        }
-
         public Vector3 GetLastKnownPlayerPosition()
         {
             return m_lastKnownPlayerPosition;
@@ -101,6 +88,16 @@ namespace AI.KnowledgeBase
                 return m_environmentObjects[0];
             }
             return null;
+        }
+
+        public Vector3 GetNoisePosition()
+        {
+            return m_noisePosition;
+        }
+
+        public Vector3 GetPlayerSuspicionPosition()
+        {
+            return m_playerSuspicionPosition;
         }
 
         public Transform playerTransform
@@ -248,6 +245,14 @@ namespace AI.KnowledgeBase
                     ExecuteEvents.Execute<ICustomEventTarget>(receiver, null, (x, y) => x.ReceiveEvent(eventToSend));
                 }
             }
+        }
+
+        public void SetLastKnownPlayerPosition(Vector3 lastKnownPlayerPosition)
+        {
+            m_playerTransform = null;
+            m_lastKnownPlayerPosition = lastKnownPlayerPosition;
+            m_playerHiding = true;
+            m_currentPlayerForgetTime = 0.0f;
         }
 
         private void Update()

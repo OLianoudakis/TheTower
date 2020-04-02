@@ -38,9 +38,10 @@ namespace AI.Behavior.MotivationActions.Actions
             (
                 new Selector
                 (                    
-                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_patrolPointsGroup, navmesh, animator)
+                    TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
                 )
             );
+            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolPointsGroup.GetComponentsInChildren(typeof(Transform)) as Transform[]);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
 
             // attach debugger to see what's going on in the inspector
