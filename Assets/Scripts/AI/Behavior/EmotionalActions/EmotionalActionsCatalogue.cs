@@ -5,9 +5,9 @@ using AI.Personality;
 
 namespace AI.Behavior.EmotionalActions
 {
-    public class EmotionalActionsCatalogue : MonoBehaviour
+    public static class EmotionalActionsCatalogue
     {
-        private Catalogue[,] m_actionsCatalog = new Catalogue[,] { { Catalogue.PlayerSpottedJoy,        Catalogue.PlayerDiscoveredJoy,              Catalogue.PlayerSuspicionJoy, Catalogue.ObjectMovedJoy, Catalogue.NoiseHeardJoy, Catalogue.PlayerLostJoy, Catalogue.NoiseHeardBySomebodyElseJoy },
+        private static Catalogue[,] m_actionsCatalogue = new Catalogue[,] { { Catalogue.PlayerSpottedJoy,        Catalogue.PlayerDiscoveredJoy,              Catalogue.PlayerSuspicionJoy, Catalogue.ObjectMovedJoy, Catalogue.NoiseHeardJoy, Catalogue.PlayerLostJoy, Catalogue.NoiseHeardBySomebodyElseJoy },
                                                                { Catalogue.PlayerSpottedDistress,       Catalogue.PlayerDiscoveredDistress,         Catalogue.PlayerSuspicionDistress, Catalogue.ObjectMovedDistress, Catalogue.NoiseHeardDistress, Catalogue.PlayerLostDistress, Catalogue.NoiseHeardBySomebodyElseDistress},
                                                                { Catalogue.PlayerSpottedResentment,     Catalogue.PlayerDiscoveredResentment,       Catalogue.PlayerSuspicionResentment, Catalogue.ObjectMovedResentment, Catalogue.NoiseHeardResentment, Catalogue.PlayerLostResentment, Catalogue.NoiseHeardBySomebodyElseResentment},
                                                                { Catalogue.PlayerSpottedPity,           Catalogue.PlayerDiscoveredPity,             Catalogue.PlayerSuspicionPity, Catalogue.ObjectMovedPity, Catalogue.NoiseHeardPity, Catalogue.PlayerLostPity, Catalogue.NoiseHeardBySomebodyElsePity},
@@ -29,13 +29,13 @@ namespace AI.Behavior.EmotionalActions
                                                                { Catalogue.PlayerSpottedLove,           Catalogue.PlayerDiscoveredLove,             Catalogue.PlayerSuspicionLove, Catalogue.ObjectMovedLove, Catalogue.NoiseHeardLove, Catalogue.PlayerLostLove, Catalogue.NoiseHeardBySomebodyElseLove},
                                                                { Catalogue.PlayerSpottedHate,           Catalogue.PlayerDiscoveredHate,             Catalogue.PlayerSuspicionHate, Catalogue.ObjectMovedHate, Catalogue.NoiseHeardHate, Catalogue.PlayerLostHate, Catalogue.NoiseHeardBySomebodyElseHate} };
 
-        public string ChooseCatalogEntry(EmotionType emotionType, Events.EventType eventType)
+        public static string ChooseCatalogEntry(EmotionType emotionType, Events.EventType eventType)
         {
             int emotionTypeInt = (int)emotionType;
             int eventTypeInt = (int)eventType;
-            Catalogue catalogEntrySelected = m_actionsCatalog[emotionTypeInt, eventTypeInt];
+            Catalogue catalogueEntrySelected = m_actionsCatalogue[emotionTypeInt, eventTypeInt];
 
-            switch (catalogEntrySelected)
+            switch (catalogueEntrySelected)
             {
                 case Catalogue.PlayerSpottedJoy:
                     return ("PlayerSpottedJoy" + PlayerSpottedJoy());
@@ -336,7 +336,7 @@ namespace AI.Behavior.EmotionalActions
             }
         }
         #region Joy
-        private string PlayerSpottedJoy()
+        private static string PlayerSpottedJoy()
         {
             string[] responses = new string[] { "Finally!",
                                                 "Haha! He is here!" };
@@ -344,7 +344,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredJoy()
+        private static string PlayerDiscoveredJoy()
         {
             string[] responses = new string[] { "Oh! There you are!",
                                                 "Oh hello again!" };
@@ -352,7 +352,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionJoy()
+        private static string PlayerSuspicionJoy()
         {
             string[] responses = new string[] { "O ho ho! I think someone's here!",
                                                 "Someone's been sneaking about! Excellent!" };
@@ -360,7 +360,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedJoy()
+        private static string ObjectMovedJoy()
         {
             string[] responses = new string[] { "Oh! This wasn't like that earlier!",
                                                 "Oh oh! This has chaged! Yes it has!" };
@@ -368,7 +368,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardJoy()
+        private static string NoiseHeardJoy()
         {
             string[] responses = new string[] { "I heard that haha!",
                                                 "What was that? Is it him? Is it? Is it?" };
@@ -376,7 +376,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostJoy()
+        private static string PlayerLostJoy()
         {
             string[] responses = new string[] { "I lost you! Time to find you again!",
                                                 "Yes, yes! Let's restart the hide 'n' seek!" };
@@ -384,7 +384,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseJoy()
+        private static string NoiseHeardBySomebodyElseJoy()
         {
             string[] responses = new string[] { "I'm comiiiiiiiiiing!",
                                                 "You saw him? Where! Where?!" };
@@ -393,7 +393,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Distress
-        private string PlayerSpottedDistress()
+        private static string PlayerSpottedDistress()
         {
             string[] responses = new string[] { "Oh no! It's him!",
                                                 "ah!",
@@ -402,7 +402,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredDistress()
+        private static string PlayerDiscoveredDistress()
         {
             string[] responses = new string[] { "Ah! You're here again!",
                                                 "Why are you here again?",
@@ -411,7 +411,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionDistress()
+        private static string PlayerSuspicionDistress()
         {
             string[] responses = new string[] { "Is someone lurking? Go away!",
                                                 "Hello? Someone there...?" };
@@ -419,7 +419,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedDistress()
+        private static string ObjectMovedDistress()
         {
             string[] responses = new string[] { "What was that?!",
                                                 "oh, no no no no...." };
@@ -427,7 +427,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardDistress()
+        private static string NoiseHeardDistress()
         {
             string[] responses = new string[] { "Was that him? Was it? Oh no.",
                                                 "ah! Did I see him? I don't know!",
@@ -436,7 +436,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostDistress()
+        private static string PlayerLostDistress()
         {
             string[] responses = new string[] { "Oh no! Where is he!? Where is he???",
                                                 "Ah!!! Where did he go!?" };
@@ -444,7 +444,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseDistress()
+        private static string NoiseHeardBySomebodyElseDistress()
         {
             string[] responses = new string[] { "He's there?! I don't wanna go!",
                                                 "I can't... I won't!",
@@ -454,7 +454,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Resentment
-        private string PlayerSpottedResentment()
+        private static string PlayerSpottedResentment()
         {
             string[] responses = new string[] { "For real? You're here? What a pain",
                                                 "Oh come on now..."};
@@ -462,7 +462,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredResentment()
+        private static string PlayerDiscoveredResentment()
         {
             string[] responses = new string[] { "Oh... back at it again?",
                                                 "Oh well..."};
@@ -470,7 +470,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionResentment()
+        private static string PlayerSuspicionResentment()
         {
             string[] responses = new string[] { "Maybe that was something... not checking it though",
                                                 "Uh! I don't want to check this!"};
@@ -478,7 +478,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedResentment()
+        private static string ObjectMovedResentment()
         {
             string[] responses = new string[] { "Uh! another thing different!",
                                                 "What a pain...",
@@ -487,7 +487,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardResentment()
+        private static string NoiseHeardResentment()
         {
             string[] responses = new string[] { "This was probably nothing...",
                                                 "I'm too bored to check this"};
@@ -495,7 +495,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostResentment()
+        private static string PlayerLostResentment()
         {
             string[] responses = new string[] { "Don't have to chase him now...",
                                                 "This is probably even better..." };
@@ -503,7 +503,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseResentment()
+        private static string NoiseHeardBySomebodyElseResentment()
         {
             string[] responses = new string[] { "I can't be bothered...",
                                                 "Get him yourself..."};
@@ -512,7 +512,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Pity
-        private string PlayerSpottedPity()
+        private static string PlayerSpottedPity()
         {
             string[] responses = new string[] { "Oh! Don't you look dreadful.",
                                                 "My dear, my dear you look so sad."};
@@ -520,7 +520,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredPity()
+        private static string PlayerDiscoveredPity()
         {
             string[] responses = new string[] { "I saw something sad.",
                                                 "Isn't this a shame..."};
@@ -528,14 +528,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionPity()
+        private static string PlayerSuspicionPity()
         {
             string[] responses = new string[] { "I pity the poor soul that lurks in here" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedPity()
+        private static string ObjectMovedPity()
         {
             string[] responses = new string[] { "And what made you move little thing?",
                                                 "Another thing out of order, goodness me.", };
@@ -543,7 +543,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardPity()
+        private static string NoiseHeardPity()
         {
             string[] responses = new string[] { "Carelessness. Poor you!",
                                                 "Oh no. He made a mistake."};
@@ -551,7 +551,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostPity()
+        private static string PlayerLostPity()
         {
             string[] responses = new string[] { "He thinks he can hide.",
                                                 "Look at him... He ragained hope." };
@@ -559,7 +559,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElsePity()
+        private static string NoiseHeardBySomebodyElsePity()
         {
             string[] responses = new string[] { "I'll help you, you poor soul." };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
@@ -567,7 +567,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Hope
-        private string PlayerSpottedHope()
+        private static string PlayerSpottedHope()
         {
             string[] responses = new string[] { "Oh thank God you're here!",
                                                 "Praise be you're here! You're here!"};
@@ -575,7 +575,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredHope()
+        private static string PlayerDiscoveredHope()
         {
             string[] responses = new string[] { "Here you are again!",
                                                 "Yes! He is here I knew it!"};
@@ -583,7 +583,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionHope()
+        private static string PlayerSuspicionHope()
         {
             string[] responses = new string[] { "I know you're here I just know it!",
                                                 "I think... I hope!" };
@@ -591,7 +591,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedHope()
+        private static string ObjectMovedHope()
         {
             string[] responses = new string[] { "Oh somebody moved this. Thank the heavens!",
                                                 "This means someone is here!",
@@ -600,7 +600,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardHope()
+        private static string NoiseHeardHope()
         {
             string[] responses = new string[] { "A sound?",
                                                 "Oh no. He made a mistake."};
@@ -608,7 +608,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostHope()
+        private static string PlayerLostHope()
         {
             string[] responses = new string[] { "I'll find you again...",
                                                 "No one stays hidden forever." };
@@ -616,7 +616,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseHope()
+        private static string NoiseHeardBySomebodyElseHope()
         {
             string[] responses = new string[] { "Help arrives!",
                                                 "Help finds those in need!"};
@@ -625,7 +625,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Fear
-        private string PlayerSpottedFear()
+        private static string PlayerSpottedFear()
         {
             string[] responses = new string[] { "GET AWAY!! AHHHH!",
                                                 "Please don't hurt me! Please...!"};
@@ -633,7 +633,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredFear()
+        private static string PlayerDiscoveredFear()
         {
             string[] responses = new string[] { "No no no no!",
                                                 "Oh no!"};
@@ -641,7 +641,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionFear()
+        private static string PlayerSuspicionFear()
         {
             string[] responses = new string[] { "Where are you???",
                                                 "Please go away... please go away..." };
@@ -649,7 +649,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedFear()
+        private static string ObjectMovedFear()
         {
             string[] responses = new string[] { "Oh no! Who did that?!",
                                                 "This... wasn't like that! Was it?" };
@@ -657,7 +657,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardFear()
+        private static string NoiseHeardFear()
         {
             string[] responses = new string[] { "What was that?",
                                                 "It coulnd't be him right? Right!?" };
@@ -665,7 +665,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostFear()
+        private static string PlayerLostFear()
         {
             string[] responses = new string[] { "Oh no I lost him! Oh nononono...",
                                                 "Where did he go? WHERE DID HE GO!?"};
@@ -673,7 +673,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseFear()
+        private static string NoiseHeardBySomebodyElseFear()
         {
             string[] responses = new string[] { "Ah!",
                                                 "No no no no no..."};
@@ -682,7 +682,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Satisfaction
-        private string PlayerSpottedSatisfaction()
+        private static string PlayerSpottedSatisfaction()
         {
             string[] responses = new string[] { "Yes! Yes! Yes!",
                                                 "I will enjoy this mut!"};
@@ -690,7 +690,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredSatisfaction()
+        private static string PlayerDiscoveredSatisfaction()
         {
             string[] responses = new string[] { "There!",
                                                 "Found you!"};
@@ -698,7 +698,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionSatisfaction()
+        private static string PlayerSuspicionSatisfaction()
         {
             string[] responses = new string[] { "I will enjoy finding you...",
                                                 "Where are you..." };
@@ -706,7 +706,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedSatisfaction()
+        private static string ObjectMovedSatisfaction()
         {
             string[] responses = new string[] { "Mut did this.",
                                                 "I will enjoy finding you." };
@@ -714,7 +714,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardSatisfaction()
+        private static string NoiseHeardSatisfaction()
         {
             string[] responses = new string[] { "I think I hear something",
                                                 "Was that you mut?" };
@@ -722,7 +722,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostSatisfaction()
+        private static string PlayerLostSatisfaction()
         {
             string[] responses = new string[] { "Little mut left... No matter!",
                                                 "Where are you... little mut"};
@@ -730,7 +730,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseSatisfaction()
+        private static string NoiseHeardBySomebodyElseSatisfaction()
         {
             string[] responses = new string[] { "Yes! You found him!",
                                                 "Finally, some action!"};
@@ -739,14 +739,14 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Relief
-        private string PlayerSpottedRelief()
+        private static string PlayerSpottedRelief()
         {
             string[] responses = new string[] { "Oh there he is! Oh thank god" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredRelief()
+        private static string PlayerDiscoveredRelief()
         {
             string[] responses = new string[] { "Oh I lost him! Phew...",
                                                 "I lost him... this is good."};
@@ -754,7 +754,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionRelief()
+        private static string PlayerSuspicionRelief()
         {
             string[] responses = new string[] { "Oh I think I saw him. This is good",
                                                 "Oh phew... He was there I think." };
@@ -762,7 +762,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedRelief()
+        private static string ObjectMovedRelief()
         {
             string[] responses = new string[] { "Oh it's just this thing.",
                                                 "Ah it's only this. Ok." };
@@ -770,7 +770,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardRelief()
+        private static string NoiseHeardRelief()
         {
             string[] responses = new string[] { "Oh I think I hear something. Good",
                                                 "Phew! My ears work fine!" };
@@ -778,7 +778,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostRelief()
+        private static string PlayerLostRelief()
         {
             string[] responses = new string[] { "Oh I lost him! Phew...",
                                                 "I lost him... this is good."};
@@ -786,7 +786,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseRelief()
+        private static string NoiseHeardBySomebodyElseRelief()
         {
             string[] responses = new string[] { "Oh good.",
                                                 "Oh good you found something."};
@@ -795,7 +795,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Disappointment
-        private string PlayerSpottedDisappointment()
+        private static string PlayerSpottedDisappointment()
         {
             string[] responses = new string[] { "Oh it's just you?",
                                                 "Oh great... it's you"};
@@ -803,7 +803,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredDisappointment()
+        private static string PlayerDiscoveredDisappointment()
         {
             string[] responses = new string[] { "As I thought...",
                                                 "Another failure..."};
@@ -811,7 +811,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionDisappointment()
+        private static string PlayerSuspicionDisappointment()
         {
             string[] responses = new string[] { "Come out... We both know you'll eventually fail.",
                                                 "You're embarassing yourself." };
@@ -819,7 +819,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedDisappointment()
+        private static string ObjectMovedDisappointment()
         {
             string[] responses = new string[] { "Another thing moved...",
                                                 "Isn't this dissapointing..." };
@@ -827,7 +827,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardDisappointment()
+        private static string NoiseHeardDisappointment()
         {
             string[] responses = new string[] { "I thought you were better than this.",
                                                 "Yet another mistake..." };
@@ -835,7 +835,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostDisappointment()
+        private static string PlayerLostDisappointment()
         {
             string[] responses = new string[] { "Remind me to care about you escaping...",
                                                 "Ohh!! I can't believe he escaped!"};
@@ -843,7 +843,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseDisappointment()
+        private static string NoiseHeardBySomebodyElseDisappointment()
         {
             string[] responses = new string[] { "He got found I see...",
                                                 "Guess they were wrong about you..."};
@@ -852,7 +852,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Pride
-        private string PlayerSpottedPride()
+        private static string PlayerSpottedPride()
         {
             string[] responses = new string[] { "Well of course I found you",
                                                 "You've already lost",
@@ -861,7 +861,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredPride()
+        private static string PlayerDiscoveredPride()
         {
             string[] responses = new string[] { "Well. This is not surprising... is it?",
                                                 "Well of course I found you again!",
@@ -870,7 +870,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionPride()
+        private static string PlayerSuspicionPride()
         {
             string[] responses = new string[] { "No one remains hidden from me!",
                                                 "We both know I'll find you",
@@ -879,7 +879,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedPride()
+        private static string ObjectMovedPride()
         {
             string[] responses = new string[] { "Well well... This is new",
                                                 "I, of course, noticed the change here!" };
@@ -887,7 +887,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardPride()
+        private static string NoiseHeardPride()
         {
             string[] responses = new string[] { "My peripheral sight is as sharp as always",
                                                 "Aren't I the observant one! Who goes there?",
@@ -896,7 +896,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostPride()
+        private static string PlayerLostPride()
         {
             string[] responses = new string[] { "Don't think you've escaped!",
                                                 "I only let you escape this time.",
@@ -905,7 +905,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElsePride()
+        private static string NoiseHeardBySomebodyElsePride()
         {
             string[] responses = new string[] { "Step aside! I'll handle him",
                                                 "Technically, you found him because of me",
@@ -915,7 +915,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Admiration
-        private string PlayerSpottedAdmiration()
+        private static string PlayerSpottedAdmiration()
         {
             string[] responses = new string[] { "Oh wow I did find you!",
                                                 "Hey you're here! Amazing!" };
@@ -923,14 +923,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredAdmiration()
+        private static string PlayerDiscoveredAdmiration()
         {
             string[] responses = new string[] { "Wow I saw you with my peripheral!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionAdmiration()
+        private static string PlayerSuspicionAdmiration()
         {
             string[] responses = new string[] { "You have remained hidden for such a long time!",
                                                 "Wow! I really cannot find you!"};
@@ -938,7 +938,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedAdmiration()
+        private static string ObjectMovedAdmiration()
         {
             string[] responses = new string[] { "Oh wow! This wasn't like that",
                                                 "It's different now! Cool!" };
@@ -946,7 +946,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardAdmiration()
+        private static string NoiseHeardAdmiration()
         {
             string[] responses = new string[] { "Oh hey! I heard something!",
                                                 "Wow. That was something"};
@@ -954,7 +954,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostAdmiration()
+        private static string PlayerLostAdmiration()
         {
             string[] responses = new string[] { "He escaped? Wow...",
                                                 "Hey I lost him! Amazing! Haha!" };
@@ -962,7 +962,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseAdmiration()
+        private static string NoiseHeardBySomebodyElseAdmiration()
         {
             string[] responses = new string[] { "I applaud at how observant you are!",
                                                 "Wow you're good!",
@@ -972,7 +972,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Shame
-        private string PlayerSpottedShame()
+        private static string PlayerSpottedShame()
         {
             string[] responses = new string[] { "...",
                                                 "Um... stop... please?"};
@@ -980,7 +980,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredShame()
+        private static string PlayerDiscoveredShame()
         {
             string[] responses = new string[] { "Hey so... I found you... again",
                                                 "Maybe... give up? You know..."};
@@ -988,7 +988,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionShame()
+        private static string PlayerSuspicionShame()
         {
             string[] responses = new string[] { "Maybe I saw something... maybe...",
                                                 "Um... hello?"};
@@ -996,7 +996,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedShame()
+        private static string ObjectMovedShame()
         {
             string[] responses = new string[] { "That wasn't... was it?",
                                                 "Um..." };
@@ -1004,7 +1004,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardShame()
+        private static string NoiseHeardShame()
         {
             string[] responses = new string[] { "Who... who's there?",
                                                 "Um... Who's there?"};
@@ -1012,14 +1012,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostShame()
+        private static string PlayerLostShame()
         {
             string[] responses = new string[] { "Oh no..." };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseShame()
+        private static string NoiseHeardBySomebodyElseShame()
         {
             string[] responses = new string[] { "I applaud at how observant you are!",
                                                 "Wow you're good!",
@@ -1029,7 +1029,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Reproach
-        private string PlayerSpottedReproach()
+        private static string PlayerSpottedReproach()
         {
             string[] responses = new string[] { "You got caught? Hahaha!",
                                                 "Kneel loser!" };
@@ -1037,7 +1037,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredReproach()
+        private static string PlayerDiscoveredReproach()
         {
             string[] responses = new string[] { "You got found again!? Hahaha!",
                                                 "What a loser!"};
@@ -1045,7 +1045,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionReproach()
+        private static string PlayerSuspicionReproach()
         {
             string[] responses = new string[] { "Don't get your hopes up!",
                                                 "I will find you!"};
@@ -1053,7 +1053,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedReproach()
+        private static string ObjectMovedReproach()
         {
             string[] responses = new string[] { "Who was the idiot that made a mess here?",
                                                 "Worthless!" };
@@ -1061,7 +1061,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardReproach()
+        private static string NoiseHeardReproach()
         {
             string[] responses = new string[] { "That was sloppy!",
                                                 "So noisy! So sloppy!"};
@@ -1069,14 +1069,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostReproach()
+        private static string PlayerLostReproach()
         {
             string[] responses = new string[] { "You actually think you got away?" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseReproach()
+        private static string NoiseHeardBySomebodyElseReproach()
         {
             string[] responses = new string[] { "Serves you right!",
                                                 "The fool got caught" };
@@ -1085,21 +1085,21 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Liking
-        private string PlayerSpottedLiking()
+        private static string PlayerSpottedLiking()
         {
             string[] responses = new string[] { "Nice! There you are!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredLiking()
+        private static string PlayerDiscoveredLiking()
         {
             string[] responses = new string[] { "Hello again!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionLiking()
+        private static string PlayerSuspicionLiking()
         {
             string[] responses = new string[] { "I kinda like this hide and seek",
                                                 "I can do this all day."};
@@ -1107,7 +1107,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedLiking()
+        private static string ObjectMovedLiking()
         {
             string[] responses = new string[] { "This is actually better like that.",
                                                 "I'm ok with this change." };
@@ -1115,21 +1115,21 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardLiking()
+        private static string NoiseHeardLiking()
         {
             string[] responses = new string[] { "Oh I heard something I did!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerLostLiking()
+        private static string PlayerLostLiking()
         {
             string[] responses = new string[] { "I'm ok with losing you." };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseLiking()
+        private static string NoiseHeardBySomebodyElseLiking()
         {
             string[] responses = new string[] { "Nice!",
                                                 "You found something? Nice"};
@@ -1138,7 +1138,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Disliking
-        private string PlayerSpottedDisliking()
+        private static string PlayerSpottedDisliking()
         {
             string[] responses = new string[] { "You I don't like seeing you here.",
                                                 "Isn't this a displeasure..."};
@@ -1146,7 +1146,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredDisliking()
+        private static string PlayerDiscoveredDisliking()
         {
             string[] responses = new string[] { "You could've appeared sooner",
                                                 "Just surrender..." };
@@ -1154,7 +1154,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionDisliking()
+        private static string PlayerSuspicionDisliking()
         {
             string[] responses = new string[] { "Stop wasting my time...",
                                                 "Just come out already..."};
@@ -1162,7 +1162,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedDisliking()
+        private static string ObjectMovedDisliking()
         {
             string[] responses = new string[] { "This is a mess...",
                                                 "This really shouldn't be like that" };
@@ -1170,7 +1170,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardDisliking()
+        private static string NoiseHeardDisliking()
         {
             string[] responses = new string[] { "Another sound I gotta investigate.",
                                                 "I really dislike this..."};
@@ -1178,7 +1178,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostDisliking()
+        private static string PlayerLostDisliking()
         {
             string[] responses = new string[] { "I am midly annoyed",
                                                 "This is furstrating" };
@@ -1186,7 +1186,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseDisliking()
+        private static string NoiseHeardBySomebodyElseDisliking()
         {
             string[] responses = new string[] { "There's an issue? Darn it...",
                                                 "Oh crap..."};
@@ -1195,7 +1195,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Gratitude
-        private string PlayerSpottedGratitude()
+        private static string PlayerSpottedGratitude()
         {
             string[] responses = new string[] { "Right when I needed you most!",
                                                 "Thank you for being here."};
@@ -1203,7 +1203,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredGratitude()
+        private static string PlayerDiscoveredGratitude()
         {
             string[] responses = new string[] { "You have re-appeared!",
                                                 "I thought I lost you..." };
@@ -1211,7 +1211,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionGratitude()
+        private static string PlayerSuspicionGratitude()
         {
             string[] responses = new string[] { "Oh thank god he is not showing up",
                                                 "Would be nice if you stayed hidden."};
@@ -1219,7 +1219,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedGratitude()
+        private static string ObjectMovedGratitude()
         {
             string[] responses = new string[] { "Thank you whoever moved that!",
                                                 "This is better and I am thankful." };
@@ -1227,21 +1227,21 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardGratitude()
+        private static string NoiseHeardGratitude()
         {
             string[] responses = new string[] { "Thank you for making this easy." };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerLostGratitude()
+        private static string PlayerLostGratitude()
         {
             string[] responses = new string[] { "Thank you for leaving!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseGratitude()
+        private static string NoiseHeardBySomebodyElseGratitude()
         {
             string[] responses = new string[] { "You got something? Thank god!",
                                                 "Thank you for finding him"};
@@ -1250,7 +1250,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Anger
-        private string PlayerSpottedAnger()
+        private static string PlayerSpottedAnger()
         {
             string[] responses = new string[] { "Insignifigant!",
                                                 "Get over here!"};
@@ -1258,7 +1258,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredAnger()
+        private static string PlayerDiscoveredAnger()
         {
             string[] responses = new string[] { "Useless!",
                                                 "Begone!" };
@@ -1266,7 +1266,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionAnger()
+        private static string PlayerSuspicionAnger()
         {
             string[] responses = new string[] { "Come out! COME OUT!",
                                                 "Oh this is pissing me off!",
@@ -1275,7 +1275,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedAnger()
+        private static string ObjectMovedAnger()
         {
             string[] responses = new string[] { "For real? Who did that?",
                                                 "Who moved that?",
@@ -1284,7 +1284,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardAnger()
+        private static string NoiseHeardAnger()
         {
             string[] responses = new string[] { "Stop the ruckus",
                                                 "I can't stand the noise!" };
@@ -1292,7 +1292,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostAnger()
+        private static string PlayerLostAnger()
         {
             string[] responses = new string[] { "Get back here!!",
                                                 "Don't you dare hide!"};
@@ -1300,7 +1300,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseAnger()
+        private static string NoiseHeardBySomebodyElseAnger()
         {
             string[] responses = new string[] { "Hold him still! I'm coming",
                                                 "Attack the intruder!"};
@@ -1309,7 +1309,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Gratification
-        private string PlayerSpottedGratification()
+        private static string PlayerSpottedGratification()
         {
             string[] responses = new string[] { "Pleased to meet you!",
                                                 "I will enjoy this"};
@@ -1317,7 +1317,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredGratification()
+        private static string PlayerDiscoveredGratification()
         {
             string[] responses = new string[] { "We meet again!",
                                                 "I will savor this moment of reunion." };
@@ -1325,14 +1325,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionGratification()
+        private static string PlayerSuspicionGratification()
         {
             string[] responses = new string[] { "I'm just glad you're here... somewhere." };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedGratification()
+        private static string ObjectMovedGratification()
         {
             string[] responses = new string[] { "About time somebody made that change.",
                                                 "Well I guess I can use this as a clue.",
@@ -1341,7 +1341,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardGratification()
+        private static string NoiseHeardGratification()
         {
             string[] responses = new string[] { "This makes this easier",
                                                 "I know where that came from",
@@ -1350,7 +1350,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostGratification()
+        private static string PlayerLostGratification()
         {
             string[] responses = new string[] { "Welp! Back at it",
                                                 "I can always find you again."};
@@ -1358,7 +1358,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseGratification()
+        private static string NoiseHeardBySomebodyElseGratification()
         {
             string[] responses = new string[] { "Good work!",
                                                 "On my way!"};
@@ -1367,7 +1367,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Remorse
-        private string PlayerSpottedRemorse()
+        private static string PlayerSpottedRemorse()
         {
             string[] responses = new string[] { "Hey!",
                                                 "I'm sorry but... you must stop"};
@@ -1375,7 +1375,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredRemorse()
+        private static string PlayerDiscoveredRemorse()
         {
             string[] responses = new string[] { "I'm sorry but you have to come with me.",
                                                 "Just surrender and this will be over.",
@@ -1384,7 +1384,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionRemorse()
+        private static string PlayerSuspicionRemorse()
         {
             string[] responses = new string[] { "I don't like this situation",
                                                 "I'm sorry but you have to come out now."};
@@ -1392,7 +1392,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedRemorse()
+        private static string ObjectMovedRemorse()
         {
             string[] responses = new string[] { "I should've paid more attention...",
                                                 "I am sorry for the change Master" };
@@ -1400,7 +1400,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardRemorse()
+        private static string NoiseHeardRemorse()
         {
             string[] responses = new string[] { "Here we go again...",
                                                 "Hello?",
@@ -1409,7 +1409,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostRemorse()
+        private static string PlayerLostRemorse()
         {
             string[] responses = new string[] { "Master... I'm sorry.",
                                                 "Another failure..."};
@@ -1417,7 +1417,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseRemorse()
+        private static string NoiseHeardBySomebodyElseRemorse()
         {
             string[] responses = new string[] { "You won't go through this alone!",
                                                 "Hold on!"};
@@ -1426,7 +1426,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Love
-        private string PlayerSpottedLove()
+        private static string PlayerSpottedLove()
         {
             string[] responses = new string[] { "Oh... Hi there",
                                                 "Well hello..."};
@@ -1434,21 +1434,21 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredLove()
+        private static string PlayerDiscoveredLove()
         {
             string[] responses = new string[] { "I knew you'd be back!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionLove()
+        private static string PlayerSuspicionLove()
         {
             string[] responses = new string[] { "I enjoy this game when it is with you." };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedLove()
+        private static string ObjectMovedLove()
         {
             string[] responses = new string[] { "This is lovely!",
                                                 "I am sure Master will love this!" };
@@ -1456,7 +1456,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardLove()
+        private static string NoiseHeardLove()
         {
             string[] responses = new string[] { "Is that you?",
                                                 "Hello?" };
@@ -1464,14 +1464,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostLove()
+        private static string PlayerLostLove()
         {
             string[] responses = new string[] { "It's adorable that you've gone hiding!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseLove()
+        private static string NoiseHeardBySomebodyElseLove()
         {
             string[] responses = new string[] { "Hold on!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
@@ -1479,7 +1479,7 @@ namespace AI.Behavior.EmotionalActions
         }
         #endregion
         #region Hate
-        private string PlayerSpottedHate()
+        private static string PlayerSpottedHate()
         {
             string[] responses = new string[] { "GET OUT OF HERE!",
                                                 "NO VISITORS!"};
@@ -1487,14 +1487,14 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerDiscoveredHate()
+        private static string PlayerDiscoveredHate()
         {
             string[] responses = new string[] { "AGAIN?!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
-        private string PlayerSuspicionHate()
+        private static string PlayerSuspicionHate()
         {
             string[] responses = new string[] { "COME OUT NOW!",
                                                 "I DON'T HAVE TIME FOR THIS" };
@@ -1502,7 +1502,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string ObjectMovedHate()
+        private static string ObjectMovedHate()
         {
             string[] responses = new string[] { "WHO MOVED THAT?!",
                                                 "YOU WILL PAY FOR THIS",
@@ -1511,7 +1511,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardHate()
+        private static string NoiseHeardHate()
         {
             string[] responses = new string[] { "AHHHH!",
                                                 "STOP THE NOISE!",
@@ -1520,7 +1520,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string PlayerLostHate()
+        private static string PlayerLostHate()
         {
             string[] responses = new string[] { "GET BACK OUTSIDE!",
                                                 "GET BACK HERE!",
@@ -1529,7 +1529,7 @@ namespace AI.Behavior.EmotionalActions
             return responses[chosenResponse];
         }
 
-        private string NoiseHeardBySomebodyElseHate()
+        private static string NoiseHeardBySomebodyElseHate()
         {
             string[] responses = new string[] { "HOLD HIM STILL!",
                                                 "DESTROY THE INVADER!"};

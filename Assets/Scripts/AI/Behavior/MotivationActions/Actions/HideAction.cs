@@ -10,6 +10,8 @@ namespace AI.Behavior.MotivationActions.Actions
     public class HideAction : MonoBehaviour
     {
         [SerializeField]
+        private LayerMask m_acceptedLayer;
+        [SerializeField]
         private float m_maximumHidingSpotDistance = 20.0f;
 
         private HidespotBehavior[] m_allHidingSpots;
@@ -72,8 +74,9 @@ namespace AI.Behavior.MotivationActions.Actions
 
             foreach (GameObject nearbyHidingSpot in m_nearbyHidingSpots)
             {
+                Ray ray = new Ray(nearbyHidingSpot.transform.position, m_playerTransform.position - nearbyHidingSpot.transform.position);
                 RaycastHit hidingSpotRayHit;
-                if (Physics.Raycast(nearbyHidingSpot.transform.position, m_playerTransform.position, out hidingSpotRayHit, Mathf.Infinity))
+                if (Physics.Raycast(ray, out hidingSpotRayHit,Mathf.Infinity, m_acceptedLayer))
                 {
                     if (!hidingSpotRayHit.collider.gameObject.tag.Equals("Player"))
                     {

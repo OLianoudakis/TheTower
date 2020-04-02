@@ -36,7 +36,7 @@ namespace AI.Behavior.MotivationActions.Actions
             (
                 new Selector
                 (
-                    TreeFactory.CreateRaiseAlarm(m_behaviorTree, animator),
+                    TreeFactory.CreateRaiseAlarmTree(m_behaviorTree, animator),
                     TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, 0.0f, false),
                     TreeFactory.CreateChaseTree(m_behaviorTree, navmesh, animator)
                 )

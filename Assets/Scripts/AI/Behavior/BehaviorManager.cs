@@ -24,7 +24,7 @@ namespace AI.Behavior
         private PersonalityManager m_personalityManager;
         private List<EventEmotionEntry> m_generatedEmotionalEvents = new List<EventEmotionEntry>();
         private List<MotivationActionProperties> m_motivationActionProperties = new List<MotivationActionProperties>();
-        private List<EmotionalActionProperties> m_emotionalProperties = new List<EmotionalActionProperties>();
+        private EmotionalActionProperties m_emotionalProperties;
         private GameObject m_currentlyActivatedMotivationAction = null;
         private float[] m_currentMotivationGain = null;
         private bool m_behaviorInterrupted = false;
@@ -84,15 +84,9 @@ namespace AI.Behavior
                 return false;
             }
 
-            foreach (EmotionalActionProperties emotionalProperty in m_emotionalProperties)
-            {
-                if ((emotionalProperty.eventType == emotionalEventToTrigger.m_eventType))
-                {
-                    emotionalProperty.triggeredEmotion = strongestEmotion;
-                    emotionalProperty.gameObject.SetActive(true);
-                    break;
-                }
-            }
+            m_emotionalProperties.eventType = emotionalEventToTrigger.m_eventType;
+            m_emotionalProperties.triggeredEmotion = strongestEmotion;
+            m_emotionalProperties.ActivateAction();
 
             m_generatedEmotionalEvents.Clear();
 
@@ -128,12 +122,9 @@ namespace AI.Behavior
                     {
                         m_motivationActionProperties.Add(motivationAction);
                     }
-                    else if (m_usePersonalityModel)
-                    {
-                        m_emotionalProperties.Add(action.GetComponent(typeof(EmotionalActionProperties)) as EmotionalActionProperties);
-                    }
                 }
             }
+            m_emotionalProperties = GetComponentInChildren(typeof(EmotionalActionProperties)) as EmotionalActionProperties;
         }
 
         private MotivationActionProperties ChooseMotivationAction()
