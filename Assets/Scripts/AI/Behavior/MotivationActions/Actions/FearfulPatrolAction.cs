@@ -61,7 +61,8 @@ namespace AI.Behavior.MotivationActions.Actions
             }
             m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
-
+            m_behaviorTree.Blackboard.Set("commentAvailable", false);
+            m_behaviorTree.Blackboard.Set("patrolingAnimation", AnimationConstants.AnimButtlerFearWalk);
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
             Debugger debugger = (Debugger)this.gameObject.AddComponent(typeof(Debugger));

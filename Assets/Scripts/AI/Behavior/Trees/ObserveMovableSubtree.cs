@@ -62,6 +62,7 @@ namespace AI.Behavior.Trees
 
         private void Observe()
         {
+            //TODO add proper animation here and make it face the object
             Debug.Log("Observe");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerLookAround);
             if (m_textMesh && m_behaviorTreeRoot.Blackboard.Isset("movableName"))

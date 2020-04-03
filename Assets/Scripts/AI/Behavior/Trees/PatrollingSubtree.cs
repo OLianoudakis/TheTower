@@ -84,7 +84,12 @@ namespace AI.Behavior.Trees
         private void MoveTo()
         {
             Debug.Log("Move To");
-            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
+            int animation = AnimationConstants.AnimButtlerWalk;
+            if (m_behaviorTreeRoot.Blackboard.Isset("patrolingAnimation"))
+            {
+                animation = (int)m_behaviorTreeRoot.Blackboard.Get("patrolingAnimation");
+            }
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, animation);
             m_navMeshAgent.isStopped = false;
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("nextPosition"));
         }
