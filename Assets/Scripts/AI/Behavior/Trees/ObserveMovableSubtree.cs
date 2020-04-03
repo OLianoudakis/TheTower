@@ -17,7 +17,7 @@ namespace AI.Behavior.Trees
         private Animator m_animator;
         private TextMesh m_textMesh;
 
-        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh)
+        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh = null)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
@@ -56,7 +56,6 @@ namespace AI.Behavior.Trees
         private void MoveTo()
         {
             Debug.Log("Move To");
-            m_textMesh.text = "";
             m_navMeshAgent.isStopped = false;
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("movablePosition"));
         }
@@ -65,7 +64,7 @@ namespace AI.Behavior.Trees
         {
             Debug.Log("Observe");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerLookAround);
-            if (m_behaviorTreeRoot.Blackboard.Isset("movableName"))
+            if (m_textMesh && m_behaviorTreeRoot.Blackboard.Isset("movableName"))
             {
                 m_textMesh.text = "What a beautiful " + (string)m_behaviorTreeRoot.Blackboard.Get("movableName");
             }
@@ -73,7 +72,10 @@ namespace AI.Behavior.Trees
 
         private void EndObserve()
         {
-            m_textMesh.text = "";
+            if (m_textMesh)
+            {
+                m_textMesh.text = "";
+            }
         }
     }
 }

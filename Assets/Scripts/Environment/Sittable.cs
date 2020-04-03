@@ -7,7 +7,15 @@ namespace Environment
 {
     public class Sittable : MonoBehaviour
     {
+        [SerializeField]
+        private string m_name;
+
         private Interactible m_interactible;
+
+        public string name
+        {
+            get { return m_name; }
+        }
 
         public Transform sittablePosition
         {

@@ -47,9 +47,9 @@ MonoBehaviour:
   m_personalityType: 3
   m_timeBetweenComments: 3
   m_patrolPointsGroup: {fileID: 0}
-  m_waitTimeAtPoints: 3
+  m_waitTimeAtPoints: 5
   m_stamina: 20
-  m_sittingTime: 1
+  m_sittingTime: 10
 --- !u!114 &4186485045032709288
 MonoBehaviour:
   m_ObjectHideFlags: 0

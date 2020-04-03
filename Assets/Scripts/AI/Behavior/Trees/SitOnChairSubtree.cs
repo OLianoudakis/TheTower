@@ -14,12 +14,15 @@ namespace AI.Behavior.Trees
         private Root m_behaviorTreeRoot;
         private NavMeshAgent m_navMeshAgent;
         private Animator m_animator;
+        private TextMesh m_textMesh;
 
-        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, bool useStamina = true)
+        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, bool useStamina = true, TextMesh textMesh = null)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
             m_animator = animator;
+            m_textMesh = textMesh;
+
             Stops staminaCheck = Stops.LOWER_PRIORITY_IMMEDIATE_RESTART;
             if (!useStamina)
             {
@@ -75,9 +78,14 @@ namespace AI.Behavior.Trees
             {
                 if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
                 {
+                    if (m_textMesh)
+                    {
+                        m_textMesh.text = "I need some rest";
+                    }
                     m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", true);
                     m_behaviorTreeRoot.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.rotation.y);
                     m_behaviorTreeRoot.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
+                    m_behaviorTreeRoot.Blackboard.Set("sittableName", sittable.name);
                     break;
                 }
             }
@@ -106,6 +114,7 @@ namespace AI.Behavior.Trees
         private void Rotate()
         {
             Debug.Log("Rotating");
+            
             m_navMeshAgent.transform.Rotate(0.0f, Time.deltaTime * 100.0f, 0.0f);
             float sittableTransformRotationY = (float)m_behaviorTreeRoot.Blackboard.Get("sittableTransformRotationY");
             m_behaviorTreeRoot.Blackboard.Set("rotationDifference", Mathf.Abs(sittableTransformRotationY - m_navMeshAgent.transform.rotation.y));
@@ -115,6 +124,10 @@ namespace AI.Behavior.Trees
         {
             Debug.Log("Sit");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerSit);
+            if (m_textMesh && m_behaviorTreeRoot.Blackboard.Isset("sittableName"))
+            {
+                m_textMesh.text = "Let me sit on this fine " + (string)m_behaviorTreeRoot.Blackboard.Get("sittableName");
+            }
         }
 
         private void StandUp()
@@ -123,6 +136,10 @@ namespace AI.Behavior.Trees
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerStand);
             m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", false);
             m_behaviorTreeRoot.Blackboard.Unset("rotationDifference");
+            if (m_textMesh)
+            {
+                m_textMesh.text = "";
+            }
         }
     }
 }

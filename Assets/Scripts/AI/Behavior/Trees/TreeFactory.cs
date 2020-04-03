@@ -23,10 +23,10 @@ namespace AI.Behavior.Trees
             return chaseSubtree.m_root;
         }
 
-        public static Node CreateSitOnChairTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, float sittingTime, bool useStamina = true)
+        public static Node CreateSitOnChairTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, float sittingTime, bool useStamina = true, TextMesh textMesh = null)
         {
             SitOnChairSubtree sitOnChairSubtree = new SitOnChairSubtree();
-            sitOnChairSubtree.Create(behaviorTreeRoot, navMeshAgent, animator);
+            sitOnChairSubtree.Create(behaviorTreeRoot, navMeshAgent, animator, textMesh: textMesh);
             return sitOnChairSubtree.m_root;
         }
 
@@ -37,7 +37,7 @@ namespace AI.Behavior.Trees
             return raiseAlarmSubtree.m_root;
         }
 
-        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh)
+        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh = null)
         {
             ObserveMovableSubtree raiseAlarmSubtree = new ObserveMovableSubtree();
             raiseAlarmSubtree.Create(behaviorTreeRoot, navMeshAgent, animator, textMesh);

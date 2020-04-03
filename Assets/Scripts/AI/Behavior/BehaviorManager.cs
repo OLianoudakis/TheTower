@@ -185,7 +185,7 @@ namespace AI.Behavior
                     continue;
                 }
 
-                if ((motivationActionProperties.priority > 0.0f) && ((priority < 0.0f) || (motivationActionProperties.priority < priority))
+                if ((motivationActionProperties.priority > 0) && ((priority < 0) || (motivationActionProperties.priority < priority))
                     && motivationActionProperties.CanBeTriggered())
                 {
                     chosenAction = motivationActionProperties;

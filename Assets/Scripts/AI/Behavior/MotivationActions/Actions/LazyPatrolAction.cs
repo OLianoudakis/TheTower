@@ -46,7 +46,7 @@ namespace AI.Behavior.MotivationActions.Actions
                     new Selector
                     (
                         new BlackboardCondition("isStaminaEmpty", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                            TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, m_sittingTime)
+                            TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, m_sittingTime, textMesh: floatingTextMesh)
                         ),
                         new Service(m_timeBetweenComments, IsCommentAvailable,
                             new Repeater
@@ -73,6 +73,7 @@ namespace AI.Behavior.MotivationActions.Actions
             m_behaviorTree.Blackboard.Set("sittableObjects", FindObjectsOfType(typeof(Sittable)) as Sittable[]);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
             m_behaviorTree.Blackboard.Set("sittingTime", m_sittingTime);
+            m_behaviorTree.Blackboard.Set("commentAvailable", true);
 
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
