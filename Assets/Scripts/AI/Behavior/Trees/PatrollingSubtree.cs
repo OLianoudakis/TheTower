@@ -38,8 +38,12 @@ namespace AI.Behavior.Trees
                         new Action(AtPatrolPoint),
                         new Wait("waitTimeAtPoints"),
                         new Action(SetNextPatrolPoint),
-                        new Action(Walking),
-                        new NavMoveTo(m_navMeshAgent, "nextPosition")
+                        //new Action(Walking),
+                        //new NavMoveTo(m_navMeshAgent, "nextPosition")
+                        new Action(MoveTo),
+                        new WaitForCondition(IsOnSpot,
+                            new Action(Pass)
+                        )
                     )
                 );
         }
@@ -50,7 +54,7 @@ namespace AI.Behavior.Trees
             if (patrolPointsObj.GetType() == typeof(Transform[]))
             {
                 Transform[] patrolPoints = patrolPointsObj as Transform[];
-                m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint]);
+                m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint].position);
                 if (++m_currentPatrolPoint >= patrolPoints.Length)
                 {
                     m_currentPatrolPoint = 0;
@@ -81,5 +85,28 @@ namespace AI.Behavior.Trees
         {
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
         }
+
+        private void MoveTo()
+        {
+            Debug.Log("Move To");
+            m_navMeshAgent.isStopped = false;
+            m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("nextPosition"));
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
+        }
+
+        private bool IsOnSpot()
+        {
+            Debug.Log("Is on spot");
+            Vector3 sittablePosition = (Vector3)m_behaviorTreeRoot.Blackboard.Get("nextPosition");
+            if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
+                - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
+            {
+                m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
+                return true;
+            }
+            return false;
+        }
+
+        private void Pass() { }
     }
 }

@@ -15,7 +15,7 @@ namespace AI.Perception
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "Hiding");
+            m_layerMask = LayerMask.GetMask("Default", "Hiding", "Player");
             m_collider = transform.parent.parent.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
         }

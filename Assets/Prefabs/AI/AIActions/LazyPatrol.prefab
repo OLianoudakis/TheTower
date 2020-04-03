@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_priority: 0
+  m_priority: -1
   m_motivationGain: {fileID: 11400000, guid: 0cab91f2805f74a4aac55997d8cf3ccd, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:

@@ -5,11 +5,18 @@ using NPBehave;
 using AI.Behavior.Trees;
 using UnityEngine.AI;
 using Environment;
+using AI.Behavior.EmotionalActions;
 
 namespace AI.Behavior.MotivationActions.Actions
 {
     public class PedanticPatrolAction : MonoBehaviour
     {
+        [SerializeField]
+        PersonalityType m_personalityType;
+
+        [SerializeField]
+        private float m_timeBetweenComments = 3.0f;
+
         [SerializeField]
         private GameObject m_patrolPointsGroup;
 
@@ -19,6 +26,8 @@ namespace AI.Behavior.MotivationActions.Actions
         [SerializeField]
         private float m_observeMovableObjectsTime = 3.0f;
 
+        private TextMesh m_floatingTextMesh;
+        
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
         private Movable m_lastVisited;
@@ -30,6 +39,8 @@ namespace AI.Behavior.MotivationActions.Actions
             m_navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_movableObjects = FindObjectsOfType(typeof(Movable)) as Movable[];
+            TextMesh floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+            MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
@@ -38,15 +49,30 @@ namespace AI.Behavior.MotivationActions.Actions
                     new Selector
                     (
                         new BlackboardCondition("isMovableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                            TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navmesh, animator)
+                            TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navmesh, animator, floatingTextMesh)
                         ),
-                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navmesh, animator)
+                        new Service(m_timeBetweenComments, IsCommentAvailable,
+                            new Selector
+                            (
+                                new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
+                                    TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
+                                ),
+                                TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navmesh, animator)
+                            )
+                        )
                     )
                 )
             );
-            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolPointsGroup.GetComponentsInChildren(typeof(Transform)) as Transform[]);
+            Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
+            Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
+            for (int i = 1; i < tempPoints.Length; i++)
+            {
+                patrolPoints[i-1] = tempPoints[i];
+            }
+            m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("observeMovableObjectsTime", m_observeMovableObjectsTime);
+            m_behaviorTree.Blackboard.Set("commentAvailable", true);
 
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
@@ -60,7 +86,6 @@ namespace AI.Behavior.MotivationActions.Actions
             Debug.Log("Finding Movable Object");
             m_behaviorTree.Blackboard.Set("isMovableAvailable", false);
 
-            //Movable[] movableObjects = m_behaviorTree.Blackboard.Get("movableObjects") as Movable[];
             foreach (Movable movable in m_movableObjects)
             {
                 if (m_navmesh && (m_lastVisited != movable) && movable.CanMove(m_navmesh.transform))
@@ -68,8 +93,24 @@ namespace AI.Behavior.MotivationActions.Actions
                     m_lastVisited = movable;
                     m_behaviorTree.Blackboard.Set("isMovableAvailable", true);
                     m_behaviorTree.Blackboard.Set("movablePosition", movable.movablePosition.position);
+                    if (!movable.name.Equals(""))
+                    {
+                        m_behaviorTree.Blackboard.Set("movableName", movable.name);
+                    }
                     break;
                 }
+            }
+        }
+
+        private void IsCommentAvailable()
+        {
+            if ((bool)m_behaviorTree.Blackboard.Get("commentAvailable"))
+            {
+                m_behaviorTree.Blackboard.Set("commentAvailable", false);
+            }
+            else
+            {
+                m_behaviorTree.Blackboard.Set("commentAvailable", true);
             }
         }
 

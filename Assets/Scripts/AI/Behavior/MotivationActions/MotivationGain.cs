@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using AI.Personality;
+using Utils.EditorProperties;
 
 namespace AI.Behavior.MotivationActions
 {
     [Serializable]
     public struct MotivationGainEntry
     {
+        [ReadOnly]
         public MotivationDesires m_motivationDesire;
         public float m_value;
 

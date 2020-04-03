@@ -9,11 +9,13 @@ namespace AI.Personality
     {
         private float[] m_targetMotivation;
         private float[] m_currentFullfilment;
+        private int m_mostSignificantMotivation;
 
         public MotivationManager(PersonalityModel personalityModel)
         {
             m_targetMotivation = new float[16];
             m_currentFullfilment = new float[16];
+            float mostSignificantMotivationValue = 0.0f;
             for (int i = 0; i < m_targetMotivation.Length; i++)
             {
                 for (int j = 0; j < personalityModel.m_personalityTraitsValues.Length; j++)
@@ -22,12 +24,22 @@ namespace AI.Personality
                         += ConstantMappings.MotivationToPersonalityTraits[i, j] 
                         * personalityModel.m_personalityTraitsValues[j].m_value;
                 }
-                m_currentFullfilment[i] = m_targetMotivation[i];
+                if (m_targetMotivation[i] < 0.0f)
+                {
+                    m_targetMotivation[i] = 0.0f;
+                }
+                m_currentFullfilment[i] = 0.0f;
+                if (m_targetMotivation[i] > mostSignificantMotivationValue)
+                {
+                    mostSignificantMotivationValue = m_targetMotivation[i];
+                    m_mostSignificantMotivation = i;
+                }
             }
         }
 
-        public float[] GetCurrentDesires(List<Emotion> activeEmotions, float emotionsIntensityLowerBound)
+        public float[] GetCurrentDesires(List<Emotion> activeEmotions, float emotionsIntensityLowerBound, ref int mostSignificantMotivation)
         {
+            mostSignificantMotivation = m_mostSignificantMotivation;
             float[] currentDesires = new float[16];
             for (int i = 0; i < currentDesires.Length; i++)
             {
@@ -52,26 +64,29 @@ namespace AI.Personality
                         weight -= 1 - (emotion.m_currentIntensity - emotionsIntensityLowerBound);
                     }
                 }
-
+                if (weight < 0.0f)
+                {
+                    weight = 0.0f;
+                }
                 currentDesires[i] = (m_targetMotivation[i] - m_currentFullfilment[i]) * weight;
             }
             return currentDesires;
         }
 
-        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate)
+        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate, float motivationDecreaseRate)
         {
             if (motivationGain != null)
             {
                 for (int i = 0; i < m_currentFullfilment.Length; i++)
                 {
-                    m_currentFullfilment[i] += motivationGain[i] * motivationGainRate;
-                    if (m_currentFullfilment[i] > 1.0f)
+                    m_currentFullfilment[i] += (motivationGain[i] * motivationGainRate) - (motivationDecreaseRate * motivationGainRate);
+                    if (m_currentFullfilment[i] > m_targetMotivation[i])
                     {
-                        m_currentFullfilment[i] = 1.0f;
+                        m_currentFullfilment[i] = m_targetMotivation[i];
                     }
-                    if (m_currentFullfilment[i] < -1.0f)
+                    if (m_currentFullfilment[i] < 0.0f)
                     {
-                        m_currentFullfilment[i] = -1.0f;
+                        m_currentFullfilment[i] = 0.0f;
                     }
                 }
             }

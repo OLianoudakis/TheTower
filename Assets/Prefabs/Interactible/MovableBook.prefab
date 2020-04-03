@@ -136,6 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd8c176b5312524fb6801de8b8286d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_rotateOnly: 0
+  m_rotateAroundX: 0
+  m_rotateAroundY: 0
+  m_rotateAroundZ: 0
 --- !u!65 &3234168737178065974
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bcac8e67f9e494e956e87d7878d49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_name: 
+  m_name: book
   m_soundTransimissionTime: 0.5
 --- !u!1001 &2748774999597959250
 PrefabInstance:

@@ -49,3 +49,105 @@ MonoBehaviour:
       m_initialIntensity: 0.5
       m_currentIntensity: 0
       m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+  - m_eventType: 2
+    m_emotions:
+    - m_emotionType: 1
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 5
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 16
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+  - m_eventType: 3
+    m_emotions:
+    - m_emotionType: 1
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 5
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 16
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+  - m_eventType: 4
+    m_emotions:
+    - m_emotionType: 1
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 5
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 16
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+  - m_eventType: 5
+    m_emotions:
+    - m_emotionType: 1
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 5
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 16
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+  - m_eventType: 6
+    m_emotions:
+    - m_emotionType: 1
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 5
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 16
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0
+    - m_emotionType: 9
+      m_initialIntensity: 0.5
+      m_currentIntensity: 0
+      m_initialTime: 0

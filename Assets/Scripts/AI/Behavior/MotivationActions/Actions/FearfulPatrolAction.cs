@@ -12,7 +12,10 @@ namespace AI.Behavior.MotivationActions.Actions
     public class FearfulPatrolAction : MonoBehaviour
     {
         [SerializeField]
-        PatrolCommentType m_PatrolCommentType;
+        PersonalityType m_personalityType;
+
+        [SerializeField]
+        private float m_maxTimeBetweenComments = 3.0f;
 
         [SerializeField]
         private GameObject m_patrolPointsGroup;
@@ -20,9 +23,6 @@ namespace AI.Behavior.MotivationActions.Actions
         [SerializeField]
         private float m_waitTimeAtPoints = 0.1f;
         
-        private TextMesh m_floatingTextMesh;
-        private float m_chanceToComment = 85.0f;
-
         private bool m_actionInitialized = false;
         private bool m_isStaminaEmpty = true;
         private Root m_behaviorTree;
@@ -31,17 +31,25 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             NavMeshAgent navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
-            m_floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+            TextMesh floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+            MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
-                new Selector
-                (                    
+                new Sequence
+                (
+                    TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType, m_maxTimeBetweenComments),
                     TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
                 )
             );
-            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolPointsGroup.GetComponentsInChildren(typeof(Transform)) as Transform[]);
+            Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
+            Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
+            for (int i = 1; i < tempPoints.Length; i++)
+            {
+                patrolPoints[i - 1] = tempPoints[i];
+            }
+            m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
 
             // attach debugger to see what's going on in the inspector
@@ -53,7 +61,6 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnEnable()
         {
-            StartCoroutine(MakeComment());
             if (m_actionInitialized)
             {
                 m_behaviorTree.Start();
@@ -62,7 +69,6 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnDisable()
         {
-            StopCoroutine(MakeComment());
             if (m_actionInitialized)
             {
                 m_behaviorTree.Stop();
@@ -71,28 +77,6 @@ namespace AI.Behavior.MotivationActions.Actions
             else
             {
                 m_actionInitialized = true;
-            }
-        }
-
-        private IEnumerator MakeComment()
-        {
-            float chanceToComment = 0.0f;
-            while(true)
-            {
-                float seconds = UnityEngine.Random.Range(1.0f, 5.0f);
-                yield return new WaitForSeconds(seconds);
-                float rollCommentChance = UnityEngine.Random.Range(0.0f, chanceToComment);
-                if (rollCommentChance > (100.0f - m_chanceToComment))
-                {
-                    m_floatingTextMesh.text = PatrolCommentsCatalogue.GetPatrolComment(m_PatrolCommentType);
-                    yield return new WaitForSeconds(3.0f);
-                    m_floatingTextMesh.text = " ";
-                    chanceToComment = 0.0f;
-                }
-                else
-                {
-                    chanceToComment += 10.0f;
-                }
             }
         }
     }

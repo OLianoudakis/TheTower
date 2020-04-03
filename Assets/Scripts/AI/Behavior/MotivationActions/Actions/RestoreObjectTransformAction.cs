@@ -47,7 +47,6 @@ namespace AI.Behavior.MotivationActions.Actions
                 {
                     m_behaviorTree.Blackboard.Set("movedObjectPosition", movable.movablePosition);
                     m_behaviorTree.Blackboard.Set("movedObject", movable);
-                    m_knowledgeBase.EnvironmentObjectPositionRestored(movable);
                 }
             }
             else
@@ -63,6 +62,7 @@ namespace AI.Behavior.MotivationActions.Actions
             // m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerMoveObject);
             Movable movable = m_behaviorTree.Blackboard.Get("movedObject") as Movable;
             movable.ResetChanges();
+            m_knowledgeBase.EnvironmentObjectPositionRestored(movable);
             m_behaviorTree.Blackboard.Unset("movedObjectPosition");
         }
 
