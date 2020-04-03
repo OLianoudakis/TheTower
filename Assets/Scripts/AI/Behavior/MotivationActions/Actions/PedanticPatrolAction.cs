@@ -52,12 +52,15 @@ namespace AI.Behavior.MotivationActions.Actions
                             TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navmesh, animator, floatingTextMesh)
                         ),
                         new Service(m_timeBetweenComments, IsCommentAvailable,
-                            new Selector
-                            (
-                                new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                                    TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
-                                ),
-                                TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navmesh, animator)
+                            new Repeater
+                            (    
+                                new Sequence
+                                (
+                                    new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
+                                        TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
+                                    ),
+                                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navmesh, animator)
+                                )
                             )
                         )
                     )

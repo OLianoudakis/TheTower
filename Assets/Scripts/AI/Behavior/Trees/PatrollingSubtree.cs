@@ -31,42 +31,42 @@ namespace AI.Behavior.Trees
             //}
 
             m_root =
-                new Repeater
-                (
+                //new Repeater
+                //(
                     new Sequence
                     (
-                        new Action(AtPatrolPoint),
-                        new Wait("waitTimeAtPoints"),
                         new Action(SetNextPatrolPoint),
-                        //new Action(Walking),
-                        //new NavMoveTo(m_navMeshAgent, "nextPosition")
                         new Action(MoveTo),
                         new WaitForCondition(IsOnSpot,
-                            new Action(Pass)
-                        )
-                    )
-                );
+                            new Action(AtPatrolPoint)
+                        ),
+                        new Wait("waitTimeAtPoints")
+                    );
+                //);
         }
 
         void SetNextPatrolPoint()
         {
-            object patrolPointsObj = m_behaviorTreeRoot.Blackboard.Get("patrolPoints");
-            if (patrolPointsObj.GetType() == typeof(Transform[]))
+            if (!m_behaviorTreeRoot.Blackboard.Isset("nextPosition"))
             {
-                Transform[] patrolPoints = patrolPointsObj as Transform[];
-                m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint].position);
-                if (++m_currentPatrolPoint >= patrolPoints.Length)
+                object patrolPointsObj = m_behaviorTreeRoot.Blackboard.Get("patrolPoints");
+                if (patrolPointsObj.GetType() == typeof(Transform[]))
                 {
-                    m_currentPatrolPoint = 0;
+                    Transform[] patrolPoints = patrolPointsObj as Transform[];
+                    m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint].position);
+                    if (++m_currentPatrolPoint >= patrolPoints.Length)
+                    {
+                        m_currentPatrolPoint = 0;
+                    }
                 }
-            }
-            else if (patrolPointsObj.GetType() == typeof(Vector3[]))
-            {
-                Vector3[] patrolPoints = patrolPointsObj as Vector3[];
-                m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint]);
-                if (++m_currentPatrolPoint >= patrolPoints.Length)
+                else if (patrolPointsObj.GetType() == typeof(Vector3[]))
                 {
-                    m_currentPatrolPoint = 0;
+                    Vector3[] patrolPoints = patrolPointsObj as Vector3[];
+                    m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint]);
+                    if (++m_currentPatrolPoint >= patrolPoints.Length)
+                    {
+                        m_currentPatrolPoint = 0;
+                    }
                 }
             }
         }
@@ -81,17 +81,12 @@ namespace AI.Behavior.Trees
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, animation);
         }
 
-        void Walking()
-        {
-            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
-        }
-
         private void MoveTo()
         {
             Debug.Log("Move To");
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             m_navMeshAgent.isStopped = false;
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("nextPosition"));
-            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
         }
 
         private bool IsOnSpot()
@@ -101,12 +96,10 @@ namespace AI.Behavior.Trees
             if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
                 - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
             {
-                m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
+                m_behaviorTreeRoot.Blackboard.Unset("nextPosition");
                 return true;
             }
             return false;
         }
-
-        private void Pass() { }
     }
 }

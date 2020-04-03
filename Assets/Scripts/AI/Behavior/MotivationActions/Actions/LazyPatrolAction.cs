@@ -11,6 +11,12 @@ namespace AI.Behavior.MotivationActions.Actions
     public class LazyPatrolAction : MonoBehaviour
     {
         [SerializeField]
+        PersonalityType m_personalityType;
+
+        [SerializeField]
+        private float m_timeBetweenComments = 3.0f;
+
+        [SerializeField]
         private GameObject m_patrolPointsGroup;
 
         [SerializeField]
@@ -30,6 +36,8 @@ namespace AI.Behavior.MotivationActions.Actions
         { 
             NavMeshAgent navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
+            TextMesh floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+            MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
@@ -40,7 +48,18 @@ namespace AI.Behavior.MotivationActions.Actions
                         new BlackboardCondition("isStaminaEmpty", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
                             TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, m_sittingTime)
                         ),
-                        TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                        new Service(m_timeBetweenComments, IsCommentAvailable,
+                            new Repeater
+                            (
+                                new Sequence
+                                (
+                                    new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
+                                        TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
+                                    ),
+                                    TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                                )
+                            )
+                        )
                     )
                 )
             );
@@ -73,6 +92,18 @@ namespace AI.Behavior.MotivationActions.Actions
             {
                 m_isStaminaEmpty = true;
                 m_behaviorTree.Blackboard.Set("isStaminaEmpty", true);
+            }
+        }
+
+        private void IsCommentAvailable()
+        {
+            if ((bool)m_behaviorTree.Blackboard.Get("commentAvailable"))
+            {
+                m_behaviorTree.Blackboard.Set("commentAvailable", false);
+            }
+            else
+            {
+                m_behaviorTree.Blackboard.Set("commentAvailable", true);
             }
         }
 

@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf9af2bfcf937b41a511f6ccb0fd3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_personalityType: 3
+  m_timeBetweenComments: 3
   m_patrolPointsGroup: {fileID: 0}
   m_waitTimeAtPoints: 3
   m_stamina: 20

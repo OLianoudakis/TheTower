@@ -15,6 +15,9 @@ namespace AI.Behavior.MotivationActions.Actions
         PersonalityType m_personalityType;
 
         [SerializeField]
+        private float m_timeBetweenComments = 3.0f;
+
+        [SerializeField]
         private float m_maxTimeBetweenComments = 3.0f;
 
         [SerializeField]
@@ -37,10 +40,17 @@ namespace AI.Behavior.MotivationActions.Actions
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
-                new Sequence
-                (
-                    TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType, m_maxTimeBetweenComments),
-                    TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                new Service(m_timeBetweenComments, IsCommentAvailable,
+                    new Repeater
+                    (
+                        new Sequence
+                        (
+                            new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
+                                TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType, m_maxTimeBetweenComments)
+                            ),
+                            TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                        )
+                    )
                 )
             );
             Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
@@ -57,6 +67,18 @@ namespace AI.Behavior.MotivationActions.Actions
             Debugger debugger = (Debugger)this.gameObject.AddComponent(typeof(Debugger));
             debugger.BehaviorTree = m_behaviorTree;
 #endif
+        }
+
+        private void IsCommentAvailable()
+        {
+            if ((bool)m_behaviorTree.Blackboard.Get("commentAvailable"))
+            {
+                m_behaviorTree.Blackboard.Set("commentAvailable", false);
+            }
+            else
+            {
+                m_behaviorTree.Blackboard.Set("commentAvailable", true);
+            }
         }
 
         private void OnEnable()
