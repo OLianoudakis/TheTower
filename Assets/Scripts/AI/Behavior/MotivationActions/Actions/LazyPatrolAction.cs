@@ -44,8 +44,13 @@ namespace AI.Behavior.MotivationActions.Actions
                     )
                 )
             );
-
-            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolPointsGroup.GetComponentsInChildren(typeof(Transform)) as Transform[]);
+            Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
+            Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
+            for (int i = 1; i < tempPoints.Length; i++)
+            {
+                patrolPoints[i - 1] = tempPoints[i];
+            }
+            m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
             m_behaviorTree.Blackboard.Set("sittableObjects", FindObjectsOfType(typeof(Sittable)) as Sittable[]);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
             m_behaviorTree.Blackboard.Set("sittingTime", m_sittingTime);

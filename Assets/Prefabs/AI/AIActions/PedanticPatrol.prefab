@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281936d73393f4e48928611e2745d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PatrolCommentType: 2
   m_patrolPointsGroup: {fileID: 0}
   m_waitTimeAtPatrolPoints: 3
   m_observeMovableObjectsTime: 3
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_priority: 0
+  m_priority: -1
   m_motivationGain: {fileID: 11400000, guid: 86ef72c31d47bbb4d87e8995fba90530, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:

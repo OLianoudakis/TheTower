@@ -17,7 +17,7 @@ namespace Environment
         private float m_currentSoundTransimissionTime = 0.0f;
         private Rigidbody m_rigidBody;
         private Vector3 m_initialPosition;
-        private Quaternion m_initialRotation;
+        private Vector3 m_initialRotation;
 
         public string name
         {
@@ -34,7 +34,7 @@ namespace Environment
             get { return m_initialPosition; }
         }
 
-        public Quaternion initialRotation
+        public Vector3 initialRotation
         {
             get { return m_initialRotation; }
         }
@@ -58,10 +58,13 @@ namespace Environment
 
         public void ResetChanges()
         {
-            m_rigidBody.isKinematic = true;
-            m_rigidBody.useGravity = false;
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
+            if (m_rigidBody)
+            {
+                m_rigidBody.isKinematic = true;
+                m_rigidBody.useGravity = false;
+            }
+            transform.position = m_initialPosition;
+            transform.rotation = Quaternion.Euler(m_initialRotation);
             transform.hasChanged = false;
         }
 
@@ -75,7 +78,7 @@ namespace Environment
             }
             transform.hasChanged = false;
             m_initialPosition = transform.position;
-            m_initialRotation = transform.rotation;
+            m_initialRotation = transform.rotation.eulerAngles;
         }
 
         private void Update()

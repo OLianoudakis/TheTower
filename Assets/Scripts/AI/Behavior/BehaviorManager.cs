@@ -15,7 +15,10 @@ namespace AI.Behavior
         private bool m_usePersonalityModel = true;
 
         [SerializeField]
-        private float m_emotionIntensityTreshold = 0.6f;
+        private float m_emotionIntensityTreshold = 0.0f;
+
+        [SerializeField]
+        private float m_motivationNegativeInfluenceThreshold = 0.1f;
 
         [SerializeField]
         private float m_behaviorUpdateCooldown = 0.3f;
@@ -59,6 +62,10 @@ namespace AI.Behavior
 
         private bool ActivateEmotionalAction()
         {
+            if (m_generatedEmotionalEvents.Count == 0)
+            {
+                return false;
+            }
             // pick the emotion with the strongest intensity
             EventEmotionEntry emotionalEventToTrigger;
             emotionalEventToTrigger.m_eventType = Events.EventType.PlayerSpotted;
@@ -131,11 +138,13 @@ namespace AI.Behavior
         {
             MotivationActionProperties chosenAction = null;
             float[] currentDesires = null;
-            float distance = -100.0f;
+            float distance = 100.0f;
             int priority = -1;
+            int mostSignificantMotivation = 0;
+            float currentMostSignificantMotivationValue = 0.0f;
             if (m_usePersonalityModel)
             {
-                currentDesires = m_personalityManager.GetCurrentDesires();
+                currentDesires = m_personalityManager.GetCurrentDesires(ref mostSignificantMotivation);
             }
             foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
             {
@@ -144,25 +153,39 @@ namespace AI.Behavior
                     float newDistance = 0.0f;
                     for (int i = 0; i < motivationActionProperties.motivationGain.m_motivationDesiresGain.Length; i++)
                     {
-                        if (currentDesires[i] < 0.0f)
+                        float motivationGain = motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value;
+                        if (currentDesires[i] < m_motivationNegativeInfluenceThreshold)
                         {
-                            newDistance += (-1.0f * motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value) - (-1.0f * currentDesires[i]);
+                            if (currentDesires[i] == 0.0f)
+                            {
+                                motivationGain = 0.0f;
+                            }
+                            else
+                            {
+                                motivationGain /= 2.0f;
+                            }
                         }
-                        else
-                        {
-                            newDistance += motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value - currentDesires[i];
-                        }
+                        newDistance += currentDesires[i] - motivationGain;
+                        Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " " 
+                            + currentDesires[i].ToString() + " " + newDistance.ToString());
                     }
 
-                    if ((newDistance > distance) && motivationActionProperties.CanBeTriggered())
+                    if ((
+                        (newDistance < distance) 
+                        || 
+                        ((newDistance == distance) 
+                        && (motivationActionProperties.motivationGain.m_motivationDesiresGain[mostSignificantMotivation].m_value > currentMostSignificantMotivationValue))
+                        ) 
+                        && motivationActionProperties.CanBeTriggered())
                     {
+                        currentMostSignificantMotivationValue = motivationActionProperties.motivationGain.m_motivationDesiresGain[mostSignificantMotivation].m_value;
                         chosenAction = motivationActionProperties;
                         distance = newDistance;
                     }
                     continue;
                 }
 
-                if (((priority < 0) || (motivationActionProperties.priority < priority))
+                if ((motivationActionProperties.priority > 0.0f) && ((priority < 0.0f) || (motivationActionProperties.priority < priority))
                     && motivationActionProperties.CanBeTriggered())
                 {
                     chosenAction = motivationActionProperties;

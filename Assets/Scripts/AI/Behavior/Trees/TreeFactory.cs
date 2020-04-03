@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using NPBehave;
+using AI.Behavior.MotivationActions;
 
 namespace AI.Behavior.Trees
 {
@@ -36,10 +37,10 @@ namespace AI.Behavior.Trees
             return raiseAlarmSubtree.m_root;
         }
 
-        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator)
+        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh)
         {
             ObserveMovableSubtree raiseAlarmSubtree = new ObserveMovableSubtree();
-            raiseAlarmSubtree.Create(behaviorTreeRoot, navMeshAgent, animator);
+            raiseAlarmSubtree.Create(behaviorTreeRoot, navMeshAgent, animator, textMesh);
             return raiseAlarmSubtree.m_root;
         }
 
@@ -47,6 +48,17 @@ namespace AI.Behavior.Trees
         {
             RunAwaySubtree runAwaySubtree = new RunAwaySubtree();
             runAwaySubtree.Create(behaviorTreeRoot, navMeshAgent, animator, agentTransform);
+            return runAwaySubtree.m_root;
+        }
+
+        public static Node CreateMakeCommentTree(Root behaviorTreeRoot,
+            MotivationActionsCommentsCatalogue catalogue,
+            TextMesh textMesh,
+            PersonalityType personalityType,
+            float chanceToComment = 85.0f)
+        {
+            MakeCommentSubtree runAwaySubtree = new MakeCommentSubtree();
+            runAwaySubtree.Create(behaviorTreeRoot, catalogue, textMesh, personalityType, chanceToComment);
             return runAwaySubtree.m_root;
         }
     }
