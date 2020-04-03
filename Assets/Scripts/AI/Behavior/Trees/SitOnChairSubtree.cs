@@ -41,14 +41,16 @@ namespace AI.Behavior.Trees
                                         new Sequence
                                         (
                                             new Action(Sit),
+                                            new Wait(0.5f),
+                                            new Action(IsSitting),
                                             new Selector
                                             (
                                                 new BlackboardCondition("sittingTime", Operator.IS_EQUAL, 0.0f, Stops.NONE,
                                                     new Repeater
                                                     (
-                                                        new Wait(1.0f)
+                                                        new Wait(1.0f)                                                        
                                                     )
-                                                ),
+                                                ),                                                
                                                 new Wait("sittingTime")
                                             ),
                                             new Action(StandUp)
@@ -86,6 +88,7 @@ namespace AI.Behavior.Trees
         private void MoveTo()
         {
             Debug.Log("Move To");
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition"));
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
         }
@@ -115,6 +118,11 @@ namespace AI.Behavior.Trees
         {
             Debug.Log("Sit");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerSit);
+        }
+
+        private void IsSitting()
+        {
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, 999);
         }
 
         private void StandUp()
