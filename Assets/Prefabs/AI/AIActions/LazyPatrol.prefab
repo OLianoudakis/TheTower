@@ -86,7 +86,7 @@ MonoBehaviour:
         id: 2
     - m_name: playerTransform
       m_index: 3
-      m_useRule: 0
+      m_useRule: 1
       m_value:
         id: 3
   references:
@@ -110,4 +110,4 @@ MonoBehaviour:
       type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
       data:
         m_value: {fileID: 0}
-        m_operator: 0
+        m_operator: 2

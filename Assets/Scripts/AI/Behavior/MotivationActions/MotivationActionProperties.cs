@@ -34,6 +34,7 @@ namespace AI.Behavior.MotivationActions
         public MotivationGain motivationGain
         {
             get { return m_motivationGain; }
+            set { m_motivationGain = value; }
         }
 
         public bool CanBeTriggered()

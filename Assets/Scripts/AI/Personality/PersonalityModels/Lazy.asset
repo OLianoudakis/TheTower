@@ -14,12 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_personalityTraitsValues:
   - m_personalityTraitType: 4
-    m_value: -0.2
+    m_value: 0
   - m_personalityTraitType: 2
     m_value: -0.8
   - m_personalityTraitType: 1
     m_value: 0
   - m_personalityTraitType: 3
-    m_value: -0.4
+    m_value: -0.5
   - m_personalityTraitType: 0
-    m_value: -0.3
+    m_value: 0
+  m_targetMotivations:
+  - m_motivationDesire: 0
+    m_value: 0
+  - m_motivationDesire: 1
+    m_value: 0
+  - m_motivationDesire: 2
+    m_value: 0
+  - m_motivationDesire: 3
+    m_value: 0
+  - m_motivationDesire: 4
+    m_value: 0
+  - m_motivationDesire: 5
+    m_value: 0
+  - m_motivationDesire: 6
+    m_value: 0.5
+  - m_motivationDesire: 7
+    m_value: 0
+  - m_motivationDesire: 8
+    m_value: 0
+  - m_motivationDesire: 9
+    m_value: 0
+  - m_motivationDesire: 10
+    m_value: 0
+  - m_motivationDesire: 11
+    m_value: 0.1
+  - m_motivationDesire: 12
+    m_value: 0
+  - m_motivationDesire: 13
+    m_value: 0
+  - m_motivationDesire: 14
+    m_value: 0
+  - m_motivationDesire: 15
+    m_value: 0

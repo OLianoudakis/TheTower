@@ -28,40 +28,54 @@ namespace AI.Behavior.MotivationActions.Actions
         [SerializeField]
         private float m_sittingTime = 10.0f;
 
+        private float m_staminaCooldown = 0.0f;
         private bool m_actionInitialized = false;
-        private bool m_isStaminaEmpty = true;
+        private bool m_isStaminaEmpty = false;
         private Root m_behaviorTree;
+        private Animator m_animator;
+        private NavMeshAgent m_navMeshAgent;
+        private Sittable[] m_sittableObjects;
+        private FloatingTextBehavior m_textMesh;
 
         private void Awake()
-        { 
-            NavMeshAgent navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
-            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
-            TextMesh floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+        {
+            m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+            m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
+            m_sittableObjects = FindObjectsOfType(typeof(Sittable)) as Sittable[];
+            m_textMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
             MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
-            (    
-                new Service(m_stamina, EmptyStamina,
-                    new Selector
-                    (
-                        new BlackboardCondition("isStaminaEmpty", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                            TreeFactory.CreateSitOnChairTree(m_behaviorTree, navmesh, animator, m_sittingTime, textMesh: floatingTextMesh)
-                        ),
-                        new Service(m_timeBetweenComments, IsCommentAvailable,
-                            new Repeater
-                            (
+            (   
+                new Sequence
+                (
+                    new Service(0.5f, IsSittableAvailable,
+                        new Selector
+                        (
+                            new BlackboardCondition("isSittableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
                                 new Sequence
                                 (
-                                    new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
-                                        TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
-                                    ),
-                                    TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                                    TreeFactory.CreateSitOnChairTree(m_behaviorTree, m_navMeshAgent, m_animator, m_sittingTime, textMesh: m_textMesh),
+                                    new Action(FullStamina)
+                                )
+                            ),
+                            new Service(m_timeBetweenComments, IsCommentAvailable,
+                                new Repeater
+                                (
+                                    new Selector
+                                    (
+                                        new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
+                                            TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, m_textMesh, m_personalityType)
+                                        ),
+                                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, m_animator)
+                                    )
                                 )
                             )
                         )
                     )
                 )
+                
             );
             Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
             Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
@@ -70,7 +84,6 @@ namespace AI.Behavior.MotivationActions.Actions
                 patrolPoints[i - 1] = tempPoints[i];
             }
             m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
-            m_behaviorTree.Blackboard.Set("sittableObjects", FindObjectsOfType(typeof(Sittable)) as Sittable[]);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
             m_behaviorTree.Blackboard.Set("sittingTime", m_sittingTime);
             m_behaviorTree.Blackboard.Set("commentAvailable", true);
@@ -82,17 +95,54 @@ namespace AI.Behavior.MotivationActions.Actions
 #endif
         }
 
-        private void EmptyStamina()
+        private void FindClosestSittable()
+        {
+            Debug.Log("Finding Chair");
+            m_behaviorTree.Blackboard.Set("isSittableAvailable", false);
+            foreach (Sittable sittable in m_sittableObjects)
+            {
+                if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
+                {
+                    if (m_textMesh)
+                    {
+                        m_textMesh.ChangeText("I need some rest");
+                    }
+                    m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
+                    if (sittable.sittablePosition.eulerAngles.y < 0.0f)
+                    {
+                        m_behaviorTree.Blackboard.Set("sittableTransformRotationY", 360.0f + sittable.sittablePosition.eulerAngles.y);
+                    }
+                    else
+                    {
+                        m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
+                    }
+                    m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
+                    m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
+                    m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
+                    break;
+                }
+            }
+        }
+
+        private void FullStamina()
+        {
+            m_isStaminaEmpty = false;
+            m_staminaCooldown = 0.0f;
+        }
+
+        private void IsSittableAvailable()
         {
             if (m_isStaminaEmpty)
             {
-                m_isStaminaEmpty = false;
-                m_behaviorTree.Blackboard.Set("isStaminaEmpty", false);
+                FindClosestSittable();
             }
             else
             {
-                m_isStaminaEmpty = true;
-                m_behaviorTree.Blackboard.Set("isStaminaEmpty", true);
+                m_staminaCooldown += 0.5f;
+                if (m_staminaCooldown >= m_stamina)
+                {
+                    m_isStaminaEmpty = true;
+                }
             }
         }
 
@@ -112,6 +162,7 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             if (m_actionInitialized)
             {
+                m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
             }
         }
@@ -121,7 +172,10 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized)
             {
                 m_behaviorTree.Stop();
+                m_navMeshAgent.isStopped = true;
+                m_navMeshAgent.ResetPath();
                 m_behaviorTree.Blackboard.Unset("rotationDifference");
+                m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             }
             else
             {

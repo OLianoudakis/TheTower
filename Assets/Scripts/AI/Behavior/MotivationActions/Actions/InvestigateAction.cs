@@ -16,28 +16,39 @@ namespace AI.Behavior.MotivationActions.Actions
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
         KnowledgeBase.KnowledgeBase m_knowledgeBase;
+        NavMeshAgent m_navMeshAgent;
 
         private void Awake()
         {
-            Animator animator = transform.parent.transform.parent.GetComponentInChildren<Animator>();
-            NavMeshAgent navmesh = transform.parent.transform.parent.GetComponent<NavMeshAgent>();
+            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
+            m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+            m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
-                new Sequence
+                new Selector
                 (
-                    new BlackboardCondition("newPointOfInterest", Operator.IS_EQUAL, true, Stops.NONE,
-                        new CalculateInvestigationPoints("pointOfInterest", "patrolPoints", 3)
+                    new Sequence
+                    (
+                        new Action(CheckNewPointOfInterest),
+                        new BlackboardCondition("newPointOfInterest", Operator.IS_EQUAL, true, Stops.NONE,
+                            new CalculateInvestigationPoints("pointOfInterest", "patrolPoints", 3)
+                        )
                     ),
-                    TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator)
                 )
             );
             m_behaviorTree.Blackboard.Set("atPatrolPointAnimation", AnimationConstants.AnimButtlerLookAround);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
+
+#if UNITY_EDITOR
+            Debugger debugger = (Debugger)this.gameObject.AddComponent(typeof(Debugger));
+            debugger.BehaviorTree = m_behaviorTree;
+#endif
         }
 
-        private bool CheckNewPointOfInterest(ref Vector3 pointOfInterest)
+        private void CheckNewPointOfInterest()
         {
             bool isNewPoint = false;
             Vector3 newPoint = Vector3.zero;
@@ -49,40 +60,29 @@ namespace AI.Behavior.MotivationActions.Actions
             else if (m_knowledgeBase.playerSuspicion)
             {
                 isNewPoint = true;
-                newPoint = m_knowledgeBase.GetPlayerSuspicionPosition();
+                newPoint = m_knowledgeBase.GetLastKnownPlayerPosition();
             }
             else if (m_knowledgeBase.playerHiding)
             {
                 isNewPoint = true;
                 newPoint = m_knowledgeBase.GetLastKnownPlayerPosition();
             }
-            if (isNewPoint && (pointOfInterest != newPoint))
+            object pointOfInterest = m_behaviorTree.Blackboard.Get("pointOfInterest");
+            if (isNewPoint && ((pointOfInterest == null) || (Vector3)pointOfInterest != newPoint))
             {
-                pointOfInterest = newPoint;
-                return true;
+                m_behaviorTree.Blackboard.Set("pointOfInterest", newPoint);
+                m_behaviorTree.Blackboard.Set("newPointOfInterest", true);
+                return;
             }
-            return false;
-        }
-
-        private void Update()
-        {
-            Vector3 position = Vector3.zero;
-            bool newPosition = CheckNewPointOfInterest(ref position);
-            m_behaviorTree.Blackboard.Set("newPointOfInterest", newPosition);
-            m_behaviorTree.Blackboard.Set("pointOfInterest", position);
+            m_behaviorTree.Blackboard.Set("newPointOfInterest", false);
         }
 
         private void OnEnable()
         {
             if (m_actionInitialized)
             {
-                Vector3 position = Vector3.zero;
-                if (CheckNewPointOfInterest(ref position))
-                {
-                    m_behaviorTree.Blackboard.Set("newPointOfInterest", true);
-                    m_behaviorTree.Blackboard.Set("pointOfInterest", position);
-                    m_behaviorTree.Start();
-                }
+                m_navMeshAgent.isStopped = false;
+                m_behaviorTree.Start();
             }
         }
 
@@ -92,6 +92,8 @@ namespace AI.Behavior.MotivationActions.Actions
             {
                 m_behaviorTree.Blackboard.Set("newPointOfInterest", false);
                 m_behaviorTree.Stop();
+                m_navMeshAgent.isStopped = true;
+                m_navMeshAgent.ResetPath();
             }
             else
             {

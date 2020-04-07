@@ -40,6 +40,7 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             m_navMeshAgent.isStopped = true;
+            m_navMeshAgent.ResetPath();
             m_isChasing = false;
         }
 
@@ -51,6 +52,12 @@ namespace AI.Behavior.MotivationActions.Actions
                 if (m_knowledgeBase.playerTransform)
                 {
                     m_navMeshAgent.SetDestination(m_knowledgeBase.playerTransform.position);
+                    if (!m_navMeshAgent.hasPath)
+                    {
+                        NavMeshHit hit;
+                        NavMesh.SamplePosition(m_knowledgeBase.playerTransform.position, out hit, 1.0f, NavMesh.AllAreas);
+                        m_navMeshAgent.SetDestination(hit.position);
+                    }
                     yield return new WaitForEndOfFrame();
                 }
                 else

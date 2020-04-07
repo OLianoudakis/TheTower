@@ -38,301 +38,301 @@ namespace AI.Behavior.EmotionalActions
             switch (catalogueEntrySelected)
             {
                 case Catalogue.PlayerSpottedJoy:
-                    return ("PlayerSpottedJoy" + PlayerSpottedJoy());
+                    return (PlayerSpottedJoy());
                 case Catalogue.PlayerSpottedDistress:
-                    return ("PlayerSpottedDistress" + PlayerSpottedDistress());
+                    return (PlayerSpottedDistress());
                 case Catalogue.PlayerSpottedResentment:
-                    return ("PlayerSpottedResentment" + PlayerSpottedResentment());
+                    return (PlayerSpottedResentment());
                 case Catalogue.PlayerSpottedPity:
-                    return ("PlayerSpottedPity" + PlayerSpottedPity());
+                    return (PlayerSpottedPity());
                 case Catalogue.PlayerSpottedHope:
-                    return ("PlayerSpottedHope" + PlayerSpottedHope());
+                    return (PlayerSpottedHope());
                 case Catalogue.PlayerSpottedFear:
-                    return ("PlayerSpottedFear" + PlayerSpottedFear());
+                    return (PlayerSpottedFear());
                 case Catalogue.PlayerSpottedSatisfaction:
-                    return ("PlayerSpottedSatisfaction" + PlayerSpottedSatisfaction());
+                    return (PlayerSpottedSatisfaction());
                 case Catalogue.PlayerSpottedRelief:
-                    return ("PlayerSpottedRelief" + PlayerSpottedRelief());
+                    return (PlayerSpottedRelief());
                 case Catalogue.PlayerSpottedDisappointment:
-                    return ("PlayerSpottedDisappointment" + PlayerSpottedDisappointment());
+                    return (PlayerSpottedDisappointment());
                 case Catalogue.PlayerSpottedPride:
-                    return ("PlayerSpottedPride" + PlayerSpottedPride());
+                    return (PlayerSpottedPride());
                 case Catalogue.PlayerSpottedAdmiration:
-                    return ("PlayerSpottedAdmiration" + PlayerSpottedAdmiration());
+                    return (PlayerSpottedAdmiration());
                 case Catalogue.PlayerSpottedShame:
-                    return ("PlayerSpottedShame" + PlayerSpottedShame());
+                    return (PlayerSpottedShame());
                 case Catalogue.PlayerSpottedReproach:
-                    return ("PlayerSpottedReproach" + PlayerSpottedReproach());
+                    return (PlayerSpottedReproach());
                 case Catalogue.PlayerSpottedLiking:
-                    return ("PlayerSpottedLiking" + PlayerSpottedLiking());
+                    return (PlayerSpottedLiking());
                 case Catalogue.PlayerSpottedDisliking:
-                    return ("PlayerSpottedDisliking" + PlayerSpottedDisliking());
+                    return (PlayerSpottedDisliking());
                 case Catalogue.PlayerSpottedGratitude:
-                    return ("PlayerSpottedGratitude" + PlayerSpottedGratitude());
+                    return (PlayerSpottedGratitude());
                 case Catalogue.PlayerSpottedAnger:
-                    return ("PlayerSpottedAnger" + PlayerSpottedAnger());
+                    return (PlayerSpottedAnger());
                 case Catalogue.PlayerSpottedGratification:
-                    return ("PlayerSpottedGratification" + PlayerSpottedGratification());
+                    return (PlayerSpottedGratification());
                 case Catalogue.PlayerSpottedRemorse:
-                    return ("PlayerSpottedRemorse" + PlayerSpottedRemorse());
+                    return (PlayerSpottedRemorse());
                 case Catalogue.PlayerSpottedLove:
-                    return ("PlayerSpottedLove" + PlayerSpottedLove());
+                    return (PlayerSpottedLove());
                 case Catalogue.PlayerSpottedHate:
-                    return ("PlayerSpottedHate" + PlayerSpottedHate());
+                    return (PlayerSpottedHate());
                 case Catalogue.PlayerDiscoveredJoy:
-                    return ("PlayerDiscoveredJoy" + PlayerDiscoveredJoy());
+                    return (PlayerDiscoveredJoy());
                 case Catalogue.PlayerDiscoveredDistress:
-                    return ("PlayerDiscoveredDistress" + PlayerDiscoveredDistress());
+                    return (PlayerDiscoveredDistress());
                 case Catalogue.PlayerDiscoveredResentment:
-                    return ("PlayerDiscoveredResentment" + PlayerDiscoveredResentment());
+                    return (PlayerDiscoveredResentment());
                 case Catalogue.PlayerDiscoveredPity:
-                    return ("PlayerDiscoveredPity" + PlayerDiscoveredPity());
+                    return (PlayerDiscoveredPity());
                 case Catalogue.PlayerDiscoveredHope:
-                    return ("PlayerDiscoveredHope" + PlayerDiscoveredHope());
+                    return (PlayerDiscoveredHope());
                 case Catalogue.PlayerDiscoveredFear:
-                    return ("PlayerDiscoveredFear" + PlayerDiscoveredFear());
+                    return (PlayerDiscoveredFear());
                 case Catalogue.PlayerDiscoveredSatisfaction:
-                    return ("PlayerDiscoveredSatisfaction" + PlayerDiscoveredSatisfaction());
+                    return ( PlayerDiscoveredSatisfaction());
                 case Catalogue.PlayerDiscoveredRelief:
-                    return ("PlayerDiscoveredRelief" + PlayerDiscoveredRelief());
+                    return (PlayerDiscoveredRelief());
                 case Catalogue.PlayerDiscoveredDisappointment:
-                    return ("PlayerDiscoveredDisappointment" + PlayerDiscoveredDisappointment());
+                    return (PlayerDiscoveredDisappointment());
                 case Catalogue.PlayerDiscoveredPride:
-                    return ("PlayerDiscoveredPride" + PlayerDiscoveredPride());
+                    return (PlayerDiscoveredPride());
                 case Catalogue.PlayerDiscoveredAdmiration:
-                    return ("PlayerDiscoveredAdmiration" + PlayerDiscoveredAdmiration());
+                    return (PlayerDiscoveredAdmiration());
                 case Catalogue.PlayerDiscoveredShame:
-                    return ("PlayerDiscoveredShame" + PlayerDiscoveredShame());
+                    return (PlayerDiscoveredShame());
                 case Catalogue.PlayerDiscoveredReproach:
-                    return ("PlayerDiscoveredReproach" + PlayerDiscoveredReproach());
+                    return (PlayerDiscoveredReproach());
                 case Catalogue.PlayerDiscoveredLiking:
-                    return ("PlayerDiscoveredLiking" + PlayerDiscoveredLiking());
+                    return (PlayerDiscoveredLiking());
                 case Catalogue.PlayerDiscoveredDisliking:
-                    return ("PlayerDiscoveredDisliking" + PlayerDiscoveredDisliking());
+                    return (PlayerDiscoveredDisliking());
                 case Catalogue.PlayerDiscoveredGratitude:
-                    return ("PlayerDiscoveredGratitude" + PlayerDiscoveredGratitude());
+                    return (PlayerDiscoveredGratitude());
                 case Catalogue.PlayerDiscoveredAnger:
-                    return ("PlayerDiscoveredAnger" + PlayerDiscoveredAnger());
+                    return (PlayerDiscoveredAnger());
                 case Catalogue.PlayerDiscoveredGratification:
-                    return ("PlayerDiscoveredGratification" + PlayerDiscoveredGratification());
+                    return (PlayerDiscoveredGratification());
                 case Catalogue.PlayerDiscoveredRemorse:
-                    return ("PlayerDiscoveredRemorse" + PlayerDiscoveredRemorse());
+                    return (PlayerDiscoveredRemorse());
                 case Catalogue.PlayerDiscoveredLove:
-                    return ("PlayerDiscoveredLove" + PlayerDiscoveredLove());
+                    return (PlayerDiscoveredLove());
                 case Catalogue.PlayerDiscoveredHate:
-                    return ("PlayerDiscoveredHate" + PlayerDiscoveredHate());
+                    return (PlayerDiscoveredHate());
                 case Catalogue.PlayerSuspicionJoy:
-                    return ("PlayerSuspicionJoy" + PlayerSuspicionJoy());
+                    return (PlayerSuspicionJoy());
                 case Catalogue.PlayerSuspicionDistress:
-                    return ("PlayerSuspicionDistress" + PlayerSuspicionDistress());
+                    return (PlayerSuspicionDistress());
                 case Catalogue.PlayerSuspicionResentment:
-                    return ("PlayerSuspicionResentment" + PlayerSuspicionResentment());
+                    return (PlayerSuspicionResentment());
                 case Catalogue.PlayerSuspicionPity:
-                    return ("PlayerSuspicionPity" + PlayerSuspicionPity());
+                    return (PlayerSuspicionPity());
                 case Catalogue.PlayerSuspicionHope:
-                    return ("PlayerSuspicionHope" + PlayerSuspicionHope());
+                    return (PlayerSuspicionHope());
                 case Catalogue.PlayerSuspicionFear:
-                    return ("PlayerSuspicionFear" + PlayerSuspicionFear());
+                    return (PlayerSuspicionFear());
                 case Catalogue.PlayerSuspicionSatisfaction:
-                    return ("PlayerSuspicionSatisfaction" + PlayerSuspicionSatisfaction());
+                    return (PlayerSuspicionSatisfaction());
                 case Catalogue.PlayerSuspicionRelief:
-                    return ("PlayerSuspicionRelief" + PlayerSuspicionRelief());
+                    return (PlayerSuspicionRelief());
                 case Catalogue.PlayerSuspicionDisappointment:
-                    return ("PlayerSuspicionDisappointment" + PlayerSuspicionDisappointment());
+                    return (PlayerSuspicionDisappointment());
                 case Catalogue.PlayerSuspicionPride:
-                    return ("PlayerSuspicionPride" + PlayerSuspicionPride());
+                    return (PlayerSuspicionPride());
                 case Catalogue.PlayerSuspicionAdmiration:
-                    return ("PlayerSuspicionAdmiration" + PlayerSuspicionAdmiration());
+                    return (PlayerSuspicionAdmiration());
                 case Catalogue.PlayerSuspicionShame:
-                    return ("PlayerSuspicionShame" + PlayerSuspicionShame());
+                    return (PlayerSuspicionShame());
                 case Catalogue.PlayerSuspicionReproach:
-                    return ("PlayerSuspicionReproach" + PlayerSuspicionReproach());
+                    return (PlayerSuspicionReproach());
                 case Catalogue.PlayerSuspicionLiking:
-                    return ("PlayerSuspicionLiking" + PlayerSuspicionLiking());
+                    return (PlayerSuspicionLiking());
                 case Catalogue.PlayerSuspicionDisliking:
-                    return ("PlayerSuspicionDisliking" + PlayerSuspicionDisliking());
+                    return (PlayerSuspicionDisliking());
                 case Catalogue.PlayerSuspicionGratitude:
-                    return ("PlayerSuspicionGratitude" + PlayerSuspicionGratitude());
+                    return (PlayerSuspicionGratitude());
                 case Catalogue.PlayerSuspicionAnger:
-                    return ("PlayerSuspicionAnger" + PlayerSuspicionAnger());
+                    return (PlayerSuspicionAnger());
                 case Catalogue.PlayerSuspicionGratification:
-                    return ("PlayerSuspicionGratification" + PlayerSuspicionGratification());
+                    return (PlayerSuspicionGratification());
                 case Catalogue.PlayerSuspicionRemorse:
-                    return ("PlayerSuspicionRemorse" + PlayerSuspicionRemorse());
+                    return (PlayerSuspicionRemorse());
                 case Catalogue.PlayerSuspicionLove:
-                    return ("PlayerSuspicionLove" + PlayerSuspicionLove());
+                    return (PlayerSuspicionLove());
                 case Catalogue.PlayerSuspicionHate:
-                    return ("PlayerSuspicionHate" + PlayerSuspicionHate());
+                    return (PlayerSuspicionHate());
                 case Catalogue.ObjectMovedJoy:
-                    return ("ObjectMovedJoy" + ObjectMovedJoy());
+                    return (ObjectMovedJoy());
                 case Catalogue.ObjectMovedDistress:
-                    return ("ObjectMovedDistress" + ObjectMovedDistress());
+                    return (ObjectMovedDistress());
                 case Catalogue.ObjectMovedResentment:
-                    return ("ObjectMovedResentment" + ObjectMovedResentment());
+                    return (ObjectMovedResentment());
                 case Catalogue.ObjectMovedPity:
-                    return ("ObjectMovedPity" + ObjectMovedPity());
+                    return (ObjectMovedPity());
                 case Catalogue.ObjectMovedHope:
-                    return ("ObjectMovedHope" + ObjectMovedHope());
+                    return (ObjectMovedHope());
                 case Catalogue.ObjectMovedFear:
-                    return ("ObjectMovedFear" + ObjectMovedFear());
+                    return (ObjectMovedFear());
                 case Catalogue.ObjectMovedSatisfaction:
-                    return ("ObjectMovedSatisfaction" + ObjectMovedSatisfaction());
+                    return ( ObjectMovedSatisfaction());
                 case Catalogue.ObjectMovedRelief:
-                    return ("ObjectMovedRelief" + ObjectMovedRelief());
+                    return (ObjectMovedRelief());
                 case Catalogue.ObjectMovedDisappointment:
-                    return ("ObjectMovedDisappointment" + ObjectMovedDisappointment());
+                    return (ObjectMovedDisappointment());
                 case Catalogue.ObjectMovedPride:
-                    return ("ObjectMovedPride" + ObjectMovedPride());
+                    return (ObjectMovedPride());
                 case Catalogue.ObjectMovedAdmiration:
-                    return ("ObjectMovedAdmiration" + ObjectMovedAdmiration());
+                    return (ObjectMovedAdmiration());
                 case Catalogue.ObjectMovedShame:
-                    return ("ObjectMovedShame" + ObjectMovedShame());
+                    return (ObjectMovedShame());
                 case Catalogue.ObjectMovedReproach:
-                    return ("ObjectMovedReproach" + ObjectMovedReproach());
+                    return (ObjectMovedReproach());
                 case Catalogue.ObjectMovedLiking:
-                    return ("ObjectMovedLiking" + ObjectMovedLiking());
+                    return (ObjectMovedLiking());
                 case Catalogue.ObjectMovedDisliking:
-                    return ("ObjectMovedDisliking" + ObjectMovedDisliking());
+                    return (ObjectMovedDisliking());
                 case Catalogue.ObjectMovedGratitude:
-                    return ("ObjectMovedGratitude" + ObjectMovedGratitude());
+                    return (ObjectMovedGratitude());
                 case Catalogue.ObjectMovedAnger:
-                    return ("ObjectMovedAnger" + ObjectMovedAnger());
+                    return (ObjectMovedAnger());
                 case Catalogue.ObjectMovedGratification:
-                    return ("ObjectMovedGratification" + ObjectMovedGratification());
+                    return (ObjectMovedGratification());
                 case Catalogue.ObjectMovedRemorse:
-                    return ("ObjectMovedRemorse" + ObjectMovedRemorse());
+                    return (ObjectMovedRemorse());
                 case Catalogue.ObjectMovedLove:
-                    return ("ObjectMovedLove" + ObjectMovedLove());
+                    return (ObjectMovedLove());
                 case Catalogue.ObjectMovedHate:
-                    return ("ObjectMovedHate" + ObjectMovedHate());
+                    return (ObjectMovedHate());
                 case Catalogue.NoiseHeardJoy:
-                    return ("NoiseHeardJoy" + NoiseHeardJoy());
+                    return (NoiseHeardJoy());
                 case Catalogue.NoiseHeardDistress:
-                    return ("NoiseHeardDistress" + NoiseHeardDistress());
+                    return (NoiseHeardDistress());
                 case Catalogue.NoiseHeardResentment:
-                    return ("NoiseHeardResentment" + NoiseHeardResentment());
+                    return (NoiseHeardResentment());
                 case Catalogue.NoiseHeardPity:
-                    return ("NoiseHeardPity" + NoiseHeardPity());
+                    return (NoiseHeardPity());
                 case Catalogue.NoiseHeardHope:
-                    return ("NoiseHeardHope" + NoiseHeardHope());
+                    return (NoiseHeardHope());
                 case Catalogue.NoiseHeardFear:
-                    return ("NoiseHeardFear" + NoiseHeardFear());
+                    return (NoiseHeardFear());
                 case Catalogue.NoiseHeardSatisfaction:
-                    return ("NoiseHeardSatisfaction" + NoiseHeardSatisfaction());
+                    return (NoiseHeardSatisfaction());
                 case Catalogue.NoiseHeardRelief:
-                    return ("NoiseHeardRelief" + NoiseHeardRelief());
+                    return (NoiseHeardRelief());
                 case Catalogue.NoiseHeardDisappointment:
-                    return ("NoiseHeardDisappointment" + NoiseHeardDisappointment());
+                    return (NoiseHeardDisappointment());
                 case Catalogue.NoiseHeardPride:
-                    return ("NoiseHeardPride" + NoiseHeardPride());
+                    return (NoiseHeardPride());
                 case Catalogue.NoiseHeardAdmiration:
-                    return ("NoiseHeardAdmiration" + NoiseHeardAdmiration());
+                    return (NoiseHeardAdmiration());
                 case Catalogue.NoiseHeardShame:
-                    return ("NoiseHeardShame" + NoiseHeardShame());
+                    return (NoiseHeardShame());
                 case Catalogue.NoiseHeardReproach:
-                    return ("NoiseHeardReproach" + NoiseHeardReproach());
+                    return (NoiseHeardReproach());
                 case Catalogue.NoiseHeardLiking:
-                    return ("NoiseHeardLiking" + NoiseHeardLiking());
+                    return (NoiseHeardLiking());
                 case Catalogue.NoiseHeardDisliking:
-                    return ("NoiseHeardDisliking" + NoiseHeardDisliking());
+                    return (NoiseHeardDisliking());
                 case Catalogue.NoiseHeardGratitude:
-                    return ("NoiseHeardGratitude" + NoiseHeardGratitude());
+                    return (NoiseHeardGratitude());
                 case Catalogue.NoiseHeardAnger:
-                    return ("NoiseHeardAnger" + NoiseHeardAnger());
+                    return (NoiseHeardAnger());
                 case Catalogue.NoiseHeardGratification:
-                    return ("NoiseHeardGratification" + NoiseHeardGratification());
+                    return (NoiseHeardGratification());
                 case Catalogue.NoiseHeardRemorse:
-                    return ("NoiseHeardRemorse" + NoiseHeardRemorse());
+                    return (NoiseHeardRemorse());
                 case Catalogue.NoiseHeardLove:
-                    return ("NoiseHeardLove" + NoiseHeardLove());
+                    return (NoiseHeardLove());
                 case Catalogue.NoiseHeardHate:
-                    return ("NoiseHeardHate" + NoiseHeardHate());
+                    return (NoiseHeardHate());
                 case Catalogue.PlayerLostJoy:
-                    return ("PlayerLostJoy" + PlayerLostJoy());
+                    return (PlayerLostJoy());
                 case Catalogue.PlayerLostDistress:
-                    return ("PlayerLostDistress" + PlayerLostDistress());
+                    return (PlayerLostDistress());
                 case Catalogue.PlayerLostResentment:
-                    return ("PlayerLostResentment" + PlayerLostResentment());
+                    return (PlayerLostResentment());
                 case Catalogue.PlayerLostPity:
-                    return ("PlayerLostPity" + PlayerLostPity());
+                    return (PlayerLostPity());
                 case Catalogue.PlayerLostHope:
-                    return ("PlayerLostHope" + PlayerLostHope());
+                    return (PlayerLostHope());
                 case Catalogue.PlayerLostFear:
-                    return ("PlayerLostFear" + PlayerLostFear());
+                    return (PlayerLostFear());
                 case Catalogue.PlayerLostSatisfaction:
-                    return ("PlayerLostSatisfaction" + PlayerLostSatisfaction());
+                    return (PlayerLostSatisfaction());
                 case Catalogue.PlayerLostRelief:
-                    return ("PlayerLostRelief" + PlayerLostRelief());
+                    return (PlayerLostRelief());
                 case Catalogue.PlayerLostDisappointment:
-                    return ("PlayerLostDisappointment" + PlayerLostDisappointment());
+                    return (PlayerLostDisappointment());
                 case Catalogue.PlayerLostPride:
-                    return ("PlayerLostPride" + PlayerLostPride());
+                    return (PlayerLostPride());
                 case Catalogue.PlayerLostAdmiration:
-                    return ("PlayerLostAdmiration" + PlayerLostAdmiration());
+                    return (PlayerLostAdmiration());
                 case Catalogue.PlayerLostShame:
-                    return ("PlayerLostShame" + PlayerLostShame());
+                    return (PlayerLostShame());
                 case Catalogue.PlayerLostReproach:
-                    return ("PlayerLostReproach" + PlayerLostReproach());
+                    return (PlayerLostReproach());
                 case Catalogue.PlayerLostLiking:
-                    return ("PlayerLostLiking" + PlayerLostLiking());
+                    return (PlayerLostLiking());
                 case Catalogue.PlayerLostDisliking:
-                    return ("PlayerLostDisliking" + PlayerLostDisliking());
+                    return (PlayerLostDisliking());
                 case Catalogue.PlayerLostGratitude:
-                    return ("PlayerLostGratitude" + PlayerLostGratitude());
+                    return (PlayerLostGratitude());
                 case Catalogue.PlayerLostAnger:
-                    return ("PlayerLostAnger" + PlayerLostAnger());
+                    return (PlayerLostAnger());
                 case Catalogue.PlayerLostGratification:
-                    return ("PlayerLostGratification" + PlayerLostGratification());
+                    return (PlayerLostGratification());
                 case Catalogue.PlayerLostRemorse:
-                    return ("PlayerLostRemorse" + PlayerLostRemorse());
+                    return (PlayerLostRemorse());
                 case Catalogue.PlayerLostLove:
-                    return ("PlayerLostLove" + PlayerLostLove());
+                    return (PlayerLostLove());
                 case Catalogue.PlayerLostHate:
-                    return ("PlayerLostHate" + PlayerLostHate());
+                    return (PlayerLostHate());
                 case Catalogue.NoiseHeardBySomebodyElseJoy:
-                    return ("NoiseHeardBySomebodyElseJoy" + NoiseHeardBySomebodyElseJoy());
+                    return (NoiseHeardBySomebodyElseJoy());
                 case Catalogue.NoiseHeardBySomebodyElseDistress:
-                    return ("NoiseHeardBySomebodyElseDistress" + NoiseHeardBySomebodyElseDistress());
+                    return (NoiseHeardBySomebodyElseDistress());
                 case Catalogue.NoiseHeardBySomebodyElseResentment:
-                    return ("NoiseHeardBySomebodyElseResentment" + NoiseHeardBySomebodyElseResentment());
+                    return (NoiseHeardBySomebodyElseResentment());
                 case Catalogue.NoiseHeardBySomebodyElsePity:
-                    return ("NoiseHeardBySomebodyElsePity" + NoiseHeardBySomebodyElsePity());
+                    return (NoiseHeardBySomebodyElsePity());
                 case Catalogue.NoiseHeardBySomebodyElseHope:
-                    return ("NoiseHeardBySomebodyElseHope" + NoiseHeardBySomebodyElseHope());
+                    return (NoiseHeardBySomebodyElseHope());
                 case Catalogue.NoiseHeardBySomebodyElseFear:
-                    return ("NoiseHeardBySomebodyElseFear" + NoiseHeardBySomebodyElseFear());
+                    return (NoiseHeardBySomebodyElseFear());
                 case Catalogue.NoiseHeardBySomebodyElseSatisfaction:
-                    return ("NoiseHeardBySomebodyElseSatisfaction" + NoiseHeardBySomebodyElseSatisfaction());
+                    return (NoiseHeardBySomebodyElseSatisfaction());
                 case Catalogue.NoiseHeardBySomebodyElseRelief:
-                    return ("NoiseHeardBySomebodyElseRelief" + NoiseHeardBySomebodyElseRelief());
+                    return (NoiseHeardBySomebodyElseRelief());
                 case Catalogue.NoiseHeardBySomebodyElseDisappointment:
-                    return ("NoiseHeardBySomebodyElseDisappointment" + NoiseHeardBySomebodyElseDisappointment());
+                    return (NoiseHeardBySomebodyElseDisappointment());
                 case Catalogue.NoiseHeardBySomebodyElsePride:
-                    return ("NoiseHeardBySomebodyElsePride" + NoiseHeardBySomebodyElsePride());
+                    return (NoiseHeardBySomebodyElsePride());
                 case Catalogue.NoiseHeardBySomebodyElseAdmiration:
-                    return ("NoiseHeardBySomebodyElseAdmiration" + NoiseHeardBySomebodyElseAdmiration());
+                    return (NoiseHeardBySomebodyElseAdmiration());
                 case Catalogue.NoiseHeardBySomebodyElseShame:
-                    return ("NoiseHeardBySomebodyElseShame" + NoiseHeardBySomebodyElseShame());
+                    return (NoiseHeardBySomebodyElseShame());
                 case Catalogue.NoiseHeardBySomebodyElseReproach:
-                    return ("NoiseHeardBySomebodyElseReproach" + NoiseHeardBySomebodyElseReproach());
+                    return (NoiseHeardBySomebodyElseReproach());
                 case Catalogue.NoiseHeardBySomebodyElseLiking:
-                    return ("NoiseHeardBySomebodyElseLiking" + NoiseHeardBySomebodyElseLiking());
+                    return (NoiseHeardBySomebodyElseLiking());
                 case Catalogue.NoiseHeardBySomebodyElseDisliking:
-                    return ("NoiseHeardBySomebodyElseDisliking" + NoiseHeardBySomebodyElseDisliking());
+                    return (NoiseHeardBySomebodyElseDisliking());
                 case Catalogue.NoiseHeardBySomebodyElseGratitude:
-                    return ("NoiseHeardBySomebodyElseGratitude" + NoiseHeardBySomebodyElseGratitude());
+                    return (NoiseHeardBySomebodyElseGratitude());
                 case Catalogue.NoiseHeardBySomebodyElseAnger:
-                    return ("NoiseHeardBySomebodyElseAnger" + NoiseHeardBySomebodyElseAnger());
+                    return (NoiseHeardBySomebodyElseAnger());
                 case Catalogue.NoiseHeardBySomebodyElseGratification:
-                    return ("NoiseHeardBySomebodyElseGratification" + NoiseHeardBySomebodyElseGratification());
+                    return (NoiseHeardBySomebodyElseGratification());
                 case Catalogue.NoiseHeardBySomebodyElseRemorse:
-                    return ("NoiseHeardBySomebodyElseRemorse" + NoiseHeardBySomebodyElseRemorse());
+                    return (NoiseHeardBySomebodyElseRemorse());
                 case Catalogue.NoiseHeardBySomebodyElseLove:
-                    return ("NoiseHeardBySomebodyElseLove" + NoiseHeardBySomebodyElseLove());
+                    return ( NoiseHeardBySomebodyElseLove());
                 case Catalogue.NoiseHeardBySomebodyElseHate:
-                    return ("NoiseHeardBySomebodyElseHate" + NoiseHeardBySomebodyElseHate());
+                    return (NoiseHeardBySomebodyElseHate());
                 default:
-                    return "Default Entered";
+                    return "";
             }
         }
         #region Joy
@@ -396,7 +396,7 @@ namespace AI.Behavior.EmotionalActions
         private static string PlayerSpottedDistress()
         {
             string[] responses = new string[] { "Oh no! It's him!",
-                                                "ah!",
+                                                "Ah!",
                                                 "Get away!" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
@@ -472,8 +472,8 @@ namespace AI.Behavior.EmotionalActions
 
         private static string PlayerSuspicionResentment()
         {
-            string[] responses = new string[] { "Maybe that was something... not checking it though",
-                                                "Uh! I don't want to check this!"};
+            string[] responses = new string[] { "What's that disturbance",
+                                                "Whomever this is, stop runing my day!"};
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
@@ -481,8 +481,8 @@ namespace AI.Behavior.EmotionalActions
         private static string ObjectMovedResentment()
         {
             string[] responses = new string[] { "Uh! another thing different!",
-                                                "What a pain...",
-                                                "Maybe if I don't react, nothing will happen..."};
+                                                "Stop runing my arrangement!",
+                                                "Why can't they leave things be..."};
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
@@ -797,7 +797,7 @@ namespace AI.Behavior.EmotionalActions
         #region Disappointment
         private static string PlayerSpottedDisappointment()
         {
-            string[] responses = new string[] { "Oh it's just you?",
+            string[] responses = new string[] { "Just leave me alone",
                                                 "Oh great... it's you"};
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
@@ -806,15 +806,15 @@ namespace AI.Behavior.EmotionalActions
         private static string PlayerDiscoveredDisappointment()
         {
             string[] responses = new string[] { "As I thought...",
-                                                "Another failure..."};
+                                                "Another distraction..."};
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
 
         private static string PlayerSuspicionDisappointment()
         {
-            string[] responses = new string[] { "Come out... We both know you'll eventually fail.",
-                                                "You're embarassing yourself." };
+            string[] responses = new string[] { "Come out... We both know you'll eventually fail",
+                                                "You're embarassing yourself" };
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];
         }
@@ -1140,7 +1140,7 @@ namespace AI.Behavior.EmotionalActions
         #region Disliking
         private static string PlayerSpottedDisliking()
         {
-            string[] responses = new string[] { "You I don't like seeing you here.",
+            string[] responses = new string[] { "You, I don't like seeing you here.",
                                                 "Isn't this a displeasure..."};
             int chosenResponse = Random.Range(1, responses.Length) - 1;
             return responses[chosenResponse];

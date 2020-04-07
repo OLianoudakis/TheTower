@@ -24,41 +24,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611009633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00586, y: 0.00688, z: -0.00787}
+  m_LocalPosition: {x: -0.00586, y: 0.00581, z: -0.00787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2642311626253648332}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1868024104
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1868024105}
-  m_Layer: 0
-  m_Name: poiPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1868024105
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868024104}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0063100006, y: 0.010210006, z: -0.009110002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2642311626253648332}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2642311626253688300
 GameObject:
@@ -77,9 +47,6 @@ GameObject:
   - component: {fileID: 1376204569}
   - component: {fileID: 893972905}
   - component: {fileID: 893972904}
-  - component: {fileID: 893972901}
-  - component: {fileID: 893972902}
-  - component: {fileID: 893972903}
   m_Layer: 16
   m_Name: Door_Wooden_Round_Left
   m_TagString: Interactible
@@ -99,7 +66,6 @@ Transform:
   m_LocalScale: {x: 225, y: 225, z: 225}
   m_Children:
   - {fileID: 611009634}
-  - {fileID: 1868024105}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -177,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c384ee8c1cf481c41b39fb99f484721c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_interactiblePosition: {fileID: 1868024105}
+  m_interactiblePosition: {fileID: 611009634}
 --- !u!114 &1376204568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +184,7 @@ MonoBehaviour:
     m_givesItemQuantity: 0
     m_requiresItem: {fileID: 0}
     m_requiredItemQuantity: 0
-  m_animator: {fileID: 1376204570, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
+  m_animator: {fileID: 893972904}
   m_discardObject: 0
 --- !u!208 &893972905
 NavMeshObstacle:
@@ -255,58 +221,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &893972901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642311626253688300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c384ee8c1cf481c41b39fb99f484721c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_interactiblePosition: {fileID: 611009634}
---- !u!114 &893972902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642311626253688300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c56fa20b1c9da3e40acf88566c05ab57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_highlightMaterial: {fileID: 2100000, guid: faabcb6bd167ec84a98752473acb0755, type: 2}
---- !u!114 &893972903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642311626253688300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d514aa3a3dfa9248990e5495dc88792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_dialogueGroup: {fileID: 0}
-  m_dialogueWindow: {fileID: 0}
-  m_infoGroup: {fileID: 0}
-  m_repeatedInfoText: {fileID: 0}
-  m_messages:
-  - m_note: It needs a key...
-    m_givesItem: {fileID: 0}
-    m_givesItemQuantity: 0
-    m_requiresItem: {fileID: 11400000, guid: 6b4853c7d9f180841a8a1c1b04c60b91, type: 2}
-    m_requiredItemQuantity: 1
-  - m_note: It's open!
-    m_givesItem: {fileID: 0}
-    m_givesItemQuantity: 0
-    m_requiresItem: {fileID: 0}
-    m_requiredItemQuantity: 0
-  m_animator: {fileID: 893972904}
-  m_discardObject: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   - m_motivationDesire: 0
     m_value: 0
   - m_motivationDesire: 1
-    m_value: -0.06
+    m_value: 0
   - m_motivationDesire: 2
     m_value: 0
   - m_motivationDesire: 3
@@ -26,11 +26,11 @@ MonoBehaviour:
   - m_motivationDesire: 5
     m_value: 0
   - m_motivationDesire: 6
-    m_value: 0
+    m_value: 0.5
   - m_motivationDesire: 7
-    m_value: -0.05
+    m_value: 0
   - m_motivationDesire: 8
-    m_value: -0.02
+    m_value: 0
   - m_motivationDesire: 9
     m_value: 0
   - m_motivationDesire: 10

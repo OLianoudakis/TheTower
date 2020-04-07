@@ -47,7 +47,6 @@ namespace AI.Behavior.Trees.Tasks
                     this.Stopped(false);
                 }
                 m_pointOfInterest = (Vector3)Blackboard.Get(m_pointOfInterestBlackboardKey);
-                Blackboard.Unset(m_pointOfInterestBlackboardKey);
             }
             Vector3[] positions = new Vector3[m_numberOfPoints];
             int index = 0;

@@ -13,6 +13,7 @@ namespace AI.Personality.Emotions
         public float m_initialIntensity;
         public float m_currentIntensity;
         public float m_initialTime;
+        public float m_emotionalTimeResponse;
     }
 
     [Serializable]

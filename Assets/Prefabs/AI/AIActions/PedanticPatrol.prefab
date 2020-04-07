@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281936d73393f4e48928611e2745d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PatrolCommentType: 2
+  m_personalityType: 0
+  m_timeBetweenComments: 3
   m_patrolPointsGroup: {fileID: 0}
   m_waitTimeAtPatrolPoints: 3
   m_observeMovableObjectsTime: 3
@@ -89,7 +90,7 @@ MonoBehaviour:
         id: 3
     - m_name: playerTransform
       m_index: 4
-      m_useRule: 0
+      m_useRule: 1
       m_value:
         id: 4
   references:
@@ -118,4 +119,4 @@ MonoBehaviour:
       type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
       data:
         m_value: {fileID: 0}
-        m_operator: 0
+        m_operator: 2

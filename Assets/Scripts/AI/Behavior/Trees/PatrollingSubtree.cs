@@ -90,7 +90,6 @@ namespace AI.Behavior.Trees
                 animation = (int)m_behaviorTreeRoot.Blackboard.Get("patrolingAnimation");
             }
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, animation);
-            m_navMeshAgent.isStopped = false;
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("nextPosition"));
         }
 

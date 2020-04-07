@@ -13,8 +13,20 @@ namespace AI.KnowledgeBase
         private KnowledgeBase m_knowledgeBase;
         private BoxCollider m_collider;
         private int m_layerMask;
-        private Dictionary<int, Collider> m_agentsInVicinity = new Dictionary<int, Collider>();
-        private Dictionary<int, float> m_shareKnowledgeCooldowns = new Dictionary<int, float>();
+        private Dictionary<EnemyTagScript, bool> m_agentsInVicinity = new Dictionary<EnemyTagScript, bool>();
+        private Dictionary<EnemyTagScript, float> m_shareKnowledgeCooldowns = new Dictionary<EnemyTagScript, float>();
+
+        public void Disable()
+        {
+            m_agentsInVicinity.Clear();
+            m_shareKnowledgeCooldowns.Clear();
+            m_collider.enabled = false;
+        }
+
+        public void Enable()
+        {
+            m_collider.enabled = true;
+        }
 
         private void Awake()
         {
@@ -22,9 +34,15 @@ namespace AI.KnowledgeBase
             m_collider = GetComponent(typeof(BoxCollider)) as BoxCollider;
 
             // set filter to ignore enemy perception and knowledgebase layer for raycast
-            int perceptionLayerIndex = LayerMask.NameToLayer("Perception");
-            int kbsLayerIndex = LayerMask.NameToLayer("KnowledgeBaseSharing");
-            m_layerMask = ~((1 << perceptionLayerIndex) | (1 << kbsLayerIndex));
+            //int perceptionLayerIndex = LayerMask.NameToLayer("Perception");
+            //int kbsLayerIndex = LayerMask.NameToLayer("KnowledgeBaseSharing");
+            // set filter on enemy collider
+            m_layerMask = LayerMask.GetMask("Enemy", "Walls", "Default", "Highlight");
+        }
+
+        private void Start()
+        {
+            Disable();
         }
 
         private void CheckCollision(Collider other)
@@ -33,11 +51,11 @@ namespace AI.KnowledgeBase
             Vector3 fromRay = new Vector3
                    (
                        m_collider.transform.position.x,
-                       m_collider.transform.position.y + m_collider.center.y,
+                       m_collider.transform.position.y + m_collider.center.y + 0.5f, // heuristic value, to not hit any furniture
                        m_collider.transform.position.z
-                   );
+                   ) + m_collider.transform.forward; // add forward to not hit self
             Vector3 direction =
-                new Vector3(other.transform.position.x, other.transform.position.y + m_collider.center.y, other.transform.position.z)
+                new Vector3(other.transform.position.x, other.transform.position.y + m_collider.center.y + 0.5f, other.transform.position.z)
                 - fromRay;
             RaycastHit hit;
             if (Physics.Raycast(fromRay, direction, out hit, Mathf.Infinity, m_layerMask)
@@ -69,36 +87,39 @@ namespace AI.KnowledgeBase
             if (enemyTag)
             {
                 int instanceId = other.GetInstanceID();
-                m_agentsInVicinity.Add(instanceId, other);
-                m_shareKnowledgeCooldowns.Add(instanceId, 0.0f);
+                m_agentsInVicinity.Add(enemyTag, true);
+                m_shareKnowledgeCooldowns.Add(enemyTag, 0.0f);
                 CheckCollision(other);
             }
         }
 
         private void OnTriggerStay(Collider other)
         {
-            int instanceId = other.GetInstanceID();
-            if (m_agentsInVicinity.ContainsKey(instanceId))
+            EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
+            if (enemyTag)
             {
-                if (m_shareKnowledgeCooldowns[instanceId] >= m_shareKnowledgeCooldown)
+                if (m_agentsInVicinity.ContainsKey(enemyTag))
                 {
-                    m_shareKnowledgeCooldowns[instanceId] = 0.0f;
-                    CheckCollision(other);
-                }
-                else
-                {
-                    m_shareKnowledgeCooldowns[instanceId] += Time.deltaTime;
+                    m_shareKnowledgeCooldowns[enemyTag] += Time.deltaTime;
+                    if (m_shareKnowledgeCooldowns[enemyTag] >= m_shareKnowledgeCooldown)
+                    {
+                        m_shareKnowledgeCooldowns[enemyTag] = 0.0f;
+                        CheckCollision(other);
+                    }
                 }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            int instanceId = other.GetInstanceID();
-            if (m_agentsInVicinity.ContainsKey(instanceId))
+            EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
+            if (enemyTag)
             {
-                m_shareKnowledgeCooldowns.Remove(instanceId);
-                m_shareKnowledgeCooldowns.Remove(instanceId);
+                if (m_agentsInVicinity.ContainsKey(enemyTag))
+                {
+                    m_agentsInVicinity.Remove(enemyTag);
+                    m_shareKnowledgeCooldowns.Remove(enemyTag);
+                }
             }
         }
     }

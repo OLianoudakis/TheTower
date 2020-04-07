@@ -100,6 +100,11 @@ namespace AI.KnowledgeBase
             return m_playerSuspicionPosition;
         }
 
+        public float GetPlayerStopFollowTime()
+        {
+            return m_playerStopFollowTime;
+        }
+
         public Transform playerTransform
         {
             get { return m_playerTransform; }
@@ -253,6 +258,11 @@ namespace AI.KnowledgeBase
             m_lastKnownPlayerPosition = lastKnownPlayerPosition;
             m_playerHiding = true;
             m_currentPlayerForgetTime = 0.0f;
+        }
+
+        public void SetPlayerStopFollowTime(float playerStopFollowTime)
+        {
+            m_playerStopFollowTime = playerStopFollowTime;
         }
 
         private void Update()

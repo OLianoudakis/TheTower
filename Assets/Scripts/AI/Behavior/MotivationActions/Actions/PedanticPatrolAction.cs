@@ -25,21 +25,19 @@ namespace AI.Behavior.MotivationActions.Actions
 
         [SerializeField]
         private float m_observeMovableObjectsTime = 3.0f;
-
-        private TextMesh m_floatingTextMesh;
         
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
         private Movable m_lastVisited;
-        NavMeshAgent m_navmesh;
+        NavMeshAgent m_navMeshAgent;
         Movable[] m_movableObjects;
 
         private void Awake()
         {
-            m_navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+            m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_movableObjects = FindObjectsOfType(typeof(Movable)) as Movable[];
-            TextMesh floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+            FloatingTextBehavior floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
             MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
@@ -49,7 +47,7 @@ namespace AI.Behavior.MotivationActions.Actions
                     new Selector
                     (
                         new BlackboardCondition("isMovableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                            TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navmesh, animator, floatingTextMesh)
+                            TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navMeshAgent, animator, floatingTextMesh)
                         ),
                         new Service(m_timeBetweenComments, IsCommentAvailable,
                             new Repeater
@@ -59,7 +57,7 @@ namespace AI.Behavior.MotivationActions.Actions
                                     new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
                                         TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
                                     ),
-                                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navmesh, animator)
+                                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator)
                                 )
                             )
                         )
@@ -91,11 +89,12 @@ namespace AI.Behavior.MotivationActions.Actions
 
             foreach (Movable movable in m_movableObjects)
             {
-                if (m_navmesh && (m_lastVisited != movable) && movable.CanMove(m_navmesh.transform))
+                if (m_navMeshAgent && (m_lastVisited != movable) && movable.CanMove(m_navMeshAgent.transform))
                 {
                     m_lastVisited = movable;
                     m_behaviorTree.Blackboard.Set("isMovableAvailable", true);
                     m_behaviorTree.Blackboard.Set("movablePosition", movable.movablePosition.position);
+                    m_behaviorTree.Blackboard.Set("movableObjectPosition", movable.transform.position);
                     if (!movable.name.Equals(""))
                     {
                         m_behaviorTree.Blackboard.Set("movableName", movable.name);
@@ -121,6 +120,7 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             if (m_actionInitialized)
             {
+                m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
             }
         }
@@ -130,6 +130,8 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized)
             {
                 m_behaviorTree.Stop();
+                m_navMeshAgent.isStopped = true;
+                m_navMeshAgent.ResetPath();
             }
             else
             {

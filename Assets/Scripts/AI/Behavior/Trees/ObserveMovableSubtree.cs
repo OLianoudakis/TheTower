@@ -15,9 +15,9 @@ namespace AI.Behavior.Trees
         private Root m_behaviorTreeRoot;
         private NavMeshAgent m_navMeshAgent;
         private Animator m_animator;
-        private TextMesh m_textMesh;
+        private FloatingTextBehavior m_textMesh;
 
-        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh = null)
+        public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, FloatingTextBehavior textMesh = null)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
@@ -32,22 +32,26 @@ namespace AI.Behavior.Trees
                         new Sequence
                         (
                             new Action(Observe),
-                            new Wait("observeMovableObjectsTime"),
-                            new Action(EndObserve)
+                            new Wait("observeMovableObjectsTime")
                         )
                     )
                 );
         }
 
-
-
         private bool IsOnSpot()
         {
             Debug.Log("Is on spot");
             Vector3 sittablePosition = (Vector3)m_behaviorTreeRoot.Blackboard.Get("movablePosition");
+            Vector3 rotation = m_navMeshAgent.transform.rotation.eulerAngles;
+            m_navMeshAgent.transform.LookAt((Vector3)m_behaviorTreeRoot.Blackboard.Get("movableObjectPosition"));
+            float rotateAddition = (rotation.y + (m_navMeshAgent.transform.rotation.eulerAngles.y - rotation.y) / 10.0f);
+            m_navMeshAgent.transform.rotation = Quaternion.Euler(rotation.x, rotateAddition, rotation.z);
             if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
                 - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
             {
+                rotation = m_navMeshAgent.transform.rotation.eulerAngles;
+                m_navMeshAgent.transform.LookAt((Vector3)m_behaviorTreeRoot.Blackboard.Get("movableObjectPosition"));
+                m_navMeshAgent.transform.rotation = Quaternion.Euler(rotation.x, m_navMeshAgent.transform.rotation.eulerAngles.y, rotation.z);
                 return true;
             }
             return false;
@@ -56,7 +60,7 @@ namespace AI.Behavior.Trees
         private void MoveTo()
         {
             Debug.Log("Move To");
-            m_navMeshAgent.isStopped = false;
+            m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("movablePosition"));
         }
 
@@ -67,15 +71,7 @@ namespace AI.Behavior.Trees
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerLookAround);
             if (m_textMesh && m_behaviorTreeRoot.Blackboard.Isset("movableName"))
             {
-                m_textMesh.text = "What a beautiful " + (string)m_behaviorTreeRoot.Blackboard.Get("movableName");
-            }
-        }
-
-        private void EndObserve()
-        {
-            if (m_textMesh)
-            {
-                m_textMesh.text = "";
+                m_textMesh.ChangeText("Interesting " + (string)m_behaviorTreeRoot.Blackboard.Get("movableName"));
             }
         }
     }

@@ -16,7 +16,7 @@ namespace AI.Perception
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "Hiding", "Player");
+            m_layerMask = LayerMask.GetMask("Default", "Hiding", "Player", "Highlight", "Walls");
             m_collider = transform.parent.parent.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
             SharedAI sharedAI = FindObjectOfType(typeof(SharedAI)) as SharedAI;
             if (sharedAI)
@@ -53,6 +53,30 @@ namespace AI.Perception
             if (movableObject && movableObject.HasTransformChanged())
             {
                 m_knowledgeBase.EnvironmentObjectMoved(movableObject);
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            PlayerTagScript playerTag = other.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
+            if (playerTag)
+            {
+                Vector3 fromRay = new Vector3
+                   (
+                       m_collider.transform.position.x,
+                       m_collider.transform.position.y + m_collider.center.y,
+                       m_collider.transform.position.z
+                   );
+                Vector3 direction =
+                    new Vector3(other.transform.position.x, other.transform.position.y + ((CapsuleCollider)other).center.y, other.transform.position.z)
+                    - fromRay;
+                RaycastHit hit;
+                if (Physics.Raycast(fromRay, direction, out hit, Mathf.Infinity, m_layerMask)
+                    && hit.collider.Equals(other))
+                {
+                    m_knowledgeBase.PlayerSpotted(m_playerTransform);
+                    return;
+                }
             }
         }
     }

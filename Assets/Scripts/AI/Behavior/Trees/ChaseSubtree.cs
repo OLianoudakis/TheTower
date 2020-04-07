@@ -21,34 +21,41 @@ namespace AI.Behavior.Trees
             m_animator = animator;
 
             m_root =
-
                 new Repeater
                 (
                     new Sequence
                     (
                         new Action(UpdatePosition),
                         new BlackboardCondition("targetPosition", Operator.IS_SET, Stops.NONE,
-                            new NavMoveTo(m_navMeshAgent, "targetPosition")
+                            new Action(Chase)
                         )
                     )
-
                 );
         }
 
         private void UpdatePosition()
         {
-            Debug.Log("Chase");
             Transform targetTransform = m_behaviorTreeRoot.Blackboard.Get("targetTransform") as Transform;
             if (targetTransform)
             {
-                m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
+                Debug.Log("Chase");
+                if (m_animator.GetInteger(AnimationConstants.ButtlerAnimationState) != AnimationConstants.AnimButtlerWalk)
+                {
+                    m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
+                }
                 m_behaviorTreeRoot.Blackboard.Set("targetPosition", targetTransform.position);
             }
             else
             {
+                Debug.Log("Chase stopped");
                 m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
                 m_behaviorTreeRoot.Blackboard.Unset("targetPosition");
             }
+        }
+
+        private void Chase()
+        {
+            m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("targetPosition"));
         }
     }
 }

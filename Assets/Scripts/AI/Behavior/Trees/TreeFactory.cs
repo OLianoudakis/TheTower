@@ -23,21 +23,21 @@ namespace AI.Behavior.Trees
             return chaseSubtree.m_root;
         }
 
-        public static Node CreateSitOnChairTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, float sittingTime, bool useStamina = true, TextMesh textMesh = null)
+        public static Node CreateSitOnChairTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, float sittingTime, bool useStamina = true, FloatingTextBehavior textMesh = null)
         {
             SitOnChairSubtree sitOnChairSubtree = new SitOnChairSubtree();
             sitOnChairSubtree.Create(behaviorTreeRoot, navMeshAgent, animator, textMesh: textMesh);
             return sitOnChairSubtree.m_root;
         }
 
-        public static Node CreateRaiseAlarmTree(Root behaviorTreeRoot, Animator animator)
+        public static Node CreateRaiseAlarmTree(Root behaviorTreeRoot, Animator animator, FloatingTextBehavior textMesh = null)
         {
             RaiseAlarmSubtree raiseAlarmSubtree = new RaiseAlarmSubtree();
-            raiseAlarmSubtree.Create(behaviorTreeRoot, animator);
+            raiseAlarmSubtree.Create(behaviorTreeRoot, animator, textMesh);
             return raiseAlarmSubtree.m_root;
         }
 
-        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, TextMesh textMesh = null)
+        public static Node CreateObserveMovableTree(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator, FloatingTextBehavior textMesh = null)
         {
             ObserveMovableSubtree raiseAlarmSubtree = new ObserveMovableSubtree();
             raiseAlarmSubtree.Create(behaviorTreeRoot, navMeshAgent, animator, textMesh);
@@ -53,7 +53,7 @@ namespace AI.Behavior.Trees
 
         public static Node CreateMakeCommentTree(Root behaviorTreeRoot,
             MotivationActionsCommentsCatalogue catalogue,
-            TextMesh textMesh,
+            FloatingTextBehavior textMesh,
             PersonalityType personalityType,
             float chanceToComment = 85.0f)
         {

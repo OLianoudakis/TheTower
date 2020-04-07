@@ -29,12 +29,13 @@ namespace AI.Behavior.MotivationActions.Actions
         private bool m_actionInitialized = false;
         private bool m_isStaminaEmpty = true;
         private Root m_behaviorTree;
+        private NavMeshAgent m_navMeshAgent;
 
         private void Awake()
         {
-            NavMeshAgent navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+            m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
-            TextMesh floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(TextMesh)) as TextMesh;
+            FloatingTextBehavior floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
             MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
@@ -48,7 +49,7 @@ namespace AI.Behavior.MotivationActions.Actions
                             new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
                                 TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType, m_maxTimeBetweenComments)
                             ),
-                            TreeFactory.CreatePatrollingTree(m_behaviorTree, navmesh, animator)
+                            TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator)
                         )
                     )
                 )
@@ -86,6 +87,7 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             if (m_actionInitialized)
             {
+                m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
             }
         }
@@ -95,6 +97,8 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized)
             {
                 m_behaviorTree.Stop();
+                m_navMeshAgent.isStopped = true;
+                m_navMeshAgent.ResetPath();
                 m_behaviorTree.Blackboard.Unset("rotationDifference");
             }
             else

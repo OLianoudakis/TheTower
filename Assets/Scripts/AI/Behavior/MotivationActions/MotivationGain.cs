@@ -3,47 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using AI.Personality;
-using Utils.EditorProperties;
+
 
 namespace AI.Behavior.MotivationActions
 {
-    [Serializable]
-    public struct MotivationGainEntry
-    {
-        [ReadOnly]
-        public MotivationDesires m_motivationDesire;
-        public float m_value;
-
-        public MotivationGainEntry(MotivationDesires motivationDesire, float value)
-        {
-            m_motivationDesire = motivationDesire;
-            m_value = value;
-        }
-    }
-
     [CreateAssetMenu(fileName = "New Motivation Gain", menuName = "Motivation Gain")]
     public class MotivationGain : ScriptableObject
     {
         [SerializeField]
-        public MotivationGainEntry[] m_motivationDesiresGain
-            = new MotivationGainEntry[16]
+        public MotivationValueEntry[] m_motivationDesiresGain
+            = new MotivationValueEntry[16]
             {
-                new MotivationGainEntry(MotivationDesires.Acceptance, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Curiosity, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Eating, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Family, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Honor, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Idealism, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Independence, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Order, 0.0f),
-                new MotivationGainEntry(MotivationDesires.PhysicalActivity, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Power, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Romance, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Saving, 0.0f),
-                new MotivationGainEntry(MotivationDesires.SocialContact, 0.0f),
-                new MotivationGainEntry(MotivationDesires.SocialStatus, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Tranquility, 0.0f),
-                new MotivationGainEntry(MotivationDesires.Vengeance, 0.0f)
+                new MotivationValueEntry(MotivationDesires.Acceptance, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Curiosity, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Eating, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Family, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Honor, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Idealism, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Independence, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Order, 0.0f),
+                new MotivationValueEntry(MotivationDesires.PhysicalActivity, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Power, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Romance, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Saving, 0.0f),
+                new MotivationValueEntry(MotivationDesires.SocialContact, 0.0f),
+                new MotivationValueEntry(MotivationDesires.SocialStatus, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Tranquility, 0.0f),
+                new MotivationValueEntry(MotivationDesires.Vengeance, 0.0f)
             };
 
         private float[] m_gainAsArray;
@@ -51,6 +37,7 @@ namespace AI.Behavior.MotivationActions
         public float[] gainAsArray
         {
             get { return m_gainAsArray; }
+            set { m_gainAsArray = value; }
         }
 
         private void Awake()

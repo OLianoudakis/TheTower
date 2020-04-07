@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 4268933939837430667}
   - component: {fileID: 4268933939837430656}
   - component: {fileID: 4268933939837430658}
-  - component: {fileID: 4268933939837430659}
   m_Layer: 16
   m_Name: InteractibleIronDoor
   m_TagString: Interactible
@@ -221,16 +220,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactiblePosition: {fileID: 4268933938803368970}
---- !u!114 &4268933939837430659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5169741726761581157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c384ee8c1cf481c41b39fb99f484721c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_interactiblePosition: {fileID: 0}

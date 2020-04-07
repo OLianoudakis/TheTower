@@ -54,7 +54,11 @@ namespace AI.Personality.Emotions
                 + GetPersonalityInfluence(newEmotion.m_emotionType, personalityModel)) / 2;
                 newEmotion.m_currentIntensity = newEmotion.m_initialIntensity;
                 newEmotion.m_initialTime = Time.time;
-                m_activeEmotions.Add(newEmotion);
+                newEmotion.m_emotionalTimeResponse = emotions[i].m_emotionalTimeResponse;
+                if (newEmotion.m_currentIntensity > m_emotionIntensityLowerBound)
+                {
+                    m_activeEmotions.Add(newEmotion);
+                }
                 modifiedEmotions[i] = newEmotion;
             }
             return modifiedEmotions;

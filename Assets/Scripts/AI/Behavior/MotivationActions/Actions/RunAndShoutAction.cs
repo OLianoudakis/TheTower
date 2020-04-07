@@ -18,8 +18,8 @@ namespace AI.Behavior.MotivationActions.Actions
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
         private ShareKnowledge m_shareKnowledge;
-        KnowledgeBase.KnowledgeBase m_knowledgeBase;
-        Transform temp;
+        private KnowledgeBase.KnowledgeBase m_knowledgeBase;
+        private NavMeshAgent m_navMeshAgent;
 
         public Object[] FindObjects(System.Type type)
         {
@@ -28,11 +28,10 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void Awake()
         {
-            NavMeshAgent navmesh = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+            m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_shareKnowledge = transform.parent.parent.GetComponentInChildren(typeof(ShareKnowledge)) as ShareKnowledge;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
-            temp = FindObjectOfType<PlayerTagScript>().gameObject.transform;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
@@ -40,10 +39,10 @@ namespace AI.Behavior.MotivationActions.Actions
                 new Sequence
                 (
                     TreeFactory.CreateRaiseAlarmTree(m_behaviorTree, animator),
-                    TreeFactory.CreateRunAwayTree(m_behaviorTree, navmesh, animator, transform.parent.parent)
+                    TreeFactory.CreateRunAwayTree(m_behaviorTree, m_navMeshAgent, animator, transform.parent.parent)
                 )
             );
-
+            m_behaviorTree.Blackboard.Set("shoutingTime", m_shoutingTime);
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
             Debugger debugger = (Debugger)this.gameObject.AddComponent(typeof(Debugger));
@@ -56,7 +55,8 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized)
             {
                 m_behaviorTree.Blackboard.Set("targetTransform", m_knowledgeBase.playerTransform);
-                m_shareKnowledge.enabled = true;
+                m_shareKnowledge.Enable();
+                m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
             }
         }
@@ -66,7 +66,9 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized)
             {
                 m_behaviorTree.Stop();
-                m_shareKnowledge.enabled = false;
+                m_navMeshAgent.isStopped = true;
+                m_navMeshAgent.ResetPath();
+                m_shareKnowledge.Disable();
                 m_behaviorTree.Blackboard.Unset("rotationDifference");
             }
             else

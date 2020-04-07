@@ -11,7 +11,7 @@ namespace AI.Behavior.Trees
         public Node m_root;
 
         private Root m_behaviorTreeRoot;
-        private TextMesh m_textMesh;
+        private FloatingTextBehavior m_textMesh;
         private MotivationActionsCommentsCatalogue m_catalogue;
         private PersonalityType m_personalityType;
         private float m_chanceToComment;
@@ -21,7 +21,7 @@ namespace AI.Behavior.Trees
         public void Create(
             Root behaviorTreeRoot, 
             MotivationActionsCommentsCatalogue catalogue,
-            TextMesh textMesh,
+            FloatingTextBehavior textMesh,
             PersonalityType personalityType,
             float chanceToComment = 85.0f)
         {
@@ -39,11 +39,11 @@ namespace AI.Behavior.Trees
 
         private void PickComment()
         {
-            m_textMesh.text = "";
+            //m_textMesh.text = "";
             float rollCommentChance = UnityEngine.Random.Range(0.0f, m_chanceToComment);
             if (rollCommentChance > (100.0f - m_currentChanceToComment))
             {
-                m_textMesh.text = m_catalogue.GetComment(m_personalityType);
+                m_textMesh.ChangeText(m_catalogue.GetComment(m_personalityType));
                 m_currentChanceToComment = 0.0f;
             }
             else

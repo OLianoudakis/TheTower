@@ -16,10 +16,10 @@ namespace AI.Personality
         private EventsEmotionIntensities m_eventsEmotionIntensities;
 
         [SerializeField]
-        private float m_motivationDecreaseRate = 0.001f;
+        private float m_motivationDecreaseRate = 0.01f;
 
         [SerializeField]
-        private float m_personalityUpdateCooldown = 3.0f;
+        private float m_personalityUpdateCooldown = 1.0f;
 
         private float m_currentPersonalityCooldown = 0.0f;
 
@@ -34,9 +34,18 @@ namespace AI.Personality
             m_behaviorInterrupted = false;
         }
 
-        public float[] GetCurrentDesires(ref int mostSignificantMotivation)
+        public float[] GetCurrentDesires(ref int mostSignificantMotivation, ref float[] motivationWeights)
         {
-            return m_motivationManager.GetCurrentDesires(m_emotionManager.activeEmotions, m_emotionManager.emotionIntensityLowerBound, ref mostSignificantMotivation);
+            return m_motivationManager.GetCurrentDesires(
+                m_emotionManager.activeEmotions, 
+                m_emotionManager.emotionIntensityLowerBound, 
+                ref mostSignificantMotivation,
+                ref motivationWeights);
+        }
+
+        public float[] GetMotivationWeights()
+        {
+            return m_motivationManager.motivationWeights;
         }
 
         public void InterruptBehavior()
@@ -52,7 +61,7 @@ namespace AI.Personality
             m_behaviorManager.AddGeneratedEmotion(entry);
         }
 
-        private void Start()
+        private void Awake()
         {
             m_moodManager = new MoodManager(m_personalityModel);
             m_motivationManager = new MotivationManager(m_personalityModel);

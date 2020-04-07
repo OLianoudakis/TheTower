@@ -13,27 +13,31 @@ namespace AI.Behavior.Trees
 
         private Root m_behaviorTreeRoot;
         private Animator m_animator;
+        private FloatingTextBehavior m_textMesh;
 
-        public void Create(Root behaviorTreeRoot, Animator animator)
+        public void Create(Root behaviorTreeRoot, Animator animator, FloatingTextBehavior textMesh = null)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_animator = animator;
+            m_textMesh = textMesh;
 
             m_root =
-                new BlackboardCondition("alarmAnimationStarted", Operator.IS_NOT_SET, true, Stops.NONE,
-                    new Sequence
+                new Sequence
                     (
                         new Action(StartShouting),
                         new Wait("shoutingTime"),
                         new Action(StopShouting)
-                    )
-                );
+                    );
         }
 
         private void StartShouting()
         {
             Debug.Log("Shouting");
-            m_behaviorTreeRoot.Blackboard.Set("alarmAnimationStarted", true);
+            if(m_textMesh)
+            {
+                m_textMesh.ChangeText(m_textMesh.text + " Hey! Get Him!.");
+            }
+            
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerYell);
         }
 
