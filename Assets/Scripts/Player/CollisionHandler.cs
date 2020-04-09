@@ -8,14 +8,19 @@ namespace Player
 {
     public class CollisionHandler : MonoBehaviour
     {
+        private GameOverController m_gameOverController;
+
+        private void Awake()
+        {
+            m_gameOverController = FindObjectOfType(typeof(GameOverController)) as GameOverController;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
             EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
-                string currentSceneName = SceneManager.GetActiveScene().name;
-                SceneManager.LoadScene(currentSceneName);
+                m_gameOverController.ShowGameOver();
             }
         }
 

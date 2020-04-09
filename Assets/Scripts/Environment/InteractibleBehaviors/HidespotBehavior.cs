@@ -4,6 +4,7 @@ using UnityEngine;
 using Player.Inventory;
 using Player;
 using Player.EmptyClass;
+using Tutorial;
 
 namespace Environment.Hiding
 {

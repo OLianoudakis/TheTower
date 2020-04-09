@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyTutorialTrigger : MonoBehaviour
+namespace Tutorial
 {
-    [SerializeField]
-    private TutorialManager m_tutorialManager;
-
-    private void OnTriggerEnter(Collider other)
+    public class KeyTutorialTrigger : MonoBehaviour
     {
-        if (other.gameObject.tag.Equals("Player"))
+        [SerializeField]
+        private TutorialManager m_tutorialManager;
+
+        private void OnTriggerEnter(Collider other)
         {
-            m_tutorialManager.NextStep("Find the key");
-            gameObject.SetActive(false);
+            if (other.gameObject.tag.Equals("Player"))
+            {
+                m_tutorialManager.NextStep("Find the key");
+                gameObject.SetActive(false);
+            }
         }
     }
 }

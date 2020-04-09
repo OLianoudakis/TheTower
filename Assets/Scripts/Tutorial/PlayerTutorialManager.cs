@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTutorialManager : MonoBehaviour
+namespace Tutorial
 {
-    private Animator m_animator;
-
-    public void StandUpOver()
+    public class PlayerTutorialManager : MonoBehaviour
     {
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
-        m_animator.applyRootMotion = false;
-    }
+        private Animator m_animator;
 
-    private void Awake()
-    {
-        m_animator = GetComponentInChildren(typeof(Animator)) as Animator;
+        public void StandUpOver()
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+            m_animator.applyRootMotion = false;
+        }
+
+        private void Awake()
+        {
+            m_animator = GetComponentInChildren(typeof(Animator)) as Animator;
+        }
     }
 }

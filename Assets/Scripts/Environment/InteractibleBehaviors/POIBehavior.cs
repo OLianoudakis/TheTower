@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Player.Inventory;
 using Player;
+using Tutorial;
 
 namespace Environment.InteractibleBehaviors
 {
@@ -23,15 +24,6 @@ namespace Environment.InteractibleBehaviors
         private TutorialManager m_tutorialManager;
 
         [SerializeField]
-        private CanvasGroup m_dialogueGroup;
-
-        [SerializeField]
-        private Text m_dialogueWindow;
-
-        [SerializeField]
-        private CanvasGroup m_infoGroup;
-
-        [SerializeField]
         private Text m_repeatedInfoText;
 
         [SerializeField]
@@ -46,6 +38,9 @@ namespace Environment.InteractibleBehaviors
         private InputController m_inputController;
         private PlayerInventoryController m_playerInventoryController;
         private Interactible m_interactible;
+        private InfoGroupController m_infoGroup;
+        private DialogueGroupController m_dialogueGroup;
+
         private bool m_isActive = false;
         private int m_currentMessage = 0;
         private string m_infoMessage;
@@ -53,14 +48,6 @@ namespace Environment.InteractibleBehaviors
         public int GetNumberOfMessages()
         {
             return m_messages.Length;
-        }
-
-        private IEnumerator RepeatingMessage()
-        {
-            m_infoGroup.alpha = 1.0f;
-            m_repeatedInfoText.text = m_infoMessage;
-            yield return new WaitForSeconds(2.0f);
-            m_infoGroup.alpha = 0.0f;
         }
 
         public void ShowNextMessage()
@@ -78,13 +65,13 @@ namespace Environment.InteractibleBehaviors
             }
 
             //Hide previous info
-            m_infoGroup.alpha = 0.0f;
+            m_infoGroup.HidePreviousInfo();
 
             if (m_messages[m_currentMessage].m_givesItem)
             {
                 m_playerInventoryController.AddItem(m_messages[m_currentMessage].m_givesItem, m_messages[m_currentMessage].m_givesItemQuantity);
                 m_infoMessage = "You've received " + m_messages[m_currentMessage].m_givesItemQuantity.ToString() + " " + m_messages[m_currentMessage].m_givesItem.m_itemName + ".";
-                StartCoroutine(RepeatingMessage());
+                m_infoGroup.SpawnInfoGroup(m_infoMessage);
             }
 
             bool canMoveForward = true;
@@ -117,7 +104,7 @@ namespace Environment.InteractibleBehaviors
             }
 
             //Display message
-            m_dialogueWindow.text = m_messages[m_currentMessage].m_note;
+            m_dialogueGroup.ChangeText(m_messages[m_currentMessage].m_note);
 
             if (canMoveForward)
             {
@@ -126,11 +113,11 @@ namespace Environment.InteractibleBehaviors
             else
             {
                 DeactivatePOIBehavior(false);
-                StartCoroutine(RepeatingMessage());
+                m_infoGroup.SpawnInfoGroup(m_infoMessage);
                 return;
             }
 
-            m_dialogueGroup.alpha = 1.0f;
+            m_dialogueGroup.ShowDialogueWindow();
         }
 
         private void PlayAnimation()
@@ -144,7 +131,7 @@ namespace Environment.InteractibleBehaviors
         private void DeactivatePOIBehavior(bool permanent)
         {
             StartCoroutine(DeactivatePOIBehaviorCourutine());
-            m_dialogueGroup.alpha = 0.0f;
+            m_dialogueGroup.HideDialogueWindow();
             if (permanent)
             {
                 if (m_discardObject)
@@ -162,11 +149,13 @@ namespace Environment.InteractibleBehaviors
             yield return new WaitForEndOfFrame();
         }
 
-        private void Start()
+        private void Awake()
         {
             m_interactible = GetComponent(typeof(Interactible)) as Interactible;
             m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
             m_playerInventoryController = FindObjectOfType(typeof(PlayerInventoryController)) as PlayerInventoryController;
+            m_infoGroup = FindObjectOfType(typeof(InfoGroupController)) as InfoGroupController;
+            m_dialogueGroup = FindObjectOfType(typeof(DialogueGroupController)) as DialogueGroupController;
         }
 
         private void Update()

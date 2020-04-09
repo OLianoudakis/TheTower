@@ -8,115 +8,18 @@ using Player.EmptyClass;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField]
-    private CanvasGroup m_pauseMenu;
-    [SerializeField]
-    private InputController m_playerInput;
-    [SerializeField]
-    private Slider m_musicVolumeSlider;
-    [SerializeField]
-    private AudioSource m_musicObject;
-
-    [SerializeField]
-    private float m_fadeLerpSpeed = 2.0f;
-
-    private float m_fadeLerpInterval = 0.0f;
-    [SerializeField]
-    private bool m_isPaused = false;
-
-    private void Awake()
-    {
-        m_musicObject = (FindObjectOfType(typeof(MusicTagScript)) as MusicTagScript).GetComponent(typeof(AudioSource)) as AudioSource;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (m_isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-    }
-
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void RestartLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 
     public void ExitGame()
     {
         Application.Quit();
-    }
-
-    public void ChangeMusicVolume()
-    {
-        m_musicObject.volume = m_musicVolumeSlider.value;
-    }
-
-    public void ResumeGame()
-    {
-        StartCoroutine(PauseUIFade(false));
-        m_playerInput.enabled = true;
-        m_isPaused = false;
-        Time.timeScale = 1.0f;
-    }
-
-    private void PauseGame()
-    {
-        if (!m_playerInput)
-        {
-            m_playerInput = (FindObjectOfType(typeof(PlayerTagScript)) as PlayerTagScript).GetComponent(typeof(InputController)) as InputController;
-        }
-        StartCoroutine(PauseUIFade(true));
-        m_playerInput.enabled = false;
-        m_isPaused = true;
-        Time.timeScale = 0.0f;
-    }
-
-    private IEnumerator PauseUIFade(bool fadeIn)
-    {
-        bool currentlyFading = true;
-        if (fadeIn)
-        {
-            m_pauseMenu.interactable = true;
-            m_pauseMenu.blocksRaycasts = true;
-            while (currentlyFading)
-            {
-                m_pauseMenu.alpha = Mathf.Lerp(0.0f, 1.0f, m_fadeLerpInterval);
-                m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
-                yield return new WaitForEndOfFrame();
-                if (m_fadeLerpInterval > 1.0f)
-                {
-                    m_pauseMenu.alpha = 1.0f;                    
-                    m_fadeLerpInterval = 0.0f;
-                    currentlyFading = false;
-                    yield return null;
-                }
-            }
-        }
-        else
-        {
-            while (currentlyFading)
-            {
-                m_pauseMenu.alpha = Mathf.Lerp(1.0f, 0.0f, m_fadeLerpInterval);
-                m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
-                yield return new WaitForEndOfFrame();
-                if (m_fadeLerpInterval > 1.0f)
-                {
-                    m_pauseMenu.alpha = 0.0f;
-                    m_fadeLerpInterval = 0.0f;
-                    m_pauseMenu.interactable = false;
-                    m_pauseMenu.blocksRaycasts = false;
-                    currentlyFading = false;
-                    yield return null;
-                }
-            }
-        }
     }
 }
