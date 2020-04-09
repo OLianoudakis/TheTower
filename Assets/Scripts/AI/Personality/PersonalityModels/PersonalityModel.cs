@@ -9,7 +9,7 @@ namespace AI.Personality
     [Serializable]
     public struct MotivationValueEntry
     {
-        [ReadOnly]
+        //[ReadOnly]
         [Range(0.0f, 1.0f)]
         public MotivationDesires m_motivationDesire;
         public float m_value;
@@ -24,7 +24,7 @@ namespace AI.Personality
     [Serializable]
     public struct PersonalityTraitEntry
     {
-        [ReadOnly]
+        //[ReadOnly]
         [Range(-1.0f, 1.0f)]
         public PersonalityTraits m_personalityTraitType;
         public float m_value;

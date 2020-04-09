@@ -10,8 +10,8 @@ namespace AI.Behavior.MotivationActions
 {
     public class MotivationActionProperties : MonoBehaviour
     {
-        [ReadOnly]
-        private string m_priorityDescription = "Priority for action used when personality model disabled.";
+        //[ReadOnly]
+        public string m_priorityDescription = "Priority for action used when personality model disabled.";
 
         [SerializeField]
         private int m_priority = 0;
