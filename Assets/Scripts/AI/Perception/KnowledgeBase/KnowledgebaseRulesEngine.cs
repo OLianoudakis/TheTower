@@ -338,10 +338,10 @@ namespace AI.KnowledgeBase
     [Serializable]
     public struct KnowledgeBaseRule
     {
-        [ReadOnly]
+        //[ReadOnly]
         public string m_name;
 
-        [ReadOnly]
+        //[ReadOnly]
         public int m_index;
 
         public bool m_useRule;
@@ -403,7 +403,7 @@ namespace AI.KnowledgeBase
     [Serializable]
     public struct LogicalOperationSet
     {
-        [ReadOnly]
+        //[ReadOnly]
         public int m_maxIndexValue;
 
         [SerializeField]

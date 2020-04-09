@@ -9,7 +9,7 @@ namespace AI.Behavior.MotivationActions
     [Serializable]
     public struct MotivationActionCommentsEntry
     {
-        [ReadOnly]
+        //[ReadOnly]
         public PersonalityType m_personalityType;
         public string[] m_possibleComments;
 
