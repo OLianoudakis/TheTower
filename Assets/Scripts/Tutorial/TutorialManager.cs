@@ -71,7 +71,8 @@ public class TutorialManager : MonoBehaviour
                 WaitForEnemiesStep();
                 break;
             case 4:
-                FirstRoomDoneStep();
+                m_enemy.SetActive(false);
+                //FirstRoomDoneStep();
                 break;
             case 5:
                 ShadowsStep();

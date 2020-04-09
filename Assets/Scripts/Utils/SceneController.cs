@@ -26,7 +26,6 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
-        m_playerInput = (FindObjectOfType(typeof(PlayerTagScript)) as PlayerTagScript).GetComponent(typeof(InputController)) as InputController;
         m_musicObject = (FindObjectOfType(typeof(MusicTagScript)) as MusicTagScript).GetComponent(typeof(AudioSource)) as AudioSource;
     }
 
@@ -70,6 +69,10 @@ public class SceneController : MonoBehaviour
 
     private void PauseGame()
     {
+        if (!m_playerInput)
+        {
+            m_playerInput = (FindObjectOfType(typeof(PlayerTagScript)) as PlayerTagScript).GetComponent(typeof(InputController)) as InputController;
+        }
         StartCoroutine(PauseUIFade(true));
         m_playerInput.enabled = false;
         m_isPaused = true;
