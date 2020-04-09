@@ -9,6 +9,11 @@ namespace Environment.Hiding
 {
     public class HidespotBehavior : MonoBehaviour
     {
+        [SerializeField]
+        private TutorialManager m_tutorialManager;
+        [SerializeField]
+        private bool m_inTutorial = false;
+
         private Animator m_playerAnimator;
         private CapsuleCollider m_playerCollider;
         private GameObject m_invisibleWalls;
@@ -16,13 +21,20 @@ namespace Environment.Hiding
         private InputController m_inputController;
         private int m_playerLayer;
 
+        private bool m_isHidden = false;
+
         private void SetPlayerIntoHiding()
         {
             m_playerAnimator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimCrouch);
-            m_playerCollider.center = new Vector3 (0.0f, 0.38f, 0.0f);
+            m_playerCollider.center = new Vector3(0.0f, 0.38f, 0.0f);
             m_playerCollider.height = 1.76f;
             m_invisibleWalls.SetActive(true);
             m_playerCollider.gameObject.layer = LayerMask.NameToLayer("Hiding");
+            if (m_inTutorial && !m_isHidden)
+            {
+                m_isHidden = true;
+                m_tutorialManager.StepCompleted();
+            }
         }
 
         private void ExitHiding()

@@ -25,19 +25,21 @@ namespace Player.StateHandling.Moving
         private Color c = Color.white;
         private Vector3 m_destination;
 
+        private bool m_isClickedOnEnable = false;
+
         private void OnEnable()
         {
-            m_agent.isStopped = false;
-            m_animator.SetInteger("AnimState", 1);
+            m_isClickedOnEnable = true;
+            m_agent.isStopped = false;            
 
             if (!m_interactibleDetector)
             {
                 m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
             }
-            m_destination = m_interactibleDetector.interactible 
-                ? m_interactibleDetector.interactible.interactiblePosition.position 
-                : m_inputController.leftMouseClickPosition;
-            SetDestination();
+            //m_destination = m_interactibleDetector.interactible 
+            //    ? m_interactibleDetector.interactible.interactiblePosition.position 
+            //    : m_inputController.leftMouseClickPosition;
+            //SetDestination();
         }
 
         private void OnDisable()
@@ -70,8 +72,10 @@ namespace Player.StateHandling.Moving
         private void Update()
         {
             // if new click while moving
-            if (m_inputController.isLeftMouseClick)
+            if (m_inputController.isLeftMouseClick || m_isClickedOnEnable)
             {
+                m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimWalk);
+                m_isClickedOnEnable = false;
                 m_destination = m_interactibleDetector.interactible 
                     ? m_interactibleDetector.interactible.interactiblePosition.position 
                     : m_inputController.leftMouseClickPosition;

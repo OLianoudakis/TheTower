@@ -8,6 +8,7 @@ TagManager:
   - POI
   - Interactible
   - Noisable
+  - Enemy
   layers:
   - Default
   - TransparentFX

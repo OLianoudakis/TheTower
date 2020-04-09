@@ -53,14 +53,13 @@ namespace AI.Behavior.MotivationActions.Actions
             m_currentWaitTime += Time.deltaTime;
             m_currentCommentTime += Time.deltaTime;
 
-            if (!m_atPatrolPoint 
-                && Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
+            if (!m_atPatrolPoint && Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
                 - new Vector3(m_currentControlPoint.x, 0.0f, m_currentControlPoint.z)) <= MathConstants.SquaredDistance)
-            {
+                {
                 m_atPatrolPoint = true;
                 m_currentWaitTime = 0.0f;
                 m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
-            }
+                }
 
             if (m_atPatrolPoint && m_currentWaitTime >= m_waitTimeAtPoints)
             {

@@ -20,6 +20,9 @@ namespace Environment.InteractibleBehaviors
     public class POIBehavior : MonoBehaviour
     {
         [SerializeField]
+        private TutorialManager m_tutorialManager;
+
+        [SerializeField]
         private CanvasGroup m_dialogueGroup;
 
         [SerializeField]
@@ -64,6 +67,12 @@ namespace Environment.InteractibleBehaviors
         {
             if (m_currentMessage >= m_messages.Length)
             {
+                //TUTORIAL SECTION
+                if (gameObject.name.Equals("Book_Open"))
+                {
+                    m_tutorialManager.StepCompleted();
+                }
+                //END OF TUTORIAL SECTION
                 DeactivatePOIBehavior(true);
                 return;
             }
