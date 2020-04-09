@@ -12,7 +12,7 @@ namespace Player
         private void OnTriggerEnter(Collider other)
         {
             EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
-            if (enemyTag)
+            if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
                 string currentSceneName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(currentSceneName);
@@ -22,7 +22,7 @@ namespace Player
         private void OnCollisionEnter(Collision collision)
         {
             EnemyTagScript enemyTag = collision.collider.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
-            if (enemyTag)
+            if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
                 string currentSceneName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(currentSceneName);

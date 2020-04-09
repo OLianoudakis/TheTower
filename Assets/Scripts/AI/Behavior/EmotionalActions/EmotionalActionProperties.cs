@@ -19,7 +19,7 @@ namespace AI.Behavior.EmotionalActions
         [SerializeField]
         private Events.EventType m_eventType;
         
-        private TextMesh m_reactionTextMesh;
+        private FloatingTextBehavior m_reactionTextMesh;
         private string m_emotionReaction;
 
         private EmotionType m_triggeredEmotion;
@@ -38,17 +38,12 @@ namespace AI.Behavior.EmotionalActions
 
         public void ActivateAction()
         {
-            m_reactionTextMesh.text = EmotionalActionsCatalogue.ChooseCatalogEntry(m_triggeredEmotion, eventType);
+            m_reactionTextMesh.ChangeText(EmotionalActionsCatalogue.ChooseCatalogEntry(m_triggeredEmotion, eventType));
         }
 
         private void Awake()
         {
-            m_reactionTextMesh = transform.parent.parent.GetComponentInChildren<TextMesh>();
-        }
-
-        private void Start()
-        {
-            m_reactionTextMesh.text = " ";
+            m_reactionTextMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
         }
     }
 }

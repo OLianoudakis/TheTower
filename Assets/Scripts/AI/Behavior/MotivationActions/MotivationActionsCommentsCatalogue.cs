@@ -12,7 +12,7 @@ namespace AI.Behavior.MotivationActions
         public string GetComment(PersonalityType personalityType)
         {
             MotivationActionCommentsEntry entry = m_motivationActionComments.m_motivationActionCommentsEntries[(int)personalityType];
-            int chosenResponse = Random.Range(1, entry.m_possibleComments.Length) - 1;
+            int chosenResponse = Random.Range(0, entry.m_possibleComments.Length);
             return entry.m_possibleComments[chosenResponse];
         }
     }

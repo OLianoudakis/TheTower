@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_useEvents: 1
-  m_playerStopFollowTime: 4
+  m_playerStopFollowTime: 5
   m_playerForgetTime: 20
   m_environmentMovedForgetTime: 20
   m_noiseHeardForgetTime: 20

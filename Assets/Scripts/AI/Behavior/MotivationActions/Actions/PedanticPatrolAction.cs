@@ -15,9 +15,6 @@ namespace AI.Behavior.MotivationActions.Actions
         PersonalityType m_personalityType;
 
         [SerializeField]
-        private float m_timeBetweenComments = 3.0f;
-
-        [SerializeField]
         private GameObject m_patrolPointsGroup;
 
         [SerializeField]
@@ -49,16 +46,12 @@ namespace AI.Behavior.MotivationActions.Actions
                         new BlackboardCondition("isMovableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
                             TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navMeshAgent, animator, floatingTextMesh)
                         ),
-                        new Service(m_timeBetweenComments, IsCommentAvailable,
-                            new Repeater
-                            (    
-                                new Sequence
-                                (
-                                    new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
-                                        TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
-                                    ),
-                                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator)
-                                )
+                        new Repeater
+                        (
+                            new Sequence
+                            (
+                                TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator),
+                                TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
                             )
                         )
                     )
@@ -73,7 +66,6 @@ namespace AI.Behavior.MotivationActions.Actions
             m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("observeMovableObjectsTime", m_observeMovableObjectsTime);
-            m_behaviorTree.Blackboard.Set("commentAvailable", true);
 
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
@@ -101,18 +93,6 @@ namespace AI.Behavior.MotivationActions.Actions
                     }
                     break;
                 }
-            }
-        }
-
-        private void IsCommentAvailable()
-        {
-            if ((bool)m_behaviorTree.Blackboard.Get("commentAvailable"))
-            {
-                m_behaviorTree.Blackboard.Set("commentAvailable", false);
-            }
-            else
-            {
-                m_behaviorTree.Blackboard.Set("commentAvailable", true);
             }
         }
 

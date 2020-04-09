@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_personalityType: 3
-  m_timeBetweenComments: 3
+  m_timeBetweenComments: 5
   m_patrolPointsGroup: {fileID: 0}
   m_waitTimeAtPoints: 5
   m_stamina: 20

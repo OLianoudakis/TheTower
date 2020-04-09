@@ -14,24 +14,17 @@ namespace AI.Behavior.Trees
         private FloatingTextBehavior m_textMesh;
         private MotivationActionsCommentsCatalogue m_catalogue;
         private PersonalityType m_personalityType;
-        private float m_chanceToComment;
-        private float m_currentChanceToComment;
-        private double m_lastElapsedTime;
 
         public void Create(
             Root behaviorTreeRoot, 
             MotivationActionsCommentsCatalogue catalogue,
             FloatingTextBehavior textMesh,
-            PersonalityType personalityType,
-            float chanceToComment = 85.0f)
+            PersonalityType personalityType)
         {
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_textMesh = textMesh;
             m_catalogue = catalogue;
             m_personalityType = personalityType;
-            m_chanceToComment = chanceToComment;
-            m_currentChanceToComment = 0.0f;
-            m_lastElapsedTime = 0.0;
 
             m_root =
                 new Action(PickComment);
@@ -39,18 +32,11 @@ namespace AI.Behavior.Trees
 
         private void PickComment()
         {
-            //m_textMesh.text = "";
-            float rollCommentChance = UnityEngine.Random.Range(0.0f, m_chanceToComment);
-            if (rollCommentChance > (100.0f - m_currentChanceToComment))
+            int rollCommentChance = UnityEngine.Random.Range(0, 2);
+            if (rollCommentChance == 1)
             {
                 m_textMesh.ChangeText(m_catalogue.GetComment(m_personalityType));
-                m_currentChanceToComment = 0.0f;
             }
-            else
-            {
-                m_currentChanceToComment += 10.0f;
-            }
-            //m_behaviorTreeRoot.Blackboard.Set("commentAvailable", false);
         }
     }
 }

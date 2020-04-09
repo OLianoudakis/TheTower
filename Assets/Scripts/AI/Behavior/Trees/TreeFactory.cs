@@ -54,11 +54,10 @@ namespace AI.Behavior.Trees
         public static Node CreateMakeCommentTree(Root behaviorTreeRoot,
             MotivationActionsCommentsCatalogue catalogue,
             FloatingTextBehavior textMesh,
-            PersonalityType personalityType,
-            float chanceToComment = 85.0f)
+            PersonalityType personalityType)
         {
             MakeCommentSubtree runAwaySubtree = new MakeCommentSubtree();
-            runAwaySubtree.Create(behaviorTreeRoot, catalogue, textMesh, personalityType, chanceToComment);
+            runAwaySubtree.Create(behaviorTreeRoot, catalogue, textMesh, personalityType);
             return runAwaySubtree.m_root;
         }
     }

@@ -51,9 +51,7 @@ namespace Environment
 
         public bool HasTransformChanged()
         {
-            bool hasChanged = transform.hasChanged;
-            transform.hasChanged = false;
-            return hasChanged;
+            return transform.hasChanged;
         }
 
         public void ResetChanges()

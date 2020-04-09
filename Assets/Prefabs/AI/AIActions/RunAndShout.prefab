@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b76118c3be6ea47be3601b8f2ffd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shoutingTime: 2
+  m_shoutingTime: 1.5
+  m_runningMoveSpeed: 3.5
 --- !u!114 &6540439509341229515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,21 +63,49 @@ MonoBehaviour:
   m_actionTriggerRules:
     m_logicalOperationSet:
       m_maxIndexValue: 4
-      m_logicalOperationPrimitives: []
+      m_logicalOperationPrimitives:
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 0
+      - m_isOperator: 1
+        m_operator: 3
+        m_isOperand: 0
+        m_indexOfOperand: 0
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 1
+      - m_isOperator: 1
+        m_operator: 3
+        m_isOperand: 0
+        m_indexOfOperand: 0
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 2
+      - m_isOperator: 1
+        m_operator: 3
+        m_isOperand: 0
+        m_indexOfOperand: 0
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 3
     m_knowledgeBaseRules:
     - m_name: playerSuspicion
       m_index: 0
-      m_useRule: 0
+      m_useRule: 1
       m_value:
         id: 0
     - m_name: playerHiding
       m_index: 1
-      m_useRule: 0
+      m_useRule: 1
       m_value:
         id: 1
     - m_name: noiseHeard
       m_index: 2
-      m_useRule: 0
+      m_useRule: 1
       m_value:
         id: 2
     - m_name: playerTransform
@@ -89,17 +118,17 @@ MonoBehaviour:
     00000000:
       type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
       data:
-        m_value: 0
+        m_value: 1
         m_operator: 0
     00000001:
       type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
       data:
-        m_value: 0
+        m_value: 1
         m_operator: 0
     00000002:
       type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
       data:
-        m_value: 0
+        m_value: 1
         m_operator: 0
     00000003:
       type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}

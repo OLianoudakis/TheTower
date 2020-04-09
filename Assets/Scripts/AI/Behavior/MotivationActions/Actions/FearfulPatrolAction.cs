@@ -15,16 +15,10 @@ namespace AI.Behavior.MotivationActions.Actions
         PersonalityType m_personalityType;
 
         [SerializeField]
-        private float m_timeBetweenComments = 3.0f;
-
-        [SerializeField]
-        private float m_maxTimeBetweenComments = 3.0f;
-
-        [SerializeField]
         private GameObject m_patrolPointsGroup;
 
         [SerializeField]
-        private float m_waitTimeAtPoints = 0.1f;
+        private float m_waitTimeAtPatrolPoints = 0.5f;
         
         private bool m_actionInitialized = false;
         private bool m_isStaminaEmpty = true;
@@ -41,17 +35,10 @@ namespace AI.Behavior.MotivationActions.Actions
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
-                new Service(m_timeBetweenComments, IsCommentAvailable,
-                    new Repeater
-                    (
-                        new Sequence
-                        (
-                            new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
-                                TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType, m_maxTimeBetweenComments)
-                            ),
-                            TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator)
-                        )
-                    )
+                new Sequence
+                (
+                    TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator),
+                    TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
                 )
             );
             Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
@@ -61,26 +48,13 @@ namespace AI.Behavior.MotivationActions.Actions
                 patrolPoints[i - 1] = tempPoints[i];
             }
             m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
-            m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
-            m_behaviorTree.Blackboard.Set("commentAvailable", false);
+            m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("patrolingAnimation", AnimationConstants.AnimButtlerFearWalk);
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
             Debugger debugger = (Debugger)this.gameObject.AddComponent(typeof(Debugger));
             debugger.BehaviorTree = m_behaviorTree;
 #endif
-        }
-
-        private void IsCommentAvailable()
-        {
-            if ((bool)m_behaviorTree.Blackboard.Get("commentAvailable"))
-            {
-                m_behaviorTree.Blackboard.Set("commentAvailable", false);
-            }
-            else
-            {
-                m_behaviorTree.Blackboard.Set("commentAvailable", true);
-            }
         }
 
         private void OnEnable()

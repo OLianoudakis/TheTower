@@ -65,67 +65,6 @@ Transform:
   m_Father: {fileID: 1995415114069253964}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1995415112572541629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7211916623738299729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_priority: 0
-  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
-  m_actionTriggerRules:
-    m_logicalOperationSet:
-      m_maxIndexValue: 4
-      m_logicalOperationPrimitives: []
-    m_knowledgeBaseRules:
-    - m_name: playerSuspicion
-      m_index: 0
-      m_useRule: 0
-      m_value:
-        id: 0
-    - m_name: playerHiding
-      m_index: 1
-      m_useRule: 0
-      m_value:
-        id: 1
-    - m_name: noiseHeard
-      m_index: 2
-      m_useRule: 0
-      m_value:
-        id: 2
-    - m_name: playerTransform
-      m_index: 3
-      m_useRule: 0
-      m_value:
-        id: 3
-  references:
-    version: 1
-    00000000:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000001:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000002:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000003:
-      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: {fileID: 0}
-        m_operator: 0
 --- !u!1 &1995415112639920029
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,67 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerTransform: {fileID: 0}
---- !u!114 &1995415112995181033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7211916622925122517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_priority: 0
-  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
-  m_actionTriggerRules:
-    m_logicalOperationSet:
-      m_maxIndexValue: 4
-      m_logicalOperationPrimitives: []
-    m_knowledgeBaseRules:
-    - m_name: playerSuspicion
-      m_index: 0
-      m_useRule: 0
-      m_value:
-        id: 0
-    - m_name: playerHiding
-      m_index: 1
-      m_useRule: 0
-      m_value:
-        id: 1
-    - m_name: noiseHeard
-      m_index: 2
-      m_useRule: 0
-      m_value:
-        id: 2
-    - m_name: playerTransform
-      m_index: 3
-      m_useRule: 0
-      m_value:
-        id: 3
-  references:
-    version: 1
-    00000000:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000001:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000002:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000003:
-      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: {fileID: 0}
-        m_operator: 0
 --- !u!1 &1995415113079652861
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,67 +664,6 @@ Transform:
   m_Father: {fileID: 1995415112550009433}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1995415113892080011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7211916623317496431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_priority: 0
-  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
-  m_actionTriggerRules:
-    m_logicalOperationSet:
-      m_maxIndexValue: 4
-      m_logicalOperationPrimitives: []
-    m_knowledgeBaseRules:
-    - m_name: playerSuspicion
-      m_index: 0
-      m_useRule: 0
-      m_value:
-        id: 0
-    - m_name: playerHiding
-      m_index: 1
-      m_useRule: 0
-      m_value:
-        id: 1
-    - m_name: noiseHeard
-      m_index: 2
-      m_useRule: 0
-      m_value:
-        id: 2
-    - m_name: playerTransform
-      m_index: 3
-      m_useRule: 0
-      m_value:
-        id: 3
-  references:
-    version: 1
-    00000000:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000001:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000002:
-      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: 0
-        m_operator: 0
-    00000003:
-      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
-      data:
-        m_value: {fileID: 0}
-        m_operator: 0
 --- !u!1 &1995415113967533456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1043,189 @@ Transform:
   m_Father: {fileID: 1995415113967533457}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1995415112995181033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211916622925122517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 0
+  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
+  m_actionTriggerRules:
+    m_logicalOperationSet:
+      m_maxIndexValue: 4
+      m_logicalOperationPrimitives: []
+    m_knowledgeBaseRules:
+    - m_name: playerSuspicion
+      m_index: 0
+      m_useRule: 0
+      m_value:
+        id: 0
+    - m_name: playerHiding
+      m_index: 1
+      m_useRule: 0
+      m_value:
+        id: 1
+    - m_name: noiseHeard
+      m_index: 2
+      m_useRule: 0
+      m_value:
+        id: 2
+    - m_name: playerTransform
+      m_index: 3
+      m_useRule: 0
+      m_value:
+        id: 3
+  references:
+    version: 1
+    00000000:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000001:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000002:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000003:
+      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: {fileID: 0}
+        m_operator: 0
+--- !u!114 &1995415113892080011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211916623317496431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 0
+  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
+  m_actionTriggerRules:
+    m_logicalOperationSet:
+      m_maxIndexValue: 4
+      m_logicalOperationPrimitives: []
+    m_knowledgeBaseRules:
+    - m_name: playerSuspicion
+      m_index: 0
+      m_useRule: 0
+      m_value:
+        id: 0
+    - m_name: playerHiding
+      m_index: 1
+      m_useRule: 0
+      m_value:
+        id: 1
+    - m_name: noiseHeard
+      m_index: 2
+      m_useRule: 0
+      m_value:
+        id: 2
+    - m_name: playerTransform
+      m_index: 3
+      m_useRule: 0
+      m_value:
+        id: 3
+  references:
+    version: 1
+    00000000:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000001:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000002:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000003:
+      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: {fileID: 0}
+        m_operator: 0
+--- !u!114 &1995415112572541629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211916623738299729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 0
+  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
+  m_actionTriggerRules:
+    m_logicalOperationSet:
+      m_maxIndexValue: 4
+      m_logicalOperationPrimitives: []
+    m_knowledgeBaseRules:
+    - m_name: playerSuspicion
+      m_index: 0
+      m_useRule: 0
+      m_value:
+        id: 0
+    - m_name: playerHiding
+      m_index: 1
+      m_useRule: 0
+      m_value:
+        id: 1
+    - m_name: noiseHeard
+      m_index: 2
+      m_useRule: 0
+      m_value:
+        id: 2
+    - m_name: playerTransform
+      m_index: 3
+      m_useRule: 0
+      m_value:
+        id: 3
+  references:
+    version: 1
+    00000000:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000001:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000002:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000003:
+      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: {fileID: 0}
+        m_operator: 0
 --- !u!1001 &1995415113824739315
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ namespace AI.Behavior.Trees
             Debug.Log("Shouting");
             if(m_textMesh)
             {
-                m_textMesh.ChangeText(m_textMesh.text + " Hey! Get Him!.");
+                m_textMesh.ChangeText(m_textMesh.text + " Get Him!.");
             }
             
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerYell);

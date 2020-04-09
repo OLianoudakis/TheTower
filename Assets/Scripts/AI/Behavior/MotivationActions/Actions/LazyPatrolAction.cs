@@ -14,13 +14,10 @@ namespace AI.Behavior.MotivationActions.Actions
         PersonalityType m_personalityType;
 
         [SerializeField]
-        private float m_timeBetweenComments = 3.0f;
-
-        [SerializeField]
         private GameObject m_patrolPointsGroup;
 
         [SerializeField]
-        private float m_waitTimeAtPoints = 3.0f;
+        private float m_waitTimeAtPatrolPoints = 3.0f;
 
         [SerializeField]
         private float m_stamina = 50.0f;
@@ -47,35 +44,27 @@ namespace AI.Behavior.MotivationActions.Actions
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
-            (   
-                new Sequence
-                (
-                    new Service(0.5f, IsSittableAvailable,
-                        new Selector
+            (
+                new Service(0.5f, IsSittableAvailable,
+                    new Selector
+                    (
+                        new BlackboardCondition("isSittableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
+                            new Sequence
+                            (
+                                TreeFactory.CreateSitOnChairTree(m_behaviorTree, m_navMeshAgent, m_animator, m_sittingTime, textMesh: m_textMesh),
+                                new Action(FullStamina)
+                            )
+                        ),
+                        new Repeater
                         (
-                            new BlackboardCondition("isSittableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                                new Sequence
-                                (
-                                    TreeFactory.CreateSitOnChairTree(m_behaviorTree, m_navMeshAgent, m_animator, m_sittingTime, textMesh: m_textMesh),
-                                    new Action(FullStamina)
-                                )
-                            ),
-                            new Service(m_timeBetweenComments, IsCommentAvailable,
-                                new Repeater
-                                (
-                                    new Selector
-                                    (
-                                        new BlackboardCondition("commentAvailable", Operator.IS_EQUAL, true, Stops.NONE,
-                                            TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, m_textMesh, m_personalityType)
-                                        ),
-                                        TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, m_animator)
-                                    )
-                                )
+                            new Sequence
+                            (
+                                TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, m_animator),
+                                TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, m_textMesh, m_personalityType)
                             )
                         )
                     )
                 )
-                
             );
             Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
             Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
@@ -84,9 +73,8 @@ namespace AI.Behavior.MotivationActions.Actions
                 patrolPoints[i - 1] = tempPoints[i];
             }
             m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
-            m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPoints);
+            m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("sittingTime", m_sittingTime);
-            m_behaviorTree.Blackboard.Set("commentAvailable", true);
             m_behaviorTree.Blackboard.Set("atPatrolPointAnimation", AnimationConstants.AnimButtlerYawn);
             // attach debugger to see what's going on in the inspector
 #if UNITY_EDITOR
@@ -143,18 +131,6 @@ namespace AI.Behavior.MotivationActions.Actions
                 {
                     m_isStaminaEmpty = true;
                 }
-            }
-        }
-
-        private void IsCommentAvailable()
-        {
-            if ((bool)m_behaviorTree.Blackboard.Get("commentAvailable"))
-            {
-                m_behaviorTree.Blackboard.Set("commentAvailable", false);
-            }
-            else
-            {
-                m_behaviorTree.Blackboard.Set("commentAvailable", true);
             }
         }
 

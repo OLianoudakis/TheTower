@@ -45,10 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_personalityType: 0
-  m_timeBetweenComments: 3
-  m_maxTimeBetweenComments: 3
   m_patrolPointsGroup: {fileID: 0}
-  m_waitTimeAtPoints: 0.1
+  m_waitTimeAtPatrolPoints: 0.5
 --- !u!114 &3247372240682424143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +64,19 @@ MonoBehaviour:
   m_actionTriggerRules:
     m_logicalOperationSet:
       m_maxIndexValue: 5
-      m_logicalOperationPrimitives: []
+      m_logicalOperationPrimitives:
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 1
+      - m_isOperator: 1
+        m_operator: 2
+        m_isOperand: 0
+        m_indexOfOperand: 0
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 4
     m_knowledgeBaseRules:
     - m_name: playerSuspicion
       m_index: 0
@@ -75,7 +85,7 @@ MonoBehaviour:
         id: 0
     - m_name: playerHiding
       m_index: 1
-      m_useRule: 0
+      m_useRule: 1
       m_value:
         id: 1
     - m_name: noiseHeard

@@ -6,7 +6,15 @@ namespace AI.EmptyClass
 {
     public class EnemyTagScript : MonoBehaviour
     {
+        [SerializeField]
+        private bool m_gameOverAfterPlayerTouch = true;
+
         private Animator m_animator;
+
+        public bool gameOverAfterPlayerTouch
+        {
+            get { return m_gameOverAfterPlayerTouch; }
+        }
 
         private void Start()
         {

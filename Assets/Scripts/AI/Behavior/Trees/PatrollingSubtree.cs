@@ -23,26 +23,21 @@ namespace AI.Behavior.Trees
             m_animator = animator;
             m_currentPatrolPoint = 0;
 
-            //Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
-            //m_patrolPoints = new Transform[tempPoints.Length - 1];
-            //for (int i = 1; i < tempPoints.Length; i++)
-            //{
-            //    m_patrolPoints.SetValue(tempPoints[i], i - 1);
-            //}
-
             m_root =
-                //new Repeater
-                //(
-                    new Sequence
-                    (
-                        new Action(SetNextPatrolPoint),
-                        new Action(MoveTo),
-                        new WaitForCondition(IsOnSpot,
-                            new Action(AtPatrolPoint)
-                        ),
-                        new Wait("waitTimeAtPoints")
-                    );
-                //);
+                new Sequence
+                (
+                    new Action(SetNextPatrolPoint),
+                    new BlackboardCondition("nextPosition", Operator.IS_SET, true, Stops.NONE, // only if next position exist
+                        new Sequence
+                        (
+                            new Action(MoveTo),
+                            new WaitForCondition(IsOnSpot,
+                                new Action(AtPatrolPoint)
+                            ),
+                            new Wait("waitTimeAtPoints")
+                        )
+                    )
+                );
         }
 
         void SetNextPatrolPoint()

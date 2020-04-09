@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player.EmptyClass;
+using Player;
 
 namespace AI.Perception
 {
@@ -15,7 +16,7 @@ namespace AI.Perception
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "Hiding", "Player", "Highlight", "Walls");
+            m_layerMask = LayerMask.GetMask("Default", "Hiding", "Player", "Highlight", "Walls", "Shadows");
             m_collider = transform.parent.parent.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
         }
@@ -23,7 +24,8 @@ namespace AI.Perception
         private void OnTriggerEnter(Collider other)
         {
             PlayerTagScript playerTag = other.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
-            if (playerTag)
+            PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
+            if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
             {
                 Vector3 fromRay = new Vector3
                    (

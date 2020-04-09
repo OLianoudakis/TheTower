@@ -55,9 +55,10 @@ namespace AI.Behavior.Trees.Tasks
                 int numberOfTries = 0;
                 while (numberOfTries < m_numberOfTries)
                 {
+                    Vector3 unitSphere = UnityEngine.Random.insideUnitSphere;
                     Vector3 randomPoint =
                         m_pointOfInterest
-                        + (new Vector3(UnityEngine.Random.insideUnitSphere.x, 0.0f, UnityEngine.Random.insideUnitSphere.z) * m_radius);
+                        + (new Vector3(unitSphere.x, 0.0f, unitSphere.z) * m_radius);
                     NavMeshHit hit;
                     if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
                     {

@@ -340,7 +340,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Finally!",
                                                 "Haha! He is here!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -348,7 +348,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh! There you are!",
                                                 "Oh hello again!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -364,7 +364,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh! This wasn't like that earlier!",
                                                 "Oh oh! This has chaged! Yes it has!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -372,7 +372,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I heard that haha!",
                                                 "What was that? Is it him? Is it? Is it?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -380,7 +380,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I lost you! Time to find you again!",
                                                 "Yes, yes! Let's restart the hide 'n' seek!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -388,7 +388,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I'm comiiiiiiiiiing!",
                                                 "You saw him? Where! Where?!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -398,7 +398,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Oh no! It's him!",
                                                 "Ah!",
                                                 "Get away!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -407,7 +407,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Ah! You're here again!",
                                                 "Why are you here again?",
                                                 "Not again!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -415,7 +415,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Is someone lurking? Go away!",
                                                 "Hello? Someone there...?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -423,7 +423,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "What was that?!",
                                                 "oh, no no no no...." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -432,7 +432,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Was that him? Was it? Oh no.",
                                                 "ah! Did I see him? I don't know!",
                                                 "That wasn't him was it? Was it?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -440,7 +440,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh no! Where is he!? Where is he???",
                                                 "Ah!!! Where did he go!?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -449,7 +449,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "He's there?! I don't wanna go!",
                                                 "I can't... I won't!",
                                                 "You! You deal with him!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -458,7 +458,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "For real? You're here? What a pain",
                                                 "Oh come on now..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -466,7 +466,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh... back at it again?",
                                                 "Oh well..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -474,7 +474,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "What's that disturbance",
                                                 "Whomever this is, stop runing my day!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -483,7 +483,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Uh! another thing different!",
                                                 "Stop runing my arrangement!",
                                                 "Why can't they leave things be..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -491,7 +491,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "This was probably nothing...",
                                                 "I'm too bored to check this"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -499,7 +499,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Don't have to chase him now...",
                                                 "This is probably even better..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -507,7 +507,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I can't be bothered...",
                                                 "Get him yourself..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -516,7 +516,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh! Don't you look dreadful.",
                                                 "My dear, my dear you look so sad."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -524,14 +524,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I saw something sad.",
                                                 "Isn't this a shame..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerSuspicionPity()
         {
             string[] responses = new string[] { "I pity the poor soul that lurks in here" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -539,7 +539,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "And what made you move little thing?",
                                                 "Another thing out of order, goodness me.", };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -547,7 +547,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Carelessness. Poor you!",
                                                 "Oh no. He made a mistake."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -555,14 +555,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "He thinks he can hide.",
                                                 "Look at him... He ragained hope." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string NoiseHeardBySomebodyElsePity()
         {
             string[] responses = new string[] { "I'll help you, you poor soul." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -571,7 +571,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh thank God you're here!",
                                                 "Praise be you're here! You're here!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -579,7 +579,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Here you are again!",
                                                 "Yes! He is here I knew it!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -587,7 +587,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I know you're here I just know it!",
                                                 "I think... I hope!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -596,7 +596,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Oh somebody moved this. Thank the heavens!",
                                                 "This means someone is here!",
                                                 "This means maybe he's here! Please let it be so!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -604,7 +604,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "A sound?",
                                                 "Oh no. He made a mistake."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -612,7 +612,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I'll find you again...",
                                                 "No one stays hidden forever." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -620,7 +620,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Help arrives!",
                                                 "Help finds those in need!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -629,7 +629,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "GET AWAY!! AHHHH!",
                                                 "Please don't hurt me! Please...!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -637,15 +637,15 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "No no no no!",
                                                 "Oh no!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerSuspicionFear()
         {
-            string[] responses = new string[] { "Where are you???",
+            string[] responses = new string[] { "What was that?",
                                                 "Please go away... please go away..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -653,7 +653,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh no! Who did that?!",
                                                 "This... wasn't like that! Was it?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -661,15 +661,15 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "What was that?",
                                                 "It coulnd't be him right? Right!?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerLostFear()
         {
-            string[] responses = new string[] { "Oh no I lost him! Oh nononono...",
-                                                "Where did he go? WHERE DID HE GO!?"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            string[] responses = new string[] { "Phew, I lost him",
+                                                "Where did he go? Maybe just my imagination"};
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -677,7 +677,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Ah!",
                                                 "No no no no no..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -686,7 +686,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Yes! Yes! Yes!",
                                                 "I will enjoy this mut!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -694,7 +694,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "There!",
                                                 "Found you!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -702,7 +702,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I will enjoy finding you...",
                                                 "Where are you..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -710,7 +710,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Mut did this.",
                                                 "I will enjoy finding you." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -718,7 +718,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I think I hear something",
                                                 "Was that you mut?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -726,7 +726,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Little mut left... No matter!",
                                                 "Where are you... little mut"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -734,7 +734,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Yes! You found him!",
                                                 "Finally, some action!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -742,7 +742,7 @@ namespace AI.Behavior.EmotionalActions
         private static string PlayerSpottedRelief()
         {
             string[] responses = new string[] { "Oh there he is! Oh thank god" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -750,7 +750,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh I lost him! Phew...",
                                                 "I lost him... this is good."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -758,7 +758,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh I think I saw him. This is good",
                                                 "Oh phew... He was there I think." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -766,7 +766,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh it's just this thing.",
                                                 "Ah it's only this. Ok." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -774,7 +774,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh I think I hear something. Good",
                                                 "Phew! My ears work fine!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -782,7 +782,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh I lost him! Phew...",
                                                 "I lost him... this is good."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -790,7 +790,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh good.",
                                                 "Oh good you found something."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -799,7 +799,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Just leave me alone",
                                                 "Oh great... it's you"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -807,7 +807,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "As I thought...",
                                                 "Another distraction..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -815,7 +815,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Come out... We both know you'll eventually fail",
                                                 "You're embarassing yourself" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -823,7 +823,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Another thing moved...",
                                                 "Isn't this dissapointing..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -831,7 +831,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I thought you were better than this.",
                                                 "Yet another mistake..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -839,7 +839,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Remind me to care about you escaping...",
                                                 "Ohh!! I can't believe he escaped!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -847,7 +847,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "He got found I see...",
                                                 "Guess they were wrong about you..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -857,7 +857,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Well of course I found you",
                                                 "You've already lost",
                                                 "Like I wouldn't find you!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -866,7 +866,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Well. This is not surprising... is it?",
                                                 "Well of course I found you again!",
                                                 "Game over!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -875,7 +875,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "No one remains hidden from me!",
                                                 "We both know I'll find you",
                                                 "Just come out already." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -883,7 +883,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Well well... This is new",
                                                 "I, of course, noticed the change here!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -892,7 +892,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "My peripheral sight is as sharp as always",
                                                 "Aren't I the observant one! Who goes there?",
                                                 "Nothing escapes my attention!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -901,7 +901,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Don't think you've escaped!",
                                                 "I only let you escape this time.",
                                                 "Losing you is part of the fun!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -910,7 +910,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Step aside! I'll handle him",
                                                 "Technically, you found him because of me",
                                                 "Of course my assistance is necessary!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -919,14 +919,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh wow I did find you!",
                                                 "Hey you're here! Amazing!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerDiscoveredAdmiration()
         {
             string[] responses = new string[] { "Wow I saw you with my peripheral!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -934,7 +934,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You have remained hidden for such a long time!",
                                                 "Wow! I really cannot find you!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -942,7 +942,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh wow! This wasn't like that",
                                                 "It's different now! Cool!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -950,7 +950,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh hey! I heard something!",
                                                 "Wow. That was something"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -958,7 +958,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "He escaped? Wow...",
                                                 "Hey I lost him! Amazing! Haha!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -967,7 +967,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "I applaud at how observant you are!",
                                                 "Wow you're good!",
                                                 "You found him! Nice!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -976,7 +976,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "...",
                                                 "Um... stop... please?"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -984,7 +984,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Hey so... I found you... again",
                                                 "Maybe... give up? You know..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -992,7 +992,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Maybe I saw something... maybe...",
                                                 "Um... hello?"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1000,7 +1000,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "That wasn't... was it?",
                                                 "Um..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1008,14 +1008,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Who... who's there?",
                                                 "Um... Who's there?"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerLostShame()
         {
             string[] responses = new string[] { "Oh no..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1024,7 +1024,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "I applaud at how observant you are!",
                                                 "Wow you're good!",
                                                 "You found him! Nice!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1033,7 +1033,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You got caught? Hahaha!",
                                                 "Kneel loser!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1041,7 +1041,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You got found again!? Hahaha!",
                                                 "What a loser!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1049,7 +1049,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Don't get your hopes up!",
                                                 "I will find you!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1057,7 +1057,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Who was the idiot that made a mess here?",
                                                 "Worthless!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1065,14 +1065,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "That was sloppy!",
                                                 "So noisy! So sloppy!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerLostReproach()
         {
             string[] responses = new string[] { "You actually think you got away?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1080,7 +1080,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Serves you right!",
                                                 "The fool got caught" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1088,14 +1088,14 @@ namespace AI.Behavior.EmotionalActions
         private static string PlayerSpottedLiking()
         {
             string[] responses = new string[] { "Nice! There you are!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerDiscoveredLiking()
         {
             string[] responses = new string[] { "Hello again!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1103,7 +1103,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I kinda like this hide and seek",
                                                 "I can do this all day."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1111,21 +1111,21 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "This is actually better like that.",
                                                 "I'm ok with this change." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string NoiseHeardLiking()
         {
             string[] responses = new string[] { "Oh I heard something I did!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerLostLiking()
         {
             string[] responses = new string[] { "I'm ok with losing you." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1133,7 +1133,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Nice!",
                                                 "You found something? Nice"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1142,7 +1142,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You, I don't like seeing you here.",
                                                 "Isn't this a displeasure..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1150,7 +1150,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You could've appeared sooner",
                                                 "Just surrender..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1158,7 +1158,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Stop wasting my time...",
                                                 "Just come out already..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1166,7 +1166,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "This is a mess...",
                                                 "This really shouldn't be like that" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1174,7 +1174,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Another sound I gotta investigate.",
                                                 "I really dislike this..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1182,7 +1182,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I am midly annoyed",
                                                 "This is furstrating" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1190,7 +1190,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "There's an issue? Darn it...",
                                                 "Oh crap..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1199,7 +1199,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Right when I needed you most!",
                                                 "Thank you for being here."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1207,7 +1207,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You have re-appeared!",
                                                 "I thought I lost you..." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1215,7 +1215,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh thank god he is not showing up",
                                                 "Would be nice if you stayed hidden."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1223,21 +1223,21 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Thank you whoever moved that!",
                                                 "This is better and I am thankful." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string NoiseHeardGratitude()
         {
             string[] responses = new string[] { "Thank you for making this easy." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerLostGratitude()
         {
             string[] responses = new string[] { "Thank you for leaving!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1245,7 +1245,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You got something? Thank god!",
                                                 "Thank you for finding him"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1254,7 +1254,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Insignifigant!",
                                                 "Get over here!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1262,7 +1262,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Useless!",
                                                 "Begone!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1271,7 +1271,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Come out! COME OUT!",
                                                 "Oh this is pissing me off!",
                                                 "Just come out already!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1280,7 +1280,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "For real? Who did that?",
                                                 "Who moved that?",
                                                 "Are you serious with this?"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1288,7 +1288,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Stop the ruckus",
                                                 "I can't stand the noise!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1296,7 +1296,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Get back here!!",
                                                 "Don't you dare hide!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1304,7 +1304,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Hold him still! I'm coming",
                                                 "Attack the intruder!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1313,7 +1313,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Pleased to meet you!",
                                                 "I will enjoy this"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1321,14 +1321,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "We meet again!",
                                                 "I will savor this moment of reunion." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerSuspicionGratification()
         {
             string[] responses = new string[] { "I'm just glad you're here... somewhere." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1337,7 +1337,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "About time somebody made that change.",
                                                 "Well I guess I can use this as a clue.",
                                                 "Take what I can I guess." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1346,7 +1346,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "This makes this easier",
                                                 "I know where that came from",
                                                 "This is a start" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1354,7 +1354,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Welp! Back at it",
                                                 "I can always find you again."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1362,7 +1362,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Good work!",
                                                 "On my way!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1371,7 +1371,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Hey!",
                                                 "I'm sorry but... you must stop"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1380,7 +1380,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "I'm sorry but you have to come with me.",
                                                 "Just surrender and this will be over.",
                                                 "Don't make me do something I don't want to do."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1388,7 +1388,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I don't like this situation",
                                                 "I'm sorry but you have to come out now."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1396,7 +1396,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "I should've paid more attention...",
                                                 "I am sorry for the change Master" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1405,7 +1405,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "Here we go again...",
                                                 "Hello?",
                                                 "Anyone there?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1413,7 +1413,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Master... I'm sorry.",
                                                 "Another failure..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1421,7 +1421,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "You won't go through this alone!",
                                                 "Hold on!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1430,21 +1430,21 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Oh... Hi there",
                                                 "Well hello..."};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerDiscoveredLove()
         {
             string[] responses = new string[] { "I knew you'd be back!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerSuspicionLove()
         {
             string[] responses = new string[] { "I enjoy this game when it is with you." };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1452,7 +1452,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "This is lovely!",
                                                 "I am sure Master will love this!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1460,21 +1460,21 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "Is that you?",
                                                 "Hello?" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerLostLove()
         {
             string[] responses = new string[] { "It's adorable that you've gone hiding!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string NoiseHeardBySomebodyElseLove()
         {
             string[] responses = new string[] { "Hold on!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion
@@ -1483,14 +1483,14 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "GET OUT OF HERE!",
                                                 "NO VISITORS!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
         private static string PlayerDiscoveredHate()
         {
             string[] responses = new string[] { "AGAIN?!" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1498,7 +1498,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "COME OUT NOW!",
                                                 "I DON'T HAVE TIME FOR THIS" };
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1507,7 +1507,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "WHO MOVED THAT?!",
                                                 "YOU WILL PAY FOR THIS",
                                                 "MASTER HATES CHANGES! AND SO DO I!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1516,7 +1516,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "AHHHH!",
                                                 "STOP THE NOISE!",
                                                 "SILENCE!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1525,7 +1525,7 @@ namespace AI.Behavior.EmotionalActions
             string[] responses = new string[] { "GET BACK OUTSIDE!",
                                                 "GET BACK HERE!",
                                                 "ARE YOU SERIOUS?!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
 
@@ -1533,7 +1533,7 @@ namespace AI.Behavior.EmotionalActions
         {
             string[] responses = new string[] { "HOLD HIM STILL!",
                                                 "DESTROY THE INVADER!"};
-            int chosenResponse = Random.Range(1, responses.Length) - 1;
+            int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
         #endregion

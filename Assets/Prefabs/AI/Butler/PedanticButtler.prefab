@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6965d5e15a4c049aed1788a821b9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gameOverAfterPlayerTouch: 1
 --- !u!54 &4976077565093735601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -795,6 +796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713403667603290352, guid: 4c9090a0e81567142b26b4cd8645c502,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c9090a0e81567142b26b4cd8645c502, type: 3}

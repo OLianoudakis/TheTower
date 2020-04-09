@@ -188,12 +188,15 @@ namespace AI.KnowledgeBase
         {
             if (!m_playerTransform)
             {
-                m_playerSuspicion = true;
                 m_lastKnownPlayerPosition = playerSuspicionPosition;
                 m_currentPlayerForgetTime = 0.0f;
-                Events.Event playerSuspicionEvent;
-                playerSuspicionEvent.m_eventType = Events.EventType.PlayerSuspicion;
-                SendEvent(playerSuspicionEvent);
+                if (!m_playerSuspicion)
+                {
+                    m_playerSuspicion = true;
+                    Events.Event playerSuspicionEvent;
+                    playerSuspicionEvent.m_eventType = Events.EventType.PlayerSuspicion;
+                    SendEvent(playerSuspicionEvent);
+                }
             }
         }
 
