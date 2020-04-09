@@ -85,29 +85,34 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void FindClosestSittable()
         {
-            Debug.Log("Finding Chair");
-            m_behaviorTree.Blackboard.Set("isSittableAvailable", false);
-            foreach (Sittable sittable in m_sittableObjects)
+            // if not set, never sit before
+            if (!m_behaviorTree.Blackboard.Isset("isSitting") || ((m_behaviorTree.Blackboard.Isset("isSitting") && !(bool)m_behaviorTree.Blackboard.Get("isSitting"))))
             {
-                if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
+                Debug.Log("Finding Chair");
+                m_behaviorTree.Blackboard.Set("isSitting", false);
+                m_behaviorTree.Blackboard.Set("isSittableAvailable", false);
+                foreach (Sittable sittable in m_sittableObjects)
                 {
-                    if (m_textMesh)
+                    if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
                     {
-                        m_textMesh.ChangeText("I need some rest");
-                    }
-                    m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
-                    if (sittable.sittablePosition.eulerAngles.y < 0.0f)
-                    {
-                        m_behaviorTree.Blackboard.Set("sittableTransformRotationY", 360.0f + sittable.sittablePosition.eulerAngles.y);
-                    }
-                    else
-                    {
+                        if (m_textMesh)
+                        {
+                            m_textMesh.ChangeText("I need some rest");
+                        }
+                        m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
+                        if (sittable.sittablePosition.eulerAngles.y < 0.0f)
+                        {
+                            m_behaviorTree.Blackboard.Set("sittableTransformRotationY", 360.0f + sittable.sittablePosition.eulerAngles.y);
+                        }
+                        else
+                        {
+                            m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
+                        }
                         m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
+                        m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
+                        m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
+                        break;
                     }
-                    m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
-                    m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
-                    m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
-                    break;
                 }
             }
         }

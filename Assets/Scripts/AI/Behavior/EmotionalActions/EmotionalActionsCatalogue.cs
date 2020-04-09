@@ -473,7 +473,7 @@ namespace AI.Behavior.EmotionalActions
         private static string PlayerSuspicionResentment()
         {
             string[] responses = new string[] { "What's that disturbance",
-                                                "Whomever this is, stop runing my day!"};
+                                                "Whomever this is, stop ruining my day!"};
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }

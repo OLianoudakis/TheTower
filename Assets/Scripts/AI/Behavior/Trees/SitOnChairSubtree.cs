@@ -107,6 +107,7 @@ namespace AI.Behavior.Trees
         private void IsSitting()
         {
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, 999);
+            m_behaviorTreeRoot.Blackboard.Set("isSitting", true);
         }
 
         private void StandUp()
@@ -115,6 +116,7 @@ namespace AI.Behavior.Trees
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerStand);
             m_behaviorTreeRoot.Blackboard.Unset("rotationDifference");
             m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", false);
+            m_behaviorTreeRoot.Blackboard.Set("isSitting", false);
         }
     }
 }
