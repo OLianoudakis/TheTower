@@ -78,15 +78,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 if (m_navMeshAgent && sittable.CanSit(m_navMeshAgent.transform))
                 {
                     m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
-                    if (sittable.sittablePosition.eulerAngles.y < 0.0f)
-                    {
-                        m_behaviorTree.Blackboard.Set("sittableTransformRotationY", 360.0f + sittable.sittablePosition.eulerAngles.y);
-                    }
-                    else
-                    {
-                        m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
-                    }
-                    m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
+                    m_behaviorTree.Blackboard.Set("sittableForwardVector", sittable.sittablePosition.forward);
                     m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
                     m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
                     m_knowledgeBase.SetPlayerStopFollowTime(m_playerForgetTimeWhileSeated);
