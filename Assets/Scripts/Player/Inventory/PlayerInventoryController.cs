@@ -7,6 +7,8 @@ namespace Player.Inventory
     public class PlayerInventoryController : MonoBehaviour
     {
         Dictionary<ItemType, Item> m_inventory = new Dictionary<ItemType, Item>();
+        private InventoryGroup m_inventoryGroup;
+        private PlayerSFXAudioController m_inventorySounds;
 
         public void AddItem(Item item, int quantity)
         {
@@ -22,6 +24,8 @@ namespace Player.Inventory
                 newItem.m_quantity = quantity;
                 m_inventory[item.m_itemType] = newItem;
             }
+            m_inventoryGroup.KeyUI(item.m_itemType, m_inventory[item.m_itemType].m_quantity);
+            m_inventorySounds.PlayKeySound();
         }
 
         public int RemoveItem(ItemType requestedItemType, int requestedQuantity)
@@ -31,13 +35,22 @@ namespace Player.Inventory
                 if (m_inventory[requestedItemType].m_quantity >= requestedQuantity)
                 {
                     m_inventory[requestedItemType].m_quantity -= requestedQuantity;
+                    m_inventoryGroup.KeyUI(requestedItemType, m_inventory[requestedItemType].m_quantity);
+                    m_inventorySounds.PlayUnlockSound();
                     return 0;
                 }
                 int requestedQuantityRemaining = requestedQuantity - m_inventory[requestedItemType].m_quantity;
                 m_inventory[requestedItemType].m_quantity = 0;
+                m_inventoryGroup.KeyUI(requestedItemType, m_inventory[requestedItemType].m_quantity);
                 return requestedQuantityRemaining;
             }
             return requestedQuantity;
+        }
+
+        private void Awake()
+        {
+            m_inventoryGroup = FindObjectOfType(typeof(InventoryGroup)) as InventoryGroup;
+            m_inventorySounds= FindObjectOfType(typeof(PlayerSFXAudioController)) as PlayerSFXAudioController;
         }
     }
 }

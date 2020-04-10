@@ -35,11 +35,18 @@ namespace Environment.InteractibleBehaviors
         [SerializeField]
         private bool m_discardObject = false;
 
+        [SerializeField]
+        private AudioClip m_initialSound;
+
+        [SerializeField]
+        private AudioClip m_animationSound;
+
         private InputController m_inputController;
         private PlayerInventoryController m_playerInventoryController;
         private Interactible m_interactible;
         private InfoGroupController m_infoGroup;
         private DialogueGroupController m_dialogueGroup;
+        private AudioSource m_poiAudioSource;
 
         private bool m_isActive = false;
         private int m_currentMessage = 0;
@@ -157,6 +164,7 @@ namespace Environment.InteractibleBehaviors
             m_playerInventoryController = FindObjectOfType(typeof(PlayerInventoryController)) as PlayerInventoryController;
             m_infoGroup = FindObjectOfType(typeof(InfoGroupController)) as InfoGroupController;
             m_dialogueGroup = FindObjectOfType(typeof(DialogueGroupController)) as DialogueGroupController;
+            m_poiAudioSource = GetComponent(typeof(AudioSource)) as AudioSource;
         }
 
         private void Update()
@@ -165,6 +173,7 @@ namespace Environment.InteractibleBehaviors
             {
                 if (!m_isActive)
                 {
+                    m_poiAudioSource.PlayOneShot(m_initialSound);
                     m_isActive = true;
                     ShowNextMessage();
                 }
