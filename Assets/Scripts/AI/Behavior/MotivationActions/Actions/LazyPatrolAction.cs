@@ -99,6 +99,7 @@ namespace AI.Behavior.MotivationActions.Actions
                         {
                             m_textMesh.ChangeText("I need some rest");
                         }
+                        m_behaviorTree.Blackboard.Set("isSitting", true);
                         m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
                         m_behaviorTree.Blackboard.Set("sittableForwardVector", sittable.sittablePosition.forward);
                         m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
