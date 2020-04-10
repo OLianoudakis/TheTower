@@ -173,7 +173,10 @@ namespace Environment.InteractibleBehaviors
             {
                 if (!m_isActive)
                 {
-                    m_poiAudioSource.PlayOneShot(m_initialSound);
+                    if (m_poiAudioSource && m_initialSound)
+                    {
+                        m_poiAudioSource.PlayOneShot(m_initialSound);
+                    }
                     m_isActive = true;
                     ShowNextMessage();
                 }
