@@ -35,7 +35,7 @@ namespace Player.StateHandling.Interact
         // Update is called once per frame
         private void Update()
         {
-            if (!m_interactible.enabled || !m_interactible.isActive)
+            if (m_interactible && (!m_interactible.enabled || !m_interactible.isActive))
             {
                 m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
             }
