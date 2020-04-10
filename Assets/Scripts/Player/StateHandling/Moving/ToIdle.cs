@@ -33,8 +33,8 @@ namespace Player.StateHandling.Moving
             Vector3 destination = m_interactibleDetector.interactible 
                 ? m_interactibleDetector.interactible.interactiblePosition.position
                 : m_inputController.leftMouseClickPosition;
-            if ((Vector3.SqrMagnitude(new Vector3(destination.x, 0.0f, destination.z) 
-                - new Vector3(m_playerPosition.position.x, 0.0f, m_playerPosition.position.z)) < MathConstants.SquaredDistance))
+            if (Vector3.SqrMagnitude(new Vector3(destination.x, 0.0f, destination.z) 
+                - new Vector3(m_playerPosition.position.x, 0.0f, m_playerPosition.position.z)) < MathConstants.SquaredDistance)
             {
                 m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
             }
