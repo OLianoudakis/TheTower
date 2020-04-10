@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Player
 {
@@ -26,6 +27,7 @@ namespace Player
         public Vector3 leftMouseClickPosition
         {
             get { return m_leftMouseClickPosition; }
+            set { m_leftMouseClickPosition = value; } // we want to be able to adjust this because of navmesh imperfections
         }
 
         public RaycastHit leftMouseClickHit
@@ -46,18 +48,33 @@ namespace Player
                 RaycastHit hit;
                 if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                 {
-                    // we accept hit with walls, just do nothing (this is to prevent to move to another room)
+                    // ignore walls
                     if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Walls"))
                     {
-                        m_leftMouseClickPosition = hit.point;
-                        m_leftMouseClickHit = hit;
+                        // if interactible object hit, accept
+                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Highlight"))
+                        {
+                            m_leftMouseClickPosition = hit.point;
+                            m_leftMouseClickHit = hit;
+                            return;
+                        }
+                        // else check if on navmesh and adjust
+                        NavMeshHit navhit;
+                        if (NavMesh.FindClosestEdge(hit.point, out navhit, NavMesh.AllAreas))
+                        {
+                            Vector3 position = hit.point;
+                            if (float.IsInfinity(navhit.distance) || (navhit.distance < 0.05f))
+                            {
+                                position = navhit.position;
+                            }
+                            m_leftMouseClickPosition = position;
+                            m_leftMouseClickHit = hit;
+                            return;
+                        }
                     }
                 }
             }
-            else
-            {
-                m_isLeftMouseClick = false;
-            }
+            m_isLeftMouseClick = false;
         }
 
         private void Start()

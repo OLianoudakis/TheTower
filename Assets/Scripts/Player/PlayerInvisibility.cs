@@ -18,7 +18,7 @@ namespace Player
 
         public bool isInvisible
         {
-            get { return m_isInvisible; }
+            get { return (m_invisibleCount > 0); }
         }
 
         public void SetInvisible()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Environment;
 
-namespace Player.StateHandling.POI
+namespace Player.StateHandling.Interact
 {
     public class ToIdle : MonoBehaviour
     {

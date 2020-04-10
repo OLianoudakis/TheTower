@@ -36,7 +36,7 @@ namespace AI.Behavior.Trees
                     new WaitForCondition(IsOnSpot,
                         new Selector
                         (
-                            new BlackboardCondition("rotationDifference", Operator.IS_SMALLER_OR_EQUAL, MathConstants.RotationDistance, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
+                            new BlackboardCondition("rotationDifference", Operator.IS_SMALLER_OR_EQUAL, MathConstants.SquaredDistance, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
                                 new Sequence
                                 (
                                     new Action(Sit),
@@ -94,8 +94,8 @@ namespace AI.Behavior.Trees
             Debug.Log("Rotating");
             
             m_navMeshAgent.transform.Rotate(0.0f, Time.deltaTime * 100.0f, 0.0f);
-            float sittableTransformRotationY = (float)m_behaviorTreeRoot.Blackboard.Get("sittableTransformRotationY");
-            m_behaviorTreeRoot.Blackboard.Set("rotationDifference", sittableTransformRotationY - m_navMeshAgent.transform.eulerAngles.y);
+            Vector3 sittabeForward = (Vector3)m_behaviorTreeRoot.Blackboard.Get("sittableForwardVector");
+            m_behaviorTreeRoot.Blackboard.Set("rotationDifference", Vector3.SqrMagnitude(sittabeForward - m_navMeshAgent.transform.forward));
         }
 
         private void Sit()

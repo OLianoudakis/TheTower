@@ -100,15 +100,7 @@ namespace AI.Behavior.MotivationActions.Actions
                             m_textMesh.ChangeText("I need some rest");
                         }
                         m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
-                        if (sittable.sittablePosition.eulerAngles.y < 0.0f)
-                        {
-                            m_behaviorTree.Blackboard.Set("sittableTransformRotationY", 360.0f + sittable.sittablePosition.eulerAngles.y);
-                        }
-                        else
-                        {
-                            m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
-                        }
-                        m_behaviorTree.Blackboard.Set("sittableTransformRotationY", sittable.sittablePosition.eulerAngles.y);
+                        m_behaviorTree.Blackboard.Set("sittableForwardVector", sittable.sittablePosition.forward);
                         m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
                         m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
                         break;

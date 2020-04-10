@@ -4,27 +4,25 @@ using UnityEngine;
 using UnityEngine.AI;
 using Environment;
 
-namespace Player.StateHandling.POI
+namespace Player.StateHandling.Interact
 {
     public class Interact : MonoBehaviour
     {
-        [SerializeField]
         private Animator m_animator;
-
-        [SerializeField]
         private NavMeshAgent m_agent;
-
-        [SerializeField]
         private InteractibleDetector m_interactibleDetector;
-        
+
+        private void Awake()
+        {
+            m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
+            m_agent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+        }
+
         private void OnEnable()
         {
             m_animator.SetInteger("AnimState", 0);
 
-            if (!m_interactibleDetector)
-            {
-                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
-            }
             if (m_interactibleDetector.interactible)
             {
                 m_interactibleDetector.interactible.ActivateBehavior();

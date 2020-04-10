@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Player.StateHandling.Interact;
 
 namespace Environment
 {
@@ -58,7 +59,8 @@ namespace Environment
                         m_interactible.HighlightInteractible(false);
                     }
                     m_interactible = interactible;
-                    if (m_interactible)
+                    // if interactible clicked and player is not in Interact state already
+                    if (m_interactible && !(FindObjectOfType(typeof(Interact)) as Interact))
                     {
                         m_interactible.HighlightInteractible(true);
                     }

@@ -41,10 +41,10 @@ GameObject:
   - component: {fileID: 4248760740976733592}
   - component: {fileID: 4248760740980157880}
   - component: {fileID: 4248760740979027832}
-  - component: {fileID: 4248760740976832951}
   - component: {fileID: 1796756074204058486}
   - component: {fileID: 1796756074204058483}
   - component: {fileID: 1796756074204058480}
+  - component: {fileID: 5127483189956976992}
   m_Layer: 16
   m_Name: Common_Key_remake
   m_TagString: Interactible
@@ -115,20 +115,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4248760740976832951
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248760740976832952}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 1b73a1dd76adf8c47b44e5557a53568f, type: 3}
 --- !u!114 &1796756074204058486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,9 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tutorialManager: {fileID: 0}
-  m_dialogueGroup: {fileID: 0}
-  m_dialogueWindow: {fileID: 0}
-  m_infoGroup: {fileID: 0}
   m_repeatedInfoText: {fileID: 0}
   m_messages:
   - m_note: A common key!
@@ -180,6 +163,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactiblePosition: {fileID: 1796756073229455041}
+--- !u!135 &5127483189956976992
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248760740976832952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.001285168
+  m_Center: {x: 0, y: 0.0007653711, z: -0.0000000022628233}
 --- !u!1001 &724202411287201049
 PrefabInstance:
   m_ObjectHideFlags: 0

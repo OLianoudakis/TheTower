@@ -68,7 +68,8 @@ namespace AI.Perception
         private void OnTriggerStay(Collider other)
         {
             PlayerTagScript playerTag = other.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
-            if (playerTag)
+            PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
+            if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
             {
                 RaycastHit hit;
                 if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y + ((CapsuleCollider)other).center.y, other.transform.position.z), out hit))
