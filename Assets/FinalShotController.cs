@@ -94,6 +94,8 @@ namespace GameCamera
         {
             if (other.gameObject.tag.Equals("Player"))
             {
+                AudioSource currentMusic = (FindObjectOfType(typeof(MusicTagScript)) as MusicTagScript).GetComponent(typeof(AudioSource)) as AudioSource;
+                currentMusic.Stop();
                 m_constraints.m_positionBoundaries.canMove = false;
                 m_mainCamera.SetPosition(m_CCTVPosition.position, m_stateId, followPlayer: m_followPlayer, constraints: m_constraints, lookAt: m_lookAt);
                 m_audioSource.PlayOneShot(m_firstAudioCue);

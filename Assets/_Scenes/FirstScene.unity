@@ -784,6 +784,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &125307396 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 6098996794725213002, guid: 6353832c19eb9674b8143b16ab17c820,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825141716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &125307397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6098996794724728681, guid: 6353832c19eb9674b8143b16ab17c820,
@@ -1114,6 +1120,8 @@ MonoBehaviour:
   m_enemy: {fileID: 641259669}
   m_door1: {fileID: 1988588858}
   m_door2: {fileID: 1286918924}
+  m_bookMeshCollider: {fileID: 125307396}
+  m_hidingSpot: {fileID: 1467875175}
   m_fadeBlackGroup: {fileID: 1928044670}
   m_tutorialInfoGroup: {fileID: 380802319}
   m_tutorialInfoText: {fileID: 611540320}
@@ -8881,6 +8889,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c508bee724909024ebabc106ffc525ee, type: 3}
+--- !u!1 &1467875175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8790389515539488710, guid: 73fcb7df8afe66f459f8028af88f486f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579058176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1494053516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c508bee724909024ebabc106ffc525ee,
@@ -9376,6 +9390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrouchPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790389515539488710, guid: 73fcb7df8afe66f459f8028af88f486f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73fcb7df8afe66f459f8028af88f486f, type: 3}
@@ -10697,6 +10716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098996794725213002, guid: 6353832c19eb9674b8143b16ab17c820,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6098996794727153033, guid: 6353832c19eb9674b8143b16ab17c820,
         type: 3}

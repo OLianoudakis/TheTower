@@ -19,6 +19,10 @@ namespace Tutorial
         [SerializeField]
         private Animator m_door2;
         [SerializeField]
+        private MeshCollider m_bookMeshCollider;
+        [SerializeField]
+        private GameObject m_hidingSpot;
+        [SerializeField]
         private CanvasGroup m_fadeBlackGroup;
         [SerializeField]
         private CanvasGroup m_tutorialInfoGroup;
@@ -102,12 +106,14 @@ namespace Tutorial
 
         private void ClickToInteractStep()
         {
+            m_bookMeshCollider.enabled = true;
             m_message = "Click on the open book to interact with it";
             m_tutorialInfoText.text = m_message;
         }
 
         private void HideBehindTheBarrelStep()
         {
+            m_hidingSpot.SetActive(true);
             m_message = "Click on the couch icon next to the barrel";
             m_tutorialInfoText.text = m_message;
         }
