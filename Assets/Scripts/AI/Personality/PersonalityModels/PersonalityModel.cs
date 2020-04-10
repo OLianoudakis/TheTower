@@ -10,8 +10,8 @@ namespace AI.Personality
     public struct MotivationValueEntry
     {
         //[ReadOnly]
-        [Range(0.0f, 1.0f)]
         public MotivationDesires m_motivationDesire;
+        [Range(0.0f, 1.0f)]
         public float m_value;
 
         public MotivationValueEntry(MotivationDesires motivationDesire, float value)
@@ -25,8 +25,8 @@ namespace AI.Personality
     public struct PersonalityTraitEntry
     {
         //[ReadOnly]
-        [Range(-1.0f, 1.0f)]
         public PersonalityTraits m_personalityTraitType;
+        [Range(-1.0f, 1.0f)]
         public float m_value;
 
         public PersonalityTraitEntry(PersonalityTraits personalityTraitType, float value)
