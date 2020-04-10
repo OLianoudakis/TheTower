@@ -22,7 +22,10 @@ public class DialogueGroupController : MonoBehaviour
 
     public void ShowDialogueWindow()
     {
-        m_isShown = true;
+        if (!m_isShown)
+        {
+            m_isShown = true;
+        }
         m_currentlyFading = true;
     }
 

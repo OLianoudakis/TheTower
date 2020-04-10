@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/SecondScene.unity
     guid: 0d49c13e5bf2b5044838702765d4d80e
   - enabled: 1
-    path: Assets/_Scenes/Active_Stealth_scene.unity
-    guid: 0bd2fd459d2622944b83a8c8c033a0c1
+    path: Assets/_Scenes/Active_2.unity
+    guid: 5b97d3225448f13408a10f32328c911c
   m_configObjects: {}
