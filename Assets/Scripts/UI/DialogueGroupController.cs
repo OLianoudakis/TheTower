@@ -10,8 +10,9 @@ public class DialogueGroupController : MonoBehaviour
 
     private CanvasGroup m_dialogueGroup;
     private Text m_dialogueText;
-
     private float m_fadeLerpInterval = 0.0f;
+    private bool m_currentlyFading = false;
+    private bool m_isShown = false;
 
     private void Awake()
     {
@@ -21,12 +22,14 @@ public class DialogueGroupController : MonoBehaviour
 
     public void ShowDialogueWindow()
     {
-        StartCoroutine(DialogueUIFade(true));
+        m_isShown = true;
+        m_currentlyFading = true;
     }
 
     public void HideDialogueWindow()
     {
-        StartCoroutine(DialogueUIFade(false));
+        m_isShown = false;
+        m_currentlyFading = true;
     }
 
     public void ChangeText(string text)
@@ -34,38 +37,30 @@ public class DialogueGroupController : MonoBehaviour
         m_dialogueText.text = text;
     }
 
-    private IEnumerator DialogueUIFade(bool fadeIn)
+    private void Update()
     {
-        bool currentlyFading = true;
-        if (fadeIn)
+        if (m_currentlyFading)
         {
-            while (currentlyFading)
+            if (m_isShown)
             {
                 m_dialogueGroup.alpha = Mathf.Lerp(0.0f, 1.0f, m_fadeLerpInterval);
-                m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
-                yield return new WaitForEndOfFrame();
+                m_fadeLerpInterval += m_fadeLerpSpeed * Time.deltaTime;
                 if (m_fadeLerpInterval > 1.0f)
                 {
                     m_dialogueGroup.alpha = 1.0f;
                     m_fadeLerpInterval = 0.0f;
-                    currentlyFading = false;
-                    yield return null;
+                    m_currentlyFading = false;
                 }
             }
-        }
-        else
-        {
-            while (currentlyFading)
+            else
             {
                 m_dialogueGroup.alpha = Mathf.Lerp(1.0f, 0.0f, m_fadeLerpInterval);
-                m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
-                yield return new WaitForEndOfFrame();
+                m_fadeLerpInterval += m_fadeLerpSpeed * Time.deltaTime;
                 if (m_fadeLerpInterval > 1.0f)
                 {
                     m_dialogueGroup.alpha = 0.0f;
                     m_fadeLerpInterval = 0.0f;
-                    currentlyFading = false;
-                    yield return null;
+                    m_currentlyFading = false;
                 }
             }
         }

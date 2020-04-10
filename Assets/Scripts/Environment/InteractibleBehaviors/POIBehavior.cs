@@ -140,6 +140,7 @@ namespace Environment.InteractibleBehaviors
                 }
                 m_interactible.DeactivateBehavior(true);
                 this.enabled = false;
+                return;
             }
             m_interactible.DeactivateBehavior(false);
         }

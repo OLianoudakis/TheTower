@@ -66,7 +66,7 @@ namespace Environment
 
         public void HighlightInteractible(bool highlightInteractible)
         {
-            if (m_meshHighlighter)
+            if (m_meshHighlighter && m_meshHighlighter.enabled)
             {
                 if (highlightInteractible)
                 {
@@ -79,7 +79,7 @@ namespace Environment
                     m_meshHighlighter.HighlightMesh(highlightInteractible);
                 }
             }
-            if (m_groupMeshHighlighter)
+            if (m_groupMeshHighlighter && m_groupMeshHighlighter.enabled)
             {
                 if (highlightInteractible)
                 {
