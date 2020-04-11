@@ -121,7 +121,7 @@ Transform:
   m_Children:
   - {fileID: 1101533834731479204}
   - {fileID: 1739512868366443322}
-  - {fileID: 6548894082181797210}
+  - {fileID: 5111262624081697197}
   m_Father: {fileID: 8825790858348959188}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_priority: 1
+  m_priorityDescription: Priority for action used when personality model disabled.
+  m_priority: 3
   m_motivationGain: {fileID: 11400000, guid: 433f6ac58b8cc1c49b0d9c53ab14620a, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:
@@ -258,9 +259,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.64255774
-  m_Height: 3.0185337
+  m_Height: 2.7667809
   m_Direction: 1
-  m_Center: {x: -0.008266568, y: 1.3974769, z: 0.11879682}
+  m_Center: {x: -0.008266567, y: 1.271605, z: 0.118796825}
 --- !u!114 &7712525892833653528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_priority: 0
+  m_priorityDescription: Priority for action used when personality model disabled.
+  m_priority: 1
   m_motivationGain: {fileID: 11400000, guid: 385b686d783bb194c81afae89947fc56, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:
@@ -529,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848497f5ab501d4479d1bd899b7fd360, type: 3}
---- !u!4 &6548894082181797210 stripped
+--- !u!4 &5111262624081697197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2021133538904263804, guid: 848497f5ab501d4479d1bd899b7fd360,
     type: 3}
@@ -725,7 +727,7 @@ PrefabInstance:
     - target: {fileID: 2532316601825562962, guid: 4c9090a0e81567142b26b4cd8645c502,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3030778315546489708, guid: 4c9090a0e81567142b26b4cd8645c502,
         type: 3}
@@ -792,6 +794,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5249047146568050266, guid: 4c9090a0e81567142b26b4cd8645c502,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.8559358
+      objectReference: {fileID: 0}
     - target: {fileID: 5539629738651200269, guid: 4c9090a0e81567142b26b4cd8645c502,
         type: 3}
       propertyPath: m_IsActive
@@ -817,6 +824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8825790858348959188}
     m_Modifications:
+    - target: {fileID: 1461213535370065450, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_restoreObjectTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2550699351467603205, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_patrolPointsGroup
@@ -831,7 +843,12 @@ PrefabInstance:
     - target: {fileID: 3532886906204266215, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611101222481472450, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3858742609478189850, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
@@ -872,7 +889,7 @@ PrefabInstance:
     - target: {fileID: 5231251552174180359, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5551756129472306472, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
@@ -950,15 +967,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ec3dd1df4d7c0794186d551f131a71b7,
         type: 2}
+    - target: {fileID: 8081930420348539003, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_priority
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8154268067814693505, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8565667889665459258, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_personalityType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9063727253529517466, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4469935607191418788, guid: fc0c14e62466127498f95ec8718eb658, type: 3}
