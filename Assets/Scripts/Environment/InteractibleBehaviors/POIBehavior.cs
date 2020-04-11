@@ -99,8 +99,11 @@ namespace Environment.InteractibleBehaviors
                 }
                 else
                 {
-                    m_infoMessage = "It needs " + m_messages[m_currentMessage].m_requiredItemQuantity + " " + m_messages[m_currentMessage].m_requiresItem.m_itemName;
-                    m_messages[m_currentMessage].m_note = m_infoMessage;
+                    if (m_messages[m_currentMessage].m_requiresItem.m_itemType != ItemType.AutomaticPass)
+                    {
+                        m_infoMessage = "It needs " + m_messages[m_currentMessage].m_requiredItemQuantity + " " + m_messages[m_currentMessage].m_requiresItem.m_itemName;
+                        m_messages[m_currentMessage].m_note = m_infoMessage;
+                    }
                     canMoveForward = false;
                 }
             }

@@ -12,7 +12,8 @@ public class DialogueGroupController : MonoBehaviour
     private Text m_dialogueText;
     private float m_fadeLerpInterval = 0.0f;
     private bool m_currentlyFading = false;
-    private bool m_isShown = false;
+    private bool m_fadeIn = false;
+    private int m_timesCalled = 0;
 
     private void Awake()
     {
@@ -22,16 +23,23 @@ public class DialogueGroupController : MonoBehaviour
 
     public void ShowDialogueWindow()
     {
-        if (!m_isShown)
+        //Don't refade after first message
+        m_timesCalled++;
+        if (m_timesCalled > 0)
         {
-            m_isShown = true;
+            m_dialogueGroup.alpha = 1.0f;
+            m_fadeLerpInterval = 0.0f;
+            m_currentlyFading = false;
+            return;
         }
+        m_fadeIn = true;
         m_currentlyFading = true;
     }
 
     public void HideDialogueWindow()
     {
-        m_isShown = false;
+        m_timesCalled = 0;
+        m_fadeIn = false;
         m_currentlyFading = true;
     }
 
@@ -44,7 +52,7 @@ public class DialogueGroupController : MonoBehaviour
     {
         if (m_currentlyFading)
         {
-            if (m_isShown)
+            if (m_fadeIn)
             {
                 m_dialogueGroup.alpha = Mathf.Lerp(0.0f, 1.0f, m_fadeLerpInterval);
                 m_fadeLerpInterval += m_fadeLerpSpeed * Time.deltaTime;
