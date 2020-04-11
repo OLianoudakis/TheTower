@@ -114,7 +114,7 @@ namespace Tutorial
         private void HideBehindTheBarrelStep()
         {
             m_hidingSpot.SetActive(true);
-            m_message = "Click on the couch icon next to the barrel";
+            m_message = "Click on the crouch icon next to the barrel";
             m_tutorialInfoText.text = m_message;
         }
 
