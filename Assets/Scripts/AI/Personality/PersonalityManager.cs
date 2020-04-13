@@ -19,7 +19,7 @@ namespace AI.Personality
         private float m_motivationDecreaseRate = 0.01f;
 
         [SerializeField]
-        private float m_personalityUpdateCooldown = 1.0f;
+        private float m_personalityUpdateCooldown = 0.5f;
 
         private float m_currentPersonalityCooldown = 0.0f;
 
@@ -41,11 +41,6 @@ namespace AI.Personality
                 m_emotionManager.emotionIntensityLowerBound, 
                 ref mostSignificantMotivation,
                 ref motivationWeights);
-        }
-
-        public float[] GetMotivationWeights()
-        {
-            return m_motivationManager.motivationWeights;
         }
 
         public void InterruptBehavior()

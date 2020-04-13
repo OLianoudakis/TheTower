@@ -19,12 +19,15 @@ namespace Environment.InteractibleBehaviors
             {
                 foreach (Transform child in transform)
                 {
-                    Rigidbody rigidbody = child.GetComponent(typeof(Rigidbody)) as Rigidbody;
-                    if (rigidbody)
+                    if (child.GetComponent(typeof(Movable)) as Movable)
                     {
-                        rigidbody.isKinematic = false;
-                        rigidbody.useGravity = true;
-                        rigidbody.AddForce(Random.onUnitSphere * 100.0f);
+                        Rigidbody rigidbody = child.GetComponent(typeof(Rigidbody)) as Rigidbody;
+                        if (rigidbody)
+                        {
+                            rigidbody.isKinematic = false;
+                            rigidbody.useGravity = true;
+                            rigidbody.AddForce(Random.onUnitSphere * 100.0f);
+                        }
                     }
                 }
                 m_interactible.DeactivateBehavior(true);

@@ -107,6 +107,19 @@ namespace Environment
             }
         }
 
+        public void RestartBehavior()
+        {
+            this.enabled = true;
+            if (m_meshHighlighter)
+            {
+                m_meshHighlighter.enabled = true;
+            }
+            if (m_groupMeshHighlighter)
+            {
+                m_groupMeshHighlighter.enabled = true;
+            }
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             m_TransformsInDistance.Add(other.transform);

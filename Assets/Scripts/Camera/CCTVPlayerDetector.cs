@@ -55,7 +55,6 @@ namespace GameCamera
             if (other.gameObject.tag.Equals("Player"))
             {
                 m_constraints.m_positionBoundaries.canMove = true;
-                //m_mainCamera.SetPosition(m_CCTVPosition.position, m_stateId, followPlayer: m_followPlayer, constraints: m_constraints, lookAt: m_lookAt);
             }
         }
 
