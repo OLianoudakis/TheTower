@@ -11,6 +11,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private NavMeshAgent m_navMeshAgent;
         private Animator m_animator;
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
+        private MotivationActionProperties m_motivationActionProperties;
 
         private bool m_isChasing = true;
 
@@ -25,12 +26,14 @@ namespace AI.Behavior.MotivationActions.Actions
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
+            m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
         }
 
         private void OnEnable()
         {
             m_navMeshAgent.isStopped = false;
             m_isChasing = true;
+            m_motivationActionProperties.canInterrupt = false;
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             StopCoroutine(Chase());
             StartCoroutine(Chase());
@@ -63,6 +66,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 else
                 {
                     m_isChasing = false;
+                    m_motivationActionProperties.canInterrupt = true;
                 }
             }
         }

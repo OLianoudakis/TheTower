@@ -70,7 +70,9 @@ namespace AI.Personality
                 }
                 m_currentMotivationWeights[i] = weight;
                 motivationWeights[i] = weight;
-                currentDesires[i] = (m_targetMotivation[i] - m_currentFullfilment[i]) * weight;
+                //currentDesires[i] = (m_targetMotivation[i] - m_currentFullfilment[i]) * weight;
+                // TODO: this is just TEST, maybe not use current fullfilment, as time goes quickly here
+                currentDesires[i] = m_targetMotivation[i] * weight;
                 if (currentDesires[i] > mostSignificantMotivationValue)
                 {
                     mostSignificantMotivationValue = currentDesires[i];

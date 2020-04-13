@@ -19,7 +19,7 @@ namespace AI.Personality
         private float m_motivationDecreaseRate = 0.01f;
 
         [SerializeField]
-        private float m_personalityUpdateCooldown = 0.5f;
+        private float m_personalityUpdateCooldown = 0.0f;
 
         private float m_currentPersonalityCooldown = 0.0f;
 

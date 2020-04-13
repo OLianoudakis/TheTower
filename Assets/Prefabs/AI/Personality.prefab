@@ -57,7 +57,7 @@ MonoBehaviour:
   m_usePersonalityModel: 1
   m_emotionIntensityTreshold: 0
   m_motivationNegativeInfluenceThreshold: 0.1
-  m_behaviorUpdateCooldown: 0.5
+  m_behaviorUpdateCooldown: 0.1
 --- !u!114 &5551756129472306475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
   m_personalityModel: {fileID: 11400000, guid: 236e4f394d0779b45a4261cd60145221, type: 2}
   m_eventsEmotionIntensities: {fileID: 11400000, guid: a5cb8cf7f14056d4f95987569e134a76,
     type: 2}
-  m_motivationDecreaseRate: 0.001
-  m_personalityUpdateCooldown: 0.3
+  m_motivationDecreaseRate: 0.01
+  m_personalityUpdateCooldown: 0.1
 --- !u!1001 &28714631587794500
 PrefabInstance:
   m_ObjectHideFlags: 0

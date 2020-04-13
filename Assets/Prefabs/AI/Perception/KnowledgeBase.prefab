@@ -47,9 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_useEvents: 1
   m_playerStopFollowTime: 5
-  m_playerForgetTime: 20
-  m_environmentMovedForgetTime: 20
-  m_noiseHeardForgetTime: 20
+  m_playerForgetTime: 10
+  m_environmentMovedForgetTime: 10
+  m_noiseHeardForgetTime: 10
   m_eventReceivers: []
 --- !u!114 &5755869094896401655
 MonoBehaviour:

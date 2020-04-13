@@ -192,6 +192,7 @@ namespace AI.KnowledgeBase
                 m_currentPlayerForgetTime = 0.0f;
                 if (!m_playerSuspicion)
                 {
+                    m_playerForgotten = false;
                     m_playerSuspicion = true;
                     Events.Event playerSuspicionEvent;
                     playerSuspicionEvent.m_eventType = Events.EventType.PlayerSuspicion;

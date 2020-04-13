@@ -27,6 +27,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private NavMeshAgent m_navMeshAgent;
         private float m_previousMoveSpeed;
+        private MotivationActionProperties m_motivationActionProperties;
 
         public Object[] FindObjects(System.Type type)
         {
@@ -39,6 +40,7 @@ namespace AI.Behavior.MotivationActions.Actions
             Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_shareKnowledge = transform.parent.parent.GetComponentInChildren(typeof(ShareKnowledge)) as ShareKnowledge;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
+            m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
@@ -102,6 +104,7 @@ namespace AI.Behavior.MotivationActions.Actions
             else
             {
                 m_behaviorTree.Blackboard.Unset("playerPosition");
+                m_motivationActionProperties.canInterrupt = true;
             }
         }
 
@@ -111,6 +114,7 @@ namespace AI.Behavior.MotivationActions.Actions
             {
                 m_shareKnowledge.Enable();
                 m_navMeshAgent.isStopped = false;
+                m_motivationActionProperties.canInterrupt = false;
                 m_previousMoveSpeed = m_navMeshAgent.speed;
                 m_navMeshAgent.speed = m_runningMoveSpeed;
                 m_behaviorTree.Start();

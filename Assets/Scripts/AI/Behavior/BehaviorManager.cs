@@ -21,7 +21,7 @@ namespace AI.Behavior
         private float m_motivationNegativeInfluenceThreshold = 0.1f;
 
         [SerializeField]
-        private float m_behaviorUpdateCooldown = 0.5f;
+        private float m_behaviorUpdateCooldown = 0.0f;
 
         private float m_currentBehaviorCooldown = 0.0f;
         private float m_cooldown = 0.0f;
@@ -29,7 +29,7 @@ namespace AI.Behavior
         private List<EventEmotionEntry> m_generatedEmotionalEvents = new List<EventEmotionEntry>();
         private List<MotivationActionProperties> m_motivationActionProperties = new List<MotivationActionProperties>();
         private EmotionalActionProperties m_emotionalProperties;
-        private GameObject m_currentlyActivatedMotivationAction = null;
+        private MotivationActionProperties m_currentlyActivatedMotivationAction = null;
         private float[] m_currentMotivationGain = null;
         private bool m_behaviorInterrupted = false;
 
@@ -54,7 +54,7 @@ namespace AI.Behavior
         {
             if (m_currentlyActivatedMotivationAction)
             {
-                m_currentlyActivatedMotivationAction.SetActive(true);
+                m_currentlyActivatedMotivationAction.gameObject.SetActive(true);
                 m_behaviorInterrupted = false;
             }
         }
@@ -63,7 +63,7 @@ namespace AI.Behavior
         {
             if (m_currentlyActivatedMotivationAction)
             {
-                m_currentlyActivatedMotivationAction.SetActive(false);
+                m_currentlyActivatedMotivationAction.gameObject.SetActive(false);
                 m_behaviorInterrupted = true;
             }
         }
@@ -108,7 +108,7 @@ namespace AI.Behavior
             // turn off current motivation action for time specified in emotion
             if (m_currentlyActivatedMotivationAction)
             {
-                m_currentlyActivatedMotivationAction.SetActive(false);
+                m_currentlyActivatedMotivationAction.gameObject.SetActive(false);
             }
             if (strongestEmotion.m_emotionalTimeResponse > 0.0f)
             {
@@ -123,17 +123,20 @@ namespace AI.Behavior
 
         private void ActivateMotivationAction()
         {
-            MotivationActionProperties chosenAction = ChooseMotivationAction();
-            
-            if (chosenAction && !chosenAction.gameObject.activeInHierarchy)
+            if (!m_currentlyActivatedMotivationAction || (m_currentlyActivatedMotivationAction && m_currentlyActivatedMotivationAction.canInterrupt))
             {
-                if (m_currentlyActivatedMotivationAction)
+                MotivationActionProperties chosenAction = ChooseMotivationAction();
+
+                if (chosenAction && !chosenAction.gameObject.activeInHierarchy)
                 {
-                    m_currentlyActivatedMotivationAction.SetActive(false);
+                    if (m_currentlyActivatedMotivationAction)
+                    {
+                        m_currentlyActivatedMotivationAction.gameObject.SetActive(false);
+                    }
+                    chosenAction.gameObject.SetActive(true);
+                    m_currentlyActivatedMotivationAction = chosenAction;
+                    m_currentMotivationGain = chosenAction.motivationGain.gainAsArray;
                 }
-                chosenAction.gameObject.SetActive(true);
-                m_currentlyActivatedMotivationAction = chosenAction.gameObject;
-                m_currentMotivationGain = chosenAction.motivationGain.gainAsArray;
             }
         }
 

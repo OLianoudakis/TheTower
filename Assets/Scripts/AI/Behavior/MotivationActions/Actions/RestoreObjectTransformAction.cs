@@ -17,12 +17,14 @@ namespace AI.Behavior.MotivationActions.Actions
         private Animator m_animator;
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
+        private MotivationActionProperties m_motivationActionProperties;
 
         private void Awake()
         {
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
+            m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
 
             m_behaviorTree = new Root();
             m_behaviorTree.Create
@@ -30,7 +32,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 new Sequence
                 (
                     new Action(LocateMovedObject),
-                    new BlackboardCondition("movedObjectPosition", Operator.IS_SET, true, Stops.NONE,
+                    new BlackboardCondition("movablePosition", Operator.IS_SET, true, Stops.NONE,
                         new Sequence
                         (
                             new Action(MoveTo),
@@ -61,6 +63,7 @@ namespace AI.Behavior.MotivationActions.Actions
             else
             {
                 m_behaviorTree.Blackboard.Unset("movablePosition");
+                m_motivationActionProperties.canInterrupt = true;
             }
         }
 
@@ -112,6 +115,7 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized)
             {
                 m_navMeshAgent.isStopped = false;
+                m_motivationActionProperties.canInterrupt = false;
                 m_behaviorTree.Start();
             }
         }

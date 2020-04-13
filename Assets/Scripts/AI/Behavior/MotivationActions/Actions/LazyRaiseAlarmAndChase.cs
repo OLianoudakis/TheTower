@@ -24,6 +24,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private NavMeshAgent m_navMeshAgent;
         private Sittable[] m_sittableObjects;
         private float m_playerDefaultStopFollowTime;
+        private MotivationActionProperties m_motivationActionProperties;
 
         public Object[] FindObjects(System.Type type)
         {
@@ -37,6 +38,7 @@ namespace AI.Behavior.MotivationActions.Actions
             m_shareKnowledge = transform.parent.parent.GetComponentInChildren(typeof(ShareKnowledge)) as ShareKnowledge;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
             FloatingTextBehavior floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
+            m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
             m_sittableObjects = FindObjectsOfType(typeof(Sittable)) as Sittable[];
 
             m_behaviorTree = new Root();
@@ -87,6 +89,14 @@ namespace AI.Behavior.MotivationActions.Actions
             }
         }
 
+        private void Update()
+        {
+            if (!m_knowledgeBase.playerTransform)
+            {
+                m_motivationActionProperties.canInterrupt = true;
+            }
+        }
+
         private void OnEnable()
         {
             if (m_actionInitialized)
@@ -94,6 +104,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_behaviorTree.Blackboard.Set("targetTransform", m_knowledgeBase.playerTransform);
                 m_shareKnowledge.Enable();
                 m_navMeshAgent.isStopped = false;
+                m_motivationActionProperties.canInterrupt = false;
                 m_behaviorTree.Start();
             }
         }

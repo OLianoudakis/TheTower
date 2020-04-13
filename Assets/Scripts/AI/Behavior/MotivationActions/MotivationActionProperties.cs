@@ -25,6 +25,7 @@ namespace AI.Behavior.MotivationActions
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private Exp m_abstractSyntaxTree;
         private LogicalOperationsValidator m_logicalOperationsValidator;
+        private bool m_canInterrupt = true;
 
         public int priority
         {
@@ -35,6 +36,12 @@ namespace AI.Behavior.MotivationActions
         {
             get { return m_motivationGain; }
             set { m_motivationGain = value; }
+        }
+
+        public bool canInterrupt
+        {
+            get { return m_canInterrupt; }
+            set { m_canInterrupt = value; }
         }
 
         public bool CanBeTriggered()

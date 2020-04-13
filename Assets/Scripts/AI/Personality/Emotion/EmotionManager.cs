@@ -11,7 +11,7 @@ namespace AI.Personality.Emotions
         private float m_emotionIntensityLowerBound = 0.1f;
 
         private List<Emotion> m_activeEmotions = new List<Emotion>();
-        private const float m_decayingConstant = 0.1f;
+        private const float m_decayingConstant = 0.03f;
 
         public float emotionIntensityLowerBound
         {
@@ -35,7 +35,7 @@ namespace AI.Personality.Emotions
                     * Mathf.Exp(-m_decayingConstant * deltaTime);
                 m_activeEmotions[i] = currentEmotion;
 
-                if (m_activeEmotions[i].m_currentIntensity <= 0.0f)
+                if (m_activeEmotions[i].m_currentIntensity <= m_emotionIntensityLowerBound)
                 {
                     m_activeEmotions.RemoveAt(i);
                 }
