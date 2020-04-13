@@ -96,7 +96,7 @@ namespace AI.Personality
                 for (int i = 0; i < m_currentFullfilment.Length; i++)
                 {
                     // dont add up to motivation if already full
-                    if (m_currentFullfilment[i] < (m_targetMotivation[i] - 0.01f))
+                    if (m_currentFullfilment[i] < (m_targetMotivation[i] - 0.05f))
                     {
                         m_currentFullfilment[i] += (motivationGain[i] * m_currentMotivationWeights[i] * motivationGainRate);
                     }

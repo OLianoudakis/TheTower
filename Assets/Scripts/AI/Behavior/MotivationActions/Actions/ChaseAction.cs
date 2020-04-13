@@ -12,14 +12,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private Animator m_animator;
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private MotivationActionProperties m_motivationActionProperties;
-
-        private bool m_isChasing = true;
-
-        public bool isChasing
-        {
-            get { return m_isChasing; }
-            set { m_isChasing = value; }
-        }
+        private float m_cooldown = 0.0f;
 
         private void Awake()
         {
@@ -32,11 +25,8 @@ namespace AI.Behavior.MotivationActions.Actions
         private void OnEnable()
         {
             m_navMeshAgent.isStopped = false;
-            m_isChasing = true;
             m_motivationActionProperties.canInterrupt = false;
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
-            StopCoroutine(Chase());
-            StartCoroutine(Chase());
         }
 
         private void OnDisable()
@@ -44,30 +34,20 @@ namespace AI.Behavior.MotivationActions.Actions
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             m_navMeshAgent.isStopped = true;
             m_navMeshAgent.ResetPath();
-            m_isChasing = false;
         }
 
-        private IEnumerator Chase()
+        private void Update()
         {
-            yield return new WaitForEndOfFrame();
-            while (m_isChasing)
+            m_cooldown += Time.deltaTime;
+            // update position every second so enemy doesnt get stuck
+            if (m_knowledgeBase.playerTransform && m_cooldown >= 0.5f)
             {
-                if (m_knowledgeBase.playerTransform)
-                {
-                    m_navMeshAgent.SetDestination(m_knowledgeBase.playerTransform.position);
-                    if (!m_navMeshAgent.hasPath)
-                    {
-                        NavMeshHit hit;
-                        NavMesh.SamplePosition(m_knowledgeBase.playerTransform.position, out hit, 1.0f, NavMesh.AllAreas);
-                        m_navMeshAgent.SetDestination(hit.position);
-                    }
-                    yield return new WaitForEndOfFrame();
-                }
-                else
-                {
-                    m_isChasing = false;
-                    m_motivationActionProperties.canInterrupt = true;
-                }
+                m_cooldown = 0.0f;
+                m_navMeshAgent.SetDestination(m_knowledgeBase.playerTransform.position);
+            }
+            else
+            {
+                m_motivationActionProperties.canInterrupt = true;
             }
         }
     }
