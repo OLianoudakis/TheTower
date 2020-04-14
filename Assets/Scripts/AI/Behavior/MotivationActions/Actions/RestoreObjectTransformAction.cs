@@ -62,7 +62,6 @@ namespace AI.Behavior.MotivationActions.Actions
             }
             else
             {
-                m_behaviorTree.Blackboard.Unset("movablePosition");
                 m_motivationActionProperties.canInterrupt = true;
             }
         }
@@ -108,6 +107,7 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             Movable movable = m_behaviorTree.Blackboard.Get("movedObject") as Movable;
             m_knowledgeBase.EnvironmentObjectPositionRestored(movable);
+            m_motivationActionProperties.canInterrupt = true;
         }
 
         private void OnEnable()

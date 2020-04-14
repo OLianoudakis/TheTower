@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1952,7 +1952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 71078711}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CCTV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2439,7 +2439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 126530852}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3981,7 +3981,7 @@ GameObject:
   - component: {fileID: 194605334}
   - component: {fileID: 194605336}
   - component: {fileID: 194605335}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5267,7 +5267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420267558}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Camera2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7334,7 +7334,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh2621178
+  m_Name: pb_Mesh3333166
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9769,7 +9769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &832667535
 Transform:
   m_ObjectHideFlags: 0
@@ -11387,6 +11387,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 832667535}
     m_Modifications:
+    - target: {fileID: 193899886678374318, guid: 7dcc99cf31726ef40aa445a1047b92ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3491696267754501867, guid: 7dcc99cf31726ef40aa445a1047b92ee,
         type: 3}
       propertyPath: m_Size.x
@@ -11461,6 +11466,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844977710344822777, guid: 7dcc99cf31726ef40aa445a1047b92ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088537731745395413, guid: 7dcc99cf31726ef40aa445a1047b92ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8364286846297457173, guid: 7dcc99cf31726ef40aa445a1047b92ee,
         type: 3}
@@ -14500,7 +14515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409787774}
   - component: {fileID: 1409787775}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Camera1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14544,7 +14559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426695234}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15626,7 +15641,7 @@ GameObject:
   - component: {fileID: 1557187435}
   - component: {fileID: 1557187436}
   - component: {fileID: 1557187437}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17907,6 +17922,8 @@ MonoBehaviour:
   m_enemy: {fileID: 0}
   m_door1: {fileID: 0}
   m_door2: {fileID: 0}
+  m_bookMeshCollider: {fileID: 0}
+  m_hidingSpot: {fileID: 0}
   m_fadeBlackGroup: {fileID: 1442358993897538040}
   m_tutorialInfoGroup: {fileID: 1442358993685223665}
   m_tutorialInfoText: {fileID: 1442358993152364090}
