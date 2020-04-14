@@ -48,6 +48,7 @@ namespace AI.Behavior.Trees.Tasks
                 }
                 m_pointOfInterest = (Vector3)Blackboard.Get(m_pointOfInterestBlackboardKey);
             }
+            int layerMask = LayerMask.GetMask("Walls");
             Vector3[] positions = new Vector3[m_numberOfPoints];
             int index = 0;
             for (int i = 0; i < m_numberOfPoints; i++)
@@ -62,8 +63,14 @@ namespace AI.Behavior.Trees.Tasks
                     NavMeshHit hit;
                     if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
                     {
-                        positions[index++] = hit.position;
-                        break;
+                        // check if the investigation point is not on the other side of wall
+                        Vector3 direction = randomPoint - m_pointOfInterest;
+                        RaycastHit raycastHit;
+                        if (!Physics.Raycast(m_pointOfInterest, direction, out raycastHit, direction.magnitude, layerMask))
+                        {
+                            positions[index++] = hit.position;
+                            break;
+                        }
                     }
                     ++numberOfTries;
                 }
