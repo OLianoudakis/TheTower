@@ -112,9 +112,7 @@ namespace AI.Perception
                 m_collider.transform.position.y + (2.0f * m_collider.center.y),
                 m_collider.transform.position.z
             );
-            Vector3 direction =
-                    new Vector3(otherPosition.x, otherPosition.y, otherPosition.z)
-                    - fromRay;
+            Vector3 direction = otherPosition - fromRay;
 
             if (Physics.Raycast(fromRay, direction, out hit, Mathf.Infinity, m_layerMask))
             {
