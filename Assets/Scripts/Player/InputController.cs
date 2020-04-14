@@ -48,6 +48,7 @@ namespace Player
                 RaycastHit hit;
                 if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                 {
+                    Debug.Log(hit.transform.gameObject);
                     // ignore walls
                     if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Walls"))
                     {

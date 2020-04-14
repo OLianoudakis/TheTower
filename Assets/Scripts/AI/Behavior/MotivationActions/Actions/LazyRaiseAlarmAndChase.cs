@@ -115,6 +115,7 @@ namespace AI.Behavior.MotivationActions.Actions
             {
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;
+                m_motivationActionProperties.canInterrupt = true;
                 m_navMeshAgent.ResetPath();
                 m_shareKnowledge.Disable();
                 m_knowledgeBase.SetPlayerStopFollowTime(m_playerDefaultStopFollowTime);

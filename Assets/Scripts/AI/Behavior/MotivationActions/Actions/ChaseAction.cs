@@ -33,6 +33,7 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             m_navMeshAgent.isStopped = true;
+            m_motivationActionProperties.canInterrupt = true;
             m_navMeshAgent.ResetPath();
         }
 

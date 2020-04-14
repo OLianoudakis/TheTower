@@ -9,6 +9,9 @@ namespace AI.Perception
 {
     public class MainSight : MonoBehaviour
     {
+        [SerializeField]
+        private Transform[] m_playerSightPoints = null;
+
         private Transform m_playerTransform;
         private Transform m_myTransform;
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
@@ -34,15 +37,24 @@ namespace AI.Perception
             PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
             if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
             {
-                RaycastHit hit;
-                if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y + ((CapsuleCollider)other).center.y, other.transform.position.z), out hit))
+                int hits = 0;
+                foreach (Transform raycastPoint in m_playerSightPoints)
                 {
-                    if (hit.collider.Equals(other))
+                    RaycastHit hit;
+                    if (Raycast(raycastPoint.position, out hit))
                     {
-                        m_knowledgeBase.PlayerSpotted(m_playerTransform);
-                        return;
+                        if (hit.collider.Equals(other))
+                        {
+                            ++hits;
+                        }
                     }
                 }
+
+                if (hits > (m_playerSightPoints.Length / 2))
+                {
+                    m_knowledgeBase.PlayerSpotted(m_playerTransform);
+                }
+                return;
             }
             Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
             if (movableObject && movableObject.HasTransformChanged())
@@ -71,23 +83,33 @@ namespace AI.Perception
             PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
             if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
             {
-                RaycastHit hit;
-                if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y + ((CapsuleCollider)other).center.y, other.transform.position.z), out hit))
+                int hits = 0;
+                foreach (Transform raycastPoint in m_playerSightPoints)
                 {
-                    if (hit.collider.Equals(other))
+                    RaycastHit hit;
+                    if (Raycast(raycastPoint.position, out hit))
                     {
-                        m_knowledgeBase.PlayerSpotted(m_playerTransform);
+                        if (hit.collider.Equals(other))
+                        {
+                            ++hits;
+                        }
                     }
+                }
+
+                if (hits > (m_playerSightPoints.Length / 2))
+                {
+                    m_knowledgeBase.PlayerSpotted(m_playerTransform);
                 }
             }
         }
 
         private bool Raycast(Vector3 otherPosition, out RaycastHit hit)
         {
+            // * 2.0f to go from eyes
             Vector3 fromRay = new Vector3
             (
                 m_collider.transform.position.x,
-                m_collider.transform.position.y + m_collider.center.y,
+                m_collider.transform.position.y + (2.0f * m_collider.center.y),
                 m_collider.transform.position.z
             );
             Vector3 direction =

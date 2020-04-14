@@ -126,6 +126,7 @@ namespace AI.Behavior.MotivationActions.Actions
             {
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;
+                m_motivationActionProperties.canInterrupt = true;
                 m_navMeshAgent.ResetPath();
             }
             else

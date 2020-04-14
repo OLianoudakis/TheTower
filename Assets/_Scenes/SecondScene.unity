@@ -8703,7 +8703,7 @@ GameObject:
   - component: {fileID: 767858355}
   - component: {fileID: 767858354}
   - component: {fileID: 767858353}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ExitTriggerIObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9769,7 +9769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &832667535
 Transform:
   m_ObjectHideFlags: 0
@@ -9900,7 +9900,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh2621066
+  m_Name: pb_Mesh3977200
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11491,6 +11491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LazyButtler
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668649104016529181, guid: 7dcc99cf31726ef40aa445a1047b92ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcc99cf31726ef40aa445a1047b92ee, type: 3}
@@ -19261,7 +19266,7 @@ GameObject:
   - component: {fileID: 2118454984}
   - component: {fileID: 2118454986}
   - component: {fileID: 2118454985}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: KeyTutorialTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
