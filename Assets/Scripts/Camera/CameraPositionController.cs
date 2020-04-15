@@ -62,13 +62,17 @@ namespace GameCamera
 
         [SerializeField]
         private float m_lookAtOffset = 0.5f;
-
+        
         private Transform m_currentLookAt;
         private Vector3 m_currentPosition;
         private Vector3 m_targetLastPosition;
+        private Vector3 m_lookUpLastPosition;
+        private Vector3 m_lookUpNewPosition;
         private bool m_isTranslating = false;
         private bool m_followPlayer = false;
         private Constraints m_constraints;
+
+        private bool m_isChangingPosition = false;
 
         public Transform lookAtPosition
         {
@@ -95,14 +99,14 @@ namespace GameCamera
         public void SetPosition(
             Vector3 targetPosition,
             uint newStateId,
-            float waitTime = 0.15f,
+            float waitTime = 1.0f,
             bool followPlayer = false,
             Constraints constraints = null,
             Transform lookAt = null
             )
         {
-            //if (newStateId != m_currentStateId)
-            //{
+            if (transform.position != targetPosition)
+            {
                 m_targetLastPosition = m_target.position;
                 m_followPlayer = followPlayer;
                 m_constraints = constraints;
@@ -114,10 +118,12 @@ namespace GameCamera
                 }
                 else
                 {
+                    m_lookUpLastPosition = m_currentLookAt.position;
+                    m_lookUpNewPosition = lookAt.position;
                     m_currentLookAt = lookAt;
                 }
                 StartCoroutine(MoveToPosition(targetPosition, waitTime));
-            //}
+            }
         }
 
         public uint cameraStateId
@@ -196,18 +202,23 @@ namespace GameCamera
         {
             float elapsedTime = 0.0f;
             Vector3 currentPosition = transform.position;
+            m_currentLookAt.position = m_lookUpLastPosition;
             m_isTranslating = true;
+            Time.timeScale = 0.0f;
 
             while (elapsedTime < waitTime)
             {
                 transform.position = Vector3.LerpUnclamped(currentPosition, targetPosition, Mathf.SmoothStep(0.0f, 1.0f, (elapsedTime / waitTime)));
-                elapsedTime += Time.deltaTime;
+                m_currentLookAt.position = Vector3.LerpUnclamped(m_lookUpLastPosition, m_lookUpNewPosition, Mathf.SmoothStep(0.0f, 1.0f, (elapsedTime / waitTime)));
+                elapsedTime += Time.unscaledDeltaTime;
                 yield return null;
             }
 
             // Make sure we got there
             transform.position = targetPosition;
+            m_currentLookAt.position = m_lookUpNewPosition;
             m_isTranslating = false;
+            Time.timeScale = 1.0f;            
             yield return null;
         }
     }
