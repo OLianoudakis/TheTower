@@ -114,6 +114,8 @@ namespace GameCamera
                 m_currentStateId = newStateId;
                 if (!lookAt)
                 {
+                    m_lookUpLastPosition = m_currentLookAt.position;
+                    m_lookUpNewPosition = m_target.position;
                     m_currentLookAt = m_target;
                 }
                 else
