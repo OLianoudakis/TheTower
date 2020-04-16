@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8790389514220401039}
   - component: {fileID: 8790389514220401024}
   - component: {fileID: 8790389514220401025}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FloorPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8790389515021540010}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: InvisibleWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 8790389515578188579}
   - component: {fileID: 8790389515578188577}
   - component: {fileID: 8790389515578188578}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4980,7 +4980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8790389515606847415}
   - component: {fileID: 8790389515606847414}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

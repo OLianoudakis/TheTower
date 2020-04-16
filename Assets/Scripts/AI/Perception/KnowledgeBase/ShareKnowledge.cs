@@ -37,7 +37,7 @@ namespace AI.KnowledgeBase
             //int perceptionLayerIndex = LayerMask.NameToLayer("Perception");
             //int kbsLayerIndex = LayerMask.NameToLayer("KnowledgeBaseSharing");
             // set filter on enemy collider
-            m_layerMask = LayerMask.GetMask("Enemy", "Walls", "Default", "Highlight");
+            m_layerMask = LayerMask.GetMask("Enemy", "Default", "Highlight");
         }
 
         private void Start()

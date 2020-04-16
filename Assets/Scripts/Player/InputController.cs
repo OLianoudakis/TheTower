@@ -48,30 +48,26 @@ namespace Player
                 RaycastHit hit;
                 if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                 {
-                    Debug.Log(hit.transform.gameObject);
-                    // ignore walls
-                    if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Walls"))
+                    Debug.Log(hit.transform.gameObject.name);
+                    // if interactible object hit, accept
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Highlight"))
                     {
-                        // if interactible object hit, accept
-                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Highlight"))
+                        m_leftMouseClickPosition = hit.point;
+                        m_leftMouseClickHit = hit;
+                        return;
+                    }
+                    // else check if on navmesh and adjust
+                    NavMeshHit navhit;
+                    if (NavMesh.FindClosestEdge(hit.point, out navhit, NavMesh.AllAreas))
+                    {
+                        Vector3 position = hit.point;
+                        if (float.IsInfinity(navhit.distance) || (navhit.distance < 0.05f))
                         {
-                            m_leftMouseClickPosition = hit.point;
-                            m_leftMouseClickHit = hit;
-                            return;
+                            position = navhit.position;
                         }
-                        // else check if on navmesh and adjust
-                        NavMeshHit navhit;
-                        if (NavMesh.FindClosestEdge(hit.point, out navhit, NavMesh.AllAreas))
-                        {
-                            Vector3 position = hit.point;
-                            if (float.IsInfinity(navhit.distance) || (navhit.distance < 0.05f))
-                            {
-                                position = navhit.position;
-                            }
-                            m_leftMouseClickPosition = position;
-                            m_leftMouseClickHit = hit;
-                            return;
-                        }
+                        m_leftMouseClickPosition = position;
+                        m_leftMouseClickHit = hit;
+                        return;
                     }
                 }
             }
@@ -80,7 +76,7 @@ namespace Player
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "CrouchPosition", "Highlight", "Walls");
+            m_layerMask = LayerMask.GetMask("Default", "Default2", "Default3", "CrouchPosition", "Highlight");
         }
     }
 }

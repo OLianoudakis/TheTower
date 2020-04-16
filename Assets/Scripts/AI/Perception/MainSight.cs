@@ -20,7 +20,7 @@ namespace AI.Perception
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "Hiding", "Player", "Highlight", "Walls", "Furniture", "Shadows");
+            m_layerMask = LayerMask.GetMask("Default", "CrouchPosition", "Player", "Highlight", "Shadows");
             m_collider = transform.parent.parent.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
             SharedAI sharedAI = FindObjectOfType(typeof(SharedAI)) as SharedAI;
             if (sharedAI)

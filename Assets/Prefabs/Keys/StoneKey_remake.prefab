@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4298833387910043565}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 45.522, y: 1.84, z: -13.93}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 250, y: 250, z: 250}
   m_Children:
   - {fileID: 1851396658422950100}
   - {fileID: 815931168594351216}
@@ -141,9 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tutorialManager: {fileID: 0}
-  m_dialogueGroup: {fileID: 0}
-  m_dialogueWindow: {fileID: 0}
-  m_infoGroup: {fileID: 0}
   m_repeatedInfoText: {fileID: 0}
   m_messages:
   - m_note: A stone key!
@@ -153,6 +150,8 @@ MonoBehaviour:
     m_requiredItemQuantity: 0
   m_animator: {fileID: 0}
   m_discardObject: 1
+  m_initialSound: {fileID: 0}
+  m_animationSound: {fileID: 0}
 --- !u!114 &1851396658253690213
 MonoBehaviour:
   m_ObjectHideFlags: 0
