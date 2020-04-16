@@ -84,7 +84,7 @@ namespace Player
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "Default2", "Default3", "CrouchPosition", "Highlight");
+            m_layerMask = LayerMask.GetMask("Default", "Default2", "CrouchPosition", "Highlight");
         }
     }
 }

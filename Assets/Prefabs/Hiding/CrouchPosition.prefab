@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1812214432725235754}
   - component: {fileID: 5871373119627856131}
   - component: {fileID: 4036387647818937132}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4649620113394516187}
   - component: {fileID: 6669304234669784919}
   - component: {fileID: 6401469125283637017}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,13 +201,13 @@ GameObject:
   - component: {fileID: 1712315283994586832}
   - component: {fileID: 140323057228414028}
   - component: {fileID: 3946965993552365070}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1712315283994586832
 Transform:
   m_ObjectHideFlags: 0

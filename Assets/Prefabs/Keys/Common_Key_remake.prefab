@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4248760740976832952}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -13.651, y: 3.4189572, z: -34.67828}
-  m_LocalScale: {x: 100, y: 100.00007, z: 100.00007}
+  m_LocalScale: {x: 250, y: 250, z: 250}
   m_Children:
   - {fileID: 1796756073229455041}
   - {fileID: 724202411287605861}
@@ -150,6 +150,8 @@ MonoBehaviour:
     m_requiredItemQuantity: 0
   m_animator: {fileID: 0}
   m_discardObject: 1
+  m_initialSound: {fileID: 0}
+  m_animationSound: {fileID: 0}
 --- !u!114 &1796756074204058480
 MonoBehaviour:
   m_ObjectHideFlags: 0
