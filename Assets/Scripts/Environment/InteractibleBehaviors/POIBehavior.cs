@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Player.Inventory;
 using Player;
 using Tutorial;
+using GameUI;
 
 namespace Environment.InteractibleBehaviors
 {

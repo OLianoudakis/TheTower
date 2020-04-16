@@ -4,7 +4,10 @@ using UnityEngine;
 using Player.Inventory;
 using Player;
 using Player.EmptyClass;
+using Player.StateHandling.Moving;
+using Player.StateHandling.Crouching;
 using Tutorial;
+using GameUI;
 
 namespace Environment.Hiding
 {
@@ -15,55 +18,36 @@ namespace Environment.Hiding
         [SerializeField]
         private bool m_inTutorial = false;
 
-        private Animator m_playerAnimator;
-        private CapsuleCollider m_playerCollider;
         private GameObject m_invisibleWalls;
-        private Interactible m_interactible;
         private InputController m_inputController;
-        private int m_playerLayer;
-
+        private ToCrouching[] m_toCrouchingReferences;
+        private Transform m_playerTransform;
+        private HideGroup m_hideIconUI;
         private bool m_isHidden = false;
+        private bool m_playerCanHide = false;
+        private bool m_slidePlayerToCenter = false;
 
         private void SetPlayerIntoHiding()
         {
-            m_playerAnimator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimCrouch);
-            m_playerCollider.center = new Vector3(0.0f, 0.38f, 0.0f);
-            m_playerCollider.height = 1.76f;
             m_invisibleWalls.SetActive(true);
-            m_playerCollider.gameObject.layer = LayerMask.NameToLayer("Hiding");
             if (m_inTutorial && !m_isHidden)
-            {
-                m_isHidden = true;
+            {                
                 m_tutorialManager.StepCompleted();
             }
+            m_isHidden = true;
         }
 
         private void ExitHiding()
         {
-            m_playerAnimator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimIdle);
-            m_playerCollider.center = new Vector3(0.0f, 1.0f, 0.0f);
-            m_playerCollider.height = 3.0f;
             m_invisibleWalls.SetActive(false);
-            m_interactible.DeactivateBehavior(false);
-            m_playerCollider.gameObject.layer = m_playerLayer;
         }
 
-        private void Start()
+        private void Awake()
         {
-            m_interactible = GetComponent(typeof(Interactible)) as Interactible;
             m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
-            PlayerMeshTagScript playerMeshTag = FindObjectOfType(typeof(PlayerMeshTagScript)) as PlayerMeshTagScript;
-            if (playerMeshTag)
-            {
-                m_playerAnimator = playerMeshTag.GetComponent(typeof(Animator)) as Animator;
-            }
-            PlayerTagScript playerTag = FindObjectOfType(typeof(PlayerTagScript)) as PlayerTagScript;
-            if (playerTag)
-            {
-                m_playerCollider = playerTag.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
-                m_playerLayer = m_playerCollider.gameObject.layer;
-            }
-
+            m_hideIconUI = FindObjectOfType(typeof(HideGroup)) as HideGroup;
+            m_toCrouchingReferences = Resources.FindObjectsOfTypeAll<ToCrouching>();
+            m_playerTransform = m_inputController.gameObject.transform;
             foreach (Transform child in transform)
             {
                 if (child.name == "InvisibleWalls")
@@ -76,13 +60,43 @@ namespace Environment.Hiding
 
         private void Update()
         {
-            if (m_interactible.isActive)
+            if (m_playerCanHide)
             {
-                SetPlayerIntoHiding();
-
-                if (m_inputController.isLeftMouseClick)
+                if (m_inputController.isRightMouseClick)
                 {
-                    ExitHiding();
+                    m_playerTransform.position = transform.position;
+                    SetPlayerIntoHiding();
+                }
+            }
+
+            if (m_isHidden && m_inputController.isLeftMouseClick)
+            {
+                ExitHiding();
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag.Equals("Player"))
+            {
+                m_playerCanHide = true;
+                for (int i = 0; i < m_toCrouchingReferences.Length; i++)
+                {
+                    m_hideIconUI.BeginFade(true);
+                    m_toCrouchingReferences[i].playerCanHide = true;
+                }
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag.Equals("Player"))
+            {
+                m_playerCanHide = false;
+                for (int i = 0; i < m_toCrouchingReferences.Length; i++)
+                {
+                    m_hideIconUI.BeginFade(false);
+                    m_toCrouchingReferences[i].playerCanHide = false;
                 }
             }
         }

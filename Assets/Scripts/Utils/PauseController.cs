@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Player;
 using Player.EmptyClass;
+using GameSounds;
 
 public class PauseController : MonoBehaviour
 {

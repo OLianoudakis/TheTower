@@ -12,6 +12,7 @@ namespace Player
         private bool m_initialized = false;
         private RaycastHit m_leftMouseClickHit;
         private bool m_isLeftMouseClick = false;
+        private bool m_isRightMouseClick = false;
         private int m_layerMask;
 
         public bool initialized
@@ -22,6 +23,11 @@ namespace Player
         public bool isLeftMouseClick
         {
             get { return m_isLeftMouseClick; }
+        }
+
+        public bool isRightMouseClick
+        {
+            get { return m_isRightMouseClick; }
         }
 
         public Vector3 leftMouseClickPosition
@@ -72,6 +78,8 @@ namespace Player
                 }
             }
             m_isLeftMouseClick = false;
+
+            m_isRightMouseClick = Input.GetMouseButtonDown(1);
         }
 
         private void Start()
