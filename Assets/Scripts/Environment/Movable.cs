@@ -12,6 +12,9 @@ namespace Environment
         [SerializeField]
         private float m_soundTransimissionTime = 0.5f;
 
+        [SerializeField]
+        private bool m_notFixable = false;
+
         private Interactible m_interactible;
         private bool m_isMakingNoise = false;
         private float m_currentSoundTransimissionTime = 0.0f;
@@ -22,6 +25,11 @@ namespace Environment
         public string name
         {
             get { return m_name; }
+        }
+
+        public bool notFixable
+        {
+            get { return m_notFixable; }
         }
 
         public bool isMakingNoise
@@ -56,6 +64,11 @@ namespace Environment
 
         public void ResetChanges()
         {
+            if (m_notFixable)
+            {
+                transform.hasChanged = false;
+                return;
+            }
             if (m_rigidBody)
             {
                 m_rigidBody.isKinematic = true;

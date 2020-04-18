@@ -79,7 +79,7 @@ namespace Environment.InteractibleBehaviors
                     if (child.gameObject.activeInHierarchy)
                     {
                         Movable movable = child.GetComponent(typeof(Movable)) as Movable;
-                        if (movable && movable.HasTransformChanged())
+                        if (movable && (movable.HasTransformChanged() || movable.notFixable))
                         {
                             return;
                         }
