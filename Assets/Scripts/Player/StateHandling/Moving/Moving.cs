@@ -25,8 +25,20 @@ namespace Player.StateHandling.Moving
         private Color c = Color.white;
         private Vector3 m_destination;
 
+        public bool clickedOnEnable
+        {
+            get { return m_isClickedOnEnable; }
+            set { m_isClickedOnEnable = value; }
+        }
+
         private bool m_isClickedOnEnable = false;
 
+        public void StopMoving()
+        {
+            m_agent.isStopped = true;
+            m_agent.ResetPath();
+        }
+        
         private void Awake()
         {
             m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;

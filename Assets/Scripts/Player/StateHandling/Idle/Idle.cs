@@ -18,13 +18,13 @@ namespace Player.StateHandling.Idle
 
         private void OnEnable()
         {
-            m_animator.SetInteger("AnimState", 0);
+            m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimIdle);
             m_agent.isStopped = true;
         }
 
         private void Start()
         {
-            m_animator.SetInteger("AnimState", 0);
+            m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimIdle);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Player
             EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
+                gameObject.SetActive(false);
                 m_gameOverController.ShowGameOver();
             }
         }
@@ -30,6 +31,7 @@ namespace Player
             EnemyTagScript enemyTag = collision.gameObject.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
+                gameObject.SetActive(false);
                 m_gameOverController.ShowGameOver();
             }
         }

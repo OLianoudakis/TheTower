@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationConstants
 {
-    public static string AnimationState = "AnimState";
+    public static string AnimationState = "AnimationState";
     public static int AnimIdle = 0;
     public static int AnimWalk = 1;
     public static int AnimCrouch = 2;

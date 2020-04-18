@@ -40,7 +40,6 @@ namespace AI.Behavior.Trees
 
         private bool IsOnSpot()
         {
-            Debug.Log("Is on spot");
             Vector3 sittablePosition = (Vector3)m_behaviorTreeRoot.Blackboard.Get("movablePosition");
             Vector3 rotation = m_navMeshAgent.transform.rotation.eulerAngles;
             m_navMeshAgent.transform.LookAt((Vector3)m_behaviorTreeRoot.Blackboard.Get("movableObjectPosition"));
@@ -59,7 +58,6 @@ namespace AI.Behavior.Trees
 
         private void MoveTo()
         {
-            Debug.Log("Move To");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("movablePosition"));
         }
@@ -67,7 +65,6 @@ namespace AI.Behavior.Trees
         private void Observe()
         {
             //TODO add proper animation here and make it face the object
-            Debug.Log("Observe");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerLookAround);
             if (m_textMesh && m_behaviorTreeRoot.Blackboard.Isset("movableName"))
             {

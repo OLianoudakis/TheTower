@@ -66,7 +66,6 @@ namespace AI.Behavior.Trees
 
         private void MoveTo()
         {
-            Debug.Log("Move To");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             m_navMeshAgent.isStopped = false;
             m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition"));
@@ -74,7 +73,6 @@ namespace AI.Behavior.Trees
 
         private bool IsOnSpot()
         {
-            Debug.Log("Is on spot");
             Vector3 sittablePosition = (Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition");
             if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
                 - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
@@ -91,7 +89,6 @@ namespace AI.Behavior.Trees
 
         private void Rotate()
         {
-            Debug.Log("Rotating");
             
             m_navMeshAgent.transform.Rotate(0.0f, Time.deltaTime * 100.0f, 0.0f);
             Vector3 sittabeForward = (Vector3)m_behaviorTreeRoot.Blackboard.Get("sittableForwardVector");
@@ -100,7 +97,6 @@ namespace AI.Behavior.Trees
 
         private void Sit()
         {
-            Debug.Log("Sit");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerSit);
         }
 
@@ -112,7 +108,6 @@ namespace AI.Behavior.Trees
 
         private void StandUp()
         {
-            Debug.Log("Stand");
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerStand);
             m_behaviorTreeRoot.Blackboard.Unset("rotationDifference");
             m_behaviorTreeRoot.Blackboard.Set("isSittableAvailable", false);

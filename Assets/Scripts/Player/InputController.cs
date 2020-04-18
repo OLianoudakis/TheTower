@@ -23,6 +23,7 @@ namespace Player
         public bool isLeftMouseClick
         {
             get { return m_isLeftMouseClick; }
+            set { m_isLeftMouseClick = value; }
         }
 
         public bool isRightMouseClick

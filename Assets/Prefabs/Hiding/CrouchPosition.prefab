@@ -5079,8 +5079,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8790389515539488706}
-  - component: {fileID: 8790389515539488708}
-  - component: {fileID: 8790389515539488709}
   - component: {fileID: 8790389515539488705}
   - component: {fileID: 1989132386518353085}
   m_Layer: 14
@@ -5107,33 +5105,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8790389515539488708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8790389515539488710}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c384ee8c1cf481c41b39fb99f484721c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_interactiblePosition: {fileID: 8790389515539488706}
---- !u!114 &8790389515539488709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8790389515539488710}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c8c1bf61a8cfc243a1e16278aaebaeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_crouchIcons:
-  - {fileID: 8790389514220401027}
 --- !u!114 &8790389515539488705
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,8 +28,18 @@ namespace GameUI
             m_playerInput.enabled = false;
             m_gameOverGroup.interactable = true;
             m_gameOverGroup.blocksRaycasts = true;
-            StartCoroutine(GameOverUIFade());
+            StartCoroutine(GameOverUIFade(true));
             Time.timeScale = 0.0f;
+        }
+
+        public void HideGameOver()
+        {
+            StopAllCoroutines();
+            Time.timeScale = 1.0f;
+            m_playerInput.enabled = true;
+            m_gameOverGroup.interactable = false;
+            m_gameOverGroup.blocksRaycasts = false;
+            StartCoroutine(GameOverUIFade(false));
         }
 
         public void RestartLevel()
@@ -47,20 +57,39 @@ namespace GameUI
             m_sceneController.ExitGame();
         }
 
-        private IEnumerator GameOverUIFade()
+        private IEnumerator GameOverUIFade(bool fadeIn)
         {
             bool currentlyFading = true;
-            while (currentlyFading)
+            if (fadeIn)
             {
-                m_gameOverGroup.alpha = Mathf.Lerp(0.0f, 1.0f, m_fadeLerpInterval);
-                m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
-                yield return new WaitForEndOfFrame();
-                if (m_fadeLerpInterval > 1.0f)
+                while (currentlyFading)
                 {
-                    m_gameOverGroup.alpha = 1.0f;
-                    m_fadeLerpInterval = 0.0f;
-                    currentlyFading = false;
-                    yield return null;
+                    m_gameOverGroup.alpha = Mathf.Lerp(0.0f, 1.0f, m_fadeLerpInterval);
+                    m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
+                    yield return new WaitForEndOfFrame();
+                    if (m_fadeLerpInterval > 1.0f)
+                    {
+                        m_gameOverGroup.alpha = 1.0f;
+                        m_fadeLerpInterval = 0.0f;
+                        currentlyFading = false;
+                        yield return null;
+                    }
+                }
+            }
+            else
+            {
+                while (currentlyFading)
+                {
+                    m_gameOverGroup.alpha = Mathf.Lerp(1.0f, 0.0f, m_fadeLerpInterval);
+                    m_fadeLerpInterval += m_fadeLerpSpeed * Time.unscaledDeltaTime;
+                    yield return new WaitForEndOfFrame();
+                    if (m_fadeLerpInterval > 1.0f)
+                    {
+                        m_gameOverGroup.alpha = 0.0f;
+                        m_fadeLerpInterval = 0.0f;
+                        currentlyFading = false;
+                        yield return null;
+                    }
                 }
             }
         }

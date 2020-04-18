@@ -66,6 +66,20 @@ namespace AI.KnowledgeBase
             get { return m_environmentObjectMoved; }
         }
 
+        public void ResetKnowledge()
+        {
+            m_playerTransform = null;
+            m_playerSuspicion = false;
+            m_playerHiding = false;
+            m_noiseHeard = false;
+            m_environmentObjectMoved = false;
+            m_environmentObjects.Clear();
+            m_environmentObjectsMap.Clear();
+            m_currentNoiseForgetTime = 0.0f;
+            m_currentPlayerForgetTime = 0.0f;
+            m_currentEnvironmentMovedForgetTime = 0.0f;
+    }
+
         public void SetNoisePosition(Vector3 noisePosition)
         {
             m_noisePosition = noisePosition;

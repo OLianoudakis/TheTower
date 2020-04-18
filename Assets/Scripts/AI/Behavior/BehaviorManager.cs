@@ -215,8 +215,8 @@ namespace AI.Behavior
 
                             // OPTION 1, take into account only those that personality cares about
                             newDistance += Mathf.Abs(currentDesires[i] - gain);
-                            Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
-                                + currentDesires[i].ToString() + " " + gain.ToString() + " " + newDistance.ToString());
+                           // Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
+                           //     + currentDesires[i].ToString() + " " + gain.ToString() + " " + newDistance.ToString());
                         }
 
                         // OPTION 2, take into account every motivation gain

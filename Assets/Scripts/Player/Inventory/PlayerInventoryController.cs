@@ -49,6 +49,15 @@ namespace Player.Inventory
             return requestedQuantity;
         }
 
+        public Item SearchForItem(ItemType requestedItemType)
+        {
+            if (m_inventory.ContainsKey(requestedItemType) && m_inventory[requestedItemType].m_quantity > 0)
+            {
+                return m_inventory[requestedItemType];
+            }
+            return null;
+        }
+
         private void Awake()
         {
             m_inventoryGroup = FindObjectOfType(typeof(InventoryGroup)) as InventoryGroup;

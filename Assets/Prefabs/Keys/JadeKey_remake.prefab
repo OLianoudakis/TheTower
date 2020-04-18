@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510551279017888676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01129, z: -0.00668}
+  m_LocalPosition: {x: 0, y: -0.0053, z: -0.00668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3958509185629071612}
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1510551279455491607}
   - component: {fileID: 1510551279455491604}
   - component: {fileID: 6167385772665126004}
+  - component: {fileID: 6299134827653144580}
   m_Layer: 16
   m_Name: JadeKey_remake
   m_TagString: Interactible
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958509185629238492}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 11.733006, y: 1.9105787, z: -44.112316}
   m_LocalScale: {x: 250, y: 250, z: 250}
   m_Children:
@@ -67,7 +68,7 @@ Transform:
   - {fileID: 438309324327417601}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &3958509185632495836
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_tutorialManager: {fileID: 0}
   m_repeatedInfoText: {fileID: 0}
   m_messages:
-  - m_note: A stone key!
+  - m_note: A Jade Key!
     m_givesItem: {fileID: 11400000, guid: 5de89520b5c9a0645b86e2308a287bee, type: 2}
     m_givesItemQuantity: 1
     m_requiresItem: {fileID: 0}
@@ -178,6 +179,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0014089376
   m_Center: {x: 0, y: 0.00064160064, z: -0.0000000020045259}
+--- !u!65 &6299134827653144580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3958509185629238492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0010611395, y: 0.0028178752, z: 0.00020000059}
+  m_Center: {x: -0.000000022351742, y: 0.00064160064, z: -0.0000000020045259}
 --- !u!1001 &438309324327010429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,15 +297,15 @@ PrefabInstance:
       objectReference: {fileID: 4300000, guid: 4009cba106d20f748ab650a274328adc, type: 3}
     - target: {fileID: 19847806, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}
       propertyPath: ShapeModule.m_Scale.y
-      value: 6.74
+      value: 21.25
       objectReference: {fileID: 0}
     - target: {fileID: 19847806, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}
       propertyPath: ShapeModule.m_Position.y
-      value: 2.15
+      value: 5.59
       objectReference: {fileID: 0}
     - target: {fileID: 19847806, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 2.77
+      value: 3.48
       objectReference: {fileID: 0}
     - target: {fileID: 19847806, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}
       propertyPath: ShapeModule.radiusThickness
@@ -300,6 +314,10 @@ PrefabInstance:
     - target: {fileID: 19847806, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}
       propertyPath: SubModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19847806, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f1e1f1177f76d499251acb5b14b63a, type: 3}

@@ -58,6 +58,11 @@ namespace Environment.InteractibleBehaviors
             return m_messages.Length;
         }
 
+        public void ResetMessages()
+        {
+            m_currentMessage = 0;
+        }
+
         public void ShowNextMessage()
         {
             if (m_currentMessage >= m_messages.Length)

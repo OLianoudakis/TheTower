@@ -43,6 +43,24 @@ namespace Environment
             return m_TransformsInDistance.Find(x => x == enemyTransform);
         }
 
+        public void ReactivateBehavior()
+        {
+            this.enabled = true;
+            if (m_meshHighlighter)
+            {
+                m_meshHighlighter.permanentHighlight = true;
+                m_meshHighlighter.HighlightMesh(true);
+                m_meshHighlighter.enabled = true;
+            }
+            if (m_groupMeshHighlighter)
+            {
+                m_groupMeshHighlighter.permanentHighlight = true;
+                m_groupMeshHighlighter.HighlightMesh(true);
+                m_groupMeshHighlighter.enabled = true;
+            }
+            m_isActive = true;
+        }
+
         public void DeactivateBehavior(bool permanent)
         {
             if (permanent)

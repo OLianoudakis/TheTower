@@ -21,7 +21,7 @@ namespace Player.StateHandling.Interact
 
         private void OnEnable()
         {
-            m_animator.SetInteger("AnimState", 0);
+            m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimIdle);
 
             if (m_interactibleDetector.interactible)
             {

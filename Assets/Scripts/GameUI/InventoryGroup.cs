@@ -31,6 +31,7 @@ namespace GameUI
 
         public void KeyUI(ItemType itemType, int quantity)
         {
+            StopAllCoroutines();
             bool fadeIn = quantity == 0 ? false : true;
             switch (itemType)
             {
