@@ -46,7 +46,7 @@ namespace AI.Behavior.MotivationActions.Actions
                                     new Action(RestoreObjectTransform)
                                 ),
                                 new Wait(m_restoreObjectTime),
-                                new Action(ForgetMovedObject)
+                                new Action(EnableInterrupt)
                             )
                         ),
                         new WaitUntilStopped(true)
@@ -110,14 +110,12 @@ namespace AI.Behavior.MotivationActions.Actions
             // m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerMoveObject);
             Movable movable = m_behaviorTree.Blackboard.Get("movedObject") as Movable;
             movable.ResetChanges();
-            
+            m_knowledgeBase.EnvironmentObjectPositionRestored(movable);
             m_behaviorTree.Blackboard.Unset("movablePosition");
         }
 
-        private void ForgetMovedObject()
+        private void EnableInterrupt()
         {
-            Movable movable = m_behaviorTree.Blackboard.Get("movedObject") as Movable;
-            m_knowledgeBase.EnvironmentObjectPositionRestored(movable);
             m_motivationActionProperties.canInterrupt = true;
         }
 

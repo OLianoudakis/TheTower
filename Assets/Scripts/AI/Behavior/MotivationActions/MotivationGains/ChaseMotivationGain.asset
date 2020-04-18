@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_motivationDesiresGain:
   - m_motivationDesire: 0
-    m_value: 0.5
+    m_value: 0.3
   - m_motivationDesire: 1
-    m_value: 0.1
+    m_value: 0
   - m_motivationDesire: 2
     m_value: 0
   - m_motivationDesire: 3
@@ -24,11 +24,11 @@ MonoBehaviour:
   - m_motivationDesire: 4
     m_value: 0.5
   - m_motivationDesire: 5
-    m_value: 0.3
+    m_value: 0
   - m_motivationDesire: 6
     m_value: 0
   - m_motivationDesire: 7
-    m_value: 0.3
+    m_value: 0.4
   - m_motivationDesire: 8
     m_value: 0.4
   - m_motivationDesire: 9
@@ -40,8 +40,8 @@ MonoBehaviour:
   - m_motivationDesire: 12
     m_value: 0
   - m_motivationDesire: 13
-    m_value: 0
+    m_value: 0.1
   - m_motivationDesire: 14
     m_value: 0
   - m_motivationDesire: 15
-    m_value: 0.3
+    m_value: 0.2

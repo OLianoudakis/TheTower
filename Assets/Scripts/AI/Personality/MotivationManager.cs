@@ -12,9 +12,11 @@ namespace AI.Personality
         private float[] m_currentMotivationWeights;
         private float[] m_currentFullfilment;
         private int m_mostSignificantMotivation;
+        private bool m_updateCurrentMotivation;
 
-        public MotivationManager(PersonalityModel personalityModel)
+        public MotivationManager(PersonalityModel personalityModel, bool updateCurrentMotivation = false)
         {
+            m_updateCurrentMotivation = updateCurrentMotivation;
             m_targetMotivation = new float[personalityModel.m_targetMotivations.Length];
             m_currentFullfilment = new float[personalityModel.m_targetMotivations.Length];
             m_baseMotivationWeights = new float[personalityModel.m_targetMotivations.Length];
@@ -46,7 +48,6 @@ namespace AI.Personality
         {
             float mostSignificantMotivationValue = 0.0f;
             float[] currentDesires = new float[16];
-            motivationWeights = new float[16];
             for (int i = 0; i < currentDesires.Length; i++)
             {
                 float weight = m_baseMotivationWeights[i];
@@ -69,10 +70,15 @@ namespace AI.Personality
                     }
                 }
                 m_currentMotivationWeights[i] = weight;
-                motivationWeights[i] = weight;
-                //currentDesires[i] = (m_targetMotivation[i] - m_currentFullfilment[i]) * weight;
-                // TODO: this is just TEST, maybe not use current fullfilment, as time goes quickly here
-                currentDesires[i] = m_targetMotivation[i] * weight;
+                if (m_updateCurrentMotivation)
+                {
+                    currentDesires[i] = (m_targetMotivation[i] - m_currentFullfilment[i]) * weight;
+                }
+                else
+                {
+                    currentDesires[i] = m_targetMotivation[i] * weight;
+                }
+
                 if (currentDesires[i] > mostSignificantMotivationValue)
                 {
                     mostSignificantMotivationValue = currentDesires[i];
@@ -85,40 +91,61 @@ namespace AI.Personality
                 mostSignificantMotivation = m_mostSignificantMotivation;
                 mostSignificantMotivationValue = m_targetMotivation[m_mostSignificantMotivation];
             }
-
+            motivationWeights = m_currentMotivationWeights;
             return currentDesires;
         }
 
-        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate, float motivationDecreaseRate)
+        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate)
         {
-            if (motivationGain != null)
+            if (m_updateCurrentMotivation)
             {
-                for (int i = 0; i < m_currentFullfilment.Length; i++)
+                if (motivationGain != null)
                 {
-                    // dont add up to motivation if already full
-                    if (m_currentFullfilment[i] < (m_targetMotivation[i] - 0.05f))
+                    for (int i = 0; i < m_currentFullfilment.Length; i++)
                     {
-                        m_currentFullfilment[i] += (motivationGain[i] * m_currentMotivationWeights[i] * motivationGainRate);
-                    }
-                    // also decrease motivation over time (but not to negative values)
-                    m_currentFullfilment[i] -= (motivationDecreaseRate * m_currentMotivationWeights[i] * motivationGainRate);
-                    if (m_currentFullfilment[i] < 0.0f)
-                    {
-                        m_currentFullfilment[i] = 0.0f;
+                        // only care about non-zero motivations
+                        if (m_targetMotivation[i] != 0.0f)
+                        {
+                            // TODO this works only if target motivation is always >= 0.0f, to extend the model for negative values
+                            // aditional case is needed
+
+                            // dont add up to motivation if already full
+                            if (m_currentFullfilment[i] < (m_targetMotivation[i] - 0.05f))
+                            {
+                                m_currentFullfilment[i] += (motivationGain[i] * m_currentMotivationWeights[i] * motivationGainRate);
+                            }
+                            // else decrease motivation over time (but not to negative values), if current action has no gain for this motivation desire
+                            if (motivationGain[i] <= 0.0f)
+                            {
+                                m_currentFullfilment[i] -= (m_currentMotivationWeights[i] * motivationGainRate);
+                                if (m_currentFullfilment[i] < 0.0f)
+                                {
+                                    m_currentFullfilment[i] = 0.0f;
+                                }
+                            }
+                        }
                     }
                 }
-            }
-            else
-            {
-                // decrease current motivation even if theres no gain currently
-                for (int i = 0; i < m_currentFullfilment.Length; i++)
-                {
-                    m_currentFullfilment[i] -= (motivationDecreaseRate * motivationGainRate);
-                    if (m_currentFullfilment[i] < 0.0f)
-                    {
-                        m_currentFullfilment[i] = 0.0f;
-                    }
-                }
+                // TODO: for now, do nothing if no motivation gain attached, theres no situation of that happening so far
+                //else
+                //{
+                //    // TODO this works only if target motivation is always >= 0.0f, to extend the model for negative values
+                //    // aditional case is needed
+
+                //    // decrease current motivation even if theres no gain currently
+                //    for (int i = 0; i < m_currentFullfilment.Length; i++)
+                //    {
+                //        // only care about non-zero motivations
+                //        if ((m_targetMotivation[i] != 0.0f))
+                //        {
+                //            m_currentFullfilment[i] -= (m_currentMotivationWeights[i] * motivationGainRate);
+                //            if (m_currentFullfilment[i] < 0.0f)
+                //            {
+                //                m_currentFullfilment[i] = 0.0f;
+                //            }
+                //        }
+                //    }
+                //}
             }
         }
     }

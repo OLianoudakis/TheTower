@@ -32,20 +32,24 @@ namespace AI.Behavior.MotivationActions
                 new MotivationValueEntry(MotivationDesires.Vengeance, 0.0f)
             };
 
-        private float[] m_gainAsArray;
+        private float[] m_gainAsArray = null;
 
         public float[] gainAsArray
         {
-            get { return m_gainAsArray; }
-            set { m_gainAsArray = value; }
-        }
-
-        private void Awake()
-        {
-            m_gainAsArray = new float[m_motivationDesiresGain.Length];
-            for (int i = 0; i < m_motivationDesiresGain.Length; i++)
+            get
             {
-                m_gainAsArray[i] = m_motivationDesiresGain[i].m_value;
+                // TODO somehow this doesnt work, the m_gainAsArray gets miraculously initialized
+                // for now everytime this gets called the array is transformed, this should be refactored if possible
+                //if (m_gainAsArray != null)
+                //{
+                //    return m_gainAsArray;
+                //}
+                float[] gainAsArray = new float[m_motivationDesiresGain.Length];
+                for (int i = 0; i < m_motivationDesiresGain.Length; i++)
+                {
+                    gainAsArray[i] = m_motivationDesiresGain[i].m_value;
+                }
+                return gainAsArray;
             }
         }
     }

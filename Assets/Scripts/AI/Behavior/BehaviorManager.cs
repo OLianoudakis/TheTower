@@ -21,6 +21,9 @@ namespace AI.Behavior
         private float m_motivationNegativeInfluenceThreshold = 0.1f;
 
         [SerializeField]
+        private bool m_useOnlyPositiveMotivations = true;
+
+        [SerializeField]
         private float m_behaviorUpdateCooldown = 0.0f;
 
         private float m_currentBehaviorCooldown = 0.0f;
@@ -151,32 +154,12 @@ namespace AI.Behavior
                     MotivationActionProperties motivationAction = action.GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
                     if (motivationAction)
                     {
-                        // TODO probably remove, not needed 
-                        //MotivationGain newMotivationGain = ScriptableObject.CreateInstance(typeof(MotivationGain)) as MotivationGain;
-                        //newMotivationGain.m_motivationDesiresGain = motivationAction.motivationGain.m_motivationDesiresGain;
-                        //newMotivationGain.gainAsArray = motivationAction.motivationGain.gainAsArray;
-                        //motivationAction.motivationGain = newMotivationGain;
-
                         m_motivationActionProperties.Add(motivationAction);
                     }
                 }
             }
             m_emotionalProperties = GetComponentInChildren(typeof(EmotionalActionProperties)) as EmotionalActionProperties;
             m_currentBehaviorCooldown = m_behaviorUpdateCooldown;
-        }
-
-        private void Start()
-        {
-            // TODO probably remove, scaling by weights can be done while searching for action
-            // scale down the motivation gains by the weights given the personality
-            //float[] motivationWeights = m_personalityManager.GetMotivationWeights();
-            //foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
-            //{
-            //    for (int i = 0; i < motivationWeights.Length; i++)
-            //    {
-            //        motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value *= Mathf.Abs(motivationWeights[i]);
-            //    }
-            //}
         }
 
         private MotivationActionProperties ChooseMotivationAction()
@@ -191,7 +174,6 @@ namespace AI.Behavior
             if (m_usePersonalityModel)
             {
                 currentDesires = m_personalityManager.GetCurrentDesires(ref mostSignificantMotivation, ref motivationWeights);
-                //motivationWeights = m_personalityManager.GetMotivationWeights();
             }
             foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
             {
@@ -202,27 +184,22 @@ namespace AI.Behavior
                     {
                         // for the gain that is too strong, but is of valid motivation type, dont punish that harshly
                         float gain = motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value;
-                        // OPTION A, double down the overreach
-                        //if (currentDesires[i] > 0.0f && ((currentDesires[i] - gain < 0.0f)))
-                        //{
-                        //    float gainOverReach = -1.0f * (currentDesires[i] - gain);
-                        //    gain -= gainOverReach / 2.0f;
-                        //}
-                        // OPTION B, employ weight given by personality traits
-                        if (currentDesires[i] > 0.0f)
+                        gain *= motivationWeights[i];
+                        // OPTION 1, take into account only those that personality cares about
+                        if (m_useOnlyPositiveMotivations)
                         {
-                            gain *= motivationWeights[i];
-
-                            // OPTION 1, take into account only those that personality cares about
-                            newDistance += Mathf.Abs(currentDesires[i] - gain);
-                           // Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
-                           //     + currentDesires[i].ToString() + " " + gain.ToString() + " " + newDistance.ToString());
+                            if (currentDesires[i] > 0.0f)
+                            {
+                                newDistance += Mathf.Abs(currentDesires[i] - gain);
+                            }
                         }
-
                         // OPTION 2, take into account every motivation gain
-                        //newDistance += Mathf.Abs(currentDesires[i] - gain);
-                        //Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
-                        //    + currentDesires[i].ToString() + " " + newDistance.ToString());
+                        else
+                        {
+                            newDistance += Mathf.Abs(currentDesires[i] - gain);
+                        }
+                        Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
+                            + currentDesires[i].ToString() + " " + newDistance.ToString());
                     }
 
                     float significance = motivationActionProperties.motivationGain.m_motivationDesiresGain[mostSignificantMotivation].m_value;

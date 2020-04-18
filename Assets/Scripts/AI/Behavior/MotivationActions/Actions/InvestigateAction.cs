@@ -15,13 +15,15 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
-        KnowledgeBase.KnowledgeBase m_knowledgeBase;
-        NavMeshAgent m_navMeshAgent;
+        private KnowledgeBase.KnowledgeBase m_knowledgeBase;
+        private NavMeshAgent m_navMeshAgent;
+        private MotivationActionProperties m_motivationActionProperties;
 
         private void Awake()
         {
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
+            m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
             Create();
         }
 
@@ -79,6 +81,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 return;
             }
             m_behaviorTree.Blackboard.Set("newPointOfInterest", false);
+            m_motivationActionProperties.canInterrupt = true;
         }
 
         private void OnEnable()
@@ -90,6 +93,7 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
                 m_navMeshAgent.isStopped = false;
+                m_motivationActionProperties.canInterrupt = false;
                 m_behaviorTree.Start();
             }
         }
@@ -99,8 +103,10 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_actionInitialized && m_behaviorTree.IsActive)
             {
                 m_behaviorTree.Blackboard.Set("newPointOfInterest", false);
+                m_behaviorTree.Blackboard.Unset("nextPosition");
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;
+                m_motivationActionProperties.canInterrupt = true;
                 m_navMeshAgent.ResetPath();
             }
             else

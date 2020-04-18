@@ -41,10 +41,13 @@ namespace AI.Behavior.MotivationActions.Actions
         {
             m_cooldown += Time.deltaTime;
             // update position every second so enemy doesnt get stuck
-            if (m_knowledgeBase.playerTransform && m_cooldown >= 0.5f)
+            if (m_knowledgeBase.playerTransform)
             {
-                m_cooldown = 0.0f;
-                m_navMeshAgent.SetDestination(m_knowledgeBase.playerTransform.position);
+                if (m_cooldown >= 0.5f)
+                {
+                    m_cooldown = 0.0f;
+                    m_navMeshAgent.SetDestination(m_knowledgeBase.playerTransform.position);
+                }
             }
             else
             {
