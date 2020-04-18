@@ -23,5 +23,14 @@ namespace AI.Perception
                 m_knowledgeBase.NoiseHeard(other.transform.position);
             }
         }
+
+        private void OnTriggerStay(Collider other)
+        {
+            Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
+            if (movableObject && movableObject.isMakingNoise)
+            {
+                m_knowledgeBase.NoiseHeard(other.transform.position);
+            }
+        }
     }
 }

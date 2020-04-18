@@ -48,7 +48,7 @@ namespace AI.Behavior.Trees.Tasks
                 }
                 m_pointOfInterest = (Vector3)Blackboard.Get(m_pointOfInterestBlackboardKey);
             }
-            int layerMask = LayerMask.GetMask("Walls");
+            int layerMask = LayerMask.GetMask("Default", "Default2");
             Vector3[] positions = new Vector3[m_numberOfPoints];
             int index = 0;
             for (int i = 0; i < m_numberOfPoints; i++)
@@ -66,7 +66,9 @@ namespace AI.Behavior.Trees.Tasks
                         // check if the investigation point is not on the other side of wall
                         Vector3 direction = randomPoint - m_pointOfInterest;
                         RaycastHit raycastHit;
-                        if (!Physics.Raycast(m_pointOfInterest, direction, out raycastHit, direction.magnitude, layerMask))
+                        // TODO find better solution then using random number
+                        // using 3.0f height here to ignore furniture and floor, but not walls
+                        if (!Physics.Raycast(new Vector3(m_pointOfInterest.x, 3.0f, m_pointOfInterest.z), direction, out raycastHit, direction.magnitude, layerMask))
                         {
                             positions[index++] = hit.position;
                             break;

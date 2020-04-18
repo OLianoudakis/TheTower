@@ -20,10 +20,14 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void Awake()
         {
-            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
+            Create();
+        }
 
+        private void Create()
+        {
+            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
@@ -79,7 +83,11 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnEnable()
         {
-            if (m_actionInitialized)
+            if (m_behaviorTree.IsStopRequested)
+            {
+                Create();
+            }
+            if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
                 m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
@@ -88,7 +96,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnDisable()
         {
-            if (m_actionInitialized)
+            if (m_actionInitialized && m_behaviorTree.IsActive)
             {
                 m_behaviorTree.Blackboard.Set("newPointOfInterest", false);
                 m_behaviorTree.Stop();

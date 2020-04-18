@@ -10,7 +10,7 @@ namespace AI.Behavior.MotivationActions.Actions
     public class RestoreObjectTransformAction : MonoBehaviour
     {
         [SerializeField]
-        private float m_restoreObjectTime = 3.0f;
+        private float m_restoreObjectTime = 2.0f;
 
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private NavMeshAgent m_navMeshAgent;
@@ -25,27 +25,38 @@ namespace AI.Behavior.MotivationActions.Actions
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
+            Create();
+        }
 
+        private void Create()
+        {
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
                 new Sequence
                 (
                     new Action(LocateMovedObject),
-                    new BlackboardCondition("movablePosition", Operator.IS_SET, true, Stops.NONE,
-                        new Sequence
-                        (
-                            new Action(MoveTo),
-                            new WaitForCondition(IsOnSpot,
-                                new Action(RestoreObjectTransform)
-                            ),
-                            new Wait(m_restoreObjectTime),
-                            new Action(ForgetMovedObject),
-                            new WaitUntilStopped()
-                        )
+                    new Selector
+                    (
+                        new BlackboardCondition("movablePosition", Operator.IS_SET, true, Stops.NONE,
+                            new Sequence
+                            (
+                                new Action(MoveTo),
+                                new WaitForCondition(IsOnSpot,
+                                    new Action(RestoreObjectTransform)
+                                ),
+                                new Wait(m_restoreObjectTime),
+                                new Action(ForgetMovedObject)
+                            )
+                        ),
+                        new WaitUntilStopped(true)
                     )
                 )
             );
+#if UNITY_EDITOR
+            Debugger debugger = (Debugger)this.gameObject.AddComponent(typeof(Debugger));
+            debugger.BehaviorTree = m_behaviorTree;
+#endif
         }
 
         private void LocateMovedObject()
@@ -112,7 +123,11 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnEnable()
         {
-            if (m_actionInitialized)
+            if (m_behaviorTree.IsStopRequested)
+            {
+                Create();
+            }
+            if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
                 m_navMeshAgent.isStopped = false;
                 m_motivationActionProperties.canInterrupt = false;
@@ -122,7 +137,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnDisable()
         {
-            if (m_actionInitialized)
+            if (m_actionInitialized && m_behaviorTree.IsActive)
             {
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;

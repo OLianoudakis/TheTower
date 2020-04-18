@@ -62,7 +62,10 @@ namespace Environment.InteractibleBehaviors
                             {
                                 rigidbody.isKinematic = false;
                                 rigidbody.useGravity = true;
-                                rigidbody.AddForce(new Vector3(0.5f, 0.5f, 0.5f) * 100.0f);
+                                Vector3 force = Random.insideUnitSphere;
+                                // dont allow negative y force
+                                force.y = Mathf.Abs(force.y);
+                                rigidbody.AddForce(Random.insideUnitSphere * 150.0f);
                             }
                         }
                     }
@@ -73,10 +76,13 @@ namespace Environment.InteractibleBehaviors
             {
                 foreach (Transform child in transform)
                 {
-                    Movable movable = child.GetComponent(typeof(Movable)) as Movable;
-                    if (movable && movable.HasTransformChanged())
+                    if (child.gameObject.activeInHierarchy)
                     {
-                        return;
+                        Movable movable = child.GetComponent(typeof(Movable)) as Movable;
+                        if (movable && movable.HasTransformChanged())
+                        {
+                            return;
+                        }
                     }
                 }
                 m_interactible.RestartBehavior();

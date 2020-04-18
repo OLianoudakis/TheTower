@@ -86,6 +86,7 @@ namespace Environment
                 m_currentSoundTransimissionTime += Time.deltaTime;
                 if (m_currentSoundTransimissionTime >= m_soundTransimissionTime)
                 {
+                    m_currentSoundTransimissionTime = 0.0f;
                     m_isMakingNoise = false;
                 }
             }

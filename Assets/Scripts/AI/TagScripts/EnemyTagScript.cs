@@ -24,12 +24,12 @@ namespace AI.EmptyClass
             m_light = GetComponentInChildren(typeof(Light)) as Light;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (other.transform.parent && (other.transform.parent.name.Equals("Floor")) && LayerMask.LayerToName(other.transform.gameObject.layer).Contains("Default"))
+            if (collision.transform.parent && (collision.transform.parent.name.Equals("Floor")) && LayerMask.LayerToName(collision.transform.gameObject.layer).Contains("Default"))
             {
                 m_light.cullingMask &= ~(1 << m_currentDefaultLayer);
-                m_currentDefaultLayer = other.transform.gameObject.layer;
+                m_currentDefaultLayer = collision.transform.gameObject.layer;
                 m_light.cullingMask |= (1 << m_currentDefaultLayer);
             }
         }

@@ -27,11 +27,10 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            EnemyTagScript enemyTag = collision.collider.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
+            EnemyTagScript enemyTag = collision.gameObject.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
-                string currentSceneName = SceneManager.GetActiveScene().name;
-                SceneManager.LoadScene(currentSceneName);
+                m_gameOverController.ShowGameOver();
             }
         }
     }

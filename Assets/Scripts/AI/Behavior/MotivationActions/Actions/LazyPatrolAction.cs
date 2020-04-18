@@ -40,6 +40,11 @@ namespace AI.Behavior.MotivationActions.Actions
             m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_sittableObjects = FindObjectsOfType(typeof(Sittable)) as Sittable[];
             m_textMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
+            Create();
+        }
+
+        private void Create()
+        {
             MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
 
             m_behaviorTree = new Root();
@@ -134,7 +139,11 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnEnable()
         {
-            if (m_actionInitialized)
+            if (m_behaviorTree.IsStopRequested)
+            {
+                Create();
+            }
+            if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
                 m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
@@ -143,7 +152,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnDisable()
         {
-            if (m_actionInitialized)
+            if (m_actionInitialized && m_behaviorTree.IsActive)
             {
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;

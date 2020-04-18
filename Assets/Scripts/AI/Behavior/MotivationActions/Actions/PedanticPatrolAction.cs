@@ -32,11 +32,15 @@ namespace AI.Behavior.MotivationActions.Actions
         private void Awake()
         {
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
-            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_movableObjects = FindObjectsOfType(typeof(Movable)) as Movable[];
+            Create();
+        }
+
+        private void Create()
+        {
+            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             FloatingTextBehavior floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
             MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
-
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
@@ -61,7 +65,7 @@ namespace AI.Behavior.MotivationActions.Actions
             Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
             for (int i = 1; i < tempPoints.Length; i++)
             {
-                patrolPoints[i-1] = tempPoints[i];
+                patrolPoints[i - 1] = tempPoints[i];
             }
             m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
@@ -98,7 +102,11 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnEnable()
         {
-            if (m_actionInitialized)
+            if (m_behaviorTree.IsStopRequested)
+            {
+                Create();
+            }
+            if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
                 m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
@@ -107,7 +115,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnDisable()
         {
-            if (m_actionInitialized)
+            if (m_actionInitialized && m_behaviorTree.IsActive)
             {
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;

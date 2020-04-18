@@ -37,11 +37,15 @@ namespace AI.Behavior.MotivationActions.Actions
         private void Awake()
         {
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
-            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_shareKnowledge = transform.parent.parent.GetComponentInChildren(typeof(ShareKnowledge)) as ShareKnowledge;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
             m_motivationActionProperties = GetComponent(typeof(MotivationActionProperties)) as MotivationActionProperties;
+            Create();
+        }
 
+        private void Create()
+        {
+            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_behaviorTree = new Root();
             m_behaviorTree.Create
             (
@@ -110,7 +114,11 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnEnable()
         {
-            if (m_actionInitialized)
+            if (m_behaviorTree.IsStopRequested)
+            {
+                Create();
+            }
+            if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
                 m_shareKnowledge.Enable();
                 m_navMeshAgent.isStopped = false;
@@ -123,7 +131,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void OnDisable()
         {
-            if (m_actionInitialized)
+            if (m_actionInitialized && m_behaviorTree.IsActive)
             {
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;

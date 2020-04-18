@@ -48,6 +48,11 @@ namespace AI.Behavior.Trees
                 if (patrolPointsObj.GetType() == typeof(Transform[]))
                 {
                     Transform[] patrolPoints = patrolPointsObj as Transform[];
+                    // if the patrol points were recalculated, the index might have gone obsolete, check
+                    if (m_currentPatrolPoint >= patrolPoints.Length)
+                    {
+                        m_currentPatrolPoint = 0;
+                    }
                     m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint].position);
                     if (++m_currentPatrolPoint >= patrolPoints.Length)
                     {
@@ -57,6 +62,11 @@ namespace AI.Behavior.Trees
                 else if (patrolPointsObj.GetType() == typeof(Vector3[]))
                 {
                     Vector3[] patrolPoints = patrolPointsObj as Vector3[];
+                    // if the patrol points were recalculated, the index might have gone obsolete, check
+                    if (m_currentPatrolPoint >= patrolPoints.Length)
+                    {
+                        m_currentPatrolPoint = 0;
+                    }
                     m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint]);
                     if (++m_currentPatrolPoint >= patrolPoints.Length)
                     {

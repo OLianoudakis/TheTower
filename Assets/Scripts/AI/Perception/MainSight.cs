@@ -20,7 +20,7 @@ namespace AI.Perception
 
         private void Start()
         {
-            m_layerMask = LayerMask.GetMask("Default", "CrouchPosition", "Player", "Highlight", "Shadows");
+            m_layerMask = LayerMask.GetMask("Default", "Default2", "CrouchPosition", "Player", "Highlight", "Shadows");
             m_collider = transform.parent.parent.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
             SharedAI sharedAI = FindObjectOfType(typeof(SharedAI)) as SharedAI;
             if (sharedAI)
@@ -62,14 +62,53 @@ namespace AI.Perception
                 RaycastHit hit;
                 if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z), out hit))
                 {
+                    // one movable hit
                     if (hit.collider.Equals(other))
                     {
+                        // if it has parent
+                        if(movableObject.transform.parent)
+                        {
+                            // add all objects at once
+                            List<Movable> movedObjectsToUpdate = new List<Movable>();
+                            Movable[] movedObjects = movableObject.transform.parent.GetComponentsInChildren<Movable>();
+                            if (movedObjects != null)
+                            {
+                                foreach (Movable movableChild in movedObjects)
+                                {
+                                    if (movableChild.HasTransformChanged())
+                                    {
+                                        movedObjectsToUpdate.Add(movableChild);
+                                    }
+                                }
+                                m_knowledgeBase.EnvironmentObjectsMoved(movedObjectsToUpdate);
+                            }
+                            return;
+                        }
+                        // else just add the object itself
                         m_knowledgeBase.EnvironmentObjectMoved(movableObject);
                         return;
                     }
-                    // else try to check if its child of the hit object
+                    // else if its object that posses movable children, send all of them at once (for the one level of children)
+                    if (hit.collider.gameObject.Equals(other.transform.parent))
+                    {
+                        List<Movable> movedObjectsToUpdate = new List<Movable>();
+                        Movable[] movables = hit.transform.GetComponentsInChildren<Movable>();
+                        if (movables != null)
+                        {
+                            foreach (Movable movableChild in movables)
+                            {
+                                if (movableChild.HasTransformChanged())
+                                {
+                                    movedObjectsToUpdate.Add(movableChild);
+                                }
+                            }
+                            m_knowledgeBase.EnvironmentObjectsMoved(movedObjectsToUpdate);
+                        }
+                        return;
+                    }
+                    // else try to check if its child of the hit object (any level)
                     Movable movable = hit.transform.GetComponentInChildren(typeof(Movable)) as Movable;
-                    if (movable == movableObject)
+                    if (movable && (movable == movableObject))
                     {
                         m_knowledgeBase.EnvironmentObjectMoved(movableObject);
                     }

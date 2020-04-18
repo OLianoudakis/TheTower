@@ -135,6 +135,26 @@ namespace AI.KnowledgeBase
             }
         }
 
+        public void EnvironmentObjectsMoved(List<Movable> environmentObjects)
+        {
+            if (m_environmentObjects.Count == 0)
+            {
+                m_environmentObjectMoved = true;
+                m_currentEnvironmentMovedForgetTime = 0.0f;
+                Events.Event objectMovedEvent;
+                objectMovedEvent.m_eventType = Events.EventType.EnvironmentObjectMoved;
+                SendEvent(objectMovedEvent);
+            }
+            foreach (Movable environmentObject in environmentObjects)
+            {
+                if (!m_environmentObjectsMap.ContainsKey(environmentObject.GetInstanceID()))
+                {
+                    m_environmentObjects.Add(environmentObject);
+                    m_environmentObjectsMap.Add(environmentObject.GetInstanceID(), true);
+                }
+            }
+        }
+
         public void EnvironmentObjectPositionRestored(Movable environmentObject)
         {
             if (m_environmentObjectsMap.ContainsKey(environmentObject.GetInstanceID()))
@@ -150,12 +170,15 @@ namespace AI.KnowledgeBase
 
         public void NoiseHeard(Vector3 noisePosition)
         {
+            if (!m_noiseHeard)
+            {
+                m_noiseHeard = true;
+                Events.Event noiseHeardEvent;
+                noiseHeardEvent.m_eventType = Events.EventType.NoiseHeard;
+                SendEvent(noiseHeardEvent);
+            }
             m_currentNoiseForgetTime = 0.0f;
-            m_noiseHeard = true;
             m_noisePosition = noisePosition;
-            Events.Event noiseHeardEvent;
-            noiseHeardEvent.m_eventType = Events.EventType.NoiseHeard;
-            SendEvent(noiseHeardEvent);
         }
 
         public void PlayerSpotted(Transform playerTransform)
@@ -275,10 +298,11 @@ namespace AI.KnowledgeBase
             {
                 ForgetPlayerSpotted();
             }
-            if (m_environmentObjectMoved)
-            {
-                ForgetEnvironmentObjectMoved();
-            }
+            // TODO: just a test to not forget about moved objects to not gave up cleaning them up in the middle of action
+            //if (m_environmentObjectMoved)
+            //{
+            //    ForgetEnvironmentObjectMoved();
+            //}
             if (m_noiseHeard)
             {
                 ForgetNoise();
