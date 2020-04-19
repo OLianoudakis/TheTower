@@ -11,16 +11,20 @@ namespace AI.Personality
         private float[] m_baseMotivationWeights;
         private float[] m_currentMotivationWeights;
         private float[] m_currentFullfilment;
+        private float[] m_currentDecreaseCooldown;
+        private float m_decreaseCooldown;
         private int m_mostSignificantMotivation;
         private bool m_updateCurrentMotivation;
 
-        public MotivationManager(PersonalityModel personalityModel, bool updateCurrentMotivation = false)
+        public MotivationManager(PersonalityModel personalityModel, float decreaseCooldown, bool updateCurrentMotivation = false)
         {
+            m_decreaseCooldown = decreaseCooldown;
             m_updateCurrentMotivation = updateCurrentMotivation;
             m_targetMotivation = new float[personalityModel.m_targetMotivations.Length];
             m_currentFullfilment = new float[personalityModel.m_targetMotivations.Length];
             m_baseMotivationWeights = new float[personalityModel.m_targetMotivations.Length];
             m_currentMotivationWeights = new float[personalityModel.m_targetMotivations.Length];
+            m_currentDecreaseCooldown = new float[personalityModel.m_targetMotivations.Length];
             float mostSignificantMotivationValue = 0.0f;
             for (int i = 0; i < m_targetMotivation.Length; i++)
             {
@@ -32,6 +36,7 @@ namespace AI.Personality
                         * personalityModel.m_personalityTraitsValues[j].m_value;
                 }
                 m_currentFullfilment[i] = 0.0f;
+                m_currentDecreaseCooldown[i] = 0.0f;
                 if ((m_targetMotivation[i] * m_baseMotivationWeights[i]) > mostSignificantMotivationValue)
                 {
                     mostSignificantMotivationValue = m_targetMotivation[i];
@@ -95,7 +100,7 @@ namespace AI.Personality
             return currentDesires;
         }
 
-        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate)
+        public void UpdateCurrentMotivations(float[] motivationGain, float motivationGainRate, float motivationDecreaseRate)
         {
             if (m_updateCurrentMotivation)
             {
@@ -110,17 +115,31 @@ namespace AI.Personality
                             // aditional case is needed
 
                             // dont add up to motivation if already full
-                            if (m_currentFullfilment[i] < (m_targetMotivation[i] - 0.05f))
+                            if (motivationGain[i] > 0.0f)
                             {
-                                m_currentFullfilment[i] += (motivationGain[i] * m_currentMotivationWeights[i] * motivationGainRate);
-                            }
-                            // else decrease motivation over time (but not to negative values), if current action has no gain for this motivation desire
-                            if (motivationGain[i] <= 0.0f)
-                            {
-                                m_currentFullfilment[i] -= (m_currentMotivationWeights[i] * motivationGainRate);
-                                if (m_currentFullfilment[i] < 0.0f)
+                                if (m_currentFullfilment[i] < m_targetMotivation[i])
                                 {
-                                    m_currentFullfilment[i] = 0.0f;
+                                    m_currentDecreaseCooldown[i] = 0.0f;
+                                    m_currentFullfilment[i] += (motivationGain[i] * m_currentMotivationWeights[i] * motivationGainRate);
+                                }
+                            }
+                            else
+                            {
+                                // else, if the current fullfillment is not zero, reset it to zero after decrease cooldown time
+                                if (m_currentFullfilment[i] > 0.0f)
+                                {
+                                    m_currentDecreaseCooldown[i] += motivationDecreaseRate;
+                                    if (m_currentDecreaseCooldown[i] >= m_decreaseCooldown)
+                                    {
+                                        m_currentFullfilment[i] = 0.0f;
+                                    }
+                                    // OLD approach
+                                    // else decrease motivation over time (but not to negative values), if current action has no gain for this motivation desire
+                                    //m_currentFullfilment[i] -= (0.01f * m_currentMotivationWeights[i] * motivationGainRate);
+                                    //if (m_currentFullfilment[i] < 0.0f)
+                                    //{
+                                    //    m_currentFullfilment[i] = 0.0f;
+                                    //}
                                 }
                             }
                         }

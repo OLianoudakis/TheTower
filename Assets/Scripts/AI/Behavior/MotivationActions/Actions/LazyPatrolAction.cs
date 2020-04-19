@@ -14,7 +14,7 @@ namespace AI.Behavior.MotivationActions.Actions
         PersonalityType m_personalityType;
 
         [SerializeField]
-        private GameObject m_patrolPointsGroup;
+        private PatrolGroupManager m_patrolGroupManager;
 
         [SerializeField]
         private float m_waitTimeAtPatrolPoints = 3.0f;
@@ -25,7 +25,11 @@ namespace AI.Behavior.MotivationActions.Actions
         [SerializeField]
         private float m_sittingTime = 10.0f;
 
+        [SerializeField]
+        private float m_moveSpeed = 2.5f;
+
         private float m_staminaCooldown = 0.0f;
+        private float m_previousMoveSpeed;
         private bool m_actionInitialized = false;
         private bool m_isStaminaEmpty = false;
         private Root m_behaviorTree;
@@ -71,13 +75,8 @@ namespace AI.Behavior.MotivationActions.Actions
                     )
                 )
             );
-            Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
-            Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
-            for (int i = 1; i < tempPoints.Length; i++)
-            {
-                patrolPoints[i - 1] = tempPoints[i];
-            }
-            m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
+
+            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolGroupManager.patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("sittingTime", m_sittingTime);
             m_behaviorTree.Blackboard.Set("atPatrolPointAnimation", AnimationConstants.AnimButtlerYawn);
@@ -145,7 +144,10 @@ namespace AI.Behavior.MotivationActions.Actions
             }
             if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
+                m_behaviorTree.Blackboard.Set("patrolPointsIndex", m_patrolGroupManager.index);
                 m_navMeshAgent.isStopped = false;
+                m_previousMoveSpeed = m_navMeshAgent.speed;
+                m_navMeshAgent.speed = m_moveSpeed;
                 m_behaviorTree.Start();
             }
         }
@@ -157,6 +159,8 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;
                 m_navMeshAgent.ResetPath();
+                m_navMeshAgent.speed = m_previousMoveSpeed;
+                m_patrolGroupManager.index = (int)m_behaviorTree.Blackboard.Get("patrolPointsIndex");
                 m_behaviorTree.Blackboard.Unset("rotationDifference");
                 m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             }

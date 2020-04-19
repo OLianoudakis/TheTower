@@ -182,6 +182,7 @@ namespace AI.Behavior
                     float newDistance = 0.0f;
                     for (int i = 0; i < motivationActionProperties.motivationGain.m_motivationDesiresGain.Length; i++)
                     {
+                        float tmpDist = newDistance; // this is just for debug purposes
                         // for the gain that is too strong, but is of valid motivation type, dont punish that harshly
                         float gain = motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_value;
                         gain *= motivationWeights[i];
@@ -199,7 +200,7 @@ namespace AI.Behavior
                             newDistance += Mathf.Abs(currentDesires[i] - gain);
                         }
                         Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
-                            + currentDesires[i].ToString() + " " + newDistance.ToString());
+                            + currentDesires[i].ToString() + " " + gain.ToString() + " " + (newDistance - tmpDist).ToString() + " " + newDistance.ToString());
                     }
 
                     float significance = motivationActionProperties.motivationGain.m_motivationDesiresGain[mostSignificantMotivation].m_value;

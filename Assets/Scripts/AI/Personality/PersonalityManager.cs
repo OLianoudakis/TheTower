@@ -19,7 +19,10 @@ namespace AI.Personality
         private bool m_updateCurrentMotivation = false;
 
         [SerializeField]
-        private float m_personalityUpdateCooldown = 0.0f;
+        private float m_motivationDecreaseCooldown = 10.0f;
+
+        [SerializeField]
+        private float m_personalityUpdateCooldown = 0.1f;
 
         private float m_currentPersonalityCooldown = 0.0f;
 
@@ -59,7 +62,7 @@ namespace AI.Personality
         private void Awake()
         {
             m_moodManager = new MoodManager(m_personalityModel);
-            m_motivationManager = new MotivationManager(m_personalityModel, m_updateCurrentMotivation);
+            m_motivationManager = new MotivationManager(m_personalityModel, m_motivationDecreaseCooldown, m_updateCurrentMotivation);
             m_behaviorManager = GetComponent(typeof(BehaviorManager)) as BehaviorManager;
         }
 
@@ -71,7 +74,7 @@ namespace AI.Personality
                 if (m_currentPersonalityCooldown >= m_personalityUpdateCooldown)
                 {
                     m_currentPersonalityCooldown = 0.0f;
-                    m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime);
+                    m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime, m_personalityUpdateCooldown);
                     m_emotionManager.DecayEmotionIntensity();
                     m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
                 }

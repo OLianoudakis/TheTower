@@ -26,13 +26,13 @@ MonoBehaviour:
   - m_motivationDesire: 5
     m_value: 0
   - m_motivationDesire: 6
-    m_value: 0.5
+    m_value: 0.15
   - m_motivationDesire: 7
     m_value: 0
   - m_motivationDesire: 8
     m_value: 0
   - m_motivationDesire: 9
-    m_value: 0
+    m_value: 0.3
   - m_motivationDesire: 10
     m_value: 0
   - m_motivationDesire: 11

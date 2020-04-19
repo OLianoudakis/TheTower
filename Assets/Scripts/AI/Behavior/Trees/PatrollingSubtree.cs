@@ -9,11 +9,9 @@ namespace AI.Behavior.Trees
     public struct PatrollingTree
     {
         public Node m_root;
-
-        //private Transform[] m_patrolPoints;
+        
         private Root m_behaviorTreeRoot;
         private NavMeshAgent m_navMeshAgent;
-        private int m_currentPatrolPoint;
         private Animator m_animator;
 
         public void Create(Root behaviorTreeRoot, NavMeshAgent navMeshAgent, Animator animator)
@@ -21,7 +19,6 @@ namespace AI.Behavior.Trees
             m_behaviorTreeRoot = behaviorTreeRoot;
             m_navMeshAgent = navMeshAgent;
             m_animator = animator;
-            m_currentPatrolPoint = 0;
 
             m_root =
                 new Sequence
@@ -42,37 +39,16 @@ namespace AI.Behavior.Trees
 
         void SetNextPatrolPoint()
         {
-            if (!m_behaviorTreeRoot.Blackboard.Isset("nextPosition"))
+            Vector3[] patrolPoints = m_behaviorTreeRoot.Blackboard.Get("patrolPoints") as Vector3[];
+            int index = (int)m_behaviorTreeRoot.Blackboard.Get("patrolPointsIndex");
+            // check bounds
+            if ((patrolPoints != null) && (index < patrolPoints.Length))
             {
-                object patrolPointsObj = m_behaviorTreeRoot.Blackboard.Get("patrolPoints");
-                if (patrolPointsObj.GetType() == typeof(Transform[]))
-                {
-                    Transform[] patrolPoints = patrolPointsObj as Transform[];
-                    // if the patrol points were recalculated, the index might have gone obsolete, check
-                    if (m_currentPatrolPoint >= patrolPoints.Length)
-                    {
-                        m_currentPatrolPoint = 0;
-                    }
-                    m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint].position);
-                    if (++m_currentPatrolPoint >= patrolPoints.Length)
-                    {
-                        m_currentPatrolPoint = 0;
-                    }
-                }
-                else if (patrolPointsObj.GetType() == typeof(Vector3[]))
-                {
-                    Vector3[] patrolPoints = patrolPointsObj as Vector3[];
-                    // if the patrol points were recalculated, the index might have gone obsolete, check
-                    if (m_currentPatrolPoint >= patrolPoints.Length)
-                    {
-                        m_currentPatrolPoint = 0;
-                    }
-                    m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[m_currentPatrolPoint]);
-                    if (++m_currentPatrolPoint >= patrolPoints.Length)
-                    {
-                        m_currentPatrolPoint = 0;
-                    }
-                }
+                m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[index]);
+            }
+            else
+            {
+                m_behaviorTreeRoot.Blackboard.Unset("nextPosition");
             }
         }
 
@@ -84,6 +60,14 @@ namespace AI.Behavior.Trees
                 animation = (int)m_behaviorTreeRoot.Blackboard.Get("atPatrolPointAnimation");
             }
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, animation);
+
+            // set next patrol point
+            int index = (int)m_behaviorTreeRoot.Blackboard.Get("patrolPointsIndex");
+            if (++index >= (m_behaviorTreeRoot.Blackboard.Get("patrolPoints") as Vector3[]).Length)
+            {
+                index = 0;
+            }
+            m_behaviorTreeRoot.Blackboard.Set("patrolPointsIndex", index);
         }
 
         private void MoveTo()
@@ -104,7 +88,6 @@ namespace AI.Behavior.Trees
             if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
                 - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
             {
-                m_behaviorTreeRoot.Blackboard.Unset("nextPosition");
                 return true;
             }
             return false;

@@ -15,7 +15,7 @@ namespace AI.Behavior.MotivationActions.Actions
         PersonalityType m_personalityType;
 
         [SerializeField]
-        private GameObject m_patrolPointsGroup;
+        private PatrolGroupManager m_patrolGroupManager;
 
         [SerializeField]
         private float m_waitTimeAtPatrolPoints = 3.0f;
@@ -26,19 +26,20 @@ namespace AI.Behavior.MotivationActions.Actions
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
         private Movable m_lastVisited;
-        NavMeshAgent m_navMeshAgent;
-        Movable[] m_movableObjects;
+        private NavMeshAgent m_navMeshAgent;
+        private Movable[] m_movableObjects;
+        private Animator m_animator;
 
         private void Awake()
         {
             m_navMeshAgent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
             m_movableObjects = FindObjectsOfType(typeof(Movable)) as Movable[];
+            m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             Create();
         }
 
         private void Create()
         {
-            Animator animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             FloatingTextBehavior floatingTextMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
             MotivationActionsCommentsCatalogue catalogue = FindObjectOfType(typeof(MotivationActionsCommentsCatalogue)) as MotivationActionsCommentsCatalogue;
             m_behaviorTree = new Root();
@@ -48,26 +49,21 @@ namespace AI.Behavior.MotivationActions.Actions
                     new Selector
                     (
                         new BlackboardCondition("isMovableAvailable", Operator.IS_EQUAL, true, Stops.LOWER_PRIORITY_IMMEDIATE_RESTART,
-                            TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navMeshAgent, animator, floatingTextMesh)
+                            TreeFactory.CreateObserveMovableTree(m_behaviorTree, m_navMeshAgent, m_animator, floatingTextMesh)
                         ),
                         new Repeater
                         (
                             new Sequence
                             (
-                                TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, animator),
+                                TreeFactory.CreatePatrollingTree(m_behaviorTree, m_navMeshAgent, m_animator),
                                 TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
                             )
                         )
                     )
                 )
             );
-            Transform[] tempPoints = m_patrolPointsGroup.GetComponentsInChildren<Transform>();
-            Transform[] patrolPoints = new Transform[tempPoints.Length - 1];
-            for (int i = 1; i < tempPoints.Length; i++)
-            {
-                patrolPoints[i - 1] = tempPoints[i];
-            }
-            m_behaviorTree.Blackboard.Set("patrolPoints", patrolPoints);
+
+            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolGroupManager.patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("observeMovableObjectsTime", m_observeMovableObjectsTime);
 
@@ -108,6 +104,7 @@ namespace AI.Behavior.MotivationActions.Actions
             }
             if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
+                m_behaviorTree.Blackboard.Set("patrolPointsIndex", m_patrolGroupManager.index);
                 m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();
             }
@@ -120,6 +117,8 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_behaviorTree.Stop();
                 m_navMeshAgent.isStopped = true;
                 m_navMeshAgent.ResetPath();
+                m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
+                m_patrolGroupManager.index = (int)m_behaviorTree.Blackboard.Get("patrolPointsIndex");
             }
             else
             {
