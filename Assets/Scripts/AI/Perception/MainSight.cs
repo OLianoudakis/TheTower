@@ -17,15 +17,16 @@ namespace AI.Perception
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private int m_layerMask;
         private CapsuleCollider m_collider;
+        private PlayerInvisibility m_playerInvisibility = null;
 
         private void Start()
         {
             m_layerMask = LayerMask.GetMask("Default", "Default2", "CrouchPosition", "Player", "Highlight", "Shadows");
             m_collider = transform.parent.parent.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
-            SharedAI sharedAI = FindObjectOfType(typeof(SharedAI)) as SharedAI;
-            if (sharedAI)
+            PlayerTagScript playerTag = FindObjectOfType(typeof(PlayerTagScript)) as PlayerTagScript;
+            if (playerTag)
             {
-                m_playerTransform = sharedAI.playerTransform;
+                m_playerTransform = playerTag.transform;
             }
             m_myTransform = GetComponent(typeof(Transform)) as Transform;
             m_knowledgeBase = transform.parent.parent.GetComponentInChildren(typeof(KnowledgeBase.KnowledgeBase)) as KnowledgeBase.KnowledgeBase;
@@ -33,28 +34,31 @@ namespace AI.Perception
 
         private void OnTriggerEnter(Collider other)
         {
-            PlayerTagScript playerTag = other.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
             PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
-            if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
+            if (playerInvisibility)
             {
-                int hits = 0;
-                foreach (Transform raycastPoint in m_playerSightPoints)
+                m_playerInvisibility = playerInvisibility;
+                if (!playerInvisibility.isInvisible)
                 {
-                    RaycastHit hit;
-                    if (Raycast(raycastPoint.position, out hit))
+                    int hits = 0;
+                    foreach (Transform raycastPoint in m_playerSightPoints)
                     {
-                        if (hit.collider.Equals(other))
+                        RaycastHit hit;
+                        if (Raycast(raycastPoint.position, out hit))
                         {
-                            ++hits;
+                            if (hit.collider.Equals(other))
+                            {
+                                ++hits;
+                            }
                         }
                     }
-                }
 
-                if (hits > (m_playerSightPoints.Length / 2))
-                {
-                    m_knowledgeBase.PlayerSpotted(m_playerTransform);
+                    if (hits > (m_playerSightPoints.Length / 2))
+                    {
+                        m_knowledgeBase.PlayerSpotted(m_playerTransform);
+                    }
+                    return;
                 }
-                return;
             }
             Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
             if (movableObject && movableObject.HasTransformChanged())
@@ -116,11 +120,18 @@ namespace AI.Perception
             }
         }
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerExit(Collider other)
         {
-            PlayerTagScript playerTag = other.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
             PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
-            if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
+            if (playerInvisibility)
+            {
+                m_playerInvisibility = null;
+            }
+        }
+
+        private void Update()
+        {
+            if (m_playerInvisibility && !m_playerInvisibility.isInvisible)
             {
                 int hits = 0;
                 foreach (Transform raycastPoint in m_playerSightPoints)
@@ -128,7 +139,7 @@ namespace AI.Perception
                     RaycastHit hit;
                     if (Raycast(raycastPoint.position, out hit))
                     {
-                        if (hit.collider.Equals(other))
+                        if (hit.collider.gameObject.tag.Equals("Player"))
                         {
                             ++hits;
                         }

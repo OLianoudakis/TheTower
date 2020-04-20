@@ -9,6 +9,7 @@ namespace AI.Perception
     public class Hearing : MonoBehaviour
     {
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
+        private List<Movable> m_movablesWithinBounds = new List<Movable>();
 
         private void Start()
         {
@@ -18,18 +19,33 @@ namespace AI.Perception
         private void OnTriggerEnter(Collider other)
         {
             Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
-            if (movableObject && movableObject.isMakingNoise)
+            if (movableObject)
             {
-                m_knowledgeBase.NoiseHeard(other.transform.position);
+                m_movablesWithinBounds.Add(movableObject);
+                if (movableObject.isMakingNoise)
+                {
+                    m_knowledgeBase.NoiseHeard(other.transform.position);
+                }
             }
         }
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
-            if (movableObject && movableObject.isMakingNoise)
+            if (movableObject)
             {
-                m_knowledgeBase.NoiseHeard(other.transform.position);
+                m_movablesWithinBounds.Remove(movableObject);
+            }
+        }
+
+        private void Update()
+        {
+            foreach (Movable movableObject in m_movablesWithinBounds)
+            {
+                if (movableObject.isMakingNoise)
+                {
+                    m_knowledgeBase.NoiseHeard(movableObject.transform.position);
+                }
             }
         }
     }

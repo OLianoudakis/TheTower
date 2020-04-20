@@ -21,11 +21,6 @@ namespace AI.Personality
         [SerializeField]
         private float m_motivationDecreaseCooldown = 10.0f;
 
-        [SerializeField]
-        private float m_personalityUpdateCooldown = 0.1f;
-
-        private float m_currentPersonalityCooldown = 0.0f;
-
         private EmotionManager m_emotionManager = new EmotionManager();
         private MoodManager m_moodManager;
         private MotivationManager m_motivationManager;
@@ -59,6 +54,16 @@ namespace AI.Personality
             m_behaviorManager.AddGeneratedEmotion(entry);
         }
 
+        public void UpdatePersonality(float personalityUpdatePeriod)
+        {
+            if (!m_behaviorInterrupted)
+            {
+                m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime, personalityUpdatePeriod);
+                m_emotionManager.DecayEmotionIntensity();
+                m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
+            }
+        }
+
         private void Awake()
         {
             m_moodManager = new MoodManager(m_personalityModel);
@@ -66,19 +71,19 @@ namespace AI.Personality
             m_behaviorManager = GetComponent(typeof(BehaviorManager)) as BehaviorManager;
         }
 
-        private void Update()
-        {
-            if (!m_behaviorInterrupted)
-            {
-                m_currentPersonalityCooldown += Time.deltaTime;
-                if (m_currentPersonalityCooldown >= m_personalityUpdateCooldown)
-                {
-                    m_currentPersonalityCooldown = 0.0f;
-                    m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime, m_personalityUpdateCooldown);
-                    m_emotionManager.DecayEmotionIntensity();
-                    m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
-                }
-            }
-        }
+        //private void Update()
+        //{
+        //    if (!m_behaviorInterrupted)
+        //    {
+        //        m_currentPersonalityCooldown += Time.deltaTime;
+        //        if (m_currentPersonalityCooldown >= m_personalityUpdateCooldown)
+        //        {
+        //            m_currentPersonalityCooldown = 0.0f;
+        //            m_motivationManager.UpdateCurrentMotivations(m_behaviorManager.currentMotivationGain, Time.deltaTime, m_personalityUpdateCooldown);
+        //            m_emotionManager.DecayEmotionIntensity();
+        //            m_moodManager.UpdateMood(m_emotionManager.activeEmotions);
+        //        }
+        //    }
+        //}
     }
 }

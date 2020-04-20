@@ -13,6 +13,9 @@ namespace AI.Perception
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private int m_layerMask;
         private CapsuleCollider m_collider;
+        private float m_playerColliderCenter;
+        private PlayerInvisibility m_playerInvisibility = null;
+
 
         private void Start()
         {
@@ -23,26 +26,44 @@ namespace AI.Perception
 
         private void OnTriggerEnter(Collider other)
         {
-            CheckVisibility(other);
-        }
-
-        private void OnTriggerStay(Collider other)
-        {
-            CheckVisibility(other);
-        }
-
-        private void CheckVisibility(Collider other)
-        {
-            PlayerTagScript playerTag = other.GetComponent(typeof(PlayerTagScript)) as PlayerTagScript;
             PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
-            if (playerTag && playerInvisibility && !playerInvisibility.isInvisible)
+            if (playerInvisibility)
+            {
+                m_playerColliderCenter = (other.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider).center.y;
+                m_playerInvisibility = playerInvisibility;
+                if (!playerInvisibility.isInvisible)
+                {
+                    RaycastHit hit;
+                    if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y + ((CapsuleCollider)other).center.y, other.transform.position.z), out hit))
+                    {
+                        if (hit.collider.Equals(other))
+                        {
+                            m_knowledgeBase.PlayerSuspicion(other.transform.position);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
+            if (playerInvisibility)
+            {
+                m_playerInvisibility = null;
+            }
+        }
+
+        private void Update()
+        {
+            if (m_playerInvisibility && !m_playerInvisibility.isInvisible)
             {
                 RaycastHit hit;
-                if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y + ((CapsuleCollider)other).center.y, other.transform.position.z), out hit))
+                if (Raycast(new Vector3(m_playerInvisibility.transform.position.x, m_playerInvisibility.transform.position.y + m_playerColliderCenter, m_playerInvisibility.transform.position.z), out hit))
                 {
-                    if (hit.collider.Equals(other))
+                    if (hit.collider.gameObject.tag.Equals("Player"))
                     {
-                        m_knowledgeBase.PlayerSuspicion(other.transform.position);
+                        m_knowledgeBase.PlayerSuspicion(m_playerInvisibility.transform.position);
                     }
                 }
             }

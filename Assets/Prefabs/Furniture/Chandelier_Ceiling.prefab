@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1821300323072192296}
   - component: {fileID: 1821300323075092232}
   - component: {fileID: 1821300323073961416}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Chandelier_Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2401574532267364675}
   - component: {fileID: 1323079871176937133}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

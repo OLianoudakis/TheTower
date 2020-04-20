@@ -92,6 +92,7 @@ namespace AI.Behavior.Trees.Tasks
             }
 
             Blackboard.Set(m_investigationPointsBlackboardKey, positions);
+            Blackboard.Set("patrolPointsIndex", 0);
             this.Stopped(true);
         }
 

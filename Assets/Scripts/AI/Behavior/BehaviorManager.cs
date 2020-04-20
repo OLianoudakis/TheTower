@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AI.Personality.Emotions;
-using Events;
 using AI.Behavior.MotivationActions;
 using AI.Behavior.EmotionalActions;
 using AI.Personality;
@@ -23,11 +22,7 @@ namespace AI.Behavior
         [SerializeField]
         private bool m_useOnlyPositiveMotivations = true;
 
-        [SerializeField]
-        private float m_behaviorUpdateCooldown = 0.0f;
-
-        private float m_currentBehaviorCooldown = 0.0f;
-        private float m_cooldown = 0.0f;
+        private float m_emotionalCooldown = 0.0f;
         private PersonalityManager m_personalityManager;
         private List<EventEmotionEntry> m_generatedEmotionalEvents = new List<EventEmotionEntry>();
         private List<MotivationActionProperties> m_motivationActionProperties = new List<MotivationActionProperties>();
@@ -35,6 +30,7 @@ namespace AI.Behavior
         private MotivationActionProperties m_currentlyActivatedMotivationAction = null;
         private float[] m_currentMotivationGain = null;
         private bool m_behaviorInterrupted = false;
+        private bool m_emotionalActionActivated = false;
 
         public float[] currentMotivationGain
         {
@@ -71,6 +67,14 @@ namespace AI.Behavior
             }
         }
 
+        public void UpdateBehavior()
+        {
+            if (!m_behaviorInterrupted && (m_emotionalCooldown <= 0.0f))
+            {
+                ActivateMotivationAction();
+            }
+        }
+
         private bool ActivateEmotionalAction()
         {
             if (m_generatedEmotionalEvents.Count == 0)
@@ -83,7 +87,7 @@ namespace AI.Behavior
             float strongestIntensity = 0.0f;
             Emotion strongestEmotion;
             strongestEmotion.m_emotionType = EmotionType.Admiration;
-            strongestEmotion.m_emotionalTimeResponse = m_behaviorUpdateCooldown;
+            strongestEmotion.m_emotionalTimeResponse = m_emotionalCooldown;
             foreach (EventEmotionEntry emotionalEvent in m_generatedEmotionalEvents)
             {
                 foreach (Emotion emotion in emotionalEvent.m_emotions)
@@ -115,8 +119,7 @@ namespace AI.Behavior
             }
             if (strongestEmotion.m_emotionalTimeResponse > 0.0f)
             {
-                m_cooldown = 0.0f;
-                m_currentBehaviorCooldown = strongestEmotion.m_emotionalTimeResponse;
+                m_emotionalCooldown = strongestEmotion.m_emotionalTimeResponse;
             }
 
             m_generatedEmotionalEvents.Clear();
@@ -159,26 +162,23 @@ namespace AI.Behavior
                 }
             }
             m_emotionalProperties = GetComponentInChildren(typeof(EmotionalActionProperties)) as EmotionalActionProperties;
-            m_currentBehaviorCooldown = m_behaviorUpdateCooldown;
         }
 
         private MotivationActionProperties ChooseMotivationAction()
         {
             MotivationActionProperties chosenAction = null;
+            float startTime = Time.realtimeSinceStartup;
             float[] currentDesires = null;
             float[] motivationWeights = null;
             float distance = 100.0f;
             int priority = -1;
             int mostSignificantMotivation = 0;
             float currentMostSignificantMotivationValue = 0.0f;
-            if (m_usePersonalityModel)
-            {
-                currentDesires = m_personalityManager.GetCurrentDesires(ref mostSignificantMotivation, ref motivationWeights);
-            }
             foreach (MotivationActionProperties motivationActionProperties in m_motivationActionProperties)
             {
                 if (m_usePersonalityModel)
                 {
+                    currentDesires = m_personalityManager.GetCurrentDesires(ref mostSignificantMotivation, ref motivationWeights);
                     float newDistance = 0.0f;
                     for (int i = 0; i < motivationActionProperties.motivationGain.m_motivationDesiresGain.Length; i++)
                     {
@@ -199,18 +199,18 @@ namespace AI.Behavior
                         {
                             newDistance += Mathf.Abs(currentDesires[i] - gain);
                         }
-                        Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
-                            + currentDesires[i].ToString() + " " + gain.ToString() + " " + (newDistance - tmpDist).ToString() + " " + newDistance.ToString());
+                        //Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
+                        //    + currentDesires[i].ToString() + " " + gain.ToString() + " " + (newDistance - tmpDist).ToString() + " " + newDistance.ToString());
                     }
 
                     float significance = motivationActionProperties.motivationGain.m_motivationDesiresGain[mostSignificantMotivation].m_value;
 
                     if ((
-                        (newDistance < distance) 
-                        || 
-                        ((newDistance == distance) 
+                        (newDistance < distance)
+                        ||
+                        ((newDistance == distance)
                         && (significance > currentMostSignificantMotivationValue))
-                        ) 
+                        )
                         && motivationActionProperties.CanBeTriggered())
                     {
                         currentMostSignificantMotivationValue = significance;
@@ -234,17 +234,21 @@ namespace AI.Behavior
         {
             if (!m_behaviorInterrupted)
             {
-                m_cooldown += Time.deltaTime;
-                if (m_usePersonalityModel && ActivateEmotionalAction())
+                if (m_emotionalCooldown > 0.0f)
                 {
+                    m_emotionalCooldown -= Time.deltaTime;
+                }
+                if (m_usePersonalityModel)
+                {
+                    m_emotionalActionActivated = ActivateEmotionalAction();
                     return;
                 }
-                if (m_cooldown >= m_currentBehaviorCooldown)
-                {
-                    m_cooldown = 0.0f;
-                    m_currentBehaviorCooldown = m_behaviorUpdateCooldown;
-                    ActivateMotivationAction();
-                }
+                //if (m_cooldown >= m_currentBehaviorCooldown)
+                //{
+                //    m_cooldown = 0.0f;
+                //    m_currentBehaviorCooldown = m_behaviorUpdateCooldown;
+                //    ActivateMotivationAction();
+                //}
             }
         }
     }
