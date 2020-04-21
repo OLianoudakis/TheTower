@@ -49,9 +49,9 @@ namespace Player.Inventory
             return requestedQuantity;
         }
 
-        public Item SearchForItem(ItemType requestedItemType)
+        public Item SearchForItem(ItemType requestedItemType, int requestedQuantity)
         {
-            if (m_inventory.ContainsKey(requestedItemType) && m_inventory[requestedItemType].m_quantity > 0)
+            if (m_inventory.ContainsKey(requestedItemType) && m_inventory[requestedItemType].m_quantity >= requestedQuantity)
             {
                 return m_inventory[requestedItemType];
             }

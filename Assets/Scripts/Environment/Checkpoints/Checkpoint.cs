@@ -11,8 +11,16 @@ namespace Environment.Checkpoints
     {
         [SerializeField]
         private int m_checkpoint;
+
+        [System.Serializable]
+        public struct ItemsRequired
+        {
+            public Item item;
+            public int quantity;
+        }
         [SerializeField]
-        private Item[] m_itemsRequired;
+        private ItemsRequired[] m_itemsRequired;
+
         [SerializeField]
         private GameObject[] m_closedDoors;
         [SerializeField]
@@ -25,11 +33,11 @@ namespace Environment.Checkpoints
         {
             if (m_itemsRequired.Length > 0)
             {
-                foreach (Item itemRequired in m_itemsRequired)
+                foreach (ItemsRequired itemRequired in m_itemsRequired)
                 {
-                    if (!m_playerInventoryController.SearchForItem(itemRequired.m_itemType))
+                    if (!m_playerInventoryController.SearchForItem(itemRequired.item.m_itemType, itemRequired.quantity))
                     {
-                        m_playerInventoryController.AddItem(itemRequired, 1);
+                        m_playerInventoryController.AddItem(itemRequired.item, itemRequired.quantity);
                     }
                 }
             }
@@ -67,7 +75,7 @@ namespace Environment.Checkpoints
             bool allItemsFound = true;
             for (int i = 0; i < m_itemsRequired.Length; i++)
             {
-                allItemsFound = m_playerInventoryController.SearchForItem(m_itemsRequired[i].m_itemType);
+                allItemsFound = m_playerInventoryController.SearchForItem(m_itemsRequired[i].item.m_itemType, m_itemsRequired[i].quantity);
             }
 
             if (allItemsFound)
