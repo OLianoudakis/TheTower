@@ -8,11 +8,15 @@ namespace AI.Behavior.MotivationActions.Actions
 {
     public class ChaseAction : MonoBehaviour
     {
+        [SerializeField]
+        private float m_moveSpeed = 3.5f;
+
         private NavMeshAgent m_navMeshAgent;
         private Animator m_animator;
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private MotivationActionProperties m_motivationActionProperties;
         private float m_cooldown = 0.0f;
+        private float m_previousMoveSpeed;
 
         private void Awake()
         {
@@ -25,7 +29,9 @@ namespace AI.Behavior.MotivationActions.Actions
         private void OnEnable()
         {
             m_navMeshAgent.isStopped = false;
-            m_motivationActionProperties.canInterrupt = false;
+            //m_motivationActionProperties.canInterrupt = false;
+            m_previousMoveSpeed = m_navMeshAgent.speed;
+            m_navMeshAgent.speed = m_moveSpeed;
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
         }
 
@@ -34,6 +40,7 @@ namespace AI.Behavior.MotivationActions.Actions
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             m_navMeshAgent.isStopped = true;
             m_motivationActionProperties.canInterrupt = true;
+            m_navMeshAgent.speed = m_previousMoveSpeed;
             m_navMeshAgent.ResetPath();
         }
 
@@ -49,10 +56,10 @@ namespace AI.Behavior.MotivationActions.Actions
                     m_navMeshAgent.SetDestination(m_knowledgeBase.playerTransform.position);
                 }
             }
-            else
-            {
-                m_motivationActionProperties.canInterrupt = true;
-            }
+            //else
+            //{
+            //    m_motivationActionProperties.canInterrupt = true;
+            //}
         }
     }
 }

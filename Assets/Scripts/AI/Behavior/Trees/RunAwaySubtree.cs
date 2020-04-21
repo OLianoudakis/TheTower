@@ -40,52 +40,34 @@ namespace AI.Behavior.Trees
             {
                 Vector3 toPlayer = (Vector3)m_behaviorTreeRoot.Blackboard.Get("playerPosition") - m_agentTransform.position;
                 Vector3 targetPosition = Vector3.zero;
-                if (m_behaviorTreeRoot.Blackboard.Isset("playerPositionQuestionable")
-                    && (bool)m_behaviorTreeRoot.Blackboard.Get("playerPositionQuestionable")
-                    && m_navMeshAgent.isStopped)
+                float distanceFromPlayer = toPlayer.magnitude;
+                if (distanceFromPlayer <= 2.0f)
                 {
-                    if (Vector3.SqrMagnitude(new Vector3(toPlayer.x, 0.0f, toPlayer.z) 
-                        - new Vector3(m_navMeshAgent.transform.forward.x, 0.0f, m_navMeshAgent.transform.forward.z)) 
-                        < MathConstants.SquaredDistance)
+                    targetPosition = m_agentTransform.position + (toPlayer.normalized * -2.0f);
+                    NavMeshHit navMeshHit;
+                    if (NavMesh.SamplePosition(targetPosition, out navMeshHit, 0.1f, NavMesh.AllAreas))
                     {
-                        m_behaviorTreeRoot.Blackboard.Unset("playerPositionQuestionable");
-                        return;
-                    }
-                    m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerStand);
-                    m_navMeshAgent.transform.Rotate(0.0f, Time.deltaTime * 100.0f, 0.0f);
-                    
-                }
-                else
-                {
-                    
-                    float distanceFromPlayer = toPlayer.magnitude;
-                    if (distanceFromPlayer <= 3.0f)
-                    {
-                        targetPosition = m_agentTransform.position + (toPlayer.normalized * -2.0f);
-                        NavMeshHit navMeshHit;
-                        if (NavMesh.SamplePosition(targetPosition, out navMeshHit, 0.1f, NavMesh.AllAreas))
-                        {
-                            toPlayer = (Vector3)m_behaviorTreeRoot.Blackboard.Get("playerPosition") - navMeshHit.position;
-                            distanceFromPlayer = toPlayer.magnitude;
-                            if (distanceFromPlayer > 3.0f)
-                            {
-                                m_behaviorTreeRoot.Blackboard.Set("nextPosition", navMeshHit.position);
-                                return;
-                            }
-                        }
-                        if (NavMesh.FindClosestEdge(targetPosition, out navMeshHit, NavMesh.AllAreas))
+                        toPlayer = (Vector3)m_behaviorTreeRoot.Blackboard.Get("playerPosition") - navMeshHit.position;
+                        distanceFromPlayer = toPlayer.magnitude;
+                        if (distanceFromPlayer > 3.0f)
                         {
                             m_behaviorTreeRoot.Blackboard.Set("nextPosition", navMeshHit.position);
                             return;
                         }
-                        m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerCrouch);
-                        m_navMeshAgent.isStopped = true;
-                        Debug.Log("Didn't find a suitable position");
                     }
-                    else
+                    if (NavMesh.FindClosestEdge(targetPosition, out navMeshHit, NavMesh.AllAreas))
                     {
-                        m_behaviorTreeRoot.Blackboard.Set("nextPosition", (Vector3)m_behaviorTreeRoot.Blackboard.Get("targetPosition"));
+                        m_behaviorTreeRoot.Blackboard.Set("nextPosition", navMeshHit.position);
+                        return;
                     }
+                    m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerCrouch);
+                    m_navMeshAgent.isStopped = true;
+                    m_behaviorTreeRoot.Blackboard.Unset("nextPosition");
+                    Debug.Log("Didn't find a suitable position");
+                }
+                else
+                {
+                    m_behaviorTreeRoot.Blackboard.Set("nextPosition", (Vector3)m_behaviorTreeRoot.Blackboard.Get("targetPosition"));
                 }
             }
         }

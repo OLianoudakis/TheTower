@@ -16,6 +16,9 @@ namespace AI.Behavior.MotivationActions.Actions
         private Transform m_targetPosition;
 
         [SerializeField]
+        private float m_playerForgetTime = 15.0f;
+
+        [SerializeField]
         private float m_shoutingTime = 2.0f;
 
         [SerializeField]
@@ -27,6 +30,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private NavMeshAgent m_navMeshAgent;
         private float m_previousMoveSpeed;
+        private float m_playerDefaultStopFollowTime;
         private MotivationActionProperties m_motivationActionProperties;
 
         public Object[] FindObjects(System.Type type)
@@ -98,11 +102,6 @@ namespace AI.Behavior.MotivationActions.Actions
             object targetPosition = m_behaviorTree.Blackboard.Get("playerPosition");
             if (isNewPoint)
             {
-                if ((targetPosition != null) && ((Vector3)targetPosition == newPoint))
-                {
-                    // either the player stands on place, or it has moved too far away
-                    m_behaviorTree.Blackboard.Set("playerPositionQuestionable", true);
-                }
                 m_behaviorTree.Blackboard.Set("playerPosition", newPoint);
             }
             else
@@ -125,6 +124,8 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_motivationActionProperties.canInterrupt = false;
                 m_previousMoveSpeed = m_navMeshAgent.speed;
                 m_navMeshAgent.speed = m_runningMoveSpeed;
+                m_playerDefaultStopFollowTime = m_knowledgeBase.GetPlayerStopFollowTime();
+                m_knowledgeBase.SetPlayerStopFollowTime(m_playerForgetTime);
                 m_behaviorTree.Start();
             }
         }
@@ -139,7 +140,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_navMeshAgent.ResetPath();
                 m_navMeshAgent.speed = m_previousMoveSpeed;
                 m_shareKnowledge.Disable();
-                m_behaviorTree.Blackboard.Unset("rotationDifference");
+                m_knowledgeBase.SetPlayerStopFollowTime(m_playerDefaultStopFollowTime);
                 m_behaviorTree.Blackboard.Unset("playerPosition");
             }
             else

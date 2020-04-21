@@ -47,8 +47,6 @@ namespace AI.Behavior.MotivationActions.Actions
                     TreeFactory.CreateMakeCommentTree(m_behaviorTree, catalogue, floatingTextMesh, m_personalityType)
                 )
             );
-
-            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolGroupManager.patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("patrolingAnimation", AnimationConstants.AnimButtlerFearWalk);
             // attach debugger to see what's going on in the inspector
@@ -66,6 +64,7 @@ namespace AI.Behavior.MotivationActions.Actions
             }
             if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
+                m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolGroupManager.patrolPoints);
                 m_behaviorTree.Blackboard.Set("patrolPointsIndex", m_patrolGroupManager.index);
                 m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();

@@ -319,6 +319,16 @@ PrefabInstance:
       propertyPath: m_patrolPointsGroup
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 681040278534549210, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 681040278534549211, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2550699351467603205, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_patrolPointsGroup

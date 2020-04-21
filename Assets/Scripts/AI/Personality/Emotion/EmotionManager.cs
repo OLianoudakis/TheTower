@@ -8,7 +8,7 @@ namespace AI.Personality.Emotions
 {
     public class EmotionManager
     {
-        private float m_emotionIntensityLowerBound = 0.1f;
+        private float m_emotionIntensityLowerBound = 0.01f;
 
         private List<Emotion> m_activeEmotions = new List<Emotion>();
         private const float m_decayingConstant = 0.03f;

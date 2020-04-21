@@ -62,8 +62,6 @@ namespace AI.Behavior.MotivationActions.Actions
                     )
                 )
             );
-
-            m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolGroupManager.patrolPoints);
             m_behaviorTree.Blackboard.Set("waitTimeAtPoints", m_waitTimeAtPatrolPoints);
             m_behaviorTree.Blackboard.Set("observeMovableObjectsTime", m_observeMovableObjectsTime);
 
@@ -104,6 +102,7 @@ namespace AI.Behavior.MotivationActions.Actions
             }
             if (m_actionInitialized && !m_behaviorTree.IsActive)
             {
+                m_behaviorTree.Blackboard.Set("patrolPoints", m_patrolGroupManager.patrolPoints);
                 m_behaviorTree.Blackboard.Set("patrolPointsIndex", m_patrolGroupManager.index);
                 m_navMeshAgent.isStopped = false;
                 m_behaviorTree.Start();

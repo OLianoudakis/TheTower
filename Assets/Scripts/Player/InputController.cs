@@ -55,7 +55,7 @@ namespace Player
                 RaycastHit hit;
                 if (Physics.Raycast(UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, m_layerMask))
                 {
-                    Debug.Log(hit.transform.gameObject.name);
+                    //Debug.Log(hit.transform.gameObject.name);
                     // if interactible object hit, accept
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Highlight"))
                     {
