@@ -25,6 +25,10 @@ namespace GameUI
         [SerializeField]
         private Text m_jadeKeysQuantity;
         [SerializeField]
+        private CanvasGroup m_potionsGroup;
+        [SerializeField]
+        private Text m_potionsQuantity;
+        [SerializeField]
         private float m_fadeLerpSpeed = 2.0f;
 
         private float m_fadeLerpInterval = 0.0f;
@@ -50,6 +54,10 @@ namespace GameUI
                 case ItemType.JadeKey:
                     m_jadeKeysQuantity.text = quantity.ToString();
                     StartCoroutine(ShowKeyUICoroutine(fadeIn, m_jadeKeysGroup));
+                    break;
+                case ItemType.Potions:
+                    m_potionsQuantity.text = quantity.ToString();
+                    StartCoroutine(ShowKeyUICoroutine(fadeIn, m_potionsGroup));
                     break;
             }
         }
