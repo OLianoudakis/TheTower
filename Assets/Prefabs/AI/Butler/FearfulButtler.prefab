@@ -457,7 +457,7 @@ PrefabInstance:
     - target: {fileID: 5551756129472306474, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_usePersonalityModel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5551756129472306475, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}

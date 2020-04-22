@@ -127,6 +127,10 @@ namespace Environment
 
         public void RestartBehavior()
         {
+            if (gameObject.active == false)
+            {
+                gameObject.SetActive(true);
+            }
             this.enabled = true;
             if (m_meshHighlighter)
             {
