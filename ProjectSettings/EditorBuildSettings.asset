@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/Active_Stealth_scene_OLD.unity
     guid: 5b97d3225448f13408a10f32328c911c
   - enabled: 1
-    path: Assets/_Scenes/Marek_StealthScene.unity
+    path: Assets/_Scenes/ThirdScene_Marek.unity
     guid: aa5a03c88cde817429e2373d8217351c
   m_configObjects: {}
