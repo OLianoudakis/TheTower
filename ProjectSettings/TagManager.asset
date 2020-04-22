@@ -23,7 +23,7 @@ TagManager:
   - KnowledgeBaseSharing
   - Enemy
   - InteractibleTrigger
-  - Hiding
+  - 
   - CrouchPosition
   - Camera
   - Highlight

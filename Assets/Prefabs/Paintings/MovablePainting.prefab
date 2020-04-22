@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9101193644627277656}
   - component: {fileID: 246443531852145251}
   - component: {fileID: 4055511309089457199}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Painting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: painting
   m_soundTransimissionTime: 0.5
+  m_notFixable: 0
 --- !u!65 &4055511309089457199
 BoxCollider:
   m_ObjectHideFlags: 0
