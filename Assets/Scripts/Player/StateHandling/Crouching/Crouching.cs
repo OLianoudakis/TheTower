@@ -27,7 +27,7 @@ namespace Player.StateHandling.Crouching
             m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimCrouch);
             m_playerCollider.center = new Vector3(0.0f, 0.38f, 0.0f);
             m_playerCollider.height = 1.76f;
-            m_playerCollider.gameObject.layer = LayerMask.NameToLayer("Hiding");
+            //m_playerCollider.gameObject.layer = LayerMask.NameToLayer("Hiding");
         }
 
         private void OnDisable()
@@ -35,7 +35,7 @@ namespace Player.StateHandling.Crouching
             m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimIdle);
             m_playerCollider.center = new Vector3(0.0f, 1.0f, 0.0f);
             m_playerCollider.height = 3.0f;
-            m_playerCollider.gameObject.layer = m_playerLayer;
+            //m_playerCollider.gameObject.layer = m_playerLayer;
         }
     }
 }
