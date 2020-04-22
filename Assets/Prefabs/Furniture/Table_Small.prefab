@@ -17,8 +17,8 @@ GameObject:
   m_Name: Table_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967287
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &4179086729700329057
 Transform:
@@ -90,7 +90,7 @@ MeshCollider:
   m_GameObject: {fileID: 4179086729700039233}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14

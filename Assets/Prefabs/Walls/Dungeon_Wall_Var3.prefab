@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 5675712537768515036}
   - component: {fileID: 5675712537767187964}
   - component: {fileID: 5675712537766221628}
-  - component: {fileID: 5675712537762195292}
   - component: {fileID: 7867073540033827322}
+  - component: {fileID: 939058830190731760}
   m_Layer: 0
   m_Name: Dungeon_Wall_Var3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &5675712537768515036
 Transform:
@@ -81,20 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5675712537762195292
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5675712537768479228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: b3c8bb8b6364eff4794deec64d2e92f7, type: 3}
 --- !u!208 &7867073540033827322
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -111,3 +97,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.019000001, z: 0.024}
   m_TimeToStationary: 0.5
+--- !u!65 &939058830190731760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5675712537768479228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03999999, y: 0.0023740237, z: 0.05182721}
+  m_Center: {x: 0, y: 0.018955786, z: 0.023913605}
