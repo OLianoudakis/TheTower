@@ -16,6 +16,12 @@ namespace Player.Inventory
         {
             if (m_inventory.ContainsKey(item.m_itemType))
             {
+                if (item.m_itemType == ItemType.Stool)
+                {
+                    //Don't add a second stool
+                    return;
+                }
+
                 m_inventory[item.m_itemType].m_quantity += quantity;
             }
             else
@@ -47,6 +53,14 @@ namespace Player.Inventory
                 return requestedQuantityRemaining;
             }
             return requestedQuantity;
+        }
+
+        public void EmptyInventory()
+        {
+            foreach(KeyValuePair<ItemType, Item> kvp in m_inventory)
+            {
+                RemoveItem(m_inventory[kvp.Value.m_itemType].m_itemType, m_inventory[kvp.Value.m_itemType].m_quantity);
+            }
         }
 
         public Item SearchForItem(ItemType requestedItemType, int requestedQuantity)

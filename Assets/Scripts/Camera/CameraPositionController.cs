@@ -70,6 +70,7 @@ namespace GameCamera
         private Vector3 m_lookUpNewPosition;
         private bool m_isTranslating = false;
         private bool m_followPlayer = false;
+        private bool m_freezeTime = true;
         private Constraints m_constraints;
 
         private bool m_isChangingPosition = false;
@@ -102,13 +103,15 @@ namespace GameCamera
             float waitTime = 1.0f,
             bool followPlayer = false,
             Constraints constraints = null,
-            Transform lookAt = null
+            Transform lookAt = null,
+            bool freezeTime = true
             )
         {
             if (transform.position != targetPosition)
             {
                 m_targetLastPosition = m_target.position;
                 m_followPlayer = followPlayer;
+                m_freezeTime = freezeTime;
                 m_constraints = constraints;
                 m_currentPosition = targetPosition;
                 m_currentStateId = newStateId;
@@ -206,7 +209,11 @@ namespace GameCamera
             Vector3 currentPosition = transform.position;
             m_currentLookAt.position = m_lookUpLastPosition;
             m_isTranslating = true;
-            Time.timeScale = 0.0f;
+
+            if (m_freezeTime)
+            {
+                Time.timeScale = 0.0f;
+            }
 
             while (elapsedTime < waitTime)
             {
@@ -220,7 +227,10 @@ namespace GameCamera
             transform.position = targetPosition;
             m_currentLookAt.position = m_lookUpNewPosition;
             m_isTranslating = false;
-            Time.timeScale = 1.0f;            
+            if (m_freezeTime)
+            {
+                Time.timeScale = 1.0f;
+            }
             yield return null;
         }
     }

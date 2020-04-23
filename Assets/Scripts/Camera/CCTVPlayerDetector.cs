@@ -17,6 +17,9 @@ namespace GameCamera
         private bool m_followPlayer = false;
 
         [SerializeField]
+        private bool m_freezeTime = true;
+
+        [SerializeField]
         private Constraints m_constraints = null;
 
         private CameraPositionController m_mainCamera;
@@ -46,7 +49,7 @@ namespace GameCamera
             if (other.gameObject.tag.Equals("Player"))
             {
                 m_constraints.m_positionBoundaries.canMove = false;
-                m_mainCamera.SetPosition(m_CCTVPosition.position, m_stateId, followPlayer: m_followPlayer, constraints: m_constraints, lookAt: m_lookAt);
+                m_mainCamera.SetPosition(m_CCTVPosition.position, m_stateId, followPlayer: m_followPlayer, constraints: m_constraints, lookAt: m_lookAt, freezeTime: m_freezeTime);
             }
         }
 

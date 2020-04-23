@@ -20,6 +20,7 @@ namespace Player.Inventory
         SilverKey,
         StoneKey,
         JadeKey,
-        Potions
+        Potions,
+        Stool
     };
 }

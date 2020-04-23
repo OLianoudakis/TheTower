@@ -100,7 +100,7 @@ namespace Environment.InteractibleBehaviors
                 //Requirements met, activate animation
                 if (m_messages[m_currentMessage].m_requiredItemQuantity <= 0)
                 {
-                    m_messages[m_currentMessage].m_note = "There!";
+                    //m_messages[m_currentMessage].m_note = "There!";
                     PlayAnimation();
                 }
                 else

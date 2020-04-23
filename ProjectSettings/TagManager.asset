@@ -9,6 +9,7 @@ TagManager:
   - Interactible
   - Noisable
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
