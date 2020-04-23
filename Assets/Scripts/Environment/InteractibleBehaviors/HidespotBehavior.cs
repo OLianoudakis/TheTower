@@ -60,16 +60,12 @@ namespace Environment.Hiding
 
         private void Update()
         {
-            if (m_playerCanHide)
+            if (m_playerCanHide && m_inputController.isRightMouseClick)
             {
-                if (m_inputController.isRightMouseClick)
-                {
-                    m_playerTransform.position = transform.position;
-                    SetPlayerIntoHiding();
-                }
+                m_playerTransform.position = transform.position;
+                SetPlayerIntoHiding();
             }
-
-            if (m_isHidden && m_inputController.isLeftMouseClick)
+            else if (m_isHidden && m_inputController.isLeftMouseClick)
             {
                 ExitHiding();
             }
