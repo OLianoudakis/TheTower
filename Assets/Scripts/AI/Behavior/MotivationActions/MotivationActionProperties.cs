@@ -17,6 +17,9 @@ namespace AI.Behavior.MotivationActions
         private int m_priority = 0;
 
         [SerializeField]
+        private Color m_lightColor;
+
+        [SerializeField]
         private MotivationGain m_motivationGain;
 
         [SerializeField]
@@ -25,6 +28,8 @@ namespace AI.Behavior.MotivationActions
         private KnowledgeBase.KnowledgeBase m_knowledgeBase;
         private Exp m_abstractSyntaxTree;
         private LogicalOperationsValidator m_logicalOperationsValidator;
+        private Light m_detectionLight;
+        private bool m_isInitialized = false;
         private bool m_canInterrupt = true;
 
         public int priority
@@ -76,6 +81,23 @@ namespace AI.Behavior.MotivationActions
                 throw new System.Exception("Logical operation set not provided for ruleset of length higher than 1!");
             }
             m_logicalOperationsValidator = new LogicalOperationsValidator(m_knowledgeBase);
+            m_detectionLight = transform.parent.parent.GetComponentInChildren(typeof(Light)) as Light;
+        }
+
+        private void OnEnable()
+        {
+            if (m_isInitialized)
+            {
+                m_detectionLight.color = m_lightColor;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (!m_isInitialized)
+            {
+                m_isInitialized = true;
+            }
         }
 
         private void Start()

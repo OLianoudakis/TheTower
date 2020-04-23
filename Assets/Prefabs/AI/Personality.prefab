@@ -238,11 +238,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LazyPatrol
       objectReference: {fileID: 0}
-    - target: {fileID: 4186485045032709286, guid: 969accaf84473c9418d08b729ee6e45d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4186485045032709289, guid: 969accaf84473c9418d08b729ee6e45d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,11 +458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5551756129472306473}
     m_Modifications:
-    - target: {fileID: 1273659243554844327, guid: 30b22ecbe02a2b242b0b7f3ec2ddcf85,
-        type: 3}
-      propertyPath: m_patrolPointsGroup
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8813604174030476197, guid: 30b22ecbe02a2b242b0b7f3ec2ddcf85,
         type: 3}
       propertyPath: m_Name

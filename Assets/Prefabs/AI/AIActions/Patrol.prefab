@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8813604174030476197}
-  m_LocalRotation: {x: -0, y: 0.6525912, z: -0, w: -0.75771016}
+  m_LocalRotation: {x: 0, y: -0.65259445, z: 0, w: 0.7577074}
   m_LocalPosition: {x: 9.854485, y: -0.19992436, z: 20.040121}
   m_LocalScale: {x: 0.41187906, y: 0.411879, z: 0.41187906}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -81.475006, z: 0}
 --- !u!114 &1273659243554844327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_personalityType: 1
-  m_waitTimeAtPoints: 3
-  m_patrolPointsGroup: {fileID: 0}
+  m_waitTimeAtPatrolPoints: 3
+  m_patrolGroupManager: {fileID: 0}
 --- !u!114 &919142372694207494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: 3
+  m_lightColor: {r: 0.039215688, g: 0.5686275, b: 0.4392157, a: 1}
   m_motivationGain: {fileID: 11400000, guid: 433f6ac58b8cc1c49b0d9c53ab14620a, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:

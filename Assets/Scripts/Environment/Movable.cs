@@ -15,6 +15,9 @@ namespace Environment
         [SerializeField]
         private bool m_notFixable = false;
 
+        [SerializeField]
+        private float m_soundRadius = 10.0f;
+
         private Interactible m_interactible;
         private bool m_isMakingNoise = false;
         private float m_currentSoundTransimissionTime = 0.0f;
@@ -109,6 +112,15 @@ namespace Environment
         {
             if (collision.gameObject.tag.Equals("Noisable"))
             {
+                Collider collider = GetComponent(typeof(Collider)) as Collider;
+                CapsuleCollider capsuleCollider = (CapsuleCollider)collider;
+                if (capsuleCollider)
+                {
+                    m_rigidBody.isKinematic = true;
+                    m_rigidBody.useGravity = false;
+                    capsuleCollider.isTrigger = true;
+                    capsuleCollider.radius *= m_soundRadius;
+                }
                 m_isMakingNoise = true;
             }
         }

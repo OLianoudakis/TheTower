@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cd1be48474c054fb42d962378b0aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_restoreObjectTime: 3
 --- !u!114 &2381285816038563953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: -1
+  m_lightColor: {r: 0.039215688, g: 0.5686275, b: 0.4392157, a: 1}
   m_motivationGain: {fileID: 11400000, guid: 98452646d4ec42e46a13e61bd3090b69, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:

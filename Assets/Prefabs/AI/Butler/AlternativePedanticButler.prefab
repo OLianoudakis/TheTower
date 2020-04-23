@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: 3
+  m_lightColor: {r: 0, g: 0, b: 0, a: 0}
   m_motivationGain: {fileID: 11400000, guid: 433f6ac58b8cc1c49b0d9c53ab14620a, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:
@@ -96,8 +97,8 @@ Transform:
   - {fileID: 8698173859729009093}
   - {fileID: 7830360918020730662}
   - {fileID: 1746881353790280468}
-  - {fileID: 1746881352784035457}
   - {fileID: 4286993704892545207}
+  - {fileID: 1746881352784035457}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 305.553, z: 0}
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: 1
+  m_lightColor: {r: 0.7529412, g: 0.14509805, b: 0.14509805, a: 1}
   m_motivationGain: {fileID: 11400000, guid: 385b686d783bb194c81afae89947fc56, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:
@@ -579,6 +581,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 681040278534549211, guid: fc0c14e62466127498f95ec8718eb658,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1461213535370065450, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_restoreObjectTime
@@ -687,7 +694,7 @@ PrefabInstance:
     - target: {fileID: 5551756129472306473, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5551756129472306473, guid: fc0c14e62466127498f95ec8718eb658,
         type: 3}
@@ -848,7 +855,7 @@ PrefabInstance:
     - target: {fileID: 4874385391892915241, guid: e194fa6e80ffee844befe7587b300f53,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4874385391892915241, guid: e194fa6e80ffee844befe7587b300f53,
         type: 3}

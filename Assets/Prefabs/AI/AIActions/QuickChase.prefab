@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: 1
+  m_lightColor: {r: 0.7529412, g: 0.14509805, b: 0.14509805, a: 1}
   m_motivationGain: {fileID: 11400000, guid: 2398f72aadd4c4b419215dae310bdda5, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:

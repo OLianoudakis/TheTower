@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b76118c3be6ea47be3601b8f2ffd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_targetPosition: {fileID: 0}
+  m_playerForgetTime: 15
   m_shoutingTime: 1.5
   m_runningMoveSpeed: 3.5
 --- !u!114 &6540439509341229515
@@ -58,7 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: -1
+  m_lightColor: {r: 0.7529412, g: 0.14509805, b: 0.14509805, a: 1}
   m_motivationGain: {fileID: 11400000, guid: 28c6fa8a4febe914886991b12d89074a, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:

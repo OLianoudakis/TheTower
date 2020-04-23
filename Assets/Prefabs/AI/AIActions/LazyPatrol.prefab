@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4186485045032709289
 Transform:
   m_ObjectHideFlags: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_personalityType: 3
-  m_timeBetweenComments: 5
-  m_patrolPointsGroup: {fileID: 0}
-  m_waitTimeAtPoints: 5
+  m_patrolGroupManager: {fileID: 0}
+  m_waitTimeAtPatrolPoints: 3
   m_stamina: 20
   m_sittingTime: 10
+  m_moveSpeed: 2.5
 --- !u!114 &4186485045032709288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_priorityDescription: Priority for action used when personality model disabled.
   m_priority: -1
+  m_lightColor: {r: 0.039215688, g: 0.5686275, b: 0.4392157, a: 1}
   m_motivationGain: {fileID: 11400000, guid: 0cab91f2805f74a4aac55997d8cf3ccd, type: 2}
   m_actionTriggerRules:
     m_logicalOperationSet:
