@@ -9,7 +9,7 @@ namespace AI.Personality
     {
         private float[] m_mood;
         private float[] m_baseMood;
-        private float m_baseMoodWeight = 0.5f;
+        private float m_baseMoodWeight = 0.3f;
 
         public float[] mood
         {

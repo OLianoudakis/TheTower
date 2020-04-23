@@ -71,7 +71,6 @@ namespace AI.Personality.Emotions
             for (int i = 0; i < currentMood.Length; i++)
             {
                 int discretizedCurrentMood = currentMood[i] >= 0.0f ? 1 : -1;
-                int discretizedCurrentMoodInverted = discretizedCurrentMood * -1;
                 int discretizedMoodByEmotion = ConstantMappings.MoodToEmotion[i, (int)emotionType] >= 0.0f ? 1 : -1;
                 if (discretizedCurrentMood != discretizedMoodByEmotion)
                 {
@@ -81,7 +80,7 @@ namespace AI.Personality.Emotions
                 isInTheInverseOctant = 0;
             }
 
-            return 1 + new Vector3(currentMood[0], currentMood[1], currentMood[2]).magnitude * (isInTheSameOctant - isInTheInverseOctant);
+            return new Vector3(currentMood[0], currentMood[1], currentMood[2]).magnitude * (isInTheSameOctant - isInTheInverseOctant);
         }
 
         private float GetPersonalityInfluence(EmotionType emotionType, PersonalityModel personalityModel)

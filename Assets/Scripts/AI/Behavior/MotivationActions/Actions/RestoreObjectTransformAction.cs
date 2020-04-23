@@ -45,8 +45,8 @@ namespace AI.Behavior.MotivationActions.Actions
                                 new WaitForCondition(IsOnSpot,
                                     new Action(RestoreObjectTransform)
                                 ),
-                                new Wait(m_restoreObjectTime),
-                                new Action(EnableInterrupt)
+                                new Wait(m_restoreObjectTime)
+                                //new Action(EnableInterrupt)
                             )
                         ),
                         new WaitUntilStopped(true)

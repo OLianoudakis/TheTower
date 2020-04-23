@@ -456,7 +456,7 @@ namespace AI.Behavior.EmotionalActions
         #region Resentment
         private static string PlayerSpottedResentment()
         {
-            string[] responses = new string[] { "For real? You're here? What a pain",
+            string[] responses = new string[] { "For real? You wont be ruining my day!",
                                                 "Oh come on now..."};
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
@@ -464,8 +464,7 @@ namespace AI.Behavior.EmotionalActions
 
         private static string PlayerDiscoveredResentment()
         {
-            string[] responses = new string[] { "Oh... back at it again?",
-                                                "Oh well..."};
+            string[] responses = new string[] { "You are here again? Off with you!"};
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
@@ -481,7 +480,7 @@ namespace AI.Behavior.EmotionalActions
         private static string ObjectMovedResentment()
         {
             string[] responses = new string[] { "Uh! another thing different!",
-                                                "Stop runing my arrangement!",
+                                                "Stop runing the arrangement!",
                                                 "Why can't they leave things be..."};
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
@@ -489,8 +488,8 @@ namespace AI.Behavior.EmotionalActions
 
         private static string NoiseHeardResentment()
         {
-            string[] responses = new string[] { "This was probably nothing...",
-                                                "I'm too bored to check this"};
+            string[] responses = new string[] { "Stop with the noise!",
+                                                "Is anybody moving my stuff again?"};
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
@@ -837,8 +836,7 @@ namespace AI.Behavior.EmotionalActions
 
         private static string PlayerLostDisappointment()
         {
-            string[] responses = new string[] { "Remind me to care about you escaping...",
-                                                "Ohh!! I can't believe he escaped!"};
+            string[] responses = new string[] { "Ohh!! I can't believe he escaped!"};
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }
@@ -1181,7 +1179,7 @@ namespace AI.Behavior.EmotionalActions
         private static string PlayerLostDisliking()
         {
             string[] responses = new string[] { "I am midly annoyed",
-                                                "This is furstrating" };
+                                                "This is frustrating" };
             int chosenResponse = Random.Range(0, responses.Length) ;
             return responses[chosenResponse];
         }

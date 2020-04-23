@@ -113,7 +113,7 @@ namespace Environment
             if (collision.gameObject.tag.Equals("Noisable"))
             {
                 Collider collider = GetComponent(typeof(Collider)) as Collider;
-                CapsuleCollider capsuleCollider = (CapsuleCollider)collider;
+                CapsuleCollider capsuleCollider = collider as CapsuleCollider;
                 if (capsuleCollider)
                 {
                     m_rigidBody.isKinematic = true;

@@ -17,6 +17,9 @@ namespace AI.Behavior.MotivationActions.Actions
         [SerializeField]
         private float m_playerForgetTimeWhileSeated = 10.0f;
 
+        [SerializeField]
+        private float m_moveSpeed = 2.5f;
+
         private Root m_behaviorTree;
         private bool m_actionInitialized = false;
         private ShareKnowledge m_shareKnowledge;
@@ -24,6 +27,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private NavMeshAgent m_navMeshAgent;
         private Sittable[] m_sittableObjects;
         private float m_playerDefaultStopFollowTime;
+        private float m_previousMoveSpeed;
         private MotivationActionProperties m_motivationActionProperties;
 
         public Object[] FindObjects(System.Type type)
@@ -112,6 +116,8 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_behaviorTree.Blackboard.Set("targetTransform", m_knowledgeBase.playerTransform);
                 m_shareKnowledge.Enable();
                 m_navMeshAgent.isStopped = false;
+                m_previousMoveSpeed = m_navMeshAgent.speed;
+                m_navMeshAgent.speed = m_moveSpeed;
                 m_motivationActionProperties.canInterrupt = false;
                 m_behaviorTree.Start();
             }
@@ -125,6 +131,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_navMeshAgent.isStopped = true;
                 m_motivationActionProperties.canInterrupt = true;
                 m_navMeshAgent.ResetPath();
+                m_navMeshAgent.speed = m_previousMoveSpeed;
                 m_shareKnowledge.Disable();
                 m_knowledgeBase.SetPlayerStopFollowTime(m_playerDefaultStopFollowTime);
                 m_behaviorTree.Blackboard.Unset("rotationDifference");
