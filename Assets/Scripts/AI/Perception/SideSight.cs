@@ -16,6 +16,10 @@ namespace AI.Perception
         private float m_playerColliderCenter;
         private PlayerInvisibility m_playerInvisibility = null;
 
+        public void ResetSight()
+        {
+            m_playerInvisibility = null;
+        }
 
         private void Start()
         {

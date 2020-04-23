@@ -7,6 +7,7 @@ using Player.EmptyClass;
 using Player.StateHandling;
 using Player.StateHandling.Moving;
 using AI.KnowledgeBase;
+using AI.Perception;
 using AI.EmptyClass;
 using GameUI;
 
@@ -34,6 +35,8 @@ namespace Environment.Checkpoints
 
         private EnemiesGroupTag m_enemiesParentObject;
         private List<KnowledgeBase> m_enemyKnowledgeBase = new List<KnowledgeBase>();
+        private List<MainSight> m_enemyMainSight = new List<MainSight>();
+        private List<SideSight> m_enemySideSight = new List<SideSight>();
 
         private bool m_startingFromCheckpoint = false;
 
@@ -79,6 +82,8 @@ namespace Environment.Checkpoints
             for (int i = 0; i < childCount; i++)
             {
                 m_enemyKnowledgeBase.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(KnowledgeBase)) as KnowledgeBase);
+                m_enemyMainSight.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(MainSight)) as MainSight);
+                m_enemySideSight.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(SideSight)) as SideSight);
             }
 
             bool thereAreNulls = true;
@@ -90,6 +95,18 @@ namespace Environment.Checkpoints
                     if (!m_enemyKnowledgeBase[i])
                     {
                         m_enemyKnowledgeBase.RemoveAt(i);
+                        oneNullFound = true;
+                        break;
+                    }
+                    if (!m_enemyMainSight[i])
+                    {
+                        m_enemyMainSight.RemoveAt(i);
+                        oneNullFound = true;
+                        break;
+                    }
+                    if (!m_enemySideSight[i])
+                    {
+                        m_enemySideSight.RemoveAt(i);
                         oneNullFound = true;
                         break;
                     }
@@ -139,6 +156,14 @@ namespace Environment.Checkpoints
                 foreach (KnowledgeBase enemyKnowledge in m_enemyKnowledgeBase)
                 {
                     enemyKnowledge.ResetKnowledge();
+                }
+                foreach (MainSight enemyMainSight in m_enemyMainSight)
+                {
+                    enemyMainSight.ResetSight();
+                }
+                foreach (SideSight enemySideSight in m_enemySideSight)
+                {
+                    enemySideSight.ResetSight();
                 }
                 m_startingFromCheckpoint = false;
             }

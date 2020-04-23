@@ -24,6 +24,7 @@ namespace Player.StateHandling.Crouching
         private void OnEnable()
         {
             m_agent.isStopped = true;
+            //m_agent.enabled = false;
             m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimCrouch);
             m_playerCollider.center = new Vector3(0.0f, 0.38f, 0.0f);
             m_playerCollider.height = 1.76f;

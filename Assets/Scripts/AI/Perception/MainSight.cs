@@ -19,6 +19,11 @@ namespace AI.Perception
         private CapsuleCollider m_collider;
         private PlayerInvisibility m_playerInvisibility = null;
 
+        public void ResetSight()
+        {
+            m_playerInvisibility = null;
+        }
+
         private void Start()
         {
             m_layerMask = LayerMask.GetMask("Default", "Default2", "CrouchPosition", "Player", "Highlight", "Shadows");
