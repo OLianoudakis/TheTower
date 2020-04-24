@@ -14,6 +14,7 @@ namespace AI.EmptyClass
 
         public bool gameOverAfterPlayerTouch
         {
+            set { m_gameOverAfterPlayerTouch = value; }
             get { return m_gameOverAfterPlayerTouch; }
         }
 

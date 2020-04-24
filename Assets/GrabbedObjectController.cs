@@ -80,7 +80,7 @@ namespace Player.Inventory
                 RaycastHit raycastHit;
                 if (Physics.Raycast(transform.position, Vector3.down, out raycastHit, 10.0f, m_layerMask))
                 {
-                    if (raycastHit.collider.gameObject.tag.Equals("Ground"))
+                    if (raycastHit.collider.gameObject.tag.Equals("Ground") || raycastHit.collider.gameObject.tag.Equals("Noisable"))
                     {
                         rayHittingGround = true;
                         rayHitPointPosition = raycastHit.point;

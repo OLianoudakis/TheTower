@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPBehave;
 using AI.Behavior.Trees;
+using AI.EmptyClass;
 using UnityEngine.AI;
 using Environment;
 
@@ -37,6 +38,7 @@ namespace AI.Behavior.MotivationActions.Actions
         private NavMeshAgent m_navMeshAgent;
         private Sittable[] m_sittableObjects;
         private FloatingTextBehavior m_textMesh;
+        private EnemyTagScript m_enemyTagScript;
 
         private void Awake()
         {
@@ -44,6 +46,7 @@ namespace AI.Behavior.MotivationActions.Actions
             m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
             m_sittableObjects = FindObjectsOfType(typeof(Sittable)) as Sittable[];
             m_textMesh = transform.parent.parent.GetComponentInChildren(typeof(FloatingTextBehavior)) as FloatingTextBehavior;
+            m_enemyTagScript = transform.parent.parent.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             Create();
         }
 
@@ -106,9 +109,14 @@ namespace AI.Behavior.MotivationActions.Actions
                         m_behaviorTree.Blackboard.Set("sittableForwardVector", sittable.sittablePosition.forward);
                         m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
                         m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
+                        m_enemyTagScript.gameOverAfterPlayerTouch = true;
                         break;
                     }
                 }
+            }
+            else if (m_behaviorTree.Blackboard.Isset("isSitting") && m_behaviorTree.Blackboard.Isset("isSitting"))
+            {
+                m_enemyTagScript.gameOverAfterPlayerTouch = false;
             }
         }
 
@@ -162,6 +170,7 @@ namespace AI.Behavior.MotivationActions.Actions
                 m_patrolGroupManager.index = (int)m_behaviorTree.Blackboard.Get("patrolPointsIndex");
                 m_behaviorTree.Blackboard.Unset("rotationDifference");
                 m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
+                m_enemyTagScript.gameOverAfterPlayerTouch = true;
             }
             else
             {
