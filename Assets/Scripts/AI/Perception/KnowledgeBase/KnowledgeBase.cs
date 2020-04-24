@@ -46,8 +46,6 @@ namespace AI.KnowledgeBase
         private Vector3 m_noisePosition;
         private Vector3 m_lastKnownPlayerPosition;
 
-        //For checkpoint reset
-        private Vector3 m_initialTransformPosition;
         
         public bool playerSuspicion
         {
@@ -81,7 +79,6 @@ namespace AI.KnowledgeBase
             m_currentNoiseForgetTime = 0.0f;
             m_currentPlayerForgetTime = 0.0f;
             m_currentEnvironmentMovedForgetTime = 0.0f;
-            transform.parent.transform.position = m_initialTransformPosition;
     }
 
         public void SetNoisePosition(Vector3 noisePosition)
@@ -308,11 +305,6 @@ namespace AI.KnowledgeBase
         public void SetPlayerStopFollowTime(float playerStopFollowTime)
         {
             m_playerStopFollowTime = playerStopFollowTime;
-        }
-
-        private void Start()
-        {
-            m_initialTransformPosition = transform.parent.transform.position;
         }
 
         private void Update()

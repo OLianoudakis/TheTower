@@ -12,10 +12,24 @@ namespace AI.EmptyClass
         private Light m_light;
         private int m_currentDefaultLayer = 0;
 
+        //For checkpoint reset
+        private Vector3 m_initialTransformPosition;
+
         public bool gameOverAfterPlayerTouch
         {
             set { m_gameOverAfterPlayerTouch = value; }
             get { return m_gameOverAfterPlayerTouch; }
+        }
+
+        public void Deactivate()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void ResetPosition()
+        {
+            transform.position = m_initialTransformPosition;
+            gameObject.SetActive(true);
         }
 
         private void Start()
@@ -23,6 +37,7 @@ namespace AI.EmptyClass
             Animator animator = GetComponentInChildren(typeof(Animator)) as Animator;
             animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerIdle);
             m_light = GetComponentInChildren(typeof(Light)) as Light;
+            m_initialTransformPosition = transform.position;
         }
 
         private void OnCollisionEnter(Collision collision)

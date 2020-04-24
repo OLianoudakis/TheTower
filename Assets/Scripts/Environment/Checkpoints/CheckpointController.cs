@@ -34,6 +34,7 @@ namespace Environment.Checkpoints
         private int m_playerStatePriority = 0;
 
         private EnemiesGroupTag m_enemiesParentObject;
+        private List<EnemyTagScript> m_enemies = new List<EnemyTagScript>();
         private List<KnowledgeBase> m_enemyKnowledgeBase = new List<KnowledgeBase>();
         private List<MainSight> m_enemyMainSight = new List<MainSight>();
         private List<SideSight> m_enemySideSight = new List<SideSight>();
@@ -81,6 +82,7 @@ namespace Environment.Checkpoints
             int childCount = m_enemiesParentObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
+                m_enemies.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(EnemyTagScript)) as EnemyTagScript);
                 m_enemyKnowledgeBase.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(KnowledgeBase)) as KnowledgeBase);
                 m_enemyMainSight.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(MainSight)) as MainSight);
                 m_enemySideSight.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(SideSight)) as SideSight);
@@ -90,8 +92,14 @@ namespace Environment.Checkpoints
             while (thereAreNulls)
             {
                 bool oneNullFound = false;
-                for (int i = 0; i < m_enemyKnowledgeBase.Count; i++)
+                for (int i = 0; i < m_enemies.Count; i++)
                 {
+                    if (!m_enemies[i])
+                    {
+                        m_enemies.RemoveAt(i);
+                        oneNullFound = true;
+                        break;
+                    }
                     if (!m_enemyKnowledgeBase[i])
                     {
                         m_enemyKnowledgeBase.RemoveAt(i);
@@ -164,6 +172,10 @@ namespace Environment.Checkpoints
                 foreach (SideSight enemySideSight in m_enemySideSight)
                 {
                     enemySideSight.ResetSight();
+                }
+                foreach (EnemyTagScript enemy in m_enemies)
+                {
+                    enemy.ResetPosition();
                 }
                 m_startingFromCheckpoint = false;
             }

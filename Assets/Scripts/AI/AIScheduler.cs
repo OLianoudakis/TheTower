@@ -52,7 +52,6 @@ namespace AI
                 }
                 m_behaviorManagers[i].UpdateBehavior();
             }
-            //Debug.Log(updateAmount);
             m_behaviorUpdateIndex = i;
             m_behaviorUpdateTimer = m_behaviorUpdateTimer - ((float)updateAmount * m_behaviorUpdateInterval);
 
