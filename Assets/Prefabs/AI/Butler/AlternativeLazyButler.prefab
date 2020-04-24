@@ -742,6 +742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingText
       objectReference: {fileID: 0}
+    - target: {fileID: 8881350441629651263, guid: e194fa6e80ffee844befe7587b300f53,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e194fa6e80ffee844befe7587b300f53, type: 3}
 --- !u!4 &7905814739599772417 stripped
