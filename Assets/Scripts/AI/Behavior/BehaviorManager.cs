@@ -199,8 +199,8 @@ namespace AI.Behavior
                         {
                             newDistance += Mathf.Abs(currentDesires[i] - gain);
                         }
-                        Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
-                            + currentDesires[i].ToString() + " " + gain.ToString() + " " + (newDistance - tmpDist).ToString() + " " + newDistance.ToString());
+                        //Debug.Log(motivationActionProperties.name + " " + motivationActionProperties.motivationGain.m_motivationDesiresGain[i].m_motivationDesire.ToString() + " "
+                        //    + currentDesires[i].ToString() + " " + gain.ToString() + " " + (newDistance - tmpDist).ToString() + " " + newDistance.ToString());
                     }
 
                     float significance = motivationActionProperties.motivationGain.m_motivationDesiresGain[mostSignificantMotivation].m_value;

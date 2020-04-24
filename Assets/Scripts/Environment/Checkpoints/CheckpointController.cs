@@ -167,7 +167,6 @@ namespace Environment.Checkpoints
                 }
                 m_startingFromCheckpoint = false;
             }
-            //Debug.Log("PLAYER POSITION: " + m_player.transform.position);
         }
 
     }

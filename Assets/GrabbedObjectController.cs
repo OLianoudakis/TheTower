@@ -37,7 +37,6 @@ namespace Player.Inventory
             }
             m_grabbedObject = grabbedObject;
             m_grabbedObjectPreviousParent = m_grabbedObject.transform.parent;
-            Debug.Log("PARENT NAME: " + m_grabbedObjectPreviousParent.gameObject.name);
             m_grabbedObjectRenderer = m_grabbedObject.GetComponentInChildren(typeof(MeshRenderer)) as MeshRenderer;
             m_previousMaterial = m_grabbedObjectRenderer.material;
             m_grabbedObject.transform.parent = transform;

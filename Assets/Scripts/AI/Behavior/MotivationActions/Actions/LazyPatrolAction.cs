@@ -93,7 +93,6 @@ namespace AI.Behavior.MotivationActions.Actions
             // if not set, never sit before
             if (!m_behaviorTree.Blackboard.Isset("isSitting") || ((m_behaviorTree.Blackboard.Isset("isSitting") && !(bool)m_behaviorTree.Blackboard.Get("isSitting"))))
             {
-                Debug.Log("Finding Chair");
                 m_behaviorTree.Blackboard.Set("isSitting", false);
                 m_behaviorTree.Blackboard.Set("isSittableAvailable", false);
                 foreach (Sittable sittable in m_sittableObjects)

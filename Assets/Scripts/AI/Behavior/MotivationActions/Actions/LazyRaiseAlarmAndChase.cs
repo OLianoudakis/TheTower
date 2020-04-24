@@ -81,7 +81,6 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void FindClosestSittable()
         {
-            Debug.Log("Finding Chair");
             m_behaviorTree.Blackboard.Set("isSittableAvailable", false);
             foreach (Sittable sittable in m_sittableObjects)
             {

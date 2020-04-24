@@ -72,7 +72,6 @@ namespace AI.Behavior.Trees
 
         private void MoveTo()
         {
-            Debug.Log("Move To");
             int animation = AnimationConstants.AnimButtlerWalk;
             if (m_behaviorTreeRoot.Blackboard.Isset("patrolingAnimation"))
             {

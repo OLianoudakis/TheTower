@@ -74,7 +74,6 @@ namespace AI.Behavior.MotivationActions.Actions
 
         private void FindClosestMovableObject()
         {
-            Debug.Log("Finding Movable Object");
             m_behaviorTree.Blackboard.Set("isMovableAvailable", false);
 
             foreach (Movable movable in m_movableObjects)

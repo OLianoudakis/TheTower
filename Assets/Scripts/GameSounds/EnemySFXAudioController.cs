@@ -14,7 +14,7 @@ namespace GameSounds
 
         public void PlayFootstep()
         {
-            m_footstepSource.PlayOneShot(m_footstepClip);
+            //m_footstepSource.PlayOneShot(m_footstepClip);
         }
     }
 }
