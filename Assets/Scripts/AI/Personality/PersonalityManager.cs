@@ -69,6 +69,7 @@ namespace AI.Personality
             m_moodManager = new MoodManager(m_personalityModel);
             m_motivationManager = new MotivationManager(m_personalityModel, m_motivationDecreaseCooldown, m_updateCurrentMotivation);
             m_behaviorManager = GetComponent(typeof(BehaviorManager)) as BehaviorManager;
+            enabled = true;
         }
 
         //private void Update()

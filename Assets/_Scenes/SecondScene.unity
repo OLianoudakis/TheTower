@@ -4332,6 +4332,7 @@ MonoBehaviour:
   m_CCTVPosition: {fileID: 1426695234}
   m_lookAt: {fileID: 152291522}
   m_followPlayer: 1
+  m_freezeTime: 1
   m_constraints:
     m_freezePosition:
       x: 1
@@ -5421,6 +5422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341639673}
+  - component: {fileID: 341639674}
   m_Layer: 0
   m_Name: Group2
   m_TagString: Untagged
@@ -5445,6 +5447,18 @@ Transform:
   m_Father: {fileID: 49022900}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &341639674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341639672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213f57653de32344cb385a71f047df29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &362849517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10469,7 +10483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ce11376b3e2aa4897aa6db40c53eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTransform: {fileID: 408235720}
+  m_behaviorUpdatePeriod: 0.5
+  m_personalityUpdatePeriod: 0.1
 --- !u!1001 &833393476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12191,6 +12206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1063294155}
+  - component: {fileID: 1063294156}
   m_Layer: 0
   m_Name: Group1
   m_TagString: Untagged
@@ -12214,6 +12230,18 @@ Transform:
   m_Father: {fileID: 49022900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1063294156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063294154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213f57653de32344cb385a71f047df29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1077497780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12346,6 +12374,11 @@ PrefabInstance:
       propertyPath: m_patrolPointsGroup
       value: 
       objectReference: {fileID: 1063294154}
+    - target: {fileID: 8364286846297457173, guid: 7dcc99cf31726ef40aa445a1047b92ee,
+        type: 3}
+      propertyPath: m_patrolGroupManager
+      value: 
+      objectReference: {fileID: 1063294156}
     - target: {fileID: 8364286846297457174, guid: 7dcc99cf31726ef40aa445a1047b92ee,
         type: 3}
       propertyPath: m_priority
@@ -16752,6 +16785,7 @@ MonoBehaviour:
   m_CCTVPosition: {fileID: 126530852}
   m_lookAt: {fileID: 152291522}
   m_followPlayer: 1
+  m_freezeTime: 1
   m_constraints:
     m_freezePosition:
       x: 0
@@ -17908,6 +17942,11 @@ PrefabInstance:
       propertyPath: m_patrolPointsGroup
       value: 
       objectReference: {fileID: 341639672}
+    - target: {fileID: 5158361913906021391, guid: 82febcdfcf6eb33478e140785baddcb4,
+        type: 3}
+      propertyPath: m_patrolGroupManager
+      value: 
+      objectReference: {fileID: 341639674}
     - target: {fileID: 5872351597376500240, guid: 82febcdfcf6eb33478e140785baddcb4,
         type: 3}
       propertyPath: m_IsActive

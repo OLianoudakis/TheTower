@@ -20,7 +20,7 @@ namespace Environment.Hiding
             
             if (playerInvisibility)
             {
-                float shadowCenterHeight = m_meshCollider.bounds.center.y + transform.position.y;
+                float shadowCenterHeight = Mathf.Abs(m_meshCollider.bounds.max.y) + transform.position.y;
                 float playerCenterHeight = ((CapsuleCollider)other).center.y + other.transform.position.y;
                 if (shadowCenterHeight >= playerCenterHeight)
                 {
@@ -34,7 +34,13 @@ namespace Environment.Hiding
             PlayerInvisibility playerInvisibility = other.GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
             if (playerInvisibility)
             {
-                float shadowCenterHeight = m_meshCollider.bounds.center.y + transform.position.y;
+                //float shadowCenterHeight = m_meshCollider.bounds.center.y + transform.position.y;
+                //float playerCenterHeight = ((CapsuleCollider)other).center.y + other.transform.position.y;
+                //if (shadowCenterHeight >= playerCenterHeight)
+                //{
+                //    playerInvisibility.SetVisible();
+                //}
+                float shadowCenterHeight = Mathf.Abs(m_meshCollider.bounds.max.y) + transform.position.y;
                 float playerCenterHeight = ((CapsuleCollider)other).center.y + other.transform.position.y;
                 if (shadowCenterHeight >= playerCenterHeight)
                 {
