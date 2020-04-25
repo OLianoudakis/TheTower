@@ -23,30 +23,33 @@ namespace Player
             m_grabbedObjectController = GetComponentInChildren(typeof(GrabbedObjectController)) as GrabbedObjectController;
 
             m_enemiesParentObject = FindObjectOfType(typeof(EnemiesGroupTag)) as EnemiesGroupTag;
-            m_enemies.Clear();
-
-            int childCount = m_enemiesParentObject.transform.childCount;
-            for (int i = 0; i < childCount; i++)
+           
+            if (m_enemiesParentObject)
             {
-                m_enemies.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(EnemyTagScript)) as EnemyTagScript);
-            }
-
-            bool thereAreNulls = true;
-            while (thereAreNulls)
-            {
-                bool oneNullFound = false;
-                for (int i = 0; i < m_enemies.Count; i++)
+                m_enemies.Clear();
+                int childCount = m_enemiesParentObject.transform.childCount;
+                for (int i = 0; i < childCount; i++)
                 {
-                    if (!m_enemies[i])
-                    {
-                        m_enemies.RemoveAt(i);
-                        oneNullFound = true;
-                        break;
-                    }
+                    m_enemies.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(EnemyTagScript)) as EnemyTagScript);
                 }
-                if (!oneNullFound)
+
+                bool thereAreNulls = true;
+                while (thereAreNulls)
                 {
-                    thereAreNulls = false;
+                    bool oneNullFound = false;
+                    for (int i = 0; i < m_enemies.Count; i++)
+                    {
+                        if (!m_enemies[i])
+                        {
+                            m_enemies.RemoveAt(i);
+                            oneNullFound = true;
+                            break;
+                        }
+                    }
+                    if (!oneNullFound)
+                    {
+                        thereAreNulls = false;
+                    }
                 }
             }
         }

@@ -229,6 +229,7 @@ MonoBehaviour:
   m_CCTVPosition: {fileID: 672290213}
   m_lookAt: {fileID: 197544828}
   m_followPlayer: 1
+  m_freezeTime: 1
   m_constraints:
     m_freezePosition:
       x: 1
@@ -5580,6 +5581,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c8d9c20184e578e4a995c28607b32fed, type: 2}
+    - target: {fileID: 3193352403756087101, guid: e96b342d0ddbcfc43a4943473ddfcc5f,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4774253217943722497, guid: e96b342d0ddbcfc43a4943473ddfcc5f,
         type: 3}
       propertyPath: m_Name
@@ -10331,6 +10337,7 @@ MonoBehaviour:
   m_CCTVPosition: {fileID: 1887149952}
   m_lookAt: {fileID: 197544828}
   m_followPlayer: 1
+  m_freezeTime: 1
   m_constraints:
     m_freezePosition:
       x: 1
@@ -12426,7 +12433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ce11376b3e2aa4897aa6db40c53eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTransform: {fileID: 1842437414}
+  m_behaviorUpdatePeriod: 0.5
+  m_personalityUpdatePeriod: 0.1
 --- !u!1001 &2050321308
 PrefabInstance:
   m_ObjectHideFlags: 0
