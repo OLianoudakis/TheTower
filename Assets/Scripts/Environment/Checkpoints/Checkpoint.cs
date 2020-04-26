@@ -49,7 +49,10 @@ namespace Environment.Checkpoints
                     (door.GetComponent(typeof(Interactible)) as Interactible).RestartBehavior();
                     (door.GetComponent(typeof(POIBehavior)) as POIBehavior).enabled = true;
                     (door.GetComponent(typeof(POIBehavior)) as POIBehavior).ResetMessages();
-                    (door.GetComponent(typeof(Animator)) as Animator).SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimDoorClose);
+                    if ((door.GetComponent(typeof(Animator)) as Animator))
+                    {
+                        (door.GetComponent(typeof(Animator)) as Animator).SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimDoorClose);
+                    }
                 }
             }
 

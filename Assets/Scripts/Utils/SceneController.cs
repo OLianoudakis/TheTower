@@ -8,6 +8,11 @@ using Player.EmptyClass;
 
 public class SceneController : MonoBehaviour
 {
+    public void LoadSpecificScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
