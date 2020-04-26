@@ -37,6 +37,9 @@ namespace Environment.InteractibleBehaviors
         private bool m_discardObject = false;
 
         [SerializeField]
+        private bool m_reuse = false;
+
+        [SerializeField]
         private AudioClip m_initialSound;
 
         [SerializeField]
@@ -148,7 +151,7 @@ namespace Environment.InteractibleBehaviors
         {
             StartCoroutine(DeactivatePOIBehaviorCourutine());
             m_dialogueGroup.HideDialogueWindow();
-            if (permanent)
+            if (permanent && !m_reuse)
             {
                 if (m_discardObject)
                 {
@@ -157,6 +160,10 @@ namespace Environment.InteractibleBehaviors
                 m_interactible.DeactivateBehavior(true);
                 this.enabled = false;
                 return;
+            }
+            if (m_reuse)
+            {
+                m_currentMessage = 0;
             }
             m_interactible.DeactivateBehavior(false);
         }
