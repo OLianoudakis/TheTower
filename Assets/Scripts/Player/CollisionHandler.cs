@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using AI.EmptyClass;
 using Player.Inventory;
 using GameUI;
+using Environment.Hiding;
 
 namespace Player
 {
@@ -15,6 +16,8 @@ namespace Player
         private GrabbedObjectController m_grabbedObjectController;
         private EnemiesGroupTag m_enemiesParentObject;
         private List<EnemyTagScript> m_enemies = new List<EnemyTagScript>();
+        private List<HidespotBehavior> m_hideSpots = new List<HidespotBehavior>();
+        private CouchPositionsTagScript m_hideSpotsGroup;
 
         private void Awake()
         {
@@ -23,7 +26,23 @@ namespace Player
             m_grabbedObjectController = GetComponentInChildren(typeof(GrabbedObjectController)) as GrabbedObjectController;
 
             m_enemiesParentObject = FindObjectOfType(typeof(EnemiesGroupTag)) as EnemiesGroupTag;
-           
+            m_hideSpotsGroup = FindObjectOfType(typeof(CouchPositionsTagScript)) as CouchPositionsTagScript;
+
+            if (m_hideSpotsGroup)
+            {
+                m_hideSpots.Clear();
+                int childCount = m_hideSpotsGroup.transform.childCount;
+                for (int i = 0; i < childCount; i++)
+                {
+                    Transform roomChild = m_hideSpotsGroup.transform.GetChild(i);
+                    int roomChildCount = roomChild.transform.childCount;
+                    for (int j = 0; j < roomChildCount; j++)
+                    {
+                        m_hideSpots.Add(roomChild.GetChild(j).GetComponent(typeof(HidespotBehavior)) as HidespotBehavior);
+                    }
+                }
+            }
+
             if (m_enemiesParentObject)
             {
                 m_enemies.Clear();
@@ -59,7 +78,11 @@ namespace Player
             EnemyTagScript enemyTag = other.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
-                foreach(EnemyTagScript enemy in m_enemies)
+                for (int i = 0; i < m_hideSpots.Count; i++)
+                {
+                    m_hideSpots[i].playerCanHide = false;
+                }
+                foreach (EnemyTagScript enemy in m_enemies)
                 {
                     enemy.Deactivate();
                 }
@@ -74,6 +97,10 @@ namespace Player
             EnemyTagScript enemyTag = collision.gameObject.GetComponent(typeof(EnemyTagScript)) as EnemyTagScript;
             if (enemyTag && enemyTag.gameOverAfterPlayerTouch)
             {
+                for (int i = 0; i < m_hideSpots.Count; i++)
+                {
+                    m_hideSpots[i].playerCanHide = false;
+                }
                 foreach (EnemyTagScript enemy in m_enemies)
                 {
                     enemy.Deactivate();

@@ -24,6 +24,12 @@ namespace Environment.Hiding
         private Transform m_playerTransform;
         private HideGroup m_hideIconUI;
         private bool m_isHidden = false;
+        public bool playerCanHide
+        {
+            get { return m_playerCanHide; }
+            set { m_playerCanHide = value; }
+        }
+
         private bool m_playerCanHide = false;
         private bool m_slidePlayerToCenter = false;
 

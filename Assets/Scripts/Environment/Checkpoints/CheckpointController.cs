@@ -62,6 +62,7 @@ namespace Environment.Checkpoints
             }
             else
             {
+                Time.timeScale = 1.0f;
                 m_sceneController.RestartLevel();
             }
         }
