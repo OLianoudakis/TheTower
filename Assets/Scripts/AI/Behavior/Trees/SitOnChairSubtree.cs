@@ -73,9 +73,9 @@ namespace AI.Behavior.Trees
 
         private bool IsOnSpot()
         {
-            Vector3 sittablePosition = (Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition");
+            Transform sittablePosition = m_behaviorTreeRoot.Blackboard.Get("sittablePosition") as Transform;
             if (Vector3.SqrMagnitude(new Vector3(m_navMeshAgent.transform.position.x, 0.0f, m_navMeshAgent.transform.position.z)
-                - new Vector3(sittablePosition.x, 0.0f, sittablePosition.z)) < MathConstants.SquaredDistance)
+                - new Vector3(sittablePosition.position.x, 0.0f, sittablePosition.position.z)) < MathConstants.SquaredDistance)
             {
                 if (m_textMesh && m_behaviorTreeRoot.Blackboard.Isset("sittableName"))
                 {

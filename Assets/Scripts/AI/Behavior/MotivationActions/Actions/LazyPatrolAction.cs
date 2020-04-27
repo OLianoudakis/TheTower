@@ -106,7 +106,7 @@ namespace AI.Behavior.MotivationActions.Actions
                         m_behaviorTree.Blackboard.Set("isSitting", true);
                         m_behaviorTree.Blackboard.Set("isSittableAvailable", true);
                         m_behaviorTree.Blackboard.Set("sittableForwardVector", sittable.sittablePosition.forward);
-                        m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition.position);
+                        m_behaviorTree.Blackboard.Set("sittablePosition", sittable.sittablePosition);
                         m_behaviorTree.Blackboard.Set("sittableName", sittable.name);
                         m_enemyTagScript.gameOverAfterPlayerTouch = true;
                         break;
