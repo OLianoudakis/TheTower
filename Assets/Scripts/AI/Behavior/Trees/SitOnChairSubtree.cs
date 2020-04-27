@@ -68,7 +68,8 @@ namespace AI.Behavior.Trees
         {
             m_animator.SetInteger(AnimationConstants.ButtlerAnimationState, AnimationConstants.AnimButtlerWalk);
             m_navMeshAgent.isStopped = false;
-            m_navMeshAgent.SetDestination((Vector3)m_behaviorTreeRoot.Blackboard.Get("sittablePosition"));
+            Transform sittablePosition = m_behaviorTreeRoot.Blackboard.Get("sittablePosition") as Transform;
+            m_navMeshAgent.SetDestination(sittablePosition.position);
         }
 
         private bool IsOnSpot()
