@@ -74,6 +74,7 @@ namespace AI.KnowledgeBase
             m_playerHiding = false;
             m_noiseHeard = false;
             m_environmentObjectMoved = false;
+            m_playerForgotten = true;
             m_environmentObjects.Clear();
             m_environmentObjectsMap.Clear();
             m_currentNoiseForgetTime = 0.0f;

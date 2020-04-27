@@ -86,7 +86,11 @@ namespace Environment.Checkpoints
                 m_enemies.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(EnemyTagScript)) as EnemyTagScript);
                 m_enemyKnowledgeBase.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(KnowledgeBase)) as KnowledgeBase);
                 m_enemyMainSight.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(MainSight)) as MainSight);
-                m_enemySideSight.Add(m_enemiesParentObject.transform.GetChild(i).GetComponentInChildren(typeof(SideSight)) as SideSight);
+                SideSight[] sideSights = m_enemiesParentObject.transform.GetChild(i).GetComponentsInChildren<SideSight>();
+                foreach (SideSight sideSight in sideSights)
+                {
+                    m_enemySideSight.Add(sideSight);
+                }
             }
 
             bool thereAreNulls = true;
