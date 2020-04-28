@@ -7,6 +7,9 @@ namespace Environment.InteractibleBehaviors
     public class MoveBehavior : MonoBehaviour
     {
         [SerializeField]
+        private float m_forceStrength = 150.0f;
+
+        [SerializeField]
         private bool m_rotateOnly = false;
 
         [SerializeField]
@@ -65,7 +68,7 @@ namespace Environment.InteractibleBehaviors
                                 Vector3 force = Random.insideUnitSphere;
                                 // dont allow negative y force
                                 force.y = Mathf.Abs(force.y);
-                                rigidbody.AddForce(Random.insideUnitSphere * 150.0f);
+                                rigidbody.AddForce(Random.insideUnitSphere * m_forceStrength, ForceMode.Impulse);
                             }
                         }
                     }
