@@ -18,12 +18,14 @@ namespace Player
         private List<EnemyTagScript> m_enemies = new List<EnemyTagScript>();
         private List<HidespotBehavior> m_hideSpots = new List<HidespotBehavior>();
         private CouchPositionsTagScript m_hideSpotsGroup;
+        private PlayerInvisibility m_playerInvisibility;
 
         private void Awake()
         {
             m_gameOverController = FindObjectOfType(typeof(GameOverController)) as GameOverController;
             m_inventoryController = GetComponent(typeof(PlayerInventoryController)) as PlayerInventoryController;
             m_grabbedObjectController = GetComponentInChildren(typeof(GrabbedObjectController)) as GrabbedObjectController;
+            m_playerInvisibility = GetComponent(typeof(PlayerInvisibility)) as PlayerInvisibility;
 
             m_enemiesParentObject = FindObjectOfType(typeof(EnemiesGroupTag)) as EnemiesGroupTag;
             m_hideSpotsGroup = FindObjectOfType(typeof(CouchPositionsTagScript)) as CouchPositionsTagScript;
@@ -86,6 +88,10 @@ namespace Player
                 {
                     enemy.Deactivate();
                 }
+                if (m_playerInvisibility.isInvisible)
+                {
+                    m_playerInvisibility.SetVisible();
+                }
                 m_inventoryController.EmptyInventory();
                 gameObject.SetActive(false);
                 m_gameOverController.ShowGameOver();
@@ -104,6 +110,10 @@ namespace Player
                 foreach (EnemyTagScript enemy in m_enemies)
                 {
                     enemy.Deactivate();
+                }
+                if (m_playerInvisibility.isInvisible)
+                {
+                    m_playerInvisibility.SetVisible();
                 }
                 m_inventoryController.EmptyInventory();
                 m_grabbedObjectController.ResetGrabbedObjectToOrigin();
