@@ -40,16 +40,18 @@ namespace AI.Behavior.Trees
         void SetNextPatrolPoint()
         {
             Vector3[] patrolPoints = m_behaviorTreeRoot.Blackboard.Get("patrolPoints") as Vector3[];
-            int index = (int)m_behaviorTreeRoot.Blackboard.Get("patrolPointsIndex");
-            // check bounds
-            if ((patrolPoints != null) && (index < patrolPoints.Length))
+            
+            if ((patrolPoints != null) && m_behaviorTreeRoot.Blackboard.Isset("patrolPointsIndex"))
             {
-                m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[index]);
+                int index = (int)m_behaviorTreeRoot.Blackboard.Get("patrolPointsIndex");
+                // check bounds
+                if (index < patrolPoints.Length)
+                {
+                    m_behaviorTreeRoot.Blackboard.Set("nextPosition", patrolPoints[index]);
+                    return;
+                }
             }
-            else
-            {
-                m_behaviorTreeRoot.Blackboard.Unset("nextPosition");
-            }
+            m_behaviorTreeRoot.Blackboard.Unset("nextPosition");
         }
 
         void AtPatrolPoint()
