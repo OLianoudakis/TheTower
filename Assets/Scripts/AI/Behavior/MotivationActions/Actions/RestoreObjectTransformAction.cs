@@ -64,7 +64,7 @@ namespace AI.Behavior.MotivationActions.Actions
             if (m_knowledgeBase.environmentObjectMoved)
             {
                 Movable movable = m_knowledgeBase.GetMovedObject();
-                if (movable)
+                if (movable && movable.movablePosition)
                 {
                     m_behaviorTree.Blackboard.Set("movablePosition", movable.movablePosition.position);
                     m_behaviorTree.Blackboard.Set("movedObjectPosition", movable.transform.position);

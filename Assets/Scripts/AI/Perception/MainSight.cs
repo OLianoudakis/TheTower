@@ -66,7 +66,7 @@ namespace AI.Perception
                 }
             }
             Movable movableObject = other.GetComponent(typeof(Movable)) as Movable;
-            if (movableObject && movableObject.HasTransformChanged())
+            if (movableObject && movableObject.HasTransformChanged() && movableObject.movablePosition)
             {
                 RaycastHit hit;
                 if (Raycast(new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z), out hit))

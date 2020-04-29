@@ -78,7 +78,7 @@ namespace AI.Behavior.MotivationActions.Actions
 
             foreach (Movable movable in m_movableObjects)
             {
-                if (m_navMeshAgent && (m_lastVisited != movable) && movable.CanMove(m_navMeshAgent.transform))
+                if (m_navMeshAgent && (m_lastVisited != movable) && movable.CanMove(m_navMeshAgent.transform) && movable.movablePosition)
                 {
                     m_lastVisited = movable;
                     m_behaviorTree.Blackboard.Set("isMovableAvailable", true);

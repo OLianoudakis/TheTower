@@ -52,7 +52,14 @@ namespace Environment
 
         public Transform movablePosition
         {
-            get { return m_interactible.interactiblePosition; }
+            get
+            {
+                if (m_interactible)
+                {
+                    return m_interactible.interactiblePosition;
+                }
+                return null;
+            }
         }
 
         public bool CanMove(Transform transform)
