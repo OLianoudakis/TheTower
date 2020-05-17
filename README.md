@@ -5,7 +5,7 @@ Marek Cernak
 Orestis Lianoudakis
 Supervisor: Staffan Björk
 
-This is a master's thesis made for the University of Gothenburg. The thesis research question was "Modeling personalities with believable and consistent behavior for NPCs in games using stealth gameplay style". In which, we have based our guard AI around paper's that delve into the personality, emotion, motivation and mood models and how they can be applied as AI algorithms. We then took whatever we felt could enhance the AI guard behavior in stealth games and made a prototype around it.
+3D stealth-based point-and-click game prototype developed for the research purpose of Master's Thesis. Thesis focus was to explore Design of distinct personalities for NPCs with consistent and believable behaviour in stealth-based gameplay. For the design exploration purposes, we developed a computational personality model for AI based on the research by Shvo, Buhmann and Kapadia presented in their article An Interdependent Model of Personality, Motivation, Emotion, and Mood for Intelligent Virtual Agents: https://dl.acm.org/doi/abs/10.1145/3308532.3329474
 
 In this prototype demo you play as Fergus, a man who wakes up in the middle of a dark cellar in a pool of wine. He realizes he is in a very peculiar tower. Ascend with Fergus up the floors to discover the secrets of the tower while avoiding pesky ghost guards along the way. Don't let the similarities of the guards fool you. They have their own weaknesses and strengths and you as the player must try to understand in what they're weak against and what they're strong at. Progress through each level, and get a hit about what mysteries are behold in the tower.
 
