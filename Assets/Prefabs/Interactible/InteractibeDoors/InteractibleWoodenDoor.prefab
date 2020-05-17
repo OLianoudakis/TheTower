@@ -47,11 +47,11 @@ GameObject:
   - component: {fileID: 5984488032239862658}
   - component: {fileID: 5984488032239862659}
   m_Layer: 0
-  m_Name: Door_Wooden_Round_Left (3)
+  m_Name: InteractibleWoodenDoor
   m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &8621662395031777469
 Transform:
@@ -158,20 +158,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d514aa3a3dfa9248990e5495dc88792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dialogueGroup: {fileID: 0}
-  m_dialogueWindow: {fileID: 0}
-  m_infoGroup: {fileID: 0}
+  m_tutorialManager: {fileID: 0}
   m_repeatedInfoText: {fileID: 0}
   m_messages:
   - m_note: It's locked
     m_givesItem: {fileID: 0}
     m_givesItemQuantity: 0
-    m_requiredItemType: 0
-    m_requiredItemTypeName: 
+    m_requiresItem: {fileID: 0}
     m_requiredItemQuantity: 0
   m_animator: {fileID: 0}
-  m_inputController: {fileID: 0}
-  m_playerInventoryController: {fileID: 0}
+  m_discardObject: 0
+  m_initialSound: {fileID: 0}
+  m_animationSound: {fileID: 0}
 --- !u!114 &5984488032239862658
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &5401483048020721316
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3618143956025847585}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7c8b5c7d456764429b4d0beccb73257, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &5401483048117420560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32,6 +13,102 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6838236, y: 4.099059, z: 1.0000001}
   m_Center: {x: 1.01253, y: -0.31805658, z: -0.65}
+--- !u!82 &6868597194245928075
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164838087631905770}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6cedbc7900ba5624bafbac7b72b12343, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &5401483048117420563
 Animator:
   serializedVersion: 3
@@ -67,6 +144,45 @@ MonoBehaviour:
   m_backWallAnim: {fileID: 5401483048693633114}
   m_starcaseAnim: {fileID: 5401483048020721316}
   m_invisibleWall: {fileID: 0}
+--- !u!114 &5401483048117420572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164838087631905770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d514aa3a3dfa9248990e5495dc88792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tutorialManager: {fileID: 0}
+  m_repeatedInfoText: {fileID: 0}
+  m_messages:
+  - m_note: This looks suspicious...
+    m_givesItem: {fileID: 0}
+    m_givesItemQuantity: 0
+    m_requiresItem: {fileID: 0}
+    m_requiredItemQuantity: 0
+  - m_note: ...if I would just...
+    m_givesItem: {fileID: 0}
+    m_givesItemQuantity: 0
+    m_requiresItem: {fileID: 0}
+    m_requiredItemQuantity: 0
+  - m_note: There!
+    m_givesItem: {fileID: 0}
+    m_givesItemQuantity: 1
+    m_requiresItem: {fileID: 0}
+    m_requiredItemQuantity: 0
+  - m_note: Interesting
+    m_givesItem: {fileID: 0}
+    m_givesItemQuantity: 0
+    m_requiresItem: {fileID: 0}
+    m_requiredItemQuantity: 0
+  m_animator: {fileID: 5401483048117420563}
+  m_discardObject: 0
+  m_initialSound: {fileID: 0}
+  m_animationSound: {fileID: 0}
 --- !u!114 &5401483048117420574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,51 +209,89 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactiblePosition: {fileID: 5401483048340062833}
---- !u!114 &5401483048117420572
-MonoBehaviour:
+--- !u!65 &5401483048912347352
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164838087631905770}
+  m_GameObject: {fileID: 302236288837036321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d514aa3a3dfa9248990e5495dc88792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_dialogueGroup: {fileID: 0}
-  m_dialogueWindow: {fileID: 0}
-  m_infoGroup: {fileID: 0}
-  m_repeatedInfoText: {fileID: 0}
-  m_messages:
-  - m_note: This looks suspicious...
-    m_givesItem: {fileID: 0}
-    m_givesItemQuantity: 0
-    m_requiredItemType: 0
-    m_requiredItemTypeName: 
-    m_requiredItemQuantity: 0
-  - m_note: ...if I would just...
-    m_givesItem: {fileID: 0}
-    m_givesItemQuantity: 0
-    m_requiredItemType: 0
-    m_requiredItemTypeName: 
-    m_requiredItemQuantity: 0
-  - m_note: There!
-    m_givesItem: {fileID: 3056257138203651115, guid: 927c996f836dcbc4ebeed6d5d888b60a,
-      type: 3}
-    m_givesItemQuantity: 1
-    m_requiredItemType: 0
-    m_requiredItemTypeName: 
-    m_requiredItemQuantity: 0
-  - m_note: Interesting
-    m_givesItem: {fileID: 0}
-    m_givesItemQuantity: 0
-    m_requiredItemType: 1
-    m_requiredItemTypeName: 
-    m_requiredItemQuantity: 0
-  m_animator: {fileID: 5401483048117420563}
-  m_inputController: {fileID: 0}
-  m_playerInventoryController: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.03999999, y: 0.0023740232, z: 0.0518272}
+  m_Center: {x: 0, y: 0.018955782, z: 0.0239136}
+--- !u!95 &5401483048912347355
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302236288837036321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70fd3f0042b57c34f92b4a3203b2abc7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &5401483048693633115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302236289020090784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03999999, y: 0.0023740232, z: 0.0518272}
+  m_Center: {x: 0, y: 0.018955782, z: 0.0239136}
+--- !u!95 &5401483048693633114
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302236289020090784}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fbe141bf7c640ee439f74e62106cd97d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &5401483048020721316
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618143956025847585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7c8b5c7d456764429b4d0beccb73257, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5401483048331977339
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,70 +356,6 @@ Transform:
   m_Father: {fileID: 8991208738205703693}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5401483048693633115
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302236289020090784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03999999, y: 0.0023740232, z: 0.0518272}
-  m_Center: {x: 0, y: 0.018955782, z: 0.0239136}
---- !u!95 &5401483048693633114
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302236289020090784}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fbe141bf7c640ee439f74e62106cd97d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &5401483048912347352
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302236288837036321}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03999999, y: 0.0023740232, z: 0.0518272}
-  m_Center: {x: 0, y: 0.018955782, z: 0.0239136}
---- !u!95 &5401483048912347355
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302236288837036321}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 70fd3f0042b57c34f92b4a3203b2abc7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5401483048693633116
 PrefabInstance:
   m_ObjectHideFlags: 0

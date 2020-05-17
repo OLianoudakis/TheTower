@@ -7,6 +7,9 @@ TagManager:
   - Water
   - POI
   - Interactible
+  - Noisable
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,18 +20,18 @@ TagManager:
   - 
   - 
   - IgnoreReflection
+  - Perception
+  - KnowledgeBaseSharing
+  - Enemy
+  - InteractibleTrigger
   - 
+  - CrouchPosition
+  - Camera
+  - Highlight
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Shadows
+  - Default2
   - 
   - 
   - 

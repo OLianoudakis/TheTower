@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Player.StateHandling.Interact;
 
 namespace Environment
 {
@@ -34,9 +35,8 @@ namespace Environment
                 if (trigger.isActivated)
                 {
                     m_interactible = trigger.interactible;
-                    interactible.interactiblePosition = m_playerPosition;
+                    m_interactible.interactiblePosition = m_playerPosition;
                     trigger.isActivated = false;
-                    //trigger.gameObject.SetActive(false);
                     return;
                 }
             }
@@ -47,8 +47,24 @@ namespace Environment
                 if (m_inputController.leftMouseClickHit.collider.gameObject.tag.Equals("Interactible"))
                 {
                     interactible = m_inputController.leftMouseClickHit.collider.gameObject.GetComponent(typeof(Interactible)) as Interactible;
+                    if (!interactible)
+                    {
+                        interactible = m_inputController.leftMouseClickHit.collider.gameObject.GetComponentInChildren(typeof(Interactible)) as Interactible;
+                    }
                 }
-                m_interactible = interactible;
+                if (m_interactible != interactible)
+                {
+                    if (m_interactible)
+                    {
+                        m_interactible.HighlightInteractible(false);
+                    }
+                    m_interactible = interactible;
+                    // if interactible clicked and player is not in Interact state already
+                    if (m_interactible && !(FindObjectOfType(typeof(Interact)) as Interact))
+                    {
+                        m_interactible.HighlightInteractible(true);
+                    }
+                }
             }
         }
     }

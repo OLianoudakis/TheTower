@@ -41,15 +41,16 @@ GameObject:
   - component: {fileID: 5169741726761674309}
   - component: {fileID: 5169741726760347237}
   - component: {fileID: 5169741726759380133}
-  - component: {fileID: 5169741726761581466}
   - component: {fileID: 4268933939837430670}
   - component: {fileID: 4268933939837430657}
   - component: {fileID: 4268933939837430667}
   - component: {fileID: 4268933939837430656}
   - component: {fileID: 4268933939837430658}
-  - component: {fileID: 4268933939837430659}
-  m_Layer: 0
-  m_Name: Door_Iron_Left
+  - component: {fileID: 8703066628051401881}
+  - component: {fileID: 9147972219682915995}
+  - component: {fileID: 4202612430917666956}
+  m_Layer: 16
+  m_Name: InteractibleIronDoor
   m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +63,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5169741726761581157}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -16.288836, y: -5.48237, z: 20.250174}
   m_LocalScale: {x: 268.11215, y: 268.11215, z: 268.11215}
   m_Children:
@@ -117,20 +118,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5169741726761581466
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5169741726761581157}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: f6660c88e946e3f4a9301950fc6587e0, type: 3}
 --- !u!208 &4268933939837430670
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -143,8 +130,8 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.007, y: 0.001, z: 0.011000001}
   m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
   m_Center: {x: -0.007, y: -0.001, z: 0.001}
   m_TimeToStationary: 0.5
 --- !u!95 &4268933939837430657
@@ -178,26 +165,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d514aa3a3dfa9248990e5495dc88792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dialogueGroup: {fileID: 0}
-  m_dialogueWindow: {fileID: 0}
-  m_infoGroup: {fileID: 0}
+  m_tutorialManager: {fileID: 0}
   m_repeatedInfoText: {fileID: 0}
   m_messages:
   - m_note: It needs a key...
     m_givesItem: {fileID: 0}
     m_givesItemQuantity: 0
-    m_requiredItemType: 4
-    m_requiredItemTypeName: Jade Key
+    m_requiresItem: {fileID: 11400000, guid: 5de89520b5c9a0645b86e2308a287bee, type: 2}
     m_requiredItemQuantity: 1
   - m_note: It's open!
     m_givesItem: {fileID: 0}
     m_givesItemQuantity: 0
-    m_requiredItemType: 0
-    m_requiredItemTypeName: 
+    m_requiresItem: {fileID: 0}
     m_requiredItemQuantity: 0
   m_animator: {fileID: 4268933939837430657}
-  m_inputController: {fileID: 0}
-  m_playerInventoryController: {fileID: 0}
+  m_discardObject: 0
+  m_initialSound: {fileID: 8300000, guid: 5a0bbff7eefc7314797fc4b4715c647e, type: 3}
+  m_animationSound: {fileID: 0}
 --- !u!114 &4268933939837430656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56fa20b1c9da3e40acf88566c05ab57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_highlightMaterial: {fileID: 2100000, guid: c14021abfaa46d1498a6155145915532, type: 2}
+  m_highlightMaterial: {fileID: 2100000, guid: faabcb6bd167ec84a98752473acb0755, type: 2}
 --- !u!114 &4268933939837430658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactiblePosition: {fileID: 4268933938803368970}
---- !u!114 &4268933939837430659
+--- !u!114 &8703066628051401881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +217,116 @@ MonoBehaviour:
   m_GameObject: {fileID: 5169741726761581157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c384ee8c1cf481c41b39fb99f484721c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9eabc5d8f34bfbd40be4e6260043b96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_interactiblePosition: {fileID: 0}
+  m_doorOpeningSFX: {fileID: 8300000, guid: afb9ab1398a1e0145b7923aa717f69ea, type: 3}
+--- !u!82 &9147972219682915995
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169741726761581157}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!65 &4202612430917666956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169741726761581157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013386129, y: 0.0016294131, z: 0.021229612}
+  m_Center: {x: -0.006666022, y: -0.0007911342, z: 0.0011057125}

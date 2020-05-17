@@ -1,64 +1,237 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace GameCamera
 {
+    [Serializable]
+    public class FreezePosition
+    {
+        public bool x = false;
+        public bool y = false;
+        public bool z = false;
+    }
+
+    [Serializable]
+    public class FreezeRotation
+    {
+        public bool x = false;
+        public bool y = false;
+        public bool z = false;
+    }
+
+    public class PositionBoundaries
+    {
+        private bool m_canMove = false;
+        private Vector3 m_bounds;
+        private Vector3 m_triggerCenter;
+        public bool canMove
+        {
+            get { return m_canMove; }
+            set { m_canMove = value; }
+        }
+
+        public Vector3 bounds
+        {
+            get { return m_bounds; }
+            set { m_bounds = value; }
+        }
+
+        public Vector3 triggerCenter
+        {
+            get { return m_triggerCenter; }
+            set { m_triggerCenter = value; }
+        }
+    }
+
+    [Serializable]
+    public class Constraints
+    {
+        public PositionBoundaries m_positionBoundaries = null;
+        public FreezePosition m_freezePosition = null;
+        public FreezeRotation m_freezeRotation = null;
+    }
+
     public class CameraPositionController : MonoBehaviour
     {
-        public CameraCCTVState m_currentState;
+        public uint m_currentStateId;
 
         [SerializeField]
-        private Transform m_playerPosition;
+        private Transform m_target;
+
         [SerializeField]
-        private Vector3 m_offset = new Vector3(-3.0f, 7.0f, -3.0f);
+        private float m_lookAtOffset = 0.5f;
+        
+        private Transform m_currentLookAt;
+        private Vector3 m_currentPosition;
+        private Vector3 m_targetLastPosition;
+        private Vector3 m_lookUpLastPosition;
+        private Vector3 m_lookUpNewPosition;
+        private bool m_isTranslating = false;
+        private bool m_followPlayer = false;
+        private bool m_freezeTime = true;
+        private Constraints m_constraints;
 
-        public void SetPosition(Vector3 targetPosition)
+        private bool m_isChangingPosition = false;
+
+        public Transform lookAtPosition
         {
-            StartCoroutine(MoveToPosition(targetPosition));
+            get { return m_currentLookAt; }
+            set { m_currentLookAt = value; }
         }
 
-        public void SetPosition(Vector3 targetPosition, CameraCCTVState newState)
+        public float lookAtOffset
         {
-            m_currentState = newState;
-            StartCoroutine(MoveToPosition(targetPosition));
+            get { return m_lookAtOffset; }
         }
 
-        public CameraCCTVState CameraState
+        public Vector3 currentPosition
         {
-            get { return m_currentState; }
+            get { return m_currentPosition; }
+        }
+
+        public void SetPosition(Vector3 targetPosition, float waitTime = 1.5f)
+        {
+            m_currentPosition = targetPosition;
+            StartCoroutine(MoveToPosition(targetPosition, waitTime));
+        }
+
+        public void SetPosition(
+            Vector3 targetPosition,
+            uint newStateId,
+            float waitTime = 1.0f,
+            bool followPlayer = false,
+            Constraints constraints = null,
+            Transform lookAt = null,
+            bool freezeTime = true
+            )
+        {
+            if (transform.position != targetPosition)
+            {
+                m_targetLastPosition = m_target.position;
+                m_followPlayer = followPlayer;
+                m_freezeTime = freezeTime;
+                m_constraints = constraints;
+                m_currentPosition = targetPosition;
+                m_currentStateId = newStateId;
+                if (!lookAt)
+                {
+                    m_lookUpLastPosition = m_currentLookAt.position;
+                    m_lookUpNewPosition = m_target.position;
+                    m_currentLookAt = m_target;
+                }
+                else
+                {
+                    m_lookUpLastPosition = m_currentLookAt.position;
+                    m_lookUpNewPosition = lookAt.position;
+                    m_currentLookAt = lookAt;
+                }
+                StartCoroutine(MoveToPosition(targetPosition, waitTime));
+            }
+        }
+
+        public uint cameraStateId
+        {
+            get { return m_currentStateId; }
         }
 
         private void Start()
         {
-            m_currentState = CameraCCTVState.CCTV1;
+            m_targetLastPosition = m_target.position;
+            m_currentLookAt = m_target;
+            m_currentStateId = 0;
         }
 
-        // Update is called once per frame
-        void LateUpdate()
+        private void LateUpdate()
         {
-            //transform.position = m_playerPosition.position + m_offset;
-            transform.LookAt(m_playerPosition);
+            Vector3 lookAt = m_currentLookAt.position;
+            lookAt.y += m_lookAtOffset;
+            if (!m_isTranslating && m_followPlayer)
+            {
+                if (m_constraints.m_positionBoundaries.canMove)
+                {
+                    Vector3 deltaPosition = m_target.position - m_targetLastPosition;
+                    float x = 0.0f;
+                    float y = 0.0f;
+                    float z = 0.0f;
+                    bool positionChanged = false;
+
+                    float currentDistX = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.x - (deltaPosition.x + transform.position.x));
+                    if ((currentDistX <= m_constraints.m_positionBoundaries.bounds.x) || !m_constraints.m_freezePosition.x)
+                    {
+                        x = deltaPosition.x;
+                        positionChanged = true;
+                    }
+                    float currentDistY = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.y - (deltaPosition.x + transform.position.y));
+                    if ((currentDistY <= m_constraints.m_positionBoundaries.bounds.y) || !m_constraints.m_freezePosition.y)
+                    {
+                        y = deltaPosition.y;
+                        positionChanged = true;
+                    }
+                    float currentDistZ = Mathf.Abs(m_constraints.m_positionBoundaries.triggerCenter.z - (deltaPosition.x + transform.position.z));
+                    if ((currentDistZ <= m_constraints.m_positionBoundaries.bounds.z) || !m_constraints.m_freezePosition.z)
+                    {
+                        z = deltaPosition.z;
+                        positionChanged = true;
+                    }
+                    transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
+                    
+                    if (positionChanged)
+                    {
+                        Vector3 currentLookAt = transform.position + transform.forward;
+                        x = lookAt.x;
+                        y = lookAt.y;
+                        z = lookAt.z;
+                        if (m_constraints.m_freezeRotation.x)
+                        {
+                            x = currentLookAt.x;
+                        }
+                        if (m_constraints.m_freezeRotation.y)
+                        {
+                            y = currentLookAt.y;
+                        }
+                        if (m_constraints.m_freezeRotation.z)
+                        {
+                            z = currentLookAt.z;
+                        }
+                        lookAt = new Vector3(x, y, z);
+                    }
+                }
+            }
+            transform.LookAt(lookAt);
+            m_targetLastPosition = m_target.position;
         }
 
-        private IEnumerator MoveToPosition(Vector3 targetPosition)
+        private IEnumerator MoveToPosition(Vector3 targetPosition, float waitTime = 1.5f)
         {
             float elapsedTime = 0.0f;
-            float waitTime = 1.5f;
             Vector3 currentPosition = transform.position;
+            m_currentLookAt.position = m_lookUpLastPosition;
+            m_isTranslating = true;
+
+            if (m_freezeTime)
+            {
+                Time.timeScale = 0.0f;
+            }
 
             while (elapsedTime < waitTime)
             {
                 transform.position = Vector3.LerpUnclamped(currentPosition, targetPosition, Mathf.SmoothStep(0.0f, 1.0f, (elapsedTime / waitTime)));
-                elapsedTime += Time.deltaTime;
+                m_currentLookAt.position = Vector3.LerpUnclamped(m_lookUpLastPosition, m_lookUpNewPosition, Mathf.SmoothStep(0.0f, 1.0f, (elapsedTime / waitTime)));
+                elapsedTime += Time.unscaledDeltaTime;
                 yield return null;
             }
 
             // Make sure we got there
             transform.position = targetPosition;
+            m_currentLookAt.position = m_lookUpNewPosition;
+            m_isTranslating = false;
+            if (m_freezeTime)
+            {
+                Time.timeScale = 1.0f;
+            }
             yield return null;
         }
     }
-
-    public enum CameraCCTVState { CCTV1, CCTV2, CCTV3, CCTV4, CCTV5, CCTV6, CCTV7, CCTV8 , CCTV9, CCTV10, CCTV11, CCTV12, CCTV13, CCTV14, CCTV15, CCTV16, CCTV17, CCTV18, CCTV19, CCTV20, CCTV21, CCTV22, CCTV23 }
 }

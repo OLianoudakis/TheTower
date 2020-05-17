@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8813604174030476197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8813604174030476198}
+  - component: {fileID: 1273659243554844327}
+  - component: {fileID: 919142372694207494}
+  m_Layer: 0
+  m_Name: Patrol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8813604174030476198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813604174030476197}
+  m_LocalRotation: {x: 0, y: -0.65259445, z: 0, w: 0.7577074}
+  m_LocalPosition: {x: 9.854485, y: -0.19992436, z: 20.040121}
+  m_LocalScale: {x: 0.41187906, y: 0.411879, z: 0.41187906}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -81.475006, z: 0}
+--- !u!114 &1273659243554844327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813604174030476197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96d91b28754f8a4e9e9a26663919e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_personalityType: 1
+  m_waitTimeAtPatrolPoints: 3
+  m_patrolGroupManager: {fileID: 0}
+--- !u!114 &919142372694207494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813604174030476197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priorityDescription: Priority for action used when personality model disabled.
+  m_priority: 3
+  m_lightColor: {r: 0.039215688, g: 0.5686275, b: 0.4392157, a: 1}
+  m_motivationGain: {fileID: 11400000, guid: 433f6ac58b8cc1c49b0d9c53ab14620a, type: 2}
+  m_actionTriggerRules:
+    m_logicalOperationSet:
+      m_maxIndexValue: 5
+      m_logicalOperationPrimitives: []
+    m_knowledgeBaseRules:
+    - m_name: playerSuspicion
+      m_index: 0
+      m_useRule: 0
+      m_value:
+        id: 0
+    - m_name: playerHiding
+      m_index: 1
+      m_useRule: 0
+      m_value:
+        id: 1
+    - m_name: noiseHeard
+      m_index: 2
+      m_useRule: 0
+      m_value:
+        id: 2
+    - m_name: environmentObjectMoved
+      m_index: 3
+      m_useRule: 0
+      m_value:
+        id: 3
+    - m_name: playerTransform
+      m_index: 4
+      m_useRule: 1
+      m_value:
+        id: 4
+  references:
+    version: 1
+    00000000:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000001:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000002:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000003:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000004:
+      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: {fileID: 0}
+        m_operator: 2

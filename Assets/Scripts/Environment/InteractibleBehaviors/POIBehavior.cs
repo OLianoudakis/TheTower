@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Player.Inventory;
 using Player;
+using Tutorial;
+using GameUI;
 
 namespace Environment.InteractibleBehaviors
 {
@@ -20,13 +22,7 @@ namespace Environment.InteractibleBehaviors
     public class POIBehavior : MonoBehaviour
     {
         [SerializeField]
-        private CanvasGroup m_dialogueGroup;
-
-        [SerializeField]
-        private Text m_dialogueWindow;
-
-        [SerializeField]
-        private CanvasGroup m_infoGroup;
+        private TutorialManager m_tutorialManager;
 
         [SerializeField]
         private Text m_repeatedInfoText;
@@ -37,9 +33,25 @@ namespace Environment.InteractibleBehaviors
         [SerializeField]
         private Animator m_animator;
 
+        [SerializeField]
+        private bool m_discardObject = false;
+
+        [SerializeField]
+        private bool m_reuse = false;
+
+        [SerializeField]
+        private AudioClip m_initialSound;
+
+        [SerializeField]
+        private AudioClip m_animationSound;
+
         private InputController m_inputController;
         private PlayerInventoryController m_playerInventoryController;
         private Interactible m_interactible;
+        private InfoGroupController m_infoGroup;
+        private DialogueGroupController m_dialogueGroup;
+        private AudioSource m_poiAudioSource;
+
         private bool m_isActive = false;
         private int m_currentMessage = 0;
         private string m_infoMessage;
@@ -49,30 +61,33 @@ namespace Environment.InteractibleBehaviors
             return m_messages.Length;
         }
 
-        private IEnumerator RepeatingMessage()
+        public void ResetMessages()
         {
-            m_infoGroup.alpha = 1.0f;
-            m_repeatedInfoText.text = m_infoMessage;
-            yield return new WaitForSeconds(2.0f);
-            m_infoGroup.alpha = 0.0f;
+            m_currentMessage = 0;
         }
 
         public void ShowNextMessage()
         {
             if (m_currentMessage >= m_messages.Length)
             {
+                //TUTORIAL SECTION
+                if (gameObject.name.Equals("Book_Open"))
+                {
+                    m_tutorialManager.StepCompleted();
+                }
+                //END OF TUTORIAL SECTION
                 DeactivatePOIBehavior(true);
                 return;
             }
 
             //Hide previous info
-            m_infoGroup.alpha = 0.0f;
+            m_infoGroup.HidePreviousInfo();
 
             if (m_messages[m_currentMessage].m_givesItem)
             {
                 m_playerInventoryController.AddItem(m_messages[m_currentMessage].m_givesItem, m_messages[m_currentMessage].m_givesItemQuantity);
                 m_infoMessage = "You've received " + m_messages[m_currentMessage].m_givesItemQuantity.ToString() + " " + m_messages[m_currentMessage].m_givesItem.m_itemName + ".";
-                StartCoroutine(RepeatingMessage());
+                m_infoGroup.SpawnInfoGroup(m_infoMessage);
             }
 
             bool canMoveForward = true;
@@ -88,13 +103,16 @@ namespace Environment.InteractibleBehaviors
                 //Requirements met, activate animation
                 if (m_messages[m_currentMessage].m_requiredItemQuantity <= 0)
                 {
-                    m_messages[m_currentMessage].m_note = "There!";
+                    //m_messages[m_currentMessage].m_note = "There!";
                     PlayAnimation();
                 }
                 else
                 {
-                    m_infoMessage = "It needs " + m_messages[m_currentMessage].m_requiredItemQuantity + " " + m_messages[m_currentMessage].m_requiresItem.m_itemName;
-                    m_messages[m_currentMessage].m_note = m_infoMessage;
+                    if (m_messages[m_currentMessage].m_requiresItem.m_itemType != ItemType.AutomaticPass)
+                    {
+                        m_infoMessage = "It needs " + m_messages[m_currentMessage].m_requiredItemQuantity + " " + m_messages[m_currentMessage].m_requiresItem.m_itemName;
+                        m_messages[m_currentMessage].m_note = m_infoMessage;
+                    }
                     canMoveForward = false;
                 }
             }
@@ -105,7 +123,7 @@ namespace Environment.InteractibleBehaviors
             }
 
             //Display message
-            m_dialogueWindow.text = m_messages[m_currentMessage].m_note;
+            m_dialogueGroup.ChangeText(m_messages[m_currentMessage].m_note);
 
             if (canMoveForward)
             {
@@ -114,11 +132,11 @@ namespace Environment.InteractibleBehaviors
             else
             {
                 DeactivatePOIBehavior(false);
-                StartCoroutine(RepeatingMessage());
+                m_infoGroup.SpawnInfoGroup(m_infoMessage);
                 return;
             }
 
-            m_dialogueGroup.alpha = 1.0f;
+            m_dialogueGroup.ShowDialogueWindow();
         }
 
         private void PlayAnimation()
@@ -132,11 +150,20 @@ namespace Environment.InteractibleBehaviors
         private void DeactivatePOIBehavior(bool permanent)
         {
             StartCoroutine(DeactivatePOIBehaviorCourutine());
-            m_dialogueGroup.alpha = 0.0f;
-            if (permanent)
+            m_dialogueGroup.HideDialogueWindow();
+            if (permanent && !m_reuse)
             {
+                if (m_discardObject)
+                {
+                    gameObject.SetActive(false);
+                }
                 m_interactible.DeactivateBehavior(true);
                 this.enabled = false;
+                return;
+            }
+            if (m_reuse)
+            {
+                m_currentMessage = 0;
             }
             m_interactible.DeactivateBehavior(false);
         }
@@ -146,11 +173,14 @@ namespace Environment.InteractibleBehaviors
             yield return new WaitForEndOfFrame();
         }
 
-        private void Start()
+        private void Awake()
         {
             m_interactible = GetComponent(typeof(Interactible)) as Interactible;
             m_inputController = FindObjectOfType(typeof(InputController)) as InputController;
             m_playerInventoryController = FindObjectOfType(typeof(PlayerInventoryController)) as PlayerInventoryController;
+            m_infoGroup = FindObjectOfType(typeof(InfoGroupController)) as InfoGroupController;
+            m_dialogueGroup = FindObjectOfType(typeof(DialogueGroupController)) as DialogueGroupController;
+            m_poiAudioSource = GetComponent(typeof(AudioSource)) as AudioSource;
         }
 
         private void Update()
@@ -159,6 +189,10 @@ namespace Environment.InteractibleBehaviors
             {
                 if (!m_isActive)
                 {
+                    if (m_poiAudioSource && m_initialSound)
+                    {
+                        m_poiAudioSource.PlayOneShot(m_initialSound);
+                    }
                     m_isActive = true;
                     ShowNextMessage();
                 }

@@ -8,11 +8,11 @@ namespace GameCamera
     {
         private CameraPositionController m_mainCamera;
 
-        public void ChangeCameraPosition(Vector3 CCTVPosition, CameraCCTVState CCTVStateName)
+        public void ChangeCameraPosition(Vector3 CCTVPosition, uint stateId, bool followPlayer = false, Constraints constraints = null)
         {
-            if (CCTVStateName != m_mainCamera.CameraState)
+            if (stateId != m_mainCamera.cameraStateId)
             {
-                m_mainCamera.SetPosition(CCTVPosition, CCTVStateName);
+                m_mainCamera.SetPosition(CCTVPosition, stateId, followPlayer: followPlayer, constraints: constraints);
             }
         }
 

@@ -19,6 +19,8 @@ namespace Player.Inventory
         CommonKey,
         SilverKey,
         StoneKey,
-        JadeKey
+        JadeKey,
+        Potions,
+        Stool
     };
 }

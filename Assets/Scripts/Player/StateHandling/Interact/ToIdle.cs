@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Environment;
 
-namespace Player.StateHandling.POI
+namespace Player.StateHandling.Interact
 {
     public class ToIdle : MonoBehaviour
     {
         [SerializeField]
         private int m_priority;
 
+        private InteractibleDetector m_interactibleDetector;
+
         [SerializeField]
         private GameObject m_idleState;
 
-        private InteractibleDetector m_interactibleDetector;
         private TransitionHandler m_transitionHandler;
         private Interactible m_interactible;
 
@@ -34,7 +35,7 @@ namespace Player.StateHandling.POI
         // Update is called once per frame
         private void Update()
         {
-            if (!m_interactible.enabled || !m_interactible.isActive)
+            if (!m_interactible || (!m_interactible.enabled || !m_interactible.isActive))
             {
                 m_transitionHandler.AddActiveTransition(m_priority, m_idleState);
             }

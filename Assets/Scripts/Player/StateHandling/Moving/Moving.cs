@@ -21,22 +21,36 @@ namespace Player.StateHandling.Moving
         private NavMeshAgent m_agent;
 
         private InteractibleDetector m_interactibleDetector;
+
         private Color c = Color.white;
         private Vector3 m_destination;
 
+        public bool clickedOnEnable
+        {
+            get { return m_isClickedOnEnable; }
+            set { m_isClickedOnEnable = value; }
+        }
+
+        private bool m_isClickedOnEnable = false;
+
+        public void StopMoving()
+        {
+            m_agent.isStopped = true;
+            m_agent.ResetPath();
+        }
+        
+        private void Awake()
+        {
+            m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+        }
+
         private void OnEnable()
         {
-            m_agent.isStopped = false;
-            m_animator.SetInteger("AnimState", 1);
-
-            if (!m_interactibleDetector)
-            {
-                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
-            }
-            m_destination = m_interactibleDetector.interactible 
-                ? m_interactibleDetector.interactible.interactiblePosition.position 
-                : m_inputController.leftMouseClickPosition;
-            SetDestination();
+            m_isClickedOnEnable = true;
+            //m_destination = m_interactibleDetector.interactible 
+            //    ? m_interactibleDetector.interactible.interactiblePosition.position 
+            //    : m_inputController.leftMouseClickPosition;
+            //SetDestination();
         }
 
         private void OnDisable()
@@ -49,29 +63,72 @@ namespace Player.StateHandling.Moving
 
         private void SetDestination()
         {
-            m_agent.destination = m_destination;
+            m_agent.SetDestination(m_destination);
+            // TODO this would require to calculate path here, potentially too expensive
+            //StopAtEdge(); // if we set the point beyond edge and currently standing on edge, do nothing
             if (m_positionMarker)
             {
-                if (!m_positionMarker.activeInHierarchy)
+                if (m_interactibleDetector.interactible)
                 {
+                    // dont show position marker if going to interactible place
+                    m_positionMarker.transform.position = m_interactibleDetector.interactible.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f);
+                    m_positionMarker.SetActive(false);
+                }
+                else
+                {
+                    m_positionMarker.transform.position = m_destination + new Vector3(0.0f, 0.01f, 0.0f);
                     m_positionMarker.SetActive(true);
                 }
-                m_positionMarker.transform.position = m_interactibleDetector.interactible
-                ? m_interactibleDetector.interactible.gameObject.transform.position + new Vector3(0.0f, 0.01f, 0.0f)
-                : m_destination + new Vector3(0.0f, 0.01f, 0.0f);
+            }
+        }
+
+        private void StopAtEdge()
+        {
+            NavMeshHit navhit;
+            if (!(NavMesh.FindClosestEdge(m_agent.nextPosition, out navhit, NavMesh.AllAreas) && (navhit.distance > 0.0f)))
+            {
+                m_agent.isStopped = true;
+                m_agent.ResetPath();
+                m_inputController.leftMouseClickPosition = transform.position; // switch the current destination to be current position
+            }
+        }
+
+        private void SetPointOnEdge()
+        {
+            NavMeshHit navhit;
+            if ((NavMesh.FindClosestEdge(m_destination, out navhit, NavMesh.AllAreas) && (navhit.distance < 0.3f)))
+            {
+                m_destination = navhit.position;
+                if (m_interactibleDetector.interactible)
+                {
+                    m_interactibleDetector.interactible.interactiblePosition.position = m_destination;
+                }
+                else
+                {
+                    m_inputController.leftMouseClickPosition = m_destination;
+                }
             }
         }
 
         private void Update()
         {
             // if new click while moving
-            if (m_inputController.isLeftMouseClick)
+            if (m_inputController.isLeftMouseClick || m_isClickedOnEnable)
             {
-                m_destination = m_interactibleDetector.interactible 
-                    ? m_interactibleDetector.interactible.interactiblePosition.position 
+                m_agent.isStopped = false;
+                m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimWalk);
+                m_isClickedOnEnable = false;
+                m_destination = m_interactibleDetector.interactible
+                    ? m_interactibleDetector.interactible.interactiblePosition.position
                     : m_inputController.leftMouseClickPosition;
+                //SetPointOnEdge();
                 SetDestination();
             }
+            //else if (m_agent.hasPath)
+            //{
+            //    StopAtEdge();
+            //}
+            
         }
 
         void OnDrawGizmos()

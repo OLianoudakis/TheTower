@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &148826615044558179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5689139097980015850}
+  - component: {fileID: 3631993356068500373}
+  - component: {fileID: 3247372240682424143}
+  m_Layer: 0
+  m_Name: FearfulPatrol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5689139097980015850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148826615044558179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3631993356068500373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148826615044558179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b40ebd5e9dc7c44be23780b4baca45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_personalityType: 0
+  m_patrolGroupManager: {fileID: 0}
+  m_waitTimeAtPatrolPoints: 0.5
+--- !u!114 &3247372240682424143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148826615044558179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1e70020a64d2043a993a249a1fd290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priorityDescription: Priority for action used when personality model disabled.
+  m_priority: -1
+  m_lightColor: {r: 0.039215688, g: 0.5686275, b: 0.4392157, a: 1}
+  m_motivationGain: {fileID: 11400000, guid: de12604e6f0e43d41bc6494e4949fe6c, type: 2}
+  m_actionTriggerRules:
+    m_logicalOperationSet:
+      m_maxIndexValue: 5
+      m_logicalOperationPrimitives:
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 1
+      - m_isOperator: 1
+        m_operator: 2
+        m_isOperand: 0
+        m_indexOfOperand: 0
+      - m_isOperator: 0
+        m_operator: 0
+        m_isOperand: 1
+        m_indexOfOperand: 4
+    m_knowledgeBaseRules:
+    - m_name: playerSuspicion
+      m_index: 0
+      m_useRule: 0
+      m_value:
+        id: 0
+    - m_name: playerHiding
+      m_index: 1
+      m_useRule: 1
+      m_value:
+        id: 1
+    - m_name: noiseHeard
+      m_index: 2
+      m_useRule: 0
+      m_value:
+        id: 2
+    - m_name: environmentObjectMoved
+      m_index: 3
+      m_useRule: 0
+      m_value:
+        id: 3
+    - m_name: playerTransform
+      m_index: 4
+      m_useRule: 1
+      m_value:
+        id: 4
+  references:
+    version: 1
+    00000000:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000001:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000002:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000003:
+      type: {class: BoolType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: 0
+        m_operator: 0
+    00000004:
+      type: {class: TransformType, ns: AI.KnowledgeBase, asm: Assembly-CSharp}
+      data:
+        m_value: {fileID: 0}
+        m_operator: 2

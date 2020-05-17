@@ -1,0 +1,46 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+using Environment;
+
+namespace Player.StateHandling.Interact
+{
+    public class Interact : MonoBehaviour
+    {
+        private Animator m_animator;
+        private NavMeshAgent m_agent;
+<<<<<<< HEAD
+
+=======
+>>>>>>> devel_personality_model
+        private InteractibleDetector m_interactibleDetector;
+
+        private void Awake()
+        {
+            m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            m_animator = transform.parent.parent.GetComponentInChildren(typeof(Animator)) as Animator;
+            m_agent = transform.parent.parent.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+        }
+
+        private void OnEnable()
+        {
+<<<<<<< HEAD
+            m_animator.SetInteger("AnimState", 0);
+
+            if (!m_interactibleDetector)
+            {
+                m_interactibleDetector = FindObjectOfType(typeof(InteractibleDetector)) as InteractibleDetector;
+            }
+=======
+            m_animator.SetInteger(AnimationConstants.AnimationState, AnimationConstants.AnimIdle);
+
+>>>>>>> devel_personality_model
+            if (m_interactibleDetector.interactible)
+            {
+                m_interactibleDetector.interactible.ActivateBehavior();
+            }
+            m_agent.isStopped = true;
+        }
+    }
+}
