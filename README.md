@@ -13,6 +13,8 @@ This is a point and click stealth game. Simply click to move around and interact
 
 Assets Used
 
+NPBehave Behavior Trees library: https://assetstore.unity.com/packages/tools/ai/npbehave-event-driven-code-based-behaviour-trees-75884
+
 Icons
 Icon of man in Fedora: http://getdrawings.com/man-in-fedora-silhouette#man-in-fedora-silhouette-15.jpg Modifications: Background color change, added bit of black on top of hat.
 Icon creepy man:https://favpng.com/png_view/portrait-drawing-slenderman-deviantart-drawing-creepypasta-png/c2nFTkkJUploader username: icabola
