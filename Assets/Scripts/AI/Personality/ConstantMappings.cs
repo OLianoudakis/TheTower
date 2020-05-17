@@ -31,8 +31,8 @@ namespace AI.Personality
             {
                 //  O     C     E     A     N
                 {  0.0f, 0.0f, 0.21f, 0.59f, 0.19f },  // P
-                {  0.15f, 0.0f, 0.0f, 0.3f, 0.57f },   // A
-                {  0.25f, 0.17f, 0.6f, 0.32f, 0.0f }   // D
+                {  0.15f, 0.0f, 0.0f, 0.3f, -0.57f },   // A
+                {  0.25f, 0.17f, 0.6f, -0.32f, 0.0f }   // D
             };
 
         public static readonly float[,] MoodToEmotion
