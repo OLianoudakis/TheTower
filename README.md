@@ -1,9 +1,6 @@
 # TheTower
 
-Made by:
-Marek Cernak
-Orestis Lianoudakis
-Supervisor: Staffan Björk
+Made by: Marek Cernak and Orestis Lianoudakis
 
 3D stealth-based point-and-click game prototype developed for the research purpose of Master's Thesis. Thesis focus was to explore Design of distinct personalities for NPCs with consistent and believable behaviour in stealth-based gameplay. For the design exploration purposes, we developed a computational personality model for AI based on the research by Shvo, Buhmann and Kapadia presented in their article An Interdependent Model of Personality, Motivation, Emotion, and Mood for Intelligent Virtual Agents: https://dl.acm.org/doi/abs/10.1145/3308532.3329474
 
